@@ -1,0 +1,4 @@
+system:
+  disable_runtime: false
+wine:
+  version: lutris-7.2-x86_64

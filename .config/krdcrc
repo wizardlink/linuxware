@@ -1,0 +1,46 @@
+[MainWindow]
+DisplayPort-1 DisplayPort-2 Height 1920x1080=676
+DisplayPort-1 DisplayPort-2 Width 1920x1080=1161
+DisplayPort-1 DisplayPort-2 XPosition 1920x1080=1926
+DisplayPort-1 DisplayPort-2 YPosition 1920x1080=50
+DisplayPort-2 HDMI-A-0 Height 1920x1080=476
+DisplayPort-2 HDMI-A-0 Width 1920x1080=768
+DisplayPort-2 HDMI-A-0 XPosition 1920x1080=1080
+DisplayPort-2 HDMI-A-0 YPosition 1920x1080=1024
+RestorePositionForNextInstance=false
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAFkAAACWPwCAAAAAfsAAAAwAHIAZQBtAG8AdABlAEQAZQBzAGsAdABvAHAAcwBEAG8AYwBrAFcAaQBkAGcAZQB0AQAAAEwAAAJYAAAAqwEAAAMAAAMkAAACWAAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAAMABrAHIAZABjAF8AcgBlAG0AbwB0AGUAXwB2AGkAZQB3AF8AdABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[hostpreferences][rdp://192.168.0.16]
+colorDepth=2
+console=false
+extraOptions=
+height=600
+keyboardLayout=7
+performance=2
+remoteFX=true
+resolution=6
+scaleFactor=100
+shareMedia=/media
+showConfigAgain=true
+sound=0
+soundSystem=0
+walletSupport=true
+width=800
+
+[hostpreferences][rdp://sialex@192.168.0.16]
+colorDepth=2
+console=false
+extraOptions=
+height=600
+keyboardLayout=7
+performance=2
+remoteFX=true
+resolution=6
+scaleFactor=100
+shareMedia=/media
+showConfigAgain=true
+sound=0
+soundSystem=0
+walletSupport=true
+width=800

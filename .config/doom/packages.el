@@ -40,8 +40,6 @@
 ;; Use `:pin' to specify a particular commit to install.
 ;(package! builtin-package :pin "1a2b3c4d5e")
 
-(package! typescript-mode)
-
 ;; Doom's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...
 ;(unpin! pinned-package)
@@ -49,3 +47,23 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+;; Install and enable Discord RPC
+(package! elcord)
+
+;; Install and enable Org Roam
+(package! org-roam
+  :recipe (:host github :repo "org-roam/org-roam"
+           :files (:defaults "extensions/*")))
+
+;; Install and enable vue-mode
+(package! vue-mode)
+
+;; Install and enable powershell.el
+(package! powershell)
+
+;; Install and enable graphviz-dot-mode
+(package! graphviz-dot-mode)
+
+;; Install org-roam
+(package! org-roam)

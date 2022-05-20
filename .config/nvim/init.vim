@@ -48,7 +48,7 @@ endtry
 " Section dedicated to plugins and their configurations.
 
 " Initialize plugin manager (vim-plug)
-call plug#begin('~/.config/nvim/plugins')
+call plug#begin('/etc/nvim/plugins')
 
 " <coc.nvim>
 Plug 'neoclide/coc.nvim' " Core plugin
@@ -266,8 +266,9 @@ set nojoinspaces
 set formatoptions+=n
 
 " Defaults to tab identation with length of four
-set shiftwidth=4
-set tabstop=4
+set expandtab    " always use spaces
+set shiftwidth=2
+"set tabstop=4
 
 " Insert smartly the indentation according shiftwidth
 if exists("+smarttab")

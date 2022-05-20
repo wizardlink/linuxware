@@ -1,0 +1,11 @@
+ProxyUrlDisplayFlags=0
+
+[Proxy Settings]
+NoProxyFor=
+Proxy Config Script=
+ProxyType=0
+ReversedException=false
+ftpProxy=
+httpProxy=
+httpsProxy=
+socksProxy=

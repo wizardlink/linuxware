@@ -1,0 +1,5 @@
+[Formats]
+LANG=Default.UTF-8
+LC_MEASUREMENT=Default.UTF-8
+LC_MONETARY=pt_BR.UTF-8
+useDetailed=true

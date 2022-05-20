@@ -1,0 +1,11 @@
+{
+    "anime": {
+        "save_path": ""
+    },
+    "games": {
+        "save_path": ""
+    },
+    "music": {
+        "save_path": "/mnt/internal/personal/music"
+    }
+}

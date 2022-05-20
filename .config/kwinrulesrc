@@ -1,0 +1,31 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[1]
+Description=No titlebars
+noborder=true
+noborderrule=2
+wmclass=.*
+
+[29e0014f-177c-4fd3-8d07-fbf55ace5ecb]
+Description=Minimum window size
+minsize=1,1
+minsizerule=2
+wmclass=.*
+wmclassmatch=3
+
+[3a19a31d-da99-4d0f-9c37-7168c619f61c]
+Description=Minimum size
+minsizerule=2
+types=1
+
+[755e5137-6fa5-4970-b3ef-f615f988942f]
+Description=No titlebars
+noborder=true
+noborderrule=2
+wmclass=.*
+wmclassmatch=3
+
+[General]
+count=1
+rules=1

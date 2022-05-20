@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: cult_bounty_message
+# key: cultBountyMessage
+# --
+« **$1** »
+
+╫
+║ **Requirements**
+║        $2
+║
+║ **\$3 Reward \$4**
+║       <@574657462603612160>;
+╫

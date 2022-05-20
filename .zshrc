@@ -1,14 +1,14 @@
 ### variables {{{
-ZSH_THEME="imajes"
-
-DISABLE_UPDATE_PROMPT="true"   # Auto update
+export ZSH_THEME="imajes"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-ENABLE_CORRECTION="true"       # Command auto-correction
+export ENABLE_CORRECTION="true"       # Command auto-correction
 
-COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion
+export COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion
+
+export ZSH_DISABLE_COMPFIX="true"     # Disable checks for unsafe directories
 ### }}}¶
 
 ### ohmyzsh {{{
@@ -22,8 +22,6 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
-autoload -U compinit && compinit
-
 source $ZSH/oh-my-zsh.sh
 ### }}}
 
@@ -32,7 +30,6 @@ source $ZSH/oh-my-zsh.sh
 # zsh
 alias zshrc="$EDITOR ~/.zshrc"
 alias zshreload='source ~/.zshrc'
-alias ohmyzsh="$EDITOR ~/.config/.oh-my-zsh"
 
 # nvim
 alias nvimrc="$EDITOR ~/.config/nvim/init.vim"
@@ -45,6 +42,9 @@ alias ta='tmux attach'
 alias uscript="cd ~/.local/share/scripts"
 alias cfsink="~/.local/share/scripts/create_feedback_sinks.sh"
 alias dfsink="~/.local/share/scripts/delete_feedback_sinks.sh"
+
+# make it easier to call bpytop
+alias status="bpytop"
 ### }}}
 
 ### functions {{{

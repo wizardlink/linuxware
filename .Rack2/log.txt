@@ -1,0 +1,234 @@
+[0.000 info adapters/standalone.cpp:127 main] VCV Rack Free v2.0.6
+[0.000 info adapters/standalone.cpp:128 main] Linux 5.16.9-200.fc35.x86_64 #1 SMP PREEMPT Fri Feb 11 16:29:17 UTC 2022 x86_64
+[0.000 info adapters/standalone.cpp:134 main] Args: ./Rack 
+[0.000 info adapters/standalone.cpp:137 main] System directory: /home/wizardlink/.local/share/rack
+[0.000 info adapters/standalone.cpp:138 main] User directory: /home/wizardlink/.Rack2
+[0.000 info adapters/standalone.cpp:142 main] System time: 2022-02-22 20:11:31 -0300
+[0.000 info src/settings.cpp:455 load] Loading settings /home/wizardlink/.Rack2/settings.json
+[0.000 info adapters/standalone.cpp:165 main] Initializing network
+[0.001 info adapters/standalone.cpp:167 main] Initializing audio
+[0.001 info src/rtaudio.cpp:243 RtAudioDriver] Creating RtAudio ALSA driver
+[0.001 info src/rtaudio.cpp:243 RtAudioDriver] Creating RtAudio PulseAudio driver
+[0.001 info src/rtaudio.cpp:243 RtAudioDriver] Creating RtAudio JACK driver
+[0.001 info adapters/standalone.cpp:170 main] Initializing MIDI
+[0.055 info adapters/standalone.cpp:175 main] Initializing plugins
+[0.055 info src/plugin.cpp:119 loadPlugin] Loading Core plugin
+[0.056 info src/plugin.cpp:179 loadPlugin] Loaded Core v2.0.6
+[0.056 info src/plugin.cpp:248 init] Extracting bundled Fundamental package
+[0.063 info src/plugin.cpp:121 loadPlugin] Loading plugin from /home/wizardlink/.Rack2/plugins/Fundamental
+[0.065 info src/plugin.cpp:179 loadPlugin] Loaded Fundamental v2.0.3
+[0.065 info adapters/standalone.cpp:177 main] Initializing browser
+[0.065 info adapters/standalone.cpp:179 main] Initializing library
+[0.065 info adapters/standalone.cpp:183 main] Initializing UI
+[0.065 info adapters/standalone.cpp:185 main] Initializing window
+[0.079 info adapters/standalone.cpp:191 main] Creating engine
+[0.079 info adapters/standalone.cpp:193 main] Creating history state
+[0.079 info adapters/standalone.cpp:195 main] Creating event state
+[0.079 info adapters/standalone.cpp:197 main] Creating scene
+[0.079 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/Rail.svg
+[0.079 info adapters/standalone.cpp:200 main] Creating patch manager
+[0.079 info adapters/standalone.cpp:203 main] Creating window
+[0.156 info src/window/Window.cpp:283 Window] Window content scale: 1.000000
+[0.167 info src/window/Window.cpp:335 Window] Renderer: AMD AMD Radeon RX 6600 XT (DIMGREY_CAVEFISH, DRM 3.44.0, 5.16.9-200.fc35.x86_64, LLVM 13.0.0)
+[0.168 info src/window/Window.cpp:336 Window] OpenGL: 4.6 (Compatibility Profile) Mesa 21.3.6
+[0.178 info src/window/Window.cpp:50 loadFile] Loaded font /home/wizardlink/.local/share/rack/res/fonts/DejaVuSans.ttf
+[0.178 info src/patch.cpp:310 hasAutosave] Loading autosave /home/wizardlink/.Rack2/autosave/patch.json
+[0.178 info src/patch.cpp:251 load] Loading patch /home/wizardlink/.Rack2/template.vcv
+[0.178 info src/patch.cpp:251 load] Loading patch /home/wizardlink/.local/share/rack/template.vcv
+[0.178 info src/patch.cpp:267 load] Unarchived patch in 0.000265 seconds
+[0.178 info src/patch.cpp:321 loadAutosave] Loading autosave /home/wizardlink/.Rack2/autosave/patch.json
+[0.179 info src/patch.cpp:468 fromJson] Patch was made with Rack v2.beta.1, current Rack version is v2.0.6
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV VCA Mix
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV VCF
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV MIDI to CV
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Core v2.0.0, currently using v2.0.6.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV ADSR
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Scope
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Notes
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Core v2.0.0, currently using v2.0.6.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV ADSR
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV VCO
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV VCO
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Octave
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Octave
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Noise
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV LFO
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV VCA
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Audio 2
+[0.179 info src/engine/Module.cpp:167 fromJson] Patch created with Core v2.0.0, currently using v2.0.6.
+[0.179 info src/engine/Engine.cpp:1233 fromJson] Creating module VCV Wavetable VCO
+[0.180 info src/engine/Module.cpp:167 fromJson] Patch created with Fundamental v2.0.0, currently using v2.0.3.
+[0.181 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV VCA Mix
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/VCMixer.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/ScrewSilver.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVSlider.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVSliderHandle.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVSliderLight.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundBlackKnob.svg
+[0.181 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundBlackKnob_bg.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/PJ301M.svg
+[0.182 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV VCF
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/VCF.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundHugeBlackKnob.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundHugeBlackKnob_bg.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundLargeBlackKnob.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/RoundLargeBlackKnob_bg.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/Trimpot.svg
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/Trimpot_bg.svg
+[0.182 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV MIDI to CV
+[0.182 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/MIDI_CV.svg
+[0.182 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV ADSR
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/ADSR.svg
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVBezel.svg
+[0.183 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Scope
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Scope.svg
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVButton_0.svg
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/VCVButton_1.svg
+[0.183 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Notes
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/Notes.svg
+[0.183 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV ADSR
+[0.183 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV VCO
+[0.183 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/VCO.svg
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/SmallLight.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV VCO
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Octave
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Octave.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Octave
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Noise
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Noise.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV LFO
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/LFO.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV VCA
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/VCA-1.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Audio 2
+[0.184 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/Audio2.svg
+[0.184 info src/app/RackWidget.cpp:366 fromJson] Creating module widget VCV Wavetable VCO
+[0.185 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/WTVCO.svg
+[0.185 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/Plug.svg
+[0.185 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/PlugPort.svg
+[0.185 info adapters/standalone.cpp:238 main] Running window
+[0.210 info src/window/Window.cpp:50 loadFile] Loaded font /home/wizardlink/.local/share/rack/res/fonts/ShareTechMono-Regular.ttf
+[0.211 info src/window/Window.cpp:50 loadFile] Loaded font /home/wizardlink/.local/share/rack/res/fonts/Nunito-Bold.ttf
+[4.065 info src/network.cpp:147 requestJson] Requesting JSON GET https://api.vcvrack.com/version?edition=Free
+[15.004 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[15.005 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[30.010 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[30.011 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[45.016 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[45.016 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[60.022 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[60.022 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[63.570 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV VCO
+[63.574 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Wavetable VCO
+[63.579 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV VCF
+[63.584 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV VCA
+[63.586 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV LFO
+[63.591 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Wavetable LFO
+[63.591 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/WTLFO.svg
+[63.596 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Delay
+[63.596 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Delay.svg
+[63.596 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV ADSR
+[63.596 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Mix
+[63.597 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Mixer.svg
+[63.597 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV VCA Mix
+[63.597 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV 8vert
+[63.597 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/8vert.svg
+[63.597 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Mutes
+[63.598 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Mutes.svg
+[63.598 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Pulses
+[63.598 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Pulses.svg
+[63.598 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Scope
+[63.598 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV SEQ 3
+[63.599 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/SEQ3.svg
+[63.600 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/TinyLight.svg
+[63.600 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Sequential Switch 1 to 4
+[63.600 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/SequentialSwitch1.svg
+[63.600 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/CKSSThreeHorizontal_0.svg
+[63.600 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/CKSSThreeHorizontal_1.svg
+[63.600 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/ComponentLibrary/CKSSThreeHorizontal_2.svg
+[63.600 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Sequential Switch 4 to 1
+[63.601 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/SequentialSwitch2.svg
+[63.601 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Octave
+[63.601 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Quantizer
+[63.601 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Quantizer.svg
+[63.601 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Split
+[63.601 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Split.svg
+[63.602 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Merge
+[63.602 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Merge.svg
+[63.602 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Sum
+[63.602 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Sum.svg
+[63.602 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Viz
+[63.602 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Viz.svg
+[63.602 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Mid/Side
+[63.603 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/MidSide.svg
+[63.603 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Noise
+[63.603 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Random
+[63.604 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.Rack2/plugins/Fundamental/res/Random.svg
+[63.604 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Audio 2
+[63.604 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Audio 8
+[63.605 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/Audio8.svg
+[63.605 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Audio 16
+[63.606 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/Audio16.svg
+[63.606 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV MIDI to CV
+[63.606 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV MIDI CC to CV
+[63.606 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/MIDICC_CV.svg
+[63.606 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV MIDI to Gate
+[63.607 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/MIDI_Gate.svg
+[63.607 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV MIDI Map
+[63.607 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/MIDIMap.svg
+[63.607 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV CV to MIDI
+[63.608 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/CV_MIDI.svg
+[63.608 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV CV to MIDI CC
+[63.608 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/CV_MIDICC.svg
+[63.608 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Gate to MIDI
+[63.608 info src/window/Svg.cpp:28 loadFile] Loaded SVG /home/wizardlink/.local/share/rack/res/Core/Gate_MIDI.svg
+[63.635 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Blank
+[63.635 info src/app/Browser.cpp:194 createPreview] Creating module widget VCV Notes
+[63.669 info src/window/Window.cpp:50 loadFile] Loaded font /home/wizardlink/.local/share/rack/res/fonts/DSEG7ClassicMini-BoldItalic.ttf
+[75.027 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[75.028 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[80.883 info src/app/Browser.cpp:86 chooseModel] Creating module VCV Pulses
+[80.883 info src/app/Browser.cpp:90 chooseModel] Creating module widget VCV Pulses
+[90.033 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[90.034 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[105.039 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[105.040 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[120.045 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[120.046 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[135.050 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[135.052 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[150.056 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[150.057 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[161.247 info adapters/standalone.cpp:240 main] Stopped window
+[161.247 info adapters/standalone.cpp:251 main] Deleting context
+[161.247 info src/context.cpp:18 ~Context] Deleting window
+[161.250 info src/context.cpp:22 ~Context] Deleting patch manager
+[161.250 info src/patch.cpp:194 saveAutosave] Saving autosave /home/wizardlink/.Rack2/autosave/patch.json
+[161.251 info src/context.cpp:26 ~Context] Deleting scene
+[161.251 info src/context.cpp:30 ~Context] Deleting event state
+[161.251 info src/context.cpp:34 ~Context] Deleting history state
+[161.251 info src/context.cpp:38 ~Context] Deleting engine
+[161.265 info src/settings.cpp:437 save] Saving settings /home/wizardlink/.Rack2/settings.json
+[161.265 info adapters/standalone.cpp:260 main] Destroying window
+[161.282 info adapters/standalone.cpp:262 main] Destroying UI
+[161.282 info adapters/standalone.cpp:266 main] Destroying library
+[161.282 info adapters/standalone.cpp:268 main] Destroying MIDI
+[161.283 info adapters/standalone.cpp:270 main] Destroying audio
+[161.283 info adapters/standalone.cpp:272 main] Destroying plugins
+[161.283 info src/plugin.cpp:299 destroy] Destroying plugin VCV Core
+[161.283 info src/plugin.cpp:299 destroy] Destroying plugin Fundamental
+[161.283 info adapters/standalone.cpp:274 main] Destroying network
+[161.283 info adapters/standalone.cpp:276 main] Destroying logger
+END

@@ -1,0 +1,40 @@
+{
+    "spy x family": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://nyaa.si/?page=rss&q=%5BSubsPlease%5D+Spy+x+Family+1080p&c=0_0&f=0"
+        ],
+        "assignedCategory": "anime",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "14 May 2022 15:31:37 +0000",
+        "mustContain": "^\\[SubsPlease\\] Spy x Family",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "/mnt/internal/personal/anime/spy x family",
+        "smartFilter": false,
+        "torrentContentLayout": null,
+        "useRegex": true
+    },
+    "tate no yuusha": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://nyaa.si/?page=rss&q=%5BSubsPlease%5D+Tate+no+Yuusha+no+Nariagari+1080p&c=0_0&f=0"
+        ],
+        "assignedCategory": "anime",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "^\\[SubsPlease\\] Tate no Yuusha",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "/mnt/internal/personal/anime/tate no yuusha no nariagari",
+        "smartFilter": false,
+        "torrentContentLayout": null,
+        "useRegex": true
+    }
+}

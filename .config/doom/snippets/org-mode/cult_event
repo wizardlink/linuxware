@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: cult_event
+# key: cultEvent
+# --
+* TODO $1 :cult_event:
+  SCHEDULED: <`(current-time-string)`>
+  - HOST:     $2
+  - HOW LONG: $3
+  - LINK:     $4
+
+  $5

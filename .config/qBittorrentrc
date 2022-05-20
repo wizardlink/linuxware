@@ -1,0 +1,8 @@
+[FileDialogSize]
+DisplayPort-0 HDMI-A-0 Height 1920x1080=598
+DisplayPort-0 HDMI-A-0 Width 1920x1080=844
+DisplayPort-2 HDMI-A-0 Height 1920x1080=598
+DisplayPort-2 HDMI-A-0 Width 1920x1080=844
+
+[KFileDialog Settings]
+detailViewIconSize=16
