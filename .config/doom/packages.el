@@ -66,4 +66,5 @@
 (package! graphviz-dot-mode)
 
 ;; Install org-roam
-(package! org-roam)
+(unpin! org-roam)
+(package! org-roam-ui)

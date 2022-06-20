@@ -21,20 +21,20 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "FantasqueSansMono NF" :size 13 :weight 'regular))
+(setq doom-font (font-spec :family "FantasqueSansMono NF" :size 13))
 ;;(setq doom-font (font-spec :family "Hasklig" :size 12 :weight 'regular))
 
-(setq doom-unicode-font doom-font) ; extend glyphs
+;;(setq doom-unicode-font doom-font) ; extend glyphs
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-gruvbox)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/notes"
-      org-agenda-files (doom-files-in `(,org-directory, "~/Documents/zettlekasten/daily") :type 'files :match "\\.org\\'"))
+      org-agenda-files (doom-files-in `(,org-directory, "~/Documents/zettelkasten") :type 'files :match "\\.org\\'"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -110,13 +110,18 @@
 
 ;; Configure orm-roam
 (setq org-roam-v2-ack t) ; flag that it has been successfully migrated
-(setq org-roam-directory "~/Documents/zettlekasten")
+(setq org-roam-directory "~/Documents/zettelkasten")
 (map! (:leader :desc "Opens a daily note through the calendar" :n "nrdF" #'org-roam-dailies-find-date))
-(setq org-roam-dailies-capture-templates
-      '(("d" "default" entry
-         "* %?"
-         :target (file+head "%<%Y-%m-%d>.org"
-                            "#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n\n* Morning Journal\n** What are you grateful for?\n** What do you want today's highlight to be?\n** What's on your mind?\n* Tasks\n* Input\n* Output\n* Evening Reflection\n** How are you feeling today?\n** What could you have done better?\n** Amazing things that happened\n** What did you learn today?"))))
+
+(use-package! websocket
+  :after org-roam)
+(use-package! org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 ;; Function to add directories done by hlissner (Henrik) https://github.com/hlissner/doom-emacs/issues/5305#issuecomment-923996238
 (defun doom/add-directory-as-project (dir)
@@ -138,3 +143,19 @@ mask DIR)."
 
 ;; Setup elixir-ls
 (setq lsp-clients-elixir-server-executable '("~/.local/share/elixir-ls/release/language_server.sh"))
+
+;; Make sure hl-line-mode doesn't overrides rainbow-mode
+(add-hook! 'vue-mode-hook #'lsp)
+
+;; Configure elfeed
+(setq rmh-elfeed-org-files '("/home/wizardlink/Documents/zettelkasten/20220610215118-elfeed.org"))
+
+;; Configure doom-themes with treemacs
+(with-eval-after-load 'doom-themes
+  (doom-themes-treemacs-config))
+
+;; Configure doom-gruvbox
+(setq
+ doom-gruvbox-brighter-comments nil
+ doom-gruvbox-dark-variant "medium"
+ doom-gruvbox-padded-modeline nil)
