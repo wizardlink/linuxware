@@ -21,7 +21,7 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "FantasqueSansMono NF" :size 13))
+(setq doom-font (font-spec :family "FantasqueSansMono NF" :size 15))
 ;;(setq doom-font (font-spec :family "Hasklig" :size 12 :weight 'regular))
 
 ;;(setq doom-unicode-font doom-font) ; extend glyphs
@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -159,3 +159,15 @@ mask DIR)."
  doom-gruvbox-brighter-comments nil
  doom-gruvbox-dark-variant "medium"
  doom-gruvbox-padded-modeline nil)
+
+;; Configure formaters
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode
+            javascript-mode
+            typescript-mode
+            web-mode))
+
+;; Configure org-reveal
+(setq
+ org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"
+ org-reveal-klipsify-src 'nil)

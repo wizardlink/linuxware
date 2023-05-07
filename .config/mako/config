@@ -1,0 +1,32 @@
+anchor=bottom-right
+background-color=#282a36
+border-color=#282a36
+border-radius=20
+border-size=2
+default-timeout=10000
+format=<span font="FantasqueSansMono NF weight=325 Italic" size="12288">%s</span>\n<span font="FantasqueSansMono NF weight=325" size="12288">%b</span>
+group-by=summary
+height=125
+icon-location=right
+layer=top
+margin=0,20,15
+markup=1
+max-icon-size=48
+padding=10,5,10
+text-color=#44475a
+width=300
+
+[grouped]
+format=<span font="FantasqueSansMono NF weight=325 Italic" size="12288">%s</span>\n<span font="FantasqueSansMono NF weight=325" size="12288">%b</span>
+
+[mode=do-not-disturb]
+invisible=1
+
+[urgency=low]
+border-color=#282a36
+
+[urgency=normal]
+border-color=#f1fa8c
+
+[urgency=high]
+border-color=#ff5555

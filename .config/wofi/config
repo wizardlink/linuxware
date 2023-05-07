@@ -1,0 +1,13 @@
+style=/home/wizardlink/.config/wofi/mono.css
+xoffset=760
+yoffset=290
+show=drun
+width=450
+height=450
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+content_halign=center

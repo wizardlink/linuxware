@@ -1,1 +1,0 @@
-{"bitrate":6000,"keyint_sec":2,"preset":"medium","profile":"high","rate_control":"CBR","tune":"","x264opts":"threads=6 rc-lookahead=60 trellis=1 direct-pred=spatial"}

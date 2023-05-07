@@ -68,3 +68,6 @@
 ;; Install org-roam
 (unpin! org-roam)
 (package! org-roam-ui)
+
+;; Install org-reveal
+(package! org-reveal)

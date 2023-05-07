@@ -1,4 +1,0 @@
-system:
-  aco: true
-  disable_runtime: true
-  terminal_app: /usr/bin/kitty
