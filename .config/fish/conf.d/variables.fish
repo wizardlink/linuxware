@@ -4,7 +4,8 @@ fish_add_path /home/wizardlink/.local/share/scripts \
 	/home/wizardlink/.nimble/bin \
 	/home/wizardlink/.cargo/bin \
 	/home/wizardlink/.local/bin \
-	/lib/flatpak/exports/bin
+	/lib/flatpak/exports/bin \
+  /home/wizardlink/.local/share/scripts/burrito
 
 # Set the default editor
 set -x EDITOR lvim

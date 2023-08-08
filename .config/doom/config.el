@@ -6,7 +6,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Alexandre Cavalheiro S. Tiago da Silva"
-      user-mail-address "alexandre.cssilva@gmail.com")
+      user-mail-address "contact@thewizard.link")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -58,7 +58,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Set the tab width to 2 and enable tab indentation
+;; Set the tab size to 2
 (setq tab-width 2)
 
 ;; Make sure hl-line-mode doesn't overrides rainbow-mode
@@ -143,9 +143,6 @@ mask DIR)."
 
 ;; Setup elixir-ls
 (setq lsp-clients-elixir-server-executable '("~/.local/share/elixir-ls/release/language_server.sh"))
-
-;; Make sure hl-line-mode doesn't overrides rainbow-mode
-(add-hook! 'vue-mode-hook #'lsp)
 
 ;; Configure elfeed
 (setq rmh-elfeed-org-files '("/home/wizardlink/Documents/zettelkasten/20220610215118-elfeed.org"))

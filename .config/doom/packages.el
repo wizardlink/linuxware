@@ -56,9 +56,6 @@
   :recipe (:host github :repo "org-roam/org-roam"
            :files (:defaults "extensions/*")))
 
-;; Install and enable vue-mode
-(package! vue-mode)
-
 ;; Install and enable powershell.el
 (package! powershell)
 

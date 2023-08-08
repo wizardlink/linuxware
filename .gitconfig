@@ -51,33 +51,36 @@
 [tag]
 	gpgsign = true
 
+[difftool]
+	prompt = true
+
+[difftool "lvimdiff"]
+	cmd = ~/.local/bin/lvim -d "$LOCAL" "$REMOTE"
+
 [diff]
 	# Your path might be different, but unlikely
 	# -- this needs to manually be set because
 	# -- GIT for Windows has it's own vim
 	# -- so it will run that instead.
 	; Set the editor to be used by GIT
-	tool = nvimdiff
+	tool = ~/.local/bin/lvim
 
-[difftool]
-	prompt = true
+[mergetool]
+	; https://www.git-scm.com/docs/git-mergetool#Documentation/git-mergetool.txt---no-prompt
+	prompt = false
 
-[difftool "nvimdiff"]
-	cmd = "~/.local/bin/lvim -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "lvimdiff"]
+	cmd = ~/.local/bin/lvim -f -d -c '$wincmd w | wincmd J' "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
 
 [merge]
 	# Your path might be different, but unlikely
 	# -- this needs to manually be set because
 	# -- GIT for Windows has it's own vim
 	# -- so it will run that instead.
-	tool = edit -d
+	tool = lvimdiff
 
 	; https://git-scm.com/docs/git-merge#_how_conflicts_are_presented
 	conflictstyle = diff3
-
-[mergetool]
-	; https://www.git-scm.com/docs/git-mergetool#Documentation/git-mergetool.txt---no-prompt
-	prompt = false
 
 [push]
 	; https://stackoverflow.com/questions/21839651/git-what-is-the-difference-between-push-default-matching-and-simple
@@ -96,3 +99,6 @@
 
 [init]
 	defaultBranch = main
+
+[credential]
+	helper = /usr/libexec/git-core/git-credential-libsecret

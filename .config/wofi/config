@@ -1,9 +1,8 @@
 style=/home/wizardlink/.config/wofi/mono.css
-xoffset=760
-yoffset=290
+location=center
 show=drun
-width=450
-height=450
+width=500
+height=500
 always_parse_args=true
 show_all=true
 print_command=true
