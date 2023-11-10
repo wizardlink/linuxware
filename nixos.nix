@@ -270,7 +270,6 @@
     ## Tools
     # Utilities
     bat
-    broot
     btop
     docker-compose
     duf

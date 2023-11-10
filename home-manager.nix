@@ -85,6 +85,7 @@
     brightnessctl
     discord
     firefox
+    logseq
     pavucontrol
     pulseaudio
     qbittorrent
