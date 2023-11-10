@@ -25,6 +25,10 @@
           /home/wizardlink/.local/share/scripts/burrito
     '';
 
+    shellAbbrs = {
+      z = "zoxide";
+    };
+
     functions = {
       fish_prompt.body = ''
         set_color CC241D
