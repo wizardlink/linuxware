@@ -80,7 +80,8 @@
 
     allowedUDPPorts = [
       2626   # Dolphin emulator
-      27015
+      11753  # OpenRCT2
+      27015  # Source games
     ];
 
     allowedTCPPortRanges = [
