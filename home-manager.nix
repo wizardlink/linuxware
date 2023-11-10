@@ -237,15 +237,6 @@
   # Configure QT
   qt = {
     enable = true;
-    platformTheme = "gtk";
-
-    style = {
-      name = "Catppuccin-Frappe-Lavender";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        tweaks = [ "rimless" ];
-        variant = "frappe";
-      };
-    };
+    platformTheme = "qtct";
   };
 }

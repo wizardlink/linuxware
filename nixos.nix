@@ -304,7 +304,8 @@
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qtstyleplugins
+    qt5.qtwayland
+    qt6.qtwayland
 
     ## Desktop environment
     polkit-kde-agent
