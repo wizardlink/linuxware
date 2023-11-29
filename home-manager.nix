@@ -95,8 +95,9 @@
     zathura
 
     # Editing
-    shotcut
+    krita
     libreoffice
+    shotcut
 
     ## Entertainment
     jellyfin-media-player
@@ -105,6 +106,9 @@
     # Gaming
     dolphin-emu
     path-of-building
+    protontricks
+    wineWowPackages.waylandFull
+    winetricks
 
     ## Libraries
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
@@ -120,7 +124,8 @@
     mako
     slurp
     swww
-    wl-clipboard
+    wl-clipboard  # Clipboard for Wayland
+    xclip         # Clipboard fo X11
 
     # File management
     atool
