@@ -111,7 +111,6 @@
     winetricks
 
     ## Libraries
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
     rnnoise-plugin
 
     ## Development
@@ -133,6 +132,11 @@
     imagemagick
     nnn
     poppler
+
+    ## Theming
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    qt6Packages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
   ];
 
   #
@@ -158,8 +162,23 @@
       source = ./programs/nvim;
     };
 
+    ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
+      source = "${pkgs.catppuccin-kvantum.override { accent = "Lavender"; variant = "Frappe"; } }/share/Kvantum/Catppuccin-Frappe-Lavender";
+    };
+
+    ".config/Kvantum/kvantum.kvconfig" = {
+        text = ''
+          [General]
+          theme=Catppuccin-Frappe-Lavender
+        '';
+    };
+
     ".config/qt5ct/colors" = {
       source = ./theming/qt5ct;
+    };
+
+    ".config/qt6ct/colors" = {
+      source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
     };
 
     ".config/pipewire/pipewire.conf.d/99-input-denoising.conf" = {
