@@ -81,7 +81,7 @@
 
     ## Tools
     # Utilities
-    (callPackage ./programs/vesktop/default.nix {})
+    vesktop
     brightnessctl
     discord
     firefox
