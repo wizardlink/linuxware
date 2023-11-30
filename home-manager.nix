@@ -41,8 +41,6 @@
   #  /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
     # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    NNN_FIFO = "/tmp/nnn.fifo";
-    NNN_PLUG = "v:preview-tui";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
@@ -81,15 +79,16 @@
 
     ## Tools
     # Utilities
-    vesktop
     brightnessctl
     discord
+    dolphin
     firefox
     logseq
     pavucontrol
     pulseaudio
     qbittorrent
     tigervnc
+    vesktop
     vlc
     yt-dlp
     zathura
@@ -123,15 +122,7 @@
     mako
     slurp
     swww
-    wl-clipboard  # Clipboard for Wayland
-    xclip         # Clipboard fo X11
-
-    # File management
-    atool
-    glow
-    imagemagick
-    nnn
-    poppler
+    wl-clipboard
 
     ## Theming
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
