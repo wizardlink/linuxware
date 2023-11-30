@@ -120,6 +120,7 @@
     eww-wayland
     grim
     mako
+    polkit-kde-agent
     slurp
     swww
     wl-clipboard

@@ -190,15 +190,6 @@
     ];
   };
 
-  # Enable XDG Desktop Portals.
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      #xdg-desktop-portal-hyprland
-    ];
-  };
-
   ##
   ## INPUT ##
   ##
@@ -303,9 +294,6 @@
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-
-    ## Desktop environment
-    polkit-kde-agent
 
     ## Hardware specific
     openrazer-daemon # Razor products back-end
