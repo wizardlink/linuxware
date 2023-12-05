@@ -8,4 +8,4 @@ export WINEFSYNC=1
 export WINEPREFIX=/home/wizardlink/Games/guild_wars_2/
 export WINEARCH="win64"
 
-gamemoderun wine64 /home/wizardlink/Games/guild_wars_2/drive_c/Program\ Files/Guild\ Wars\ 2/Gw2-64.exe
+gamemoderun wine64 /home/wizardlink/Games/guild_wars_2/drive_c/Program\ Files/Guild\ Wars\ 2/Gw2-64.exe -autologin
