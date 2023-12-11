@@ -15,12 +15,12 @@
       display-window = " 﩯  Window";
       drun-display-format = "{icon} {name}";
       hide-scrollbar = true;
-      icon-theme = "Oranchelo";
+      icon-theme = "Papirus-Dark";
       location = 0;
       modi = "run,drun,window";
       show-icons = true;
       sidebar-mode = true;
-      terminal = "alacritty";
+      terminal = "wezterm";
     };
 
     theme = ./catppuccin-frappe.rasi;
