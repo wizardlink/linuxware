@@ -101,6 +101,9 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  # Set fish as the default shell for all users.
+  users.defaultUserShell = pkgs.fish;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.wizardlink = {
     createHome = true;
@@ -108,7 +111,6 @@
     extraGroups = [ "networkmanager" "wheel" "postgresql" "docker" ];
 
     isNormalUser = true;
-    shell = pkgs.fish;
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdGOyRbu6IOw9yqotxE6m7wCif7oP/2D0tlREa5Q6uo Alexandre Cavalheiro S. Tiago da Silva <contact@thewizard.link>"
