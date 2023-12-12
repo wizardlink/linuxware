@@ -1,9 +1,12 @@
 #!/bin/sh
-export AMD_VULKAN_ICD="RADV"
-export DXVK_ASYNC=1
 export MANGOHUD=1
-export RADV_PERFTEST="gpl"
 
-export WINEFSYNC=1
+# https://docs.mesa3d.org/envvars.html
+export AMD_VULKAN_ICD="RADV"
+export RADV_PERFTEST="sam"
+
+export PROTON_NO_FSYNC=1
+
+export DXVK_ASYNC=1
 
 gamemoderun "$@"
