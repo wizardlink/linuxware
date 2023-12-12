@@ -115,6 +115,7 @@
     ## Development
     lazygit
     neofetch
+    vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
     eww-wayland
