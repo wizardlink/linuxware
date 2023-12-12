@@ -40,9 +40,7 @@
   #
   #  /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
     # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
+  home.sessionVariables = { };
 
   ##
   ## PACKAGES #
@@ -139,82 +137,74 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/fish/themes/Catppuccin-Frappe.theme" = {
-      source = ./programs/fish/Catppuccin-Frappe.theme;
-    };
+    # Cattpuccin theme for fish shell.
+    ".config/fish/themes/Catppuccin-Frappe.theme".source = ./programs/fish/Catppuccin-Frappe.theme;
 
-    ".config/gamemode.ini" = {
-      source = ./programs/gamemode.ini;
-    };
+    # Configuration for gamemode, for running games with optimizations.
+    ".config/gamemode.ini".source = ./programs/gamemode.ini;
 
-    ".config/mako" = {
-      source = ./programs/mako;
-    };
+    # Configuration for mako, a notification daemon.
+    ".config/mako".source = ./programs/mako;
 
-    ".config/nvim" = {
-      source = ./programs/nvim;
-    };
+    # Configuration for neovim, my editor.
+    ".config/nvim".source = ./programs/nvim;
 
+    ## Kvantum's theme configuration.
     ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
       source = "${pkgs.catppuccin-kvantum.override { accent = "Lavender"; variant = "Frappe"; } }/share/Kvantum/Catppuccin-Frappe-Lavender";
     };
 
-    ".config/Kvantum/kvantum.kvconfig" = {
-        text = ''
-          [General]
-          theme=Catppuccin-Frappe-Lavender
-        '';
-    };
+    ".config/Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=Catppuccin-Frappe-Lavender
+    '';
+    ##
 
-    ".config/qt5ct/colors" = {
-      source = ./theming/qt5ct;
-    };
+    ## Themeing configuration for qt5 and qt6
+    ".config/qt5ct/colors".source = ./theming/qt5ct;
 
-    ".config/qt6ct/colors" = {
-      source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
-    };
+    ".config/qt6ct/colors".source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
+    ##
 
-    ".config/pipewire/pipewire.conf.d/99-input-denoising.conf" = {
-      text = ''
-        context.modules = [
-        {   name = libpipewire-module-filter-chain
-            args = {
-                node.description =  "Noise Canceling source"
-                media.name =  "Noise Canceling source"
-                filter.graph = {
-                    nodes = [
-                        {
-                            type = ladspa
-                            name = rnnoise
-                            plugin = ${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so
-                            label = noise_suppressor_mono
-                            control = {
-                                "VAD Threshold (%)" = 30.0
-                                "VAD Grace Period (ms)" = 300
-                                "Retroactive VAD Grace (ms)" = 0
-                            }
-                        }
-                    ]
+    # Configure pipewire for microphone noise supression.
+    ".config/pipewire/pipewire.conf.d/99-input-denoising.conf".text = ''
+      context.modules = [
+        { name = libpipewire-module-filter-chain
+          args = {
+            node.description =  "Noise Canceling source"
+            media.name =  "Noise Canceling source"
+            filter.graph = {
+              nodes = [
+                {
+                  type = ladspa
+                  name = rnnoise
+                  plugin = ${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so
+                  label = noise_suppressor_mono
+                  control = {
+                    "VAD Threshold (%)" = 30.0
+                    "VAD Grace Period (ms)" = 300
+                    "Retroactive VAD Grace (ms)" = 0
+                  }
                 }
-                capture.props = {
-                    node.name =  "capture.rnnoise_source"
-                    node.passive = true
-                    audio.rate = 48000
-                }
-                playback.props = {
-                    node.name =  "rnnoise_source"
-                    media.class = Audio/Source
-                    audio.rate = 48000
-                }
+              ]
             }
+            capture.props = {
+              node.name =  "capture.rnnoise_source"
+              node.passive = true
+              audio.rate = 48000
+            }
+            playback.props = {
+              node.name =  "rnnoise_source"
+              media.class = Audio/Source
+              audio.rate = 48000
+            }
+          }
         }
-        ]
-      '';
-    };
+      ]
+    '';
 
-    ".local/share/scripts" = {
-      source = ./scripts;
-    };
+    # My utility scripts
+    ".local/share/scripts".source = ./scripts;
   };
 
 
