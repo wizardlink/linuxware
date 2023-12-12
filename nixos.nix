@@ -285,11 +285,9 @@
     # NodeJS
     nodejs
     yarn
-    yarn2nix
     # Python
     python3
     python3Packages.pip
-    rustup
 
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
