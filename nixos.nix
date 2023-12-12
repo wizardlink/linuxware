@@ -230,6 +230,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow installing electron 25.9 for LogSeq :(
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   # Enable GPG.
   programs.gnupg.agent = {
     enable = true;
