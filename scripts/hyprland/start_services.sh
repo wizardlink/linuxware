@@ -8,10 +8,10 @@ waybar &
 #
 ## Start wallpaper daemon and set one.
 #
-OUTPUT_1="DP-3"
+OUTPUT_1="DP-2"
 IMAGE_1="/mnt/internal/personal/wallpapers/wallhaven-g71xoe.jpg"
 
-OUTPUT_2="DP-2"
+OUTPUT_2="DP-3"
 IMAGE_2="/mnt/internal/personal/wallpapers/wallhaven-3zjexv.jpg"
 
 function load_wallpapers() {

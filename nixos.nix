@@ -43,7 +43,7 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -280,21 +280,10 @@
     unrar
     unzip
     wget
+    wl-clipboard
+    xclip
     zip
     zoxide
-
-    ## Development
-    # C
-    gcc
-    gnumake
-    # Nim
-    nim
-    # NodeJS
-    nodejs
-    yarn
-    # Python
-    python3
-    python3Packages.pip
 
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects

@@ -79,7 +79,6 @@
     # Utilities
     brightnessctl
     discord
-    dolphin
     firefox
     logseq
     pavucontrol
@@ -104,11 +103,13 @@
     dolphin-emu
     path-of-building
     protontricks
-    wineWowPackages.waylandFull
+    wineWowPackages.stableFull
     winetricks
 
     ## Libraries
     rnnoise-plugin
+    libsForQt5.kdegraphics-thumbnailers
+    libsForQt5.kio-extras
 
     ## Development
     lazygit
@@ -122,12 +123,16 @@
     polkit-kde-agent
     slurp
     swww
-    wl-clipboard
+    # File manager
+    ark
+    dolphin
 
     ## Theming
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-    qt6Packages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qtwayland
+    qt6Packages.qtstyleplugin-kvantum
+    qt6Packages.qtwayland
   ];
 
   #
@@ -181,9 +186,9 @@
                   plugin = ${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so
                   label = noise_suppressor_mono
                   control = {
-                    "VAD Threshold (%)" = 30.0
-                    "VAD Grace Period (ms)" = 300
-                    "Retroactive VAD Grace (ms)" = 0
+                    "VAD Threshold (%)" = 60.0
+                    "VAD Grace Period (ms)" = 175
+                    "Retroactive VAD Grace (ms)" = 50
                   }
                 }
               ]
@@ -201,6 +206,12 @@
           }
         }
       ]
+    '';
+
+    # Configure DXVK
+    ".config/dxvk.conf".text = ''
+      dxgi.tearFree = True
+      dxvk.enableGraphicsPipelineLibrary = Auto
     '';
 
     # My utility scripts
