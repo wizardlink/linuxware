@@ -35,3 +35,15 @@ mako &
 #
 /nix/store/$(ls -la /nix/store | rg '^d.*polkit-kde-agent.*\d$' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
 
+#
+# Refresh kdeconnect connections
+#
+kdeconnect-cli --refresh &
+
+#
+# Clipboard manager
+#
+wl-paste -w cliphist store &
+
+ # Need this to be able to paste in xwayland applications.
+wl-paste -t text -w sh -c 'v=$(cat); cmp -s <(xclip -selection clipboard -o)  <<< "$v" || xclip -selection clipboard <<< "$v"' &
