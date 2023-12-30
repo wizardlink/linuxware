@@ -75,6 +75,7 @@
   networking.firewall = {
     allowedTCPPorts = [
       80     # HTTP
+      11753  # OpenRCT2
       443    # SSL
     ];
 
@@ -95,11 +96,7 @@
   # networking.firewall.enable = false;
 
   # Define system-wide variables.
-  environment.variables = {
-    AMD_VULKAN_ICD = "RADV";
-    EDITOR = "nvim";
-    NIXOS_OZONE_WL = "1";
-  };
+  environment.variables = { };
 
   # Set fish as the default shell for all users.
   users.defaultUserShell = pkgs.fish;
@@ -168,6 +165,9 @@
     users = [ "wizardlink" ];
   };
 
+  # Enable xpadneo support.
+  hardware.xpadneo.enable = true;
+
   ##
   ## DESKTOP ##
   ##
@@ -229,11 +229,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Allow installing electron 25.9 for LogSeq :(
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
 
   # Enable GPG.
   programs.gnupg.agent = {

@@ -13,6 +13,7 @@
     ./programs/mangohud.nix
     ./programs/obs-studio.nix
     ./programs/rofi/default.nix
+    ./programs/vkbasalt/default.nix
     ./programs/waybar.nix
     ./programs/wezterm/config.nix
   ];
@@ -40,7 +41,10 @@
   #
   #  /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
     # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = { };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    NIXOS_OZONE_WL = "1";
+  };
 
   ##
   ## PACKAGES #
@@ -80,7 +84,6 @@
     brightnessctl
     discord
     firefox
-    logseq
     pavucontrol
     pulseaudio
     qbittorrent
@@ -101,15 +104,18 @@
 
     # Gaming
     dolphin-emu
+    mindustry-wayland
     path-of-building
     protontricks
+    vkbasalt
     wineWowPackages.stableFull
     winetricks
 
     ## Libraries
-    rnnoise-plugin
     libsForQt5.kdegraphics-thumbnailers
     libsForQt5.kio-extras
+    rnnoise-plugin
+    xwaylandvideobridge
 
     ## Development
     lazygit
@@ -117,6 +123,7 @@
     vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
+    cliphist
     eww-wayland
     grim
     mako
@@ -212,6 +219,8 @@
     ".config/dxvk.conf".text = ''
       dxgi.tearFree = True
       dxvk.enableGraphicsPipelineLibrary = Auto
+
+      dxvk.enableAsync = True
     '';
 
     # My utility scripts
