@@ -118,6 +118,7 @@
     xwaylandvideobridge
 
     ## Development
+    llvmPackages.clang # Required for neovim treesitter
     lazygit
     neofetch
     vscode-extensions.vadimcn.vscode-lldb
