@@ -13,7 +13,6 @@
     ./programs/mangohud.nix
     ./programs/obs-studio.nix
     ./programs/rofi/default.nix
-    ./programs/vkbasalt/default.nix
     ./programs/waybar.nix
     ./programs/wezterm/config.nix
   ];

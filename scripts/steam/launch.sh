@@ -6,6 +6,4 @@ export AMD_VULKAN_ICD="RADV"
 
 export DXVK_ASYNC=1
 
-export ENABLE_VKBASALT=1
-
 gamemoderun "$@"
