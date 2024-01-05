@@ -13,6 +13,11 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
@@ -20,6 +25,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    hyprland-hyprfocus,
     ...
   }@inputs: {
     nixosConfigurations.nixos =
@@ -38,21 +44,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            home-manager.extraSpecialArgs = inputs;
             home-manager.users.wizardlink = import ./home-manager.nix;
           }
         ];
       in
         nixpkgs.lib.nixosSystem { inherit system modules; };
-
-    homeConfigurations."wizardlink@nixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-      modules = [
-        hyprland.homeManagerModules.default
-        {
-          wayland.windowManager.hyprland.enable = true;
-        }
-      ];
-    };
   };
 }
