@@ -55,17 +55,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Configure NeoVim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-
-    extraPackages = with pkgs; [
-      lua-language-server
-      stylua
-    ];
-  };
-
   # Configure fish
 
   # The home.packages option allows you to install Nix packages into your
@@ -117,7 +106,6 @@
     xwaylandvideobridge
 
     ## Development
-    llvmPackages.clang # Required for neovim treesitter
     lazygit
     neofetch
     vscode-extensions.vadimcn.vscode-lldb
@@ -157,9 +145,6 @@
 
     # Configuration for mako, a notification daemon.
     ".config/mako".source = ./programs/mako;
-
-    # Configuration for neovim, my editor.
-    ".config/nvim".source = ./programs/nvim;
 
     ## Kvantum's theme configuration.
     ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
