@@ -47,3 +47,13 @@ wl-paste -w cliphist store &
 
  # Need this to be able to paste in xwayland applications.
 wl-paste -t text -w sh -c 'v=$(cat); cmp -s <(xclip -selection clipboard -o)  <<< "$v" || xclip -selection clipboard <<< "$v"' &
+
+#
+# Start xwaylandvideobridge
+#
+xwaylandvideobridge &
+
+#
+# Make sure xdg-desktop-portal-hyprland has access to what it needs
+#
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
