@@ -18,6 +18,9 @@
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
+
+    # My neovim configuration using nixvim.
+    custom-neovim.url = "github:wizardlink/neovim";
   };
 
   outputs = {
@@ -25,7 +28,6 @@
     nixpkgs,
     home-manager,
     hyprland,
-    hyprland-hyprfocus,
     ...
   }@inputs: {
     nixosConfigurations.nixos =

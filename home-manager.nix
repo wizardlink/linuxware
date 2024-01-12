@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, custom-neovim, ... }:
 
 {
   #
@@ -108,6 +108,7 @@
     ## Development
     lazygit
     neofetch
+    custom-neovim.packages.${system}.default
     vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
