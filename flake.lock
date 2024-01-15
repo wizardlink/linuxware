@@ -9,11 +9,11 @@
         "transparent-nvim": "transparent-nvim"
       },
       "locked": {
-        "lastModified": 1705034635,
-        "narHash": "sha256-DNANJO++VSKg3ZORkFmMg22lQW+T0jQKX0IIrLKRNXU=",
+        "lastModified": 1705214205,
+        "narHash": "sha256-1Qksd1qqUlK2pk8OzM0VWByBErT2/aJI0l6PZoOPtBE=",
         "owner": "wizardlink",
         "repo": "neovim",
-        "rev": "39dad04085e1de33dbf8113c6f3ef15aa40601f2",
+        "rev": "8ed3ac73876369d2809789ec0d5600d691672ea3",
         "type": "github"
       },
       "original": {
@@ -377,11 +377,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1705021258,
-        "narHash": "sha256-ir9Y7sVPZp1fhOMnepExBNoPjKnk8qu6D7mA3FquXnc=",
+        "lastModified": 1705041245,
+        "narHash": "sha256-PAKHmKA2BmIjZcgWRpRPJbPLbEjPAJcKHpoUqQTLsWE=",
         "owner": "wizardlink",
         "repo": "nixvim",
-        "rev": "b2cb41d92130aad17fa63dc5f646420299589dab",
+        "rev": "802c084deb79cc43c54d30b5ca559dd42f4659be",
         "type": "github"
       },
       "original": {
