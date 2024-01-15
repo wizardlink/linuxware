@@ -46,7 +46,7 @@ kdeconnect-cli --refresh &
 wl-paste -w cliphist store &
 
  # Need this to be able to paste in xwayland applications.
-wl-paste -t text -w sh -c 'v=$(cat); cmp -s <(xclip -selection clipboard -o)  <<< "$v" || xclip -selection clipboard <<< "$v"' &
+wl-paste -t text -w sh -c 'xclip -selection clipboard -o > /dev/null 2> /dev/null || xclip -selection clipboard'
 
 #
 # Start xwaylandvideobridge
