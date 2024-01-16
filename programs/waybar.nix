@@ -4,8 +4,8 @@
     enable = true;
 
     package = (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    })
     );
 
     settings = {
@@ -14,30 +14,30 @@
         position = "top";
         modules-left = [
           "hyprland/submap"
-            "hyprland/workspaces"
-            "custom/arrow10"
-            "hyprland/window"
+          "hyprland/workspaces"
+          "custom/arrow10"
+          "hyprland/window"
         ];
         modules-right = [
           "custom/arrow9"
-            "pulseaudio"
-            "custom/arrow8"
-            "network"
-            "custom/arrow7"
-            "memory"
-            "custom/arrow6"
-            "cpu"
-            "custom/arrow5"
-            "temperature"
-            "custom/arrow4"
-            "battery"
-            "custom/arrow3"
-            "hyprland/language"
-            "custom/arrow2"
-            "tray"
-            "clock#date"
-            "custom/arrow1"
-            "clock#time"
+          "pulseaudio"
+          "custom/arrow8"
+          "network"
+          "custom/arrow7"
+          "memory"
+          "custom/arrow6"
+          "cpu"
+          "custom/arrow5"
+          "temperature"
+          "custom/arrow4"
+          "battery"
+          "custom/arrow3"
+          "hyprland/language"
+          "custom/arrow2"
+          "tray"
+          "clock#date"
+          "custom/arrow1"
+          "clock#time"
         ];
 
         # Module configuration
@@ -56,10 +56,10 @@
           format-alt = "{icon} {power}W";
           format-icons = [
             ""
-              ""
-              ""
-              ""
-              ""
+            ""
+            ""
+            ""
+            ""
           ];
           tooltip = false;
         };
@@ -137,7 +137,7 @@
             car = "";
             default = [
               ""
-                ""
+              ""
             ];
           };
           scroll-step = 1;
@@ -151,10 +151,10 @@
           format = "{icon} {temperatureC}°";
           format-icons = [
             ""
-              ""
-              ""
-              ""
-              ""
+            ""
+            ""
+            ""
+            ""
           ];
           tooltip = false;
         };

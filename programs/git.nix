@@ -27,7 +27,7 @@
 
     extraConfig = {
       core = {
-	      # Set the editor to be used by GIT
+        # Set the editor to be used by GIT
         editor = "nvim";
 
         # Custom .gitignore
@@ -38,13 +38,13 @@
       };
 
       color = {
-          # Use colors in GIT commmands.
-          ui = "auto";
+        # Use colors in GIT commmands.
+        ui = "auto";
       };
 
       commit = {
-	        # https://help.github.com/articles/signing-commits-using-gpg/
-          gpgsign = true;
+        # https://help.github.com/articles/signing-commits-using-gpg/
+        gpgsign = true;
       };
 
       tag = {

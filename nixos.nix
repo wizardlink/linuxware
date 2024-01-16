@@ -10,7 +10,8 @@
   ##
 
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Include service configuration
       ./services/caddy.nix
@@ -74,15 +75,15 @@
   # Open ports in the firewall.
   networking.firewall = {
     allowedTCPPorts = [
-      80     # HTTP
-      11753  # OpenRCT2
-      443    # SSL
+      80 # HTTP
+      11753 # OpenRCT2
+      443 # SSL
     ];
 
     allowedUDPPorts = [
-      2626   # Dolphin emulator
-      11753  # OpenRCT2
-      27015  # Source games
+      2626 # Dolphin emulator
+      11753 # OpenRCT2
+      27015 # Source games
     ];
 
     allowedTCPPortRanges = [
@@ -141,12 +142,12 @@
 
   # Enable the OpenSSH daemon.
   services.openssh = {
-      enable = true;
+    enable = true;
 
-      settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
-      };
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
 
   ##
@@ -287,7 +288,7 @@
 
     ## Hardware specific
     openrazer-daemon # Razor products back-end
-    polychromatic    # and it's Front-end
+    polychromatic # and it's Front-end
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

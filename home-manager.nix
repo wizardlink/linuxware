@@ -39,7 +39,7 @@
   # or
   #
   #  /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
-    # if you don't want to manage your shell through Home Manager.
+  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
@@ -129,6 +129,27 @@
     libsForQt5.qtwayland
     qt6Packages.qtstyleplugin-kvantum
     qt6Packages.qtwayland
+
+    # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
+    (
+      let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSUserEnv (base // {
+        name = "fhs";
+        targetPkgs = pkgs: (
+          # pkgs.buildFHSUserEnv provides only a minimal FHS environment,
+          # lacking many basic packages needed by most software.
+          # Therefore, we need to add them manually.
+          #
+          # pkgs.appimageTools provides basic packages required by most software.
+          (base.targetPkgs pkgs) ++ (with pkgs; [
+            nodejs
+          ])
+        );
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = [ "dev" ];
+      })
+    )
   ];
 
   #

@@ -27,7 +27,7 @@
       cpu_mhz = true;
       cpu_load_change = true;
       cpu_load_value = [ 60 90 ];
-      cpu_load_color= [ "39F900" "FDFD09" "B22222" ];
+      cpu_load_color = [ "39F900" "FDFD09" "B22222" ];
 
 
       # IO Statistics
@@ -48,7 +48,7 @@
       fps_color = [ "B22222" "FDFD09" "39F900" ];
       frametime = true;
       frame_timing = true; # Display graphs
-      histogram = true;    # ^
+      histogram = true; # ^
 
       # Show whether gamemode is enabled for the application.
       gamemode = true;
@@ -57,7 +57,7 @@
       no_display = true;
 
       # Where to output log files.
-      output_folder=/home/wizardlink/.config/MangoHud;
+      output_folder = /home/wizardlink/.config/MangoHud;
     };
   };
 }

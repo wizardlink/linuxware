@@ -33,11 +33,11 @@
       fish_prompt.body = ''
         set_color CC241D
         echo '&' (set_color normal)
-        '';
+      '';
 
       fzf_edit.body = ''
         fzf --multi --bind 'enter:become(nvim {+})'
-        '';
+      '';
     };
   };
 }
