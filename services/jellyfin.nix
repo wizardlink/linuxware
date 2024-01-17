@@ -4,6 +4,8 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+    user = "wizardlink";
+
     package = pkgs.jellyfin.override {
       jellyfin-web = pkgs.jellyfin-web.overrideAttrs (oldAttrs: {
         patches = [
