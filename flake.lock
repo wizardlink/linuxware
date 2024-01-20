@@ -138,6 +138,22 @@
         "type": "github"
       }
     },
+    "hardware": {
+      "locked": {
+        "lastModified": 1705312285,
+        "narHash": "sha256-rd+dY+v61Y8w3u9bukO/hB55Xl4wXv4/yC8rCGVnK5U=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "bee2202bec57e521e3bd8acd526884b9767d7fa0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "headlines-nvim": {
       "flake": false,
       "locked": {
@@ -446,6 +462,7 @@
     "root": {
       "inputs": {
         "custom-neovim": "custom-neovim",
+        "hardware": "hardware",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprland-hyprfocus": "hyprland-hyprfocus",
