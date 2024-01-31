@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hardware.url = "github:NixOS/nixos-hardware/master";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +25,6 @@
 
   outputs =
     { self
-    , hardware
     , home-manager
     , hyprland
     , nixpkgs
@@ -38,12 +35,6 @@
           system = "x86_64-linux";
           modules = [
             ./nixos.nix
-
-            hardware.nixosModules.common-cpu-amd
-            hardware.nixosModules.common-gpu-amd
-            hardware.nixosModules.common-pc
-            hardware.nixosModules.common-pc-hdd
-            hardware.nixosModules.common-pc-ssd
 
             hyprland.nixosModules.default
             {
