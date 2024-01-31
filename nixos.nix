@@ -44,7 +44,7 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -75,15 +75,16 @@
   # Open ports in the firewall.
   networking.firewall = {
     allowedTCPPorts = [
-      80 # HTTP
       11753 # OpenRCT2
       443 # SSL
+      80 # HTTP
     ];
 
     allowedUDPPorts = [
-      2626 # Dolphin emulator
       11753 # OpenRCT2
+      2626 # Dolphin emulator
       27015 # Source games
+      8211 # Palworld
     ];
 
     allowedTCPPortRanges = [
@@ -169,6 +170,9 @@
 
   # Enable xpadneo support.
   hardware.xpadneo.enable = true;
+
+  # Enable fstrim for better ssd lifespan
+  services.fstrim.enable = true;
 
   ##
   ## DESKTOP ##
@@ -285,6 +289,7 @@
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
+    pkgsi686Linux.gperftools # Needed for TF2 rn :(
 
     ## Hardware specific
     openrazer-daemon # Razor products back-end
