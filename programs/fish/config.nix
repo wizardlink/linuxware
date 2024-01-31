@@ -29,6 +29,10 @@
       z = "zoxide";
     };
 
+    shellAliases = {
+      del = "trash_file";
+    };
+
     functions = {
       fish_prompt.body = ''
         set_color CC241D
@@ -37,6 +41,10 @@
 
       fzf_edit.body = ''
         fzf --multi --bind 'enter:become(nvim {+})'
+      '';
+
+      trash_file.body = ''
+        mv $argv ~/.local/share/Trash
       '';
     };
   };
