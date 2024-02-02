@@ -9,7 +9,7 @@
   imports = [
     ./programs/fish/config.nix
     ./programs/git.nix
-    ./programs/hyprland/config.nix
+    ./programs/hyprland
     ./programs/mangohud.nix
     ./programs/obs-studio.nix
     ./programs/rofi/default.nix
