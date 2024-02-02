@@ -14,7 +14,7 @@
     ./programs/obs-studio.nix
     ./programs/rofi/default.nix
     ./programs/waybar.nix
-    ./programs/wezterm/config.nix
+    ./programs/wezterm
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
