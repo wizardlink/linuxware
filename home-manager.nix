@@ -7,12 +7,12 @@
 
   # Import configurations for better modularity.
   imports = [
-    ./programs/fish/config.nix
+    ./programs/fish
     ./programs/git.nix
     ./programs/hyprland
     ./programs/mangohud.nix
     ./programs/obs-studio.nix
-    ./programs/rofi/default.nix
+    ./programs/rofi
     ./programs/waybar.nix
     ./programs/wezterm
   ];
