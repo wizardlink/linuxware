@@ -44,7 +44,14 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  musnix = {
+    enable = true;
+
+    kernel = {
+      realtime = true;
+      packages = pkgs.linuxPackages_latest_rt;
+    };
+  };
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -109,6 +116,7 @@
     description = "Alexandre Cavalheiro";
     extraGroups = [ "networkmanager" "wheel" "postgresql" "docker" ];
 
+    initialPassword = "wizardlink";
     isNormalUser = true;
 
     openssh.authorizedKeys.keys = [
@@ -269,7 +277,10 @@
     ## Tools
     # Utilities
     bat
-    btop
+    (btop.overrideAttrs {
+      # Support for AMD GPU monitoring.
+      nativeBuildInputs = [ rocmPackages.rocm-smi ];
+    })
     docker-compose
     duf
     fzf
