@@ -44,14 +44,7 @@
   ##
 
   # Kernel
-  musnix = {
-    enable = true;
-
-    kernel = {
-      realtime = true;
-      packages = pkgs.linuxPackages_latest_rt;
-    };
-  };
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -212,8 +205,10 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   ##

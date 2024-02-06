@@ -21,9 +21,6 @@
 
     # My neovim configuration using nixvim.
     custom-neovim.url = "github:wizardlink/neovim";
-
-    # Real time scheduling for audio work.
-    musnix.url = "github:musnix/musnix";
   };
 
   outputs =
@@ -31,7 +28,6 @@
     , home-manager
     , hyprland
     , nixpkgs
-    , musnix
     , ...
     }@inputs: {
       nixosConfigurations.nixos =
@@ -39,8 +35,6 @@
           system = "x86_64-linux";
           modules = [
             ./nixos.nix
-
-            musnix.nixosModules.musnix
 
             hyprland.nixosModules.default
             {
