@@ -15,7 +15,6 @@
     ./programs/rofi
     ./programs/waybar.nix
     ./programs/wezterm
-    ./programs/yazi
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -230,6 +229,9 @@
 
     # My utility scripts
     ".local/share/scripts".source = ./scripts;
+
+    # Yazi's configuration
+    ".config/yazi".source = ./programs/yazi;
   };
 
 
@@ -276,9 +278,10 @@
   # Configure XDG
   xdg.mimeApps.defaultApplications = {
     "text/html" = "firefox";
+    "video/x-matroska" = "vlc";
+    "x-scheme-handler/about" = "firefox";
     "x-scheme-handler/http" = "firefox";
     "x-scheme-handler/https" = "firefox";
-    "x-scheme-handler/about" = "firefox";
     "x-scheme-handler/unknown" = "firefox";
   };
 }

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, custom-neovim, ... }:
+{ config, pkgs, custom-neovim, yazi, ... }:
 
 {
   ##
@@ -291,8 +291,12 @@
     xclip
     zip
     zoxide
+
     # Development
     custom-neovim.packages.${system}.default
+
+    # File managing
+    yazi.packages.${pkgs.system}.default
 
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects

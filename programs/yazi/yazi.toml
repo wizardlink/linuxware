@@ -1,0 +1,9 @@
+[opener]
+video = [
+  { exec = 'vlc "$1"', desc = "Open in VLC", orphan = true }
+]
+
+[open]
+rules = [
+  { mime = "video/*", use = "video"  }
+]
