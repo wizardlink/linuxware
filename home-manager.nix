@@ -15,6 +15,7 @@
     ./programs/rofi
     ./programs/waybar.nix
     ./programs/wezterm
+    ./programs/yazi
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -84,6 +85,7 @@
     # Editing
     krita
     libreoffice
+    logseq
     shotcut
 
     ## Entertainment
@@ -108,7 +110,6 @@
     ## Development
     lazygit
     neofetch
-    custom-neovim.packages.${system}.default
     vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
@@ -119,9 +120,6 @@
     polkit-kde-agent
     slurp
     swww
-    # File manager
-    ark
-    dolphin
 
     ## Theming
     (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })

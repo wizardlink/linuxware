@@ -21,6 +21,9 @@
 
     # My neovim configuration using nixvim.
     custom-neovim.url = "github:wizardlink/neovim";
+
+    # CLI file manager.
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
@@ -33,6 +36,7 @@
       nixosConfigurations.nixos =
         let
           system = "x86_64-linux";
+          specialArgs = inputs;
           modules = [
             ./nixos.nix
 
@@ -51,7 +55,7 @@
             }
           ];
         in
-        nixpkgs.lib.nixosSystem { inherit system modules; };
+        nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
