@@ -292,9 +292,6 @@
     zip
     zoxide
 
-    # Development
-    custom-neovim.packages.${system}.default
-
     # File managing
     yazi.packages.${pkgs.system}.default
 

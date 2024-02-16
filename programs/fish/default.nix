@@ -23,6 +23,8 @@
           /home/wizardlink/.local/bin \
           /lib/flatpak/exports/bin \
           /home/wizardlink/.local/share/scripts/burrito
+
+      zoxide init --cmd cd fish | source
     '';
 
     shellAbbrs = {

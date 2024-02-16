@@ -11,6 +11,7 @@
     ./programs/git.nix
     ./programs/hyprland
     ./programs/mangohud.nix
+    ./programs/neovim
     ./programs/obs-studio.nix
     ./programs/rofi
     ./programs/waybar.nix
@@ -97,7 +98,7 @@
     path-of-building
     protontricks
     vkbasalt
-    wineWowPackages.stableFull
+    winePackages.stableFull
     winetricks
 
     ## Libraries

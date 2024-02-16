@@ -112,10 +112,10 @@
           force_no_accel = true
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-      }
 
-      device:wacom-bamboo-one-m-pen {
-          output = DP-2
+          tablet {
+            output = DP-2
+          }
       }
 
       general {
