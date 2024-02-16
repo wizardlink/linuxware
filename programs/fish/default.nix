@@ -22,7 +22,8 @@
           /home/wizardlink/.cargo/bin \
           /home/wizardlink/.local/bin \
           /lib/flatpak/exports/bin \
-          /home/wizardlink/.local/share/scripts/burrito
+          /home/wizardlink/.local/share/scripts/burrito \
+          ${pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter}/bin
 
       zoxide init --cmd cd fish | source
     '';
