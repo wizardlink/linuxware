@@ -100,6 +100,7 @@
     vkbasalt
     winePackages.stableFull
     winetricks
+    xonotic
 
     ## Libraries
     libsForQt5.kdegraphics-thumbnailers

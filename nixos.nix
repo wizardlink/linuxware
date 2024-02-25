@@ -272,15 +272,13 @@
     ## Tools
     # Utilities
     bat
-    (btop.overrideAttrs {
-      # Support for AMD GPU monitoring.
-      nativeBuildInputs = [ rocmPackages.rocm-smi ];
-    })
+    btop
     docker-compose
     duf
     fzf
     gping
     killall
+    lm_sensors
     nmap
     ripgrep
     tree
