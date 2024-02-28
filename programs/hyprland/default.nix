@@ -1,14 +1,10 @@
-{ pkgs, hyprland, hyprland-hyprfocus, ... }:
+{ hyprland, ... }:
 
 {
   imports = [ hyprland.homeManagerModules.default ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-
-    plugins = [
-      hyprland-hyprfocus.packages.${pkgs.system}.hyprfocus
-    ];
 
     extraConfig = ''
       # Catppuccin Macchiato - https://github.com/catppuccin/hyprland
@@ -111,10 +107,10 @@
           force_no_accel = true
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-      }
 
-      device:wacom-bamboo-one-m-pen {
-          output = eDP-1
+          tablet {
+              output = eDP-1
+          }
       }
 
       general {
@@ -174,12 +170,6 @@
       gestures {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
           workspace_swipe = off
-      }
-
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-      device:epic-mouse-v1 {
-          sensitivity = -0.5
       }
 
       # Example windowrule v1
@@ -269,37 +259,6 @@
       windowrulev2 = noanim,class:^(xwaylandvideobridge)$
       windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
       windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
-
-      # Plugins
-      plugin:hyprfocus {
-          enabled = no
-
-          keyboard_focus_animation = shrink
-          mouse_focus_animation = shrink
-
-          bezier = bezIn, 0.5,0.0,1.0,0.5
-          bezier = bezOut, 0.0,0.5,0.5,1.0
-
-          flash {
-              flash_opacity = 0.7
-
-              in_bezier = bezIn
-              in_speed = 0.5
-
-              out_bezier = bezOut
-              out_speed = 3
-          }
-
-          shrink {
-              shrink_percentage = 0.99
-
-              in_bezier = bezIn
-              in_speed = 1.5
-
-              out_bezier = bezOut
-              out_speed = 2.5
-          }
-      }
     '';
   };
 }

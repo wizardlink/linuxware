@@ -14,16 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
+    # CLI file manager.
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # My neovim configuration using nixvim.
-    custom-neovim.url = "github:wizardlink/neovim";
-
-    # CLI file manager.
-    yazi.url = "github:sxyazi/yazi";
+    # Neovim distribution
+    astronvim = {
+      url = "github:AstroNvim/AstroNvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -32,10 +33,13 @@
     , hyprland
     , nixpkgs
     , ...
-    }@inputs: {
-      nixosConfigurations.nixos =
+    } @ inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations."nixos" =
         let
-          system = "x86_64-linux";
           specialArgs = inputs;
           modules = [
             ./nixos.nix
@@ -57,6 +61,6 @@
         in
         nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
     };
 }

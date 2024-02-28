@@ -249,15 +249,13 @@
     ## Tools
     # Utilities
     bat
-    (btop.overrideAttrs {
-      # Support for AMD GPU monitoring.
-      nativeBuildInputs = [ rocmPackages.rocm-smi ];
-    })
+    btop
     docker-compose
     duf
     fzf
     gping
     killall
+    lm_sensors
     nmap
     ripgrep
     tree
@@ -268,9 +266,6 @@
     xclip
     zip
     zoxide
-
-    # Development
-    custom-neovim.packages.${system}.default
 
     # File managing
     yazi.packages.${pkgs.system}.default
