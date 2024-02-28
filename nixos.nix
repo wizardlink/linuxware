@@ -13,9 +13,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Include service configuration
-      ./services/caddy.nix
-      ./services/jellyfin.nix
     ];
 
   # Enable experimental features
@@ -46,9 +43,6 @@
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
-  # Add AMD drivers.
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
   # TODO: FIX IT BEING BEING OVERWRITTEN
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
@@ -74,18 +68,9 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [
-      11753 # OpenRCT2
-      443 # SSL
-      80 # HTTP
-    ];
+    allowedTCPPorts = [ ];
 
-    allowedUDPPorts = [
-      11753 # OpenRCT2
-      2626 # Dolphin emulator
-      27015 # Source games
-      8211 # Palworld
-    ];
+    allowedUDPPorts = [ ];
 
     allowedTCPPortRanges = [
       { from = 1714; to = 1764; } # KDEConnect
@@ -114,8 +99,6 @@
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdGOyRbu6IOw9yqotxE6m7wCif7oP/2D0tlREa5Q6uo Alexandre Cavalheiro S. Tiago da Silva <contact@thewizard.link>"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISfCUsZrnCMZapdrvkUCrdRiX+1xuZBdGrynNRzDI2v" # SpaceEEC
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPInBFp7zBLhFluoww65CZzcnMdhndTawBv8QYJ5s/Xt david.alejandro.rubio@gmail.com" # Kodehawa
     ];
   };
 
@@ -162,12 +145,6 @@
     powerOnBoot = true;
   };
   services.blueman.enable = true;
-
-  # Enable openrazer for managing Razer products' configuration
-  hardware.openrazer = {
-    enable = true;
-    users = [ "wizardlink" ];
-  };
 
   # Enable xpadneo support.
   hardware.xpadneo.enable = true;
@@ -301,11 +278,6 @@
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-    pkgsi686Linux.gperftools # Needed for TF2 rn :(
-
-    ## Hardware specific
-    openrazer-daemon # Razor products back-end
-    polychromatic # and it's Front-end
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

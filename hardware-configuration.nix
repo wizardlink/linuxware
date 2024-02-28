@@ -5,43 +5,24 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/65e4c115-aff0-4c0e-8799-7309a25ecab6";
+    { device = "/dev/disk/by-uuid/796d5ad8-db83-4c4f-883d-2f1f4f1937de";
       fsType = "ext4";
     };
+
+  boot.initrd.luks.devices."luks-94d233be-889a-46a4-9c20-b7f026980cbf".device = "/dev/disk/by-uuid/94d233be-889a-46a4-9c20-b7f026980cbf";
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/2EFE-3A26";
+    { device = "/dev/disk/by-uuid/CA05-302F";
       fsType = "vfat";
-    };
-
-  fileSystems."/mnt/ssd" =
-    {
-      device = "/dev/disk/by-uuid/f27f2224-d351-46fd-89f5-991de36166ad";
-      fsType = "ext4";
-    };
-
-  fileSystems."/mnt/internal" =
-    {
-      device = "/dev/disk/by-uuid/b8541c0d-9146-4388-b217-431f196957cc";
-      fsType = "ext4";
-    };
-
-  fileSystems."/mnt/media" =
-    {
-      device = "/dev/disk/by-uuid/52c17b8b-46c1-4870-b86c-c3b9f4bd4434";
-      fsType = "ext4";
     };
 
   swapDevices = [ ];
@@ -52,7 +33,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
