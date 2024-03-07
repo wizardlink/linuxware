@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "Catppuccin Frappe",
+	enable_wayland = false, -- Unfortunately broken on Hyprland, AGAIN
 	font = wezterm.font("FantasqueSansM Nerd Font"),
 	font_size = 13,
 	hide_tab_bar_if_only_one_tab = true,
