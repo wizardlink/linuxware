@@ -260,6 +260,11 @@
       windowrulev2 = noanim,class:^(xwaylandvideobridge)$
       windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
       windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
+
+      # Rules for windowkill
+      windowrule = noborder, ^(steam_app_2726450)$
+      windowrule = pin, ^(steam_app_2726450)$
+      windowrule = opacity 0.9, ^(steam_app_2726450)$
     '';
   };
 }
