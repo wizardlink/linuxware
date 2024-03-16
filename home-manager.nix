@@ -94,7 +94,6 @@
 
     # Gaming
     dolphin-emu
-    mindustry-wayland
     path-of-building
     protontricks
     vkbasalt
@@ -115,7 +114,6 @@
 
     ## Desktop environment
     cliphist
-    eww-wayland
     grim
     mako
     polkit-kde-agent
