@@ -14,12 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # CLI file manager.
-    yazi = {
-      url = "github:sxyazi/yazi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Neovim distribution
     astronvim = {
       url = "github:AstroNvim/AstroNvim";
