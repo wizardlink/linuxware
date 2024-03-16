@@ -56,8 +56,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Configure fish
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
