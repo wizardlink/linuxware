@@ -196,7 +196,7 @@
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod CTRL, F, fakefullscreen
-      bind = $mainMod CTRL, K, exec, hyprctl switchxkblayout ducky-ducky-one2-mini-rgb next
+      bind = $mainMod CTRL, K, exec, hyprctl switchxkblayout www.hfd.cn-monsgeek-keyboard-1 next
       bind = $mainMod CTRL, L, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
       bind = $mainMod CTRL, P, exec, ~/.local/share/scripts/hyprland/screenshot_area.sh
       bind = $mainMod CTRL, V, pin
