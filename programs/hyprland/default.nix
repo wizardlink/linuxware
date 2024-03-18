@@ -120,8 +120,8 @@
           gaps_in = 6
           gaps_out = 18
           border_size = 2
-          col.active_border = $base $surface0 $red 45deg
-          col.inactive_border = $base $surface0 $yellow 45deg
+          col.active_border = $base $surface0 $green 45deg
+          col.inactive_border = $base $surface0 $blue 45deg
 
           layout = dwindle
       }
