@@ -57,48 +57,5 @@
     { "nvim/lua/resession/extensions".source = "${astronvim}/lua/resession/extensions"; }
     { "nvim/lua/lazy_snapshot.lua".source = "${astronvim}/lua/lazy_snapshot.lua"; }
     { "nvim/lua/user".source = ./user; }
-    {
-      "nvim/parser".source =
-        let
-          parsers = pkgs.symlinkJoin {
-            name = "treesitter-parsers";
-            paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
-              bash
-              c
-              cmake
-              cpp
-              css
-              cuda
-              dockerfile
-              gdscript
-              glsl
-              godot_resource
-              html
-              javascript
-              jsdoc
-              json
-              jsonc
-              lua
-              lua
-              markdown
-              markdown_inline
-              nim
-              nim_format_string
-              nix
-              objc
-              proto
-              python
-              query
-              tsx
-              typescript
-              vim
-              vimdoc
-              vue
-              yaml
-            ])).dependencies;
-          };
-        in
-        "${parsers}/parser";
-    }
   ];
 }
