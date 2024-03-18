@@ -16,7 +16,6 @@
           "clock"
         ];
         modules-right = [
-          "pulseaudio"
           "network"
           "memory"
           "cpu"
@@ -65,28 +64,6 @@
             };
           };
         };
-
-        pulseaudio = {
-          format = "{icon} {volume}%";
-          format-bluetooth = "{icon} {volume}%";
-          format-muted = "";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = [
-              ""
-              ""
-            ];
-          };
-          scroll-step = 1;
-          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          tooltip = false;
-        };
-
 
         network = {
           interval = 5;
@@ -223,7 +200,7 @@
         padding: 0 10px;
       }
 
-      #network, #cpu, #memory, #language, #temperature, #pulseaudio {
+      #network, #cpu, #memory, #language, #temperature {
         margin: 0 8px;
       }
 
