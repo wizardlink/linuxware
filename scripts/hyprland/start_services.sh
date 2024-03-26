@@ -1,9 +1,29 @@
 #!/bin/sh
 
 #
+# Make sure xdg-desktop-portal-hyprland has access to what it needs
+#
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+
+#
+# Start authentication polkit.
+#
+/nix/store/$(ls -la /nix/store | rg '^d.*polkit-kde-agent.*\d$' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
+
+#
 # Start waybar.
 #
 waybar &
+
+#
+# Start xwaylandvideobridge
+#
+xwaylandvideobridge &
+
+#
+# Start fcitx5
+#
+fcitx5 &
 
 #
 ## Start wallpaper daemon and set one.
@@ -31,11 +51,6 @@ load_wallpapers &
 mako &
 
 #
-# Start authentication polkit.
-#
-/nix/store/$(ls -la /nix/store | rg '^d.*polkit-kde-agent.*\d$' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
-
-#
 # Refresh kdeconnect connections
 #
 kdeconnect-cli --refresh &
@@ -47,13 +62,3 @@ wl-paste -w cliphist store &
 
  # Need this to be able to paste in xwayland applications.
 wl-paste -t text -w sh -c 'xclip -selection clipboard -o > /dev/null 2> /dev/null || xclip -selection clipboard'
-
-#
-# Start xwaylandvideobridge
-#
-xwaylandvideobridge &
-
-#
-# Make sure xdg-desktop-portal-hyprland has access to what it needs
-#
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
