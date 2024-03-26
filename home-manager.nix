@@ -70,6 +70,7 @@
     # Utilities
     brightnessctl
     discord
+    element
     firefox
     pavucontrol
     pulseaudio
@@ -126,25 +127,21 @@
     qt6Packages.qtwayland
 
     # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
-    (
-      let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSUserEnv (base // {
-        name = "fhs";
-        targetPkgs = pkgs: (
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs;
+    in pkgs.buildFHSUserEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs:
+        (
           # pkgs.buildFHSUserEnv provides only a minimal FHS environment,
           # lacking many basic packages needed by most software.
           # Therefore, we need to add them manually.
           #
           # pkgs.appimageTools provides basic packages required by most software.
-          (base.targetPkgs pkgs) ++ (with pkgs; [
-            nodejs
-          ])
-        );
-        profile = "export FHS=1";
-        runScript = "bash";
-        extraOutputsToInstall = [ "dev" ];
-      })
-    )
+          (base.targetPkgs pkgs) ++ (with pkgs; [ nodejs ]));
+      profile = "export FHS=1";
+      runScript = "bash";
+      extraOutputsToInstall = [ "dev" ];
+    }))
   ];
 
   #
@@ -155,7 +152,8 @@
   # plain files is through 'home.file'.
   home.file = {
     # Cattpuccin theme for fish shell.
-    ".config/fish/themes/Catppuccin-Frappe.theme".source = ./programs/fish/Catppuccin-Frappe.theme;
+    ".config/fish/themes/Catppuccin-Frappe.theme".source =
+      ./programs/fish/Catppuccin-Frappe.theme;
 
     # Configuration for gamemode, for running games with optimizations.
     ".config/gamemode.ini".source = ./programs/gamemode.ini;
@@ -165,7 +163,12 @@
 
     ## Kvantum's theme configuration.
     ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
-      source = "${pkgs.catppuccin-kvantum.override { accent = "Lavender"; variant = "Frappe"; } }/share/Kvantum/Catppuccin-Frappe-Lavender";
+      source = "${
+          pkgs.catppuccin-kvantum.override {
+            accent = "Lavender";
+            variant = "Frappe";
+          }
+        }/share/Kvantum/Catppuccin-Frappe-Lavender";
     };
 
     ".config/Kvantum/kvantum.kvconfig".text = ''
@@ -177,7 +180,8 @@
     ## Themeing configuration for qt5 and qt6
     ".config/qt5ct/colors".source = ./theming/qt5ct;
 
-    ".config/qt6ct/colors".source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
+    ".config/qt6ct/colors".source =
+      ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
     ##
 
     # Configure pipewire for microphone noise supression.
@@ -232,7 +236,6 @@
     ".config/yazi".source = ./programs/yazi;
   };
 
-
   ## Theming
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeLavender;
@@ -281,5 +284,36 @@
     "x-scheme-handler/http" = "firefox";
     "x-scheme-handler/https" = "firefox";
     "x-scheme-handler/unknown" = "firefox";
+  };
+
+  systemd.user.services = {
+    palserver = {
+      Unit = { Description = "Palworld Server"; };
+
+      Service = {
+        ExecStart =
+          "/etc/profiles/per-user/wizardlink/bin/fhs -c 'EpicApp=PalServer ./PalServer.sh -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS'";
+        Restart = "always";
+        #RuntimeMaxSec = "4h";
+        Type = "simple";
+        WorkingDirectory = "/mnt/ssd/Games/Steam/steamapps/common/PalServer";
+      };
+
+      Install = { WantedBy = [ "default.target" ]; };
+    };
+
+    foundry = {
+      Unit = { Description = "FoundryVTT server"; };
+
+      Service = {
+        ExecStart =
+          "/etc/profiles/per-user/wizardlink/bin/fhs -c 'node ./resources/app/main.js'";
+        Restart = "on-failure";
+        Type = "simple";
+        WorkingDirectory = "/mnt/ssd/Games/FoundryVTT/FoundryProgram";
+      };
+
+      Install = { WantedBy = [ "default.target" ]; };
+    };
   };
 }
