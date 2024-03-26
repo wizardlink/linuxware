@@ -92,10 +92,14 @@
       # Some default env vars.
       env = XCURSOR_SIZE,36
       env = QT_QPA_PLATFORM,wayland
+      env = QT_IM_MODULE,fcitx
+      env = GTK_IM_MODULE,fcitx
+      env = SDL_IM_MODULE,fcitx
+      env = XMODIFIERS,@im=fcitx
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
-          kb_layout = us,br
+          kb_layout =
           kb_variant =
           kb_model =
           kb_options =
@@ -196,7 +200,6 @@
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod CTRL, F, fakefullscreen
-      bind = $mainMod CTRL, K, exec, hyprctl switchxkblayout www.hfd.cn-monsgeek-keyboard-1 next
       bind = $mainMod CTRL, L, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
       bind = $mainMod CTRL, P, exec, ~/.local/share/scripts/hyprland/screenshot_area.sh
       bind = $mainMod CTRL, V, pin
@@ -255,7 +258,6 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       # Window rules
-      windowrulev2 = float,class:(steam) # Make sure all Steam windows float
       windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
       windowrulev2 = noanim,class:^(xwaylandvideobridge)$
       windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
