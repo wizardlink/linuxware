@@ -33,7 +33,7 @@
 
       # Nix
       nil
-      nixpkgs-fmt
+      nixfmt
 
       # TypeScript
       nodePackages.typescript-language-server

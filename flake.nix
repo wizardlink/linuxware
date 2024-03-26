@@ -21,40 +21,28 @@
     };
   };
 
-  outputs =
-    { self
-    , home-manager
-    , hyprland
-    , nixpkgs
-    , ...
-    } @ inputs:
-    let
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations."nixos" =
-        let
-          specialArgs = inputs;
-          modules = [
-            ./nixos.nix
+  outputs = { self, home-manager, hyprland, nixpkgs, ... }@inputs:
+    let system = "x86_64-linux";
+    in {
+      nixosConfigurations."nixos" = let
+        specialArgs = inputs;
+        modules = [
+          ./nixos.nix
 
-            hyprland.nixosModules.default
-            {
-              programs.hyprland.enable = true;
-            }
+          hyprland.nixosModules.default
+          { programs.hyprland.enable = true; }
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-              home-manager.extraSpecialArgs = inputs;
-              home-manager.users.wizardlink = import ./home-manager.nix;
-            }
-          ];
-        in
-        nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
+            home-manager.extraSpecialArgs = inputs;
+            home-manager.users.wizardlink = import ./home-manager.nix;
+          }
+        ];
+      in nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
-      formatter = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
+      formatter."${system}" = nixpkgs.legacyPackages.${system}.nixfmt;
     };
 }

@@ -9,14 +9,13 @@
   ## NIXOS ##
   ##
 
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # Include service configuration
-      ./services/caddy.nix
-      ./services/jellyfin.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    # Include service configuration
+    ./services/caddy.nix
+    ./services/jellyfin.nix
+  ];
 
   # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -44,13 +43,18 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   # TODO: FIX IT BEING BEING OVERWRITTEN
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.v4l2loopback
+    (pkgs.callPackage ./kernel/zenergy.nix {
+      kernel = pkgs.linux_xanmod_latest;
+    })
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -87,12 +91,16 @@
       8211 # Palworld
     ];
 
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDEConnect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDEConnect
-    ];
+    allowedTCPPortRanges = [{
+      from = 1714;
+      to = 1764;
+    } # KDEConnect
+      ];
+    allowedUDPPortRanges = [{
+      from = 1714;
+      to = 1764;
+    } # KDEConnect
+      ];
   };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -125,9 +133,18 @@
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "C.UTF-8/UTF-8"
+      "en_GB.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+      "ja_JP.UTF-8/UTF-8"
+      "pt_BR.UTF-8/UTF-8"
+    ];
 
     extraLocaleSettings = {
+      LANGUAGE = "en_US.UTF-8";
       LC_ADDRESS = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
       LC_MEASUREMENT = "pt_BR.UTF-8";
       LC_MONETARY = "en_US.UTF-8";
@@ -136,6 +153,11 @@
       LC_PAPER = "pt_BR.UTF-8";
       LC_TELEPHONE = "pt_BR.UTF-8";
       LC_TIME = "en_GB.UTF-8";
+    };
+
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = [ pkgs.fcitx5-mozc pkgs.fcitx5-gtk ];
     };
   };
 
@@ -314,6 +336,11 @@
   ##
   ## SERVICES #
   ##
+
+  services.udev.extraRules = ''
+    # Monsgeek M1
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0005", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
 
   # Enable flatpak
   services.flatpak.enable = true;
