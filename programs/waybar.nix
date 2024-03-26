@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.waybar = {
     enable = true;
 
@@ -9,21 +8,10 @@
         margin = "10px 10px 0";
         height = 30;
 
-        modules-left = [
-          "hyprland/workspaces"
-        ];
-        modules-center = [
-          "clock"
-        ];
-        modules-right = [
-          "network"
-          "memory"
-          "cpu"
-          "temperature"
-          "battery"
-          "hyprland/language"
-          "tray"
-        ];
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "clock" ];
+        modules-right =
+          [ "network" "memory" "cpu" "temperature" "battery" "tray" ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -97,13 +85,7 @@
           critical-threshold = 90;
           interval = 5;
           format = "{icon} {temperatureC}°";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
+          format-icons = [ "" "" "" "" "" ];
           tooltip = false;
         };
 
@@ -121,21 +103,7 @@
           format-charging-full = " {capacity}%";
           format-full = "{icon} {capacity}%";
           format-alt = "{icon} {power}W";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-          tooltip = false;
-        };
-
-        "hyprland/language" = {
-          format = "  {}";
-          format-en = "EN/US";
-          format-pt-br = "PT/BR";
-          #"on-click" = "hyprctl switchxkblayout www.hfd.cn-monsgeek-keyboard-1 next";
+          format-icons = [ "" "" "" "" "" ];
           tooltip = false;
         };
 
@@ -200,7 +168,7 @@
         padding: 0 10px;
       }
 
-      #network, #cpu, #memory, #language, #temperature {
+      #network, #cpu, #memory, #temperature {
         margin: 0 8px;
       }
 
