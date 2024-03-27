@@ -30,6 +30,7 @@ return {
       "objc",
       "proto",
       "python",
+      "svelte",
       "tsx",
       "typescript",
       "vue",
