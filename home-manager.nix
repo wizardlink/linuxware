@@ -70,7 +70,7 @@
     # Utilities
     brightnessctl
     discord
-    element
+    element-desktop
     firefox
     pavucontrol
     pulseaudio
@@ -231,9 +231,6 @@
 
     # My utility scripts
     ".local/share/scripts".source = ./scripts;
-
-    # Yazi's configuration
-    ".config/yazi".source = ./programs/yazi;
   };
 
   ## Theming
