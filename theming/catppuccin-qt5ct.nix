@@ -1,16 +1,10 @@
-{ fetchFromGitHub
-, flavor ? "Mocha"
-, lib
-, stdenvNoCC
-}:
+{ fetchFromGitHub, flavor ? "Mocha", lib, stdenvNoCC }:
 let
   validFlavors = [ "Frappe" "Latte" "Macchiato" "Mocha" ];
   pname = "catppucin-qt5ct";
-in
-lib.checkListOfEnum "${pname}: flavors" validFlavors [ flavor ]
+in lib.checkListOfEnum "${pname}: flavors" validFlavors [ flavor ]
 
-  stdenvNoCC.mkDerivation
-{
+stdenvNoCC.mkDerivation {
   inherit pname;
   version = "unstable-2023-10-24";
 

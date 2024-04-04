@@ -47,13 +47,9 @@
         gpgsign = true;
       };
 
-      tag = {
-        gpgsign = true;
-      };
+      tag = { gpgsign = true; };
 
-      difftool = {
-        prompt = true;
-      };
+      difftool = { prompt = true; };
 
       mergetool = {
         # https://www.git-scm.com/docs/git-mergetool#Documentation/git-mergetool.txt---no-prompt
@@ -79,13 +75,9 @@
         signingkey = "A1D3A2B4E14BD7C0445BB749A5767B54367CFBDF";
       };
 
-      pull = {
-        ff = "only";
-      };
+      pull = { ff = "only"; };
 
-      init = {
-        defaultBranch = "main";
-      };
+      init = { defaultBranch = "main"; };
 
       credential = {
         helper = "/usr/libexec/git-core/git-credential-libsecret";

@@ -33,7 +33,6 @@
       cpu_stats = true;
       cpu_temp = true;
 
-
       # IO Statistics
       io_read = true;
       io_stats = true;
