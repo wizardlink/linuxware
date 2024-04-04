@@ -1,19 +1,11 @@
+-- Customize Treesitter
+
+---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
-    local utils = require "astronvim.utils"
-    opts.incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>", -- Ctrl + Space
-        node_incremental = "<C-space>",
-        scope_incremental = "<A-space>", -- Alt + Space
-        node_decremental = "<bs>", -- Backspace
-      },
-    }
-    opts.ignore_install = { "gotmpl" }
-    opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, {
+    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
       -- Programming
       "c",
       "cmake",

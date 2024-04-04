@@ -1,4 +1,4 @@
-{ pkgs, astronvim, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.neovim = {
@@ -6,7 +6,7 @@
     withNodeJs = true;
     withPython3 = true;
 
-    extraLuaConfig = builtins.readFile "${astronvim}/init.lua";
+    extraLuaConfig = builtins.readFile ./init.lua;
 
     extraPackages = with pkgs; [
       # CMAKE
@@ -52,10 +52,9 @@
   };
 
   xdg.configFile = lib.mkMerge [
-    { "nvim/lua/astronvim".source = "${astronvim}/lua/astronvim"; }
-    { "nvim/lua/plugins".source = "${astronvim}/lua/plugins"; }
-    { "nvim/lua/resession/extensions".source = "${astronvim}/lua/resession/extensions"; }
-    { "nvim/lua/lazy_snapshot.lua".source = "${astronvim}/lua/lazy_snapshot.lua"; }
-    { "nvim/lua/user".source = ./user; }
+    { "nvim/lua/community.lua".source = ./lua/community.lua; }
+    { "nvim/lua/lazy_setup.lua".source = ./lua/lazy_setup.lua; }
+    { "nvim/lua/plugins".source = ./lua/plugins; }
+    { "nvim/lua/polish.lua".source = ./lua/polish.lua; }
   ];
 }

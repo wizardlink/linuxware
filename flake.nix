@@ -13,12 +13,6 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Neovim distribution
-    astronvim = {
-      url = "github:AstroNvim/AstroNvim";
-      flake = false;
-    };
   };
 
   outputs = { self, home-manager, hyprland, nixpkgs, ... }@inputs:
