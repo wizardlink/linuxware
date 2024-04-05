@@ -40,7 +40,7 @@ function load_wallpapers() {
 }
 
 if ! swww query; then
-  swww init &
+  swww-daemon &
 fi
 
 load_wallpapers &
