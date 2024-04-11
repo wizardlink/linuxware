@@ -76,7 +76,46 @@
     pulseaudio
     qbittorrent
     tigervnc
-    vesktop
+    (vesktop.overrideAttrs (prev: {
+      src = pkgs.fetchFromGitHub {
+        owner = "kaitlynkittyy";
+        repo = "Vesktop";
+        rev = "006f4e96dea21fee018e446e84a19a92ddabbd1e";
+        hash = "sha256-9kCK8Pi97m/W5alEUZPbjOJxSpYyhw8zqhtCh/2ccf8=";
+      };
+
+      installPhase =
+        let
+          # this is mainly required for venmic
+          libPath = lib.makeLibraryPath (with pkgs; [
+            libpulseaudio
+            libnotify
+            pipewire
+            stdenv.cc.cc.lib
+            libva
+          ]);
+        in
+        ''
+          runHook preInstall
+
+          mkdir -p $out/opt/Vesktop/resources
+          cp dist/linux-*unpacked/resources/app.asar $out/opt/Vesktop/resources
+
+          pushd build
+          ${pkgs.libicns}/bin/icns2png -x icon.icns
+          for file in icon_*x32.png; do
+            file_suffix=''${file//icon_}
+            install -Dm0644 $file $out/share/icons/hicolor/''${file_suffix//x32.png}/apps/vesktop.png
+          done
+
+          makeWrapper ${pkgs.electron}/bin/electron $out/bin/vesktop \
+            --prefix LD_LIBRARY_PATH : ${libPath} \
+            --add-flags $out/opt/Vesktop/resources/app.asar \
+            --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
+
+          runHook postInstall
+        '';
+    }))
     vlc
     yt-dlp
     zathura
