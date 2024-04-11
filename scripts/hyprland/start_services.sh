@@ -21,11 +21,6 @@ waybar &
 xwaylandvideobridge &
 
 #
-# Start fcitx5
-#
-fcitx5 &
-
-#
 ## Start wallpaper daemon and set one.
 #
 OUTPUT_1="DP-2"

@@ -10,8 +10,15 @@
 
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
-        modules-right =
-          [ "network" "memory" "cpu" "temperature" "battery" "tray" ];
+        modules-right = [
+          "network"
+          "memory"
+          "cpu"
+          "temperature"
+          "battery"
+          "hyprland/language"
+          "tray"
+        ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -104,6 +111,14 @@
           format-full = "{icon} {capacity}%";
           format-alt = "{icon} {power}W";
           format-icons = [ "" "" "" "" "" ];
+          tooltip = false;
+        };
+
+        "hyprland/language" = {
+          format = "  {}";
+          format-en = "EN/US";
+          format-pt-br = "PT/BR";
+          #"on-click" = "hyprctl switchxkblayout www.hfd.cn-monsgeek-keyboard-1 next";
           tooltip = false;
         };
 
