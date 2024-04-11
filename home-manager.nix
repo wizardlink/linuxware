@@ -133,6 +133,7 @@
     spotify
 
     # Gaming
+    airshipper
     dolphin-emu
     path-of-building
     protontricks
@@ -352,6 +353,21 @@
         Restart = "on-failure";
         Type = "simple";
         WorkingDirectory = "/mnt/ssd/Games/FoundryVTT/FoundryProgram";
+      };
+
+      Install = { WantedBy = [ "default.target" ]; };
+    };
+
+    veloren = {
+      Unit = { Description = "FoundryVTT server"; };
+
+      Service = {
+        ExecStart =
+          "/etc/profiles/per-user/wizardlink/bin/fhs -c './veloren-server-cli'";
+        Restart = "on-failure";
+        Type = "simple";
+        WorkingDirectory =
+          "/home/wizardlink/.local/share/airshipper/profiles/default";
       };
 
       Install = { WantedBy = [ "default.target" ]; };

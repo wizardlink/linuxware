@@ -79,12 +79,14 @@
   networking.firewall = {
     allowedTCPPorts = [
       11753 # OpenRCT2
+      14004 # Veloren
       443 # SSL
       80 # HTTP
     ];
 
     allowedUDPPorts = [
       11753 # OpenRCT2
+      14004 # Veloren
       2626 # Dolphin emulator
       27015 # Source games
       8211 # Palworld
@@ -94,12 +96,12 @@
       from = 1714;
       to = 1764;
     } # KDEConnect
-      ];
+    ];
     allowedUDPPortRanges = [{
       from = 1714;
       to = 1764;
     } # KDEConnect
-      ];
+    ];
   };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -153,7 +155,6 @@
       LC_TELEPHONE = "pt_BR.UTF-8";
       LC_TIME = "en_GB.UTF-8";
     };
-
   };
 
   # Enable CUPS to print documents.
