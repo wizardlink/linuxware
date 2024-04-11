@@ -83,19 +83,14 @@
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
+      # Inject home-manager session variables
+      exec-once = /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
+
       # Execute your favorite apps at launch
       exec-once = ~/.local/share/scripts/hyprland/start_services.sh
 
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
-
-      # Some default env vars.
-      env = XCURSOR_SIZE,36
-      env = QT_QPA_PLATFORM,wayland
-      env = QT_IM_MODULE,fcitx
-      env = GTK_IM_MODULE,fcitx
-      env = SDL_IM_MODULE,fcitx
-      env = XMODIFIERS,@im=fcitx
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
