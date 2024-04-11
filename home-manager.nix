@@ -136,8 +136,7 @@
     dolphin-emu
     path-of-building
     protontricks
-    vkbasalt
-    winePackages.stableFull
+    winePackages.waylandFull
     winetricks
     xonotic
 
