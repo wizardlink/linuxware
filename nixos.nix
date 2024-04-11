@@ -13,6 +13,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Include service configuration
+    ./services/adguardhome.nix
     ./services/caddy.nix
     ./services/jellyfin.nix
   ];
