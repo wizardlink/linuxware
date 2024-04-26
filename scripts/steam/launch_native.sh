@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# https://docs.mesa3d.org/envvars.html
-export AMD_VULKAN_ICD="RADV"
+export MANGOHUD=1
 
-mangohud gamemoderun "$@"
+# https://docs.mesa3d.org/envvars.html
+export MESA_NO_DITHER=1         # Disables dither
+export MESA_BACK_BUFFER=pixmap  # For X only
+
+gamemoderun "$@"
