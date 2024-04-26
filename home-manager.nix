@@ -80,10 +80,10 @@
     tigervnc
     (vesktop.overrideAttrs (prev: {
       src = pkgs.fetchFromGitHub {
-        owner = "kaitlynkittyy";
+        owner = "wizardlink";
         repo = "Vesktop";
-        rev = "006f4e96dea21fee018e446e84a19a92ddabbd1e";
-        hash = "sha256-9kCK8Pi97m/W5alEUZPbjOJxSpYyhw8zqhtCh/2ccf8=";
+        rev = "93c9cc24f88c1dbc50c3ee0569ddbdbaec76d9b3";
+        hash = "sha256-tJyiZ/gAh+mA/UoJq5rzjJxit8lZpkJC74lf1Z5eqFc=";
       };
 
       installPhase =
