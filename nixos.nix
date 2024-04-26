@@ -197,12 +197,11 @@
   ##
   ## DESKTOP ##
   ##
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # Enable GDM.
-  services.xserver.displayManager.sddm = {
+  # Enable SDDM.
+  services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
     theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
   };
 
