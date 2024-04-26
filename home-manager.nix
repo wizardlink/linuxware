@@ -135,9 +135,9 @@
     # Gaming
     airshipper
     dolphin-emu
-    path-of-building
     protontricks
-    winePackages.waylandFull
+    r2modman
+    wineWowPackages.waylandFull
     winetricks
     xonotic
 
