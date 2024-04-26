@@ -46,6 +46,9 @@
       # Vue
       nodePackages.volar
 
+      # Svelte
+      nodePackages.svelte-language-server
+
       # YAML
       yaml-language-server
     ];
