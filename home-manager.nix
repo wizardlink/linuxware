@@ -294,7 +294,7 @@
     enable = true;
 
     theme = {
-      name = "Catppuccin-Frappe-Lavender";
+      name = "Catppuccin-Frappe-Standard-Lavender-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "lavender" ];
         tweaks = [ "rimless" ];
@@ -303,7 +303,7 @@
     };
 
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
         accent = "lavender";
         flavor = "frappe";
@@ -314,7 +314,7 @@
   # Configure QT
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
   };
 
   # Configure XDG
