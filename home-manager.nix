@@ -137,7 +137,7 @@
     dolphin-emu
     protontricks
     r2modman
-    wineWowPackages.waylandFull
+    wineWowPackages.stagingFull
     winetricks
     xonotic
 
