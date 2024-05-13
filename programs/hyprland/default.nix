@@ -251,6 +251,11 @@
       bind = $mainMod SHIFT, J, movewindow, d
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+      
+      # Volume changes
+      binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+      binde = , XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
+      bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
       # Window rules
       windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
