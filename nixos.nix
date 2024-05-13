@@ -185,6 +185,9 @@
     users = [ "wizardlink" ];
   };
 
+  # Enable QMK support.
+  hardware.keyboard.qmk.enable = true;
+
   # Enable xpadneo support.
   hardware.xpadneo.enable = true;
 
@@ -199,6 +202,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+
     theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
   };
 
@@ -315,6 +319,7 @@
     ## Hardware specific
     openrazer-daemon # Razor products back-end
     polychromatic # and it's front-end
+    via
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -329,13 +334,11 @@
   ## SERVICES #
   ##
 
-  services.udev.extraRules = ''
-    # Monsgeek M1
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0005", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-  '';
-
   # Enable flatpak
   services.flatpak.enable = true;
+
+  # Enables VIA
+  services.udev.packages = [ pkgs.via ];
 
   # Enable and configure PostgreSQL.
   services.postgresql = {
