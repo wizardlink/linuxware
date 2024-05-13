@@ -114,7 +114,7 @@
   users.users.wizardlink = {
     createHome = true;
     description = "Alexandre Cavalheiro";
-    extraGroups = [ "networkmanager" "wheel" "postgresql" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "postgresql" "docker" "openrazer" ];
 
     initialPassword = "wizardlink";
     isNormalUser = true;
@@ -314,7 +314,7 @@
 
     ## Hardware specific
     openrazer-daemon # Razor products back-end
-    polychromatic # and it's Front-end
+    polychromatic # and it's front-end
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
