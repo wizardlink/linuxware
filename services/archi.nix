@@ -15,5 +15,11 @@
         CustomGamePlayedWhileIdle = "Out from the fields";
       };
     };
+
+    bots.zak = {
+      enabled = true;
+      passwordFile = /var/lib/archisteamfarm/bots/zak.password;
+      username = "matheuszak";
+    };
   };
 }
