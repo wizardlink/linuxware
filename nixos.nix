@@ -309,6 +309,7 @@
     zoxide
 
     # File managing
+    sshfs
     yazi
 
     ## Libraries
