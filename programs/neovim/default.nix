@@ -14,6 +14,7 @@
 
       # C/C++
       clang-tools
+      gcc # Needed for treesitter
 
       # HTML/CSS
       emmet-ls
