@@ -25,16 +25,19 @@
   fileSystems."/mnt/ssd" = {
     device = "/dev/disk/by-uuid/f27f2224-d351-46fd-89f5-991de36166ad";
     fsType = "ext4";
+    options = [ "defaults" "nofail" ];
   };
 
   fileSystems."/mnt/internal" = {
     device = "/dev/disk/by-uuid/b8541c0d-9146-4388-b217-431f196957cc";
     fsType = "ext4";
+    options = [ "defaults" "nofail" ];
   };
 
   fileSystems."/mnt/media" = {
     device = "/dev/disk/by-uuid/52c17b8b-46c1-4870-b86c-c3b9f4bd4434";
     fsType = "ext4";
+    options = [ "defaults" "nofail" ];
   };
 
   swapDevices = [ ];
