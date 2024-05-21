@@ -73,6 +73,7 @@
     brightnessctl
     discord
     element-desktop
+    fastfetch
     firefox
     pavucontrol
     pulseaudio
@@ -110,7 +111,6 @@
 
     ## Development
     lazygit
-    neofetch
     vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
