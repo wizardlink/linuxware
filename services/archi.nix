@@ -12,7 +12,6 @@
 
       settings = {
         CustomGamePlayedWhileFarming = "In the fields";
-        CustomGamePlayedWhileIdle = "Out from the fields";
       };
     };
 
