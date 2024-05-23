@@ -11,11 +11,11 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true, -- enable autopairs at start
-      cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-      highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      autopairs = true,                              -- enable autopairs at start
+      cmp = true,                                    -- enable completion at start
+      diagnostics_mode = 3,                          -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      highlighturl = true,                           -- highlight URLs at start
+      notifications = true,                          -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -24,15 +24,20 @@ return {
     },
     -- vim options can be configured here
     options = {
-      opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
-        number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = false, -- sets vim.opt.wrap
+      opt = {                 -- vim.opt.<key>
+        autoindent = true,    -- indents automatically based on context
+        expandtab = true,     -- use spaces instead of tabs
         grepprg = "rg --vimgrep", -- use ripgrep on grep actions
+        number = true,        -- sets vim.opt.number
+        relativenumber = true, -- sets vim.opt.relativenumber
+        shiftwidth = 2,       -- how many spaces after indentation
+        signcolumn = "auto",  -- sets vim.opt.signcolumn to auto
+        smartindent = true,   -- smartly indent
+        spell = false,        -- sets vim.opt.spell
+        tabstop = 2,          -- how many spaces to indent when pressing tab
+        wrap = false,         -- sets vim.opt.wrap
       },
-      g = { -- vim.g.<key>
+      g = {                   -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
@@ -58,9 +63,9 @@ return {
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
           function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
+            require("astroui.status.heirline").buffer_picker(function(bufnr)
+              require("astrocore.buffer").close(bufnr)
+            end)
           end,
           desc = "Pick to close",
         },
