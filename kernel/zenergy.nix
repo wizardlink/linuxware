@@ -8,8 +8,8 @@ in stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "BoukeHaarsma23";
     repo = "zenergy";
-    rev = "a3e124477ee8197015481156b90100d49fa3cd84";
-    hash = "sha256-s1aoipSsLKO23kTd2uGxVUpqYSeitiz3UIoDIxg/Dj8=";
+    rev = "d65592b3c9d171ba70e6017e0827191214d81937";
+    hash = "sha256-10hiUHJvLTG3WGrr4WXMo/mCoJGFqWk2l5PryjNhcHg=";
   };
 
   hardeningDisable = [ "format" "pic" ];
