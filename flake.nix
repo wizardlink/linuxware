@@ -8,14 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.40.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, home-manager, hyprland, nixpkgs, ... }@inputs:
+  outputs = { self, home-manager, nixpkgs, ... }@inputs:
     let system = "x86_64-linux";
     in {
       nixosConfigurations."nixos" =
@@ -23,9 +18,6 @@
           specialArgs = inputs;
           modules = [
             ./nixos.nix
-
-            hyprland.nixosModules.default
-            { programs.hyprland.enable = true; }
 
             home-manager.nixosModules.home-manager
             {

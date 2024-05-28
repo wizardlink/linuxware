@@ -206,6 +206,9 @@
     theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
   };
 
+  # Enable Hyprland
+  programs.hyprland.enable = true;
+
   # Enable OpenGL.
   hardware.opengl = {
     enable = true;
