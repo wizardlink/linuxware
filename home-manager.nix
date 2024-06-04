@@ -14,6 +14,7 @@
     ./programs/neovim
     ./programs/obs-studio.nix
     ./programs/rofi
+    ./programs/tmux
     ./programs/waybar.nix
     ./programs/wezterm
   ];
