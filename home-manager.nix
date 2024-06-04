@@ -237,13 +237,10 @@
   ## Theming
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeLavender;
-    name = "Catppuccin-Frappe-Lavender-Cursors";
+    name = "catppuccin-frappe-lavender-cursors";
 
     gtk.enable = true;
-    x11 = {
-      enable = true;
-      defaultCursor = "Catppuccin-Frappe-Lavender-Cursors";
-    };
+    x11.enable = true;
   };
 
   # Configure GTK.
