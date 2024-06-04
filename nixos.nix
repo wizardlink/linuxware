@@ -44,7 +44,7 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -52,7 +52,7 @@
   # TODO: FIX IT BEING BEING OVERWRITTEN
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback
-    (pkgs.callPackage ./kernel/zenergy.nix { kernel = pkgs.linux_zen; })
+    (pkgs.callPackage ./kernel/zenergy.nix { kernel = pkgs.linux_latest; })
   ];
 
   # Bootloader.
