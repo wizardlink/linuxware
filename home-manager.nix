@@ -1,4 +1,4 @@
-{ config, pkgs, custom-neovim, ... }:
+{ pkgs, ... }:
 
 {
   #
@@ -73,13 +73,11 @@
     # Utilities
     brightnessctl
     discord
-    element-desktop
     fastfetch
     firefox
     pavucontrol
-    pulseaudio
     qbittorrent
-    tigervnc
+    qdirstat
     vesktop
     vlc
     yt-dlp
@@ -96,10 +94,7 @@
     spotify
 
     # Gaming
-    airshipper
-    dolphin-emu
     protontricks
-    r2modman
     wineWowPackages.stagingFull
     winetricks
     xonotic
