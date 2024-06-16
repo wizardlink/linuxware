@@ -86,7 +86,6 @@
     # Editing
     krita
     libreoffice
-    logseq
     shotcut
 
     ## Entertainment
