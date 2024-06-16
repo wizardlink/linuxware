@@ -210,6 +210,23 @@
   # Enable Hyprland
   programs.hyprland.enable = true;
 
+  # Enable XDG Desktop Portals.
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+    ];
+
+    config = {
+      common = {
+        default = [
+          "hyprland"
+        ];
+      };
+    };
+  };
+
   # Enable OpenGL.
   hardware.opengl = {
     enable = true;

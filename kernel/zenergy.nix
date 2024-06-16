@@ -1,9 +1,11 @@
 { lib, stdenv, fetchFromGitHub, kernel, kmod }:
 
-let kernelDirectory = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
-in stdenv.mkDerivation {
+let
+  kernelDirectory = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
+in
+stdenv.mkDerivation {
   pname = "zenergy";
-  version = "a3e124477ee8197015481156b90100d49fa3cd84";
+  version = "0-unstable-2024-05-19";
 
   src = fetchFromGitHub {
     owner = "BoukeHaarsma23";
@@ -12,29 +14,29 @@ in stdenv.mkDerivation {
     hash = "sha256-10hiUHJvLTG3WGrr4WXMo/mCoJGFqWk2l5PryjNhcHg=";
   };
 
+  nativeBuildInputs = [ kmod ] ++ kernel.moduleBuildDependencies;
+
   hardeningDisable = [ "format" "pic" ];
 
-  makeFlags = kernel.makeFlags ++ [ "KDIR=${kernelDirectory}" ];
+  makeFlags = kernel.makeFlags ++ [
+    "KDIR=${kernelDirectory}"
+  ];
+
+  makeTargets = [ "modules_install" ];
 
   preBuild = ''
     substituteInPlace Makefile --replace-fail "PWD modules_install" "PWD INSTALL_MOD_PATH=$out modules_install"
   '';
 
-  nativeBuildInputs = [ kmod ] ++ kernel.moduleBuildDependencies;
-
   installPhase = ''
     make modules_install KDIR=${kernelDirectory}
   '';
 
-  outputs = [ "out" ];
-
   meta = with lib; {
-    description =
-      "Based on AMD_ENERGY driver, but with some jiffies added so non-root users can read it safely.";
+    description = "Based on AMD_ENERGY driver, but with some jiffies added so non-root users can read it safely.";
     homepage = "https://github.com/BoukeHaarsma23/zenergy";
     license = licenses.gpl2Only;
     maintainers = with maintainers; [ wizardlink ];
     platforms = platforms.linux;
-    outputsToInstall = [ "out" ];
   };
 }
