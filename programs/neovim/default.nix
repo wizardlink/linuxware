@@ -37,7 +37,7 @@
       nixpkgs-fmt
 
       # TypeScript
-      nodePackages.typescript-language-server
+      (callPackage ../vtsls/package.nix { })
 
       # Rust
       rust-analyzer
