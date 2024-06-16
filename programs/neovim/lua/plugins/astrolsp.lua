@@ -59,8 +59,8 @@ return {
       "rust_analyzer",
       "svelte",
       "taplo",
-      "tsserver",
       "volar",
+      "vtsls",
       "yamlls",
     },
     -- customize language server configuration options passed to `lspconfig`
