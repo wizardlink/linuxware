@@ -19,7 +19,10 @@
   ];
 
   # Enable experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable automatic garbage collection.
   nix.gc = {
@@ -91,15 +94,17 @@
       8211 # Palworld
     ];
 
-    allowedTCPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    } # KDEConnect
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      } # KDEConnect
     ];
-    allowedUDPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    } # KDEConnect
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      } # KDEConnect
     ];
   };
   # Or disable the firewall altogether.
@@ -115,7 +120,13 @@
   users.users.wizardlink = {
     createHome = true;
     description = "Alexandre Cavalheiro";
-    extraGroups = [ "networkmanager" "wheel" "postgresql" "docker" "openrazer" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "postgresql"
+      "docker"
+      "openrazer"
+    ];
 
     initialPassword = "wizardlink";
     isNormalUser = true;
@@ -214,15 +225,11 @@
   xdg.portal = {
     enable = true;
 
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
 
     config = {
       common = {
-        default = [
-          "hyprland"
-        ];
+        default = [ "hyprland" ];
       };
     };
   };

@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, kernel, kmod }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  kernel,
+  kmod,
+}:
 
 let
   kernelDirectory = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
@@ -16,11 +22,12 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ kmod ] ++ kernel.moduleBuildDependencies;
 
-  hardeningDisable = [ "format" "pic" ];
-
-  makeFlags = kernel.makeFlags ++ [
-    "KDIR=${kernelDirectory}"
+  hardeningDisable = [
+    "format"
+    "pic"
   ];
+
+  makeFlags = kernel.makeFlags ++ [ "KDIR=${kernelDirectory}" ];
 
   makeTargets = [ "modules_install" ];
 

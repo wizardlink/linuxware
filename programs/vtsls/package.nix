@@ -1,7 +1,8 @@
-{ lib
-, buildNpmPackage
-, fetchFromGitHub
-, importNpmLock
+{
+  lib,
+  buildNpmPackage,
+  fetchFromGitHub,
+  importNpmLock,
 }:
 
 buildNpmPackage rec {
@@ -28,4 +29,12 @@ buildNpmPackage rec {
   npmConfigHook = importNpmLock.npmConfigHook;
 
   dontNpmPrune = true;
+
+  meta = with lib; {
+    description = "LSP wrapper around TypeScript extension bundled with VSCode.";
+    homepage = "https://github.com/yioneko/vtsls";
+    license = licenses.mit;
+    maintainers = with maintainers; [ wizardlink ];
+    platforms = platforms.all;
+  };
 }

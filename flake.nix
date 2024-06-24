@@ -10,9 +10,17 @@
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, ... }@inputs:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    {
+      self,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
       nixosConfigurations."nixos" =
         let
           specialArgs = inputs;
@@ -31,6 +39,6 @@
         in
         nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
-      formatter."${system}" = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
+      formatter."${system}" = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
     };
 }

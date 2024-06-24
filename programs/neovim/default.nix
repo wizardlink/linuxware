@@ -34,7 +34,7 @@
 
       # Nix
       nil
-      nixpkgs-fmt
+      nixfmt-rfc-style
 
       # TypeScript
       (callPackage ../vtsls/package.nix { })

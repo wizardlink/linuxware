@@ -28,9 +28,13 @@
       zoxide init --cmd cd fish | source
     '';
 
-    shellAbbrs = { z = "zoxide"; };
+    shellAbbrs = {
+      z = "zoxide";
+    };
 
-    shellAliases = { del = "trash_file"; };
+    shellAliases = {
+      del = "trash_file";
+    };
 
     functions = {
       fish_prompt.body = ''

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.waybar = {
     enable = true;
 
@@ -92,7 +93,13 @@
           critical-threshold = 90;
           interval = 5;
           format = "{icon} {temperatureC}°";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           tooltip = false;
         };
 
@@ -110,7 +117,13 @@
           format-charging-full = " {capacity}%";
           format-full = "{icon} {capacity}%";
           format-alt = "{icon} {power}W";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           tooltip = false;
         };
 
