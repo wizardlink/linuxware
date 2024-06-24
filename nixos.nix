@@ -200,8 +200,8 @@
   # Enable QMK support.
   hardware.keyboard.qmk.enable = true;
 
-  # Enable xpadneo support.
-  hardware.xpadneo.enable = true;
+  # Enable the udev rules Steam recommends for controllers.
+  hardware.steam-hardware.enable = true;
 
   # Enable fstrim for better ssd lifespan
   services.fstrim.enable = true;
