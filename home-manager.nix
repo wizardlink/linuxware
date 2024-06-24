@@ -250,13 +250,12 @@
   gtk = {
     enable = true;
 
-    theme = {
-      name = "Catppuccin-Frappe-Standard-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        tweaks = [ "rimless" ];
-        variant = "frappe";
-      };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
     };
 
     iconTheme = {
