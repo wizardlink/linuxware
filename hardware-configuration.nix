@@ -60,6 +60,14 @@
       "nofail"
     ];
   };
+
+  fileSystems."/mnt/extra" = {
+    device = "/dev/disk/by-uuid/0d4ef3e0-7e7a-4a70-bbbc-040fe7aa7c2a";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail"
+    ];
   };
 
   swapDevices = [ ];
