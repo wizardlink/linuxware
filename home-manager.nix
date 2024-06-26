@@ -7,6 +7,7 @@
 
   # Import configurations for better modularity.
   imports = [
+    ./programs/emacs
     ./programs/fish
     ./programs/git.nix
     ./programs/hyprland
