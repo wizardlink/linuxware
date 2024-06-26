@@ -53,7 +53,5 @@ kdeconnect-cli --refresh &
 #
 # Clipboard manager
 #
-wl-paste -w cliphist store &
-
- # Need this to be able to paste in xwayland applications.
-wl-paste -t text -w sh -c 'xclip -selection clipboard -o > /dev/null 2> /dev/null || xclip -selection clipboard'
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
