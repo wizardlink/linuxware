@@ -235,6 +235,12 @@
     };
   };
 
+  # Needed for home-manager
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+    "/share/applications"
+  ];
+
   # Enable OpenGL.
   hardware.graphics = {
     enable = true;
