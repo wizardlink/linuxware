@@ -121,11 +121,12 @@
     createHome = true;
     description = "Alexandre Cavalheiro";
     extraGroups = [
-      "networkmanager"
-      "wheel"
-      "postgresql"
       "docker"
+      "libvirtd"
+      "networkmanager"
       "openrazer"
+      "postgresql"
+      "wheel"
     ];
 
     initialPassword = "wizardlink";
@@ -312,6 +313,10 @@
 
   # Enable Docker.
   virtualisation.docker.enable = true;
+
+  # Enable virt-manager
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
