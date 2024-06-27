@@ -55,10 +55,8 @@
     ];
   };
 
-  xdg.configFile = lib.mkMerge [
-    { "nvim/lua/community.lua".source = ./lua/community.lua; }
-    { "nvim/lua/lazy_setup.lua".source = ./lua/lazy_setup.lua; }
-    { "nvim/lua/plugins".source = ./lua/plugins; }
-    { "nvim/lua/polish.lua".source = ./lua/polish.lua; }
-  ];
+  xdg.configFile."nvim/lua" = {
+    recursive = true;
+    source = ./lua;
+  };
 }
