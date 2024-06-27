@@ -118,7 +118,12 @@
     swww
 
     ## Theming
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FantasqueSansMono"
+        "NerdFontsSymbolsOnly"
+      ];
+    })
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtwayland
     qt6Packages.qtstyleplugin-kvantum
