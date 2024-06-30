@@ -80,15 +80,11 @@
   # Open ports in the firewall.
   networking.firewall = {
     allowedTCPPorts = [
-      11753 # OpenRCT2
-      14004 # Veloren
       443 # SSL
       80 # HTTP
     ];
 
     allowedUDPPorts = [
-      11753 # OpenRCT2
-      14004 # Veloren
       2626 # Dolphin emulator
       27015 # Source games
       8211 # Palworld
