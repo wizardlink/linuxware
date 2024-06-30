@@ -14,6 +14,7 @@ return {
       "gdscript",
       "godot_resource",
       "html",
+      "hyprlang",
       "javascript",
       "jsdoc",
       "lua",
