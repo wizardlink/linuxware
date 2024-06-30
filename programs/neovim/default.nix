@@ -45,7 +45,7 @@
       vscode-extensions.vadimcn.vscode-lldb.adapter
 
       # Vue
-      nodePackages.volar
+      vscode-extensions.vue.volar
 
       # Svelte
       nodePackages.svelte-language-server
