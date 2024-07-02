@@ -178,12 +178,35 @@
   ## DESKTOP ##
   ##
 
+  # Use mutter with triple buffering.
+  nixpkgs.overlays = [
+    (final: prev: {
+      gnome = prev.gnome.overrideScope (
+        gnomeFinal: gnomePrev: {
+          mutter = gnomePrev.mutter.overrideAttrs (old: {
+            src = pkgs.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              owner = "vanvugt";
+              repo = "mutter";
+              rev = "triple-buffering-v4-46";
+              hash = "sha256-5Dow9/wsyeqAQxucegFvPTGIS3jEBFisjSCY3XZronw=";
+            };
+          });
+        }
+      );
+    })
+  ];
+  nixpkgs.config.allowAliases = false;
+
   # Enable GNOME.
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gnome.enable = true;
   };
+
+  # Enable Dconf
+  programs.dconf.enable = true;
 
   # Enable XDG Desktop Portals.
   xdg.portal = {
@@ -326,6 +349,9 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
-  # Enables VIA
-  services.udev.packages = [ pkgs.via ];
+  # Adds specific udev rules.
+  services.udev.packages = with pkgs; [
+    pkgs.via
+    gnome.gnome-settings-daemon
+  ];
 }

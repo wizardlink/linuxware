@@ -72,6 +72,7 @@
     qbittorrent
     vesktop
     vlc
+    xwaylandvideobridge
     yt-dlp
 
     # Editing
@@ -88,10 +89,7 @@
     xonotic
 
     ## Libraries
-    libsForQt5.kdegraphics-thumbnailers
-    libsForQt5.kio-extras
     rnnoise-plugin
-    xwaylandvideobridge
 
     ## Theming
     (nerdfonts.override {
@@ -100,10 +98,6 @@
         "NerdFontsSymbolsOnly"
       ];
     })
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qtwayland
-    qt6Packages.qtstyleplugin-kvantum
-    qt6Packages.qtwayland
   ];
 
   #
@@ -118,28 +112,6 @@
 
     # Configuration for gamemode, for running games with optimizations.
     ".config/gamemode.ini".source = ./programs/gamemode.ini;
-
-    ## Kvantum's theme configuration.
-    ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
-      source = "${
-        pkgs.catppuccin-kvantum.override {
-          accent = "Lavender";
-          variant = "Frappe";
-        }
-      }/share/Kvantum/Catppuccin-Frappe-Lavender";
-    };
-
-    ".config/Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=Catppuccin-Frappe-Lavender
-    '';
-    ##
-
-    ## Themeing configuration for qt5 and qt6
-    ".config/qt5ct/colors".source = ./theming/qt5ct;
-
-    ".config/qt6ct/colors".source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
-    ##
 
     # Configure pipewire for microphone noise supression.
     ".config/pipewire/pipewire.conf.d/99-input-denoising.conf".text = ''
@@ -190,41 +162,18 @@
     ".local/share/scripts".source = ./scripts;
   };
 
-  ## Theming
-  home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.frappeLavender;
-    name = "catppuccin-frappe-lavender-cursors";
+  #
+  ## THEMING #
+  #
 
-    gtk.enable = true;
-    x11.enable = true;
+  # Prefer dark theme for GNOME/GTK4+.
+  dconf = {
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
-  # Configure GTK.
-  gtk = {
-    enable = true;
-
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "lavender";
-        flavor = "frappe";
-      };
-    };
-  };
-
-  # Configure QT
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-  };
+  #
+  ## MISC #
+  #
 
   # Configure XDG
   xdg.mimeApps.defaultApplications = {
