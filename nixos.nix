@@ -52,6 +52,7 @@
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # TODO: FIX IT BEING BEING OVERWRITTEN
   boot.extraModulePackages = [
@@ -207,11 +208,22 @@
   ## DESKTOP ##
   ##
 
+  # Enable XServer
+  services.xserver = {
+    enable = true;
+
+    xrandrHeads = [
+      {
+        output = "DP-2";
+        primary = true;
+      }
+      "DP-3"
+    ];
+  };
+
   # Enable SDDM.
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-
     theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
   };
 
