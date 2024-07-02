@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   programs.fish = {
     enable = true;
@@ -15,15 +13,9 @@
       set -x fish_greeting ""
 
       ## Add directories to $PATH
-      fish_add_path /home/wizardlink/.local/share/scripts \
-          /home/wizardlink/.config/emacs/bin \
-          /home/wizardlink/.spicetify \
-          /home/wizardlink/.nimble/bin \
-          /home/wizardlink/.cargo/bin \
-          /home/wizardlink/.local/bin \
-          /lib/flatpak/exports/bin \
-          /home/wizardlink/.local/share/scripts/burrito \
-          ${pkgs.vscode-extensions.vadimcn.vscode-lldb.adapter}/bin
+      fish_add_path /home/yozawa/.local/share/scripts \
+          /home/yozawa/.local/bin \
+          /lib/flatpak/exports/bin
 
       zoxide init --cmd cd fish | source
     '';

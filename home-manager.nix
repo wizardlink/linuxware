@@ -7,23 +7,19 @@
 
   # Import configurations for better modularity.
   imports = [
-    ./programs/emacs
     ./programs/fish
     ./programs/git.nix
-    ./programs/hyprland
     ./programs/mangohud.nix
     ./programs/neovim
     ./programs/obs-studio.nix
-    ./programs/rofi
     ./programs/tmux
-    ./programs/waybar.nix
     ./programs/wezterm
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "wizardlink";
-  home.homeDirectory = "/home/wizardlink";
+  home.username = "yozawa";
+  home.homeDirectory = "/home/yozawa";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -32,7 +28,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # You can also manage environment variables but you will have to manually
   # source
@@ -41,13 +37,12 @@
   #
   # or
   #
-  #  /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/yozawa/etc/profile.d/hm-session-vars.sh
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
-    XCURSOR_SIZE = 36;
   };
 
   ##
@@ -72,22 +67,15 @@
 
     ## Tools
     # Utilities
-    brightnessctl
-    discord
     fastfetch
     firefox
-    pavucontrol
     qbittorrent
-    qdirstat
     vesktop
     vlc
     yt-dlp
-    zathura
 
     # Editing
-    krita
     libreoffice
-    shotcut
 
     ## Entertainment
     jellyfin-media-player
@@ -105,18 +93,6 @@
     rnnoise-plugin
     xwaylandvideobridge
 
-    ## Development
-    lazygit
-    vscode-extensions.vadimcn.vscode-lldb
-
-    ## Desktop environment
-    cliphist
-    grim
-    mako
-    polkit-kde-agent
-    slurp
-    swww
-
     ## Theming
     (nerdfonts.override {
       fonts = [
@@ -128,32 +104,6 @@
     libsForQt5.qtwayland
     qt6Packages.qtstyleplugin-kvantum
     qt6Packages.qtwayland
-
-    # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
-    (
-      let
-        base = pkgs.appimageTools.defaultFhsEnvArgs;
-      in
-      pkgs.buildFHSUserEnv (
-        base
-        // {
-          name = "fhs";
-          targetPkgs =
-            pkgs:
-            (
-              # pkgs.buildFHSUserEnv provides only a minimal FHS environment,
-              # lacking many basic packages needed by most software.
-              # Therefore, we need to add them manually.
-              #
-              # pkgs.appimageTools provides basic packages required by most software.
-              (base.targetPkgs pkgs) ++ (with pkgs; [ nodejs ])
-            );
-          profile = "export FHS=1";
-          runScript = "bash";
-          extraOutputsToInstall = [ "dev" ];
-        }
-      )
-    )
   ];
 
   #
@@ -168,9 +118,6 @@
 
     # Configuration for gamemode, for running games with optimizations.
     ".config/gamemode.ini".source = ./programs/gamemode.ini;
-
-    # Configuration for mako, a notification daemon.
-    ".config/mako".source = ./programs/mako;
 
     ## Kvantum's theme configuration.
     ".config/Kvantum/Catppuccin-Frappe-Lavender" = {

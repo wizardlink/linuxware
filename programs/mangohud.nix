@@ -95,7 +95,7 @@
       arch = true;
 
       # Where to output log files.
-      output_folder = /home/wizardlink/.config/MangoHud;
+      output_folder = /home/yozawa/.config/MangoHud;
     };
   };
 }

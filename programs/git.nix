@@ -73,11 +73,11 @@
         followTags = true;
       };
 
-      user = {
-        name = "Alexandre Cavalheiro S. Tiago da Silva";
-        email = "contact@thewizard.link";
-        signingkey = "A1D3A2B4E14BD7C0445BB749A5767B54367CFBDF";
-      };
+      # user = {
+      #   name = "";
+      #   email = "";
+      #   signingkey = "";
+      # };
 
       pull = {
         ff = "only";

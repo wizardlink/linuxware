@@ -2,7 +2,7 @@
   description = "NixOS System Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -33,7 +33,7 @@
               home-manager.useUserPackages = true;
 
               home-manager.extraSpecialArgs = inputs;
-              home-manager.users.wizardlink = import ./home-manager.nix;
+              home-manager.users.yozawa = import ./home-manager.nix;
             }
           ];
         in

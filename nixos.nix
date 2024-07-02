@@ -12,10 +12,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Include service configuration
-    ./services/archi.nix
-    ./services/caddy.nix
-    ./services/jellyfin.nix
   ];
 
   # Enable experimental features
@@ -41,7 +37,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
   ##
   ## SYSTEM ##
@@ -74,21 +70,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable WOL on my ethernet interface.
-  networking.interfaces.enp5s0.wakeOnLan.enable = true;
-
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [
-      443 # SSL
-      80 # HTTP
-    ];
+    allowedTCPPorts = [ ];
 
-    allowedUDPPorts = [
-      2626 # Dolphin emulator
-      27015 # Source games
-      8211 # Palworld
-    ];
+    allowedUDPPorts = [ ];
 
     allowedTCPPortRanges = [
       {
@@ -113,40 +99,31 @@
   users.defaultUserShell = pkgs.fish;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.wizardlink = {
+  users.users.yozawa = {
     createHome = true;
-    description = "Alexandre Cavalheiro";
+    description = "Yozawa";
     extraGroups = [
-      "docker"
       "libvirtd"
       "networkmanager"
-      "openrazer"
-      "postgresql"
       "wheel"
     ];
 
-    initialPassword = "wizardlink";
+    initialPassword = "yozawa";
     isNormalUser = true;
 
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdGOyRbu6IOw9yqotxE6m7wCif7oP/2D0tlREa5Q6uo Alexandre Cavalheiro S. Tiago da Silva <contact@thewizard.link>"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISfCUsZrnCMZapdrvkUCrdRiX+1xuZBdGrynNRzDI2v" # SpaceEEC
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPInBFp7zBLhFluoww65CZzcnMdhndTawBv8QYJ5s/Xt david.alejandro.rubio@gmail.com" # Kodehawa
-    ];
+    openssh.authorizedKeys.keys = [ ];
   };
 
   # Set your time zone.
-  time.timeZone = "America/Sao_Paulo";
+  time.timeZone = "Australia/Melbourne";
 
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
       "C.UTF-8/UTF-8"
-      "en_GB.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
-      "ja_JP.UTF-8/UTF-8"
-      "pt_BR.UTF-8/UTF-8"
+      "en_AU.UTF-8/UTF-8"
     ];
 
     extraLocaleSettings = {
@@ -155,12 +132,12 @@
       LC_ALL = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
       LC_MEASUREMENT = "pt_BR.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
+      LC_MONETARY = "en_AU.UTF-8";
       LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "pt_BR.UTF-8";
-      LC_PAPER = "pt_BR.UTF-8";
-      LC_TELEPHONE = "pt_BR.UTF-8";
-      LC_TIME = "en_GB.UTF-8";
+      LC_NUMERIC = "en_AU.UTF-8";
+      LC_PAPER = "en_AU.UTF-8";
+      LC_TELEPHONE = "en_AU.UTF-8";
+      LC_TIME = "en_AU.UTF-8";
     };
   };
 
@@ -188,12 +165,6 @@
   };
   services.blueman.enable = true;
 
-  # Enable openrazer for managing Razer products' configuration
-  hardware.openrazer = {
-    enable = true;
-    users = [ "wizardlink" ];
-  };
-
   # Enable QMK support.
   hardware.keyboard.qmk.enable = true;
 
@@ -207,26 +178,20 @@
   ## DESKTOP ##
   ##
 
-  # Enable SDDM.
-  services.displayManager.sddm = {
+  # Enable GNOME.
+  services.xserver = {
     enable = true;
-    wayland.enable = true;
-
-    theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
+    displayManager.gdm.enable = true;
+    displayManager.gnome.enable = true;
   };
-
-  # Enable Hyprland
-  programs.hyprland.enable = true;
 
   # Enable XDG Desktop Portals.
   xdg.portal = {
     enable = true;
 
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-
     config = {
       common = {
-        default = [ "hyprland" ];
+        default = [ "gtk" ];
       };
     };
   };
@@ -313,9 +278,6 @@
   # Enable KDEConnect
   programs.kdeconnect.enable = true;
 
-  # Enable Docker.
-  virtualisation.docker.enable = true;
-
   # Enable virt-manager
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -327,13 +289,10 @@
     # Utilities
     bat
     btop
-    docker-compose
     duf
     fzf
-    gping
     killall
     lm_sensors
-    nmap
     ripgrep
     tree
     unrar
@@ -344,18 +303,11 @@
     zip
     zoxide
 
-    # File managing
-    sshfs
-    yazi
-
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-    pkgsi686Linux.gperftools # Needed for TF2 rn :(
 
     ## Hardware specific
-    openrazer-daemon # Razor products back-end
-    polychromatic # and it's front-end
     via
   ];
 
@@ -376,32 +328,4 @@
 
   # Enables VIA
   services.udev.packages = [ pkgs.via ];
-
-  # Enable and configure PostgreSQL.
-  services.postgresql = {
-    enable = true;
-
-    identMap = ''
-      # MAP_NAME        SYSTEM_USER     DB_USER
-        superuser_map   root            postgres
-        superuser_map   postgres        postgres
-        superuser_map   /^(.*)$         \1
-    '';
-
-    authentication = pkgs.lib.mkOverride 10 ''
-      # TYPE    DATABASE      USER  ADDRESS         METHOD    MAP
-        local   all           all                   peer      map=superuser_map
-        host    all           all   127.0.0.1/32    md5
-        host    all           all   ::1/128         md5
-        local   replication   all                   peer      map=superuser_map
-        host    replication   all   127.0.0.1/32    ident     map=superuser_map
-        host    replication   all   ::1/128         ident     map=superuser_map
-    '';
-
-    initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE ROLE wizardlink WITH LOGIN SUPERUSER PASSWORD 'wizardlink' CREATEDB CREATEROLE REPLICATION;
-      CREATE DATABASE wizardlink;
-      GRANT ALL PRIVILEGES ON DATABASE wizardlink TO wizardlink;
-    '';
-  };
 }
