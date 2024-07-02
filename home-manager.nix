@@ -47,7 +47,6 @@
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
-    XCURSOR_SIZE = 36;
   };
 
   ##
@@ -107,7 +106,6 @@
 
     ## Development
     lazygit
-    vscode-extensions.vadimcn.vscode-lldb
 
     ## Desktop environment
     cliphist
