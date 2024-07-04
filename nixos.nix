@@ -102,6 +102,8 @@
   users.users.yozawa = {
     createHome = true;
     description = "Yozawa";
+
+    group = "yozawa";
     extraGroups = [
       "libvirtd"
       "networkmanager"
@@ -113,6 +115,7 @@
 
     openssh.authorizedKeys.keys = [ ];
   };
+  users.groups.yozawa = { };
 
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
@@ -189,7 +192,7 @@
               owner = "vanvugt";
               repo = "mutter";
               rev = "triple-buffering-v4-46";
-              hash = "sha256-5Dow9/wsyeqAQxucegFvPTGIS3jEBFisjSCY3XZronw=";
+              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
             };
           });
         }
@@ -202,7 +205,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    displayManager.gnome.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   # Enable Dconf
@@ -226,13 +229,12 @@
   ];
 
   # Enable OpenGL.
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
 
     extraPackages = with pkgs; [
-      rocm-opencl-icd # OpenGL hwa
-      rocm-opencl-runtime
+      rocmPackages.clr.icd
     ];
   };
 
