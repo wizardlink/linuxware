@@ -11,10 +11,11 @@
   };
 
   outputs =
-    { self
-    , home-manager
-    , nixpkgs
-    , ...
+    {
+      self,
+      home-manager,
+      nixpkgs,
+      ...
     }@inputs:
     let
       system = "x86_64-linux";

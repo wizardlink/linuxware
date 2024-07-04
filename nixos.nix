@@ -20,11 +20,15 @@
     "flakes"
   ];
 
-  # Enable automatic garbage collection.
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
+  # Enable nh, a bundle of CLI utilities for NixOS
+  programs.nh = {
+    enable = true;
+
+    # Garbage collection
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+
+    flake = "/home/yozawa/.system";
   };
 
   # Optimize storage
@@ -101,11 +105,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yozawa = {
     createHome = true;
-    description = "Yozawa";
+    description = "yozawa";
 
     group = "yozawa";
     extraGroups = [
-      "libvirtd"
       "networkmanager"
       "wheel"
     ];
@@ -233,9 +236,7 @@
     driSupport = true;
     driSupport32Bit = true;
 
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
   ##
@@ -302,10 +303,6 @@
 
   # Enable KDEConnect
   programs.kdeconnect.enable = true;
-
-  # Enable virt-manager
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
