@@ -7,7 +7,7 @@
 
     bots.wizardlink = {
       enabled = true;
-      passwordFile = /var/lib/archisteamfarm/bots/wizardlink.password;
+      passwordFile = /home/wizardlink/.local/share/archisteamfarm/bots/wizardlink.password;
       username = "master1891891";
 
       settings = {
@@ -17,7 +17,7 @@
 
     bots.zak = {
       enabled = true;
-      passwordFile = /var/lib/archisteamfarm/bots/zak.password;
+      passwordFile = /home/wizardlink/.local/share/archisteamfarm/bots/zak.password;
       username = "matheuszak";
     };
   };
