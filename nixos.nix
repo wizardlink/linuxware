@@ -24,11 +24,15 @@
     "flakes"
   ];
 
-  # Enable automatic garbage collection.
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
+  # Enable nh, a bundle of CLI utilities for NixOS
+  programs.nh = {
+    enable = true;
+
+    # Enable automatic garbage collection.
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+
+    flake = "/home/wizardlink/.system";
   };
 
   # Optimize storage
