@@ -16,12 +16,9 @@
       clang-tools
       gcc # Needed for treesitter
 
-      # HTML/CSS
+      # HTML/CSS/JSON
       emmet-ls
       vscode-langservers-extracted
-
-      # JSON
-      nodePackages_latest.vscode-json-languageserver-bin
 
       # LUA
       lua-language-server
