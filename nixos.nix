@@ -214,7 +214,8 @@
   # Enable SDDM.
   services.displayManager.sddm = {
     enable = true;
-    theme = "${import ./theming/sddm.nix { inherit pkgs; }}";
+    wayland.enable = true;
+    theme = "${import ./theming/sddm { inherit pkgs; }}";
   };
 
   # Enable Hyprland
