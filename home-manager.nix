@@ -96,7 +96,11 @@
     protontricks
     wineWowPackages.stagingFull
     winetricks
+
+    # Games
+    shattered-pixel-dungeon
     xonotic
+    zeroad
 
     ## Libraries
     libsForQt5.kdegraphics-thumbnailers
