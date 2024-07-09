@@ -1,9 +1,7 @@
 #!/bin/sh
 
-export MANGOHUD=1
-
+# I've removed all environment variables
+# but there might be useful ones in the future.
 # https://docs.mesa3d.org/envvars.html
-export MESA_NO_DITHER=1         # Disables dither
-export MESA_BACK_BUFFER=pixmap  # For X only
 
-gamemoderun "$@"
+mangohud gamemoderun "$@"
