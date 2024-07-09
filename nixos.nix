@@ -316,27 +316,38 @@
     ## Tools
     # Utilities
     bat
-    btop
-    docker-compose
     duf
-    fzf
-    gping
-    killall
     lm_sensors
-    nmap
-    ripgrep
     tree
     unrar
     unzip
     wget
-    wl-clipboard
-    xclip
     zip
-    zoxide
 
     # File managing
     sshfs
     yazi
+
+    # Virtualization
+    docker-compose
+    #quickemu - dependency is broken at the moment
+
+    # Desktop
+    wl-clipboard
+    xclip
+    zoxide
+
+    # Networking
+    gping
+    nmap
+
+    # Processes
+    btop
+    killall
+
+    # Filter
+    fzf
+    ripgrep
 
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
