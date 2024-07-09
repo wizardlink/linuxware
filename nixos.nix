@@ -291,7 +291,10 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    # ^ Enables so we can transfer games to other computers in the network.
 
+    # Add Proton-GE to 'compatibilitytools.d'.
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
 
