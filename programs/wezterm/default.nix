@@ -33,7 +33,9 @@
 
         return {
         	color_scheme = "Catppuccin Frappe",
-        	enable_wayland = false, -- Unfortunately broken on Hyprland, AGAIN
+          -- Unfortunately broken on Hyprland, AGAIN
+          -- see https://github.com/wez/wezterm/issues/5604
+        	enable_wayland = false,
         	font = wezterm.font("FantasqueSansM Nerd Font"),
         	font_size = 13,
         	hide_tab_bar_if_only_one_tab = true,
