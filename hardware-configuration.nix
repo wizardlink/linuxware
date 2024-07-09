@@ -16,8 +16,8 @@
     "nvme"
     "xhci_pci"
     "ahci"
-    "usbhid"
     "usb_storage"
+    "usbhid"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
@@ -29,45 +29,37 @@
     fsType = "ext4";
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2EFE-3A26";
-    fsType = "vfat";
+  fileSystems."/mnt/extra" = {
+    device = "/dev/disk/by-uuid/0d4ef3e0-7e7a-4a70-bbbc-040fe7aa7c2a";
+    fsType = "ext4";
+    options = [ "nofail" ];
   };
 
   fileSystems."/mnt/ssd" = {
     device = "/dev/disk/by-uuid/f27f2224-d351-46fd-89f5-991de36166ad";
     fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-    ];
+    options = [ "nofail" ];
   };
 
-  fileSystems."/mnt/internal" = {
-    device = "/dev/disk/by-uuid/b8541c0d-9146-4388-b217-431f196957cc";
-    fsType = "ext4";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/2EFE-3A26";
+    fsType = "vfat";
     options = [
-      "defaults"
-      "nofail"
+      "fmask=0022"
+      "dmask=0022"
     ];
   };
 
   fileSystems."/mnt/media" = {
     device = "/dev/disk/by-uuid/52c17b8b-46c1-4870-b86c-c3b9f4bd4434";
     fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-    ];
+    options = [ "nofail" ];
   };
 
-  fileSystems."/mnt/extra" = {
-    device = "/dev/disk/by-uuid/0d4ef3e0-7e7a-4a70-bbbc-040fe7aa7c2a";
+  fileSystems."/mnt/internal" = {
+    device = "/dev/disk/by-uuid/b8541c0d-9146-4388-b217-431f196957cc";
     fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-    ];
+    options = [ "nofail" ];
   };
 
   swapDevices = [ ];
@@ -77,7 +69,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
