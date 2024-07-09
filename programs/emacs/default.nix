@@ -10,6 +10,13 @@
     fd
 
     pandoc # For org-pandoc
+    (aspellWithDicts (
+      dicts: with dicts; [
+        en
+        pt_BR
+      ]
+    )) # for flyspell
+    languagetool # for grammar
   ];
 
   # Neatly place the configuration files for doom in their right place.
