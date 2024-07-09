@@ -254,6 +254,9 @@
         binde = , XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 1%-
         bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
+        # Passthrough binds
+        bind = SHIFT CTRL, F12, pass, ^(com.obsproject.Studio)$
+
         # Window rules
         windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
         windowrulev2 = noanim,class:^(xwaylandvideobridge)$
