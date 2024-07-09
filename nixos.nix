@@ -56,7 +56,6 @@
 
   # Add AMD drivers.
   boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # TODO: FIX IT BEING BEING OVERWRITTEN
   boot.extraModulePackages = [
@@ -212,19 +211,6 @@
   ## DESKTOP ##
   ##
 
-  # Enable XServer
-  services.xserver = {
-    enable = true;
-
-    xrandrHeads = [
-      {
-        output = "DP-2";
-        primary = true;
-      }
-      "DP-3"
-    ];
-  };
-
   # Enable SDDM.
   services.displayManager.sddm = {
     enable = true;
@@ -262,18 +248,6 @@
       rocm-opencl-icd # OpenGL hwa
       rocm-opencl-runtime
     ];
-  };
-
-  ##
-  ## INPUT ##
-  ##
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
   };
 
   ##
