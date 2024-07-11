@@ -41,8 +41,5 @@ return {
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("otter").activate({ "sh" }, true, true, nil)
-    end,
   },
 }
