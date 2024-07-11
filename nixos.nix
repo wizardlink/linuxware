@@ -73,6 +73,27 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Configure options for mounted volumes.
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+    "/mnt/extra".options = [ "nofail" ];
+    "/mnt/internal".options = [ "nofail" ];
+    "/mnt/media".options = [ "nofail" ];
+    "/mnt/ssd".options = [ "nofail" ];
+  };
+
+  # Enable btrf's auto scrubbing of volumes.
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
 
   # Enable networking
@@ -320,6 +341,7 @@
     ## Tools
     # Utilities
     bat
+    btrfs-progs
     duf
     lm_sensors
     tree
