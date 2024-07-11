@@ -30,7 +30,7 @@
       prettierd
 
       # Nix
-      nil
+      nixd
       nixfmt-rfc-style
 
       # TypeScript

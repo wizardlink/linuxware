@@ -55,7 +55,7 @@ return {
       "jsonls",
       "lua_ls",
       "marksman",
-      "nil_ls",
+      "nixd",
       "rust_analyzer",
       "svelte",
       "taplo",
@@ -67,6 +67,21 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      nixd = {
+        settings = {
+          nixd = {
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake ("git+file:///home/wizardlink/.system")).nixosConfigurations.nixos.options',
+              },
+              home_manager = {
+                expr =
+                '(builtins.getFlake ("git+file:///home/wizardlink/.system")).homeConfigurations.wizardlink.options',
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
