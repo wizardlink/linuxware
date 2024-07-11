@@ -17,6 +17,7 @@
       ]
     )) # for flyspell
     languagetool # for grammar
+    ledger # for accounting and org-ledger
   ];
 
   # Neatly place the configuration files for doom in their right place.
