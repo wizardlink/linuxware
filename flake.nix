@@ -11,34 +11,26 @@
   };
 
   outputs =
-    {
-      self,
-      home-manager,
-      nixpkgs,
-      ...
-    }@inputs:
+    { home-manager, nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations."nixos" =
         let
           specialArgs = inputs;
-          modules = [
-            ./nixos.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.extraSpecialArgs = inputs;
-              home-manager.users.wizardlink = import ./home-manager.nix;
-            }
-          ];
+          modules = [ ./nixos.nix ];
         in
         nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
-      formatter."${system}" = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      homeConfigurations.wizardlink = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = inputs;
+        modules = [ ./home-manager.nix ];
+      };
+
+      formatter."${system}" = pkgs.nixfmt-rfc-style;
     };
 }
