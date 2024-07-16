@@ -280,10 +280,7 @@
 
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "lavender";
-        flavor = "frappe";
-      };
+      package = pkgs.papirus-icon-theme.override { color = "violet"; };
     };
   };
 
