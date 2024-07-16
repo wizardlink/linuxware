@@ -143,6 +143,7 @@
     description = "Alexandre Cavalheiro";
     extraGroups = [
       "docker"
+      "gamemode"
       "libvirtd"
       "networkmanager"
       "openrazer"
