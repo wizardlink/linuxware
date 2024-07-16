@@ -79,6 +79,7 @@
     pavucontrol
     qbittorrent
     qdirstat
+    speedcrunch
     vesktop
     vlc
     yt-dlp
@@ -240,6 +241,14 @@
 
       dxvk.enableAsync = True
     '';
+
+    ".local/share/SpeedCrunch/color-schemes/catppuccin-frappe.json" = {
+      recursive = true;
+      source = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/catppuccin/speedcrunch/34f2b382de0188d2fd85f59a8a366f313fc30a71/themes/catppuccin-frappe.json";
+        sha256 = "sha256:0imx5a53p3ls5kddplgr7mbpbidrmzl9qiwpv7r8jjmsf8yxs0i4";
+      };
+    };
 
     # My utility scripts
     ".local/share/scripts".source = ./scripts;
