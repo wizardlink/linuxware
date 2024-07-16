@@ -272,6 +272,12 @@
     ];
   };
 
+  # Enable Thunar and it's dependencies
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true; # For configuring
+  services.gvfs.enable = true; # For mounting drives, trash, etc.
+  services.tumbler.enable = true; # Thumbnail support
+
   ##
   ## SOUND #
   ##
