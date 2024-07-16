@@ -355,7 +355,7 @@
 
     # Virtualization
     docker-compose
-    #quickemu - dependency is broken at the moment
+    quickemu
 
     # Desktop
     wl-clipboard
