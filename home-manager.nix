@@ -15,6 +15,7 @@
     ./programs/neovim
     ./programs/obs-studio.nix
     ./programs/rofi
+    ./programs/spotify
     ./programs/tmux
     ./programs/waybar.nix
     ./programs/wezterm
@@ -90,7 +91,6 @@
 
     ## Entertainment
     jellyfin-media-player
-    spotify
 
     # Gaming
     protontricks
