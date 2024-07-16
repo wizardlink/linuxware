@@ -251,7 +251,10 @@
     };
 
     # My utility scripts
-    ".local/share/scripts".source = ./scripts;
+    ".local/share/scripts" = {
+      source = ./scripts;
+      recursive = true;
+    };
   };
 
   ## Theming
