@@ -246,6 +246,10 @@
         bind = $mainMod SHIFT, L, movewindow, r
         bind = $mainMod SHIFT, K, movewindow, u
         bind = $mainMod SHIFT, J, movewindow, d
+        bind = $mainMod ALT, H, resizeactive, -5% 0
+        bind = $mainMod ALT, L, resizeactive, 5% 0
+        bind = $mainMod ALT, K, resizeactive, 0 -5%
+        bind = $mainMod ALT, J, resizeactive, 0 5%
         bindm = $mainMod, mouse:272, movewindow
         bindm = $mainMod, mouse:273, resizewindow
 
