@@ -291,11 +291,12 @@
 
   # Configure XDG
   xdg.mimeApps.defaultApplications = {
-    "text/html" = "firefox";
-    "video/x-matroska" = "vlc";
-    "x-scheme-handler/about" = "firefox";
-    "x-scheme-handler/http" = "firefox";
-    "x-scheme-handler/https" = "firefox";
-    "x-scheme-handler/unknown" = "firefox";
+    "text/html" = [ "firefox.desktop" ];
+    "video/mp4" = [ "vlc.desktop" ];
+    "video/x-matroska" = [ "vlc.desktop" ];
+    "x-scheme-handler/about" = [ "firefox.desktop" ];
+    "x-scheme-handler/http" = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
+    "x-scheme-handler/unknown" = [ "firefox.desktop" ];
   };
 }
