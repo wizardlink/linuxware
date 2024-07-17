@@ -1,15 +1,13 @@
 { pkgs, spicetify-nix, ... }:
 
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
-  imports = [ spicetify-nix.homeManagerModule ];
-
-  home.packages = with pkgs; [ spotify ];
+  imports = [ spicetify-nix.homeManagerModules.default ];
 
   programs.spicetify = {
-    enable = false; # Currently broken, see https://github.com/the-argus/spicetify-nix/issues/62
+    enable = true;
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "frappe";
 
