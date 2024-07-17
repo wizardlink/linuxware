@@ -6,8 +6,10 @@ in
 {
   imports = [ spicetify-nix.homeManagerModule ];
 
+  home.packages = with pkgs; [ spotify ];
+
   programs.spicetify = {
-    enable = true;
+    enable = false; # Currently broken, see https://github.com/the-argus/spicetify-nix/issues/62
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "frappe";
 
