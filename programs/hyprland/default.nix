@@ -198,7 +198,7 @@
         bind = $mainMod SHIFT, F, fullscreen, 1
         bind = $mainMod SHIFT, P, exec, ~/.local/share/scripts/hyprland/screenshot.sh
         bind = $mainMod, C, killactive
-        bind = $mainMod, E, exec, wezterm start fish -c "ya"
+        bind = $mainMod, E, exec, thunar
         bind = $mainMod, F, fullscreen
         bind = $mainMod, M, exit
         bind = $mainMod, O, togglesplit # dwindle
