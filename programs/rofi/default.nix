@@ -20,7 +20,7 @@
       modi = "run,drun,window";
       show-icons = true;
       sidebar-mode = true;
-      terminal = "wezterm";
+      terminal = "alacritty";
     };
 
     theme = ./catppuccin-frappe.rasi;

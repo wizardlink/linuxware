@@ -203,7 +203,7 @@
         bind = $mainMod, M, exit
         bind = $mainMod, O, togglesplit # dwindle
         bind = $mainMod, P, pseudo # dwindle
-        bind = $mainMod, Q, exec, wezterm
+        bind = $mainMod, Q, exec, alacritty
         bind = $mainMod, R, exec, rofi -show drun
         bind = $mainMod, V, togglefloating
 

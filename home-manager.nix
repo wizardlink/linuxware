@@ -7,6 +7,7 @@
 
   # Import configurations for better modularity.
   imports = [
+    ./programs/alacritty.nix
     ./programs/emacs
     ./programs/fish
     ./programs/git.nix
@@ -18,7 +19,6 @@
     ./programs/spotify
     ./programs/tmux
     ./programs/waybar.nix
-    ./programs/wezterm
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
