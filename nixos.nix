@@ -106,12 +106,14 @@
   networking.firewall = {
     allowedTCPPorts = [
       443 # SSL
+      6567 # Mindustry
       80 # HTTP
     ];
 
     allowedUDPPorts = [
       2626 # Dolphin emulator
       27015 # Source games
+      6567 # Mindustry
       8211 # Palworld
     ];
 

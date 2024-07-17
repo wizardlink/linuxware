@@ -99,6 +99,7 @@
     winetricks
 
     # Games
+    mindustry-wayland
     shattered-pixel-dungeon
     xonotic
 
