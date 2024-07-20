@@ -98,3 +98,6 @@
 ;; Configure doom-themes with treemacs
 (with-eval-after-load 'doom-themes
   (doom-themes-treemacs-config))
+
+;; Configure elfeed-org
+(setq rmh-elfeed-org-files '("/home/wizardlink/Documents/notes/elfeed.org"))

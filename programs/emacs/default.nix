@@ -16,6 +16,7 @@
         pt_BR
       ]
     )) # for flyspell
+    gnuplot # for plotting graphs
     languagetool # for grammar
     ledger # for accounting and org-ledger
   ];
