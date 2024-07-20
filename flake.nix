@@ -13,19 +13,29 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
-    { home-manager, nixpkgs, ... }@inputs:
+    {
+      home-manager,
+      nixpkgs,
+      catppuccin,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations."nixos" =
+      nixosConfigurations."wizdesk" =
         let
           specialArgs = inputs;
-          modules = [ ./nixos.nix ];
+          modules = [
+            ./nixos.nix
+            catppuccin.nixosModules.catppuccin
+          ];
         in
         nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
 
@@ -33,7 +43,10 @@
         inherit pkgs;
 
         extraSpecialArgs = inputs;
-        modules = [ ./home-manager.nix ];
+        modules = [
+          ./home-manager.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
       };
 
       formatter."${system}" = pkgs.nixfmt-rfc-style;

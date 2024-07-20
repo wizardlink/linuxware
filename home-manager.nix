@@ -19,6 +19,8 @@
     ./programs/spotify
     ./programs/tmux
     ./programs/waybar.nix
+    # Enable catppuccin theme everywhere
+    ./theming/catppuccin.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -166,35 +168,11 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # Cattpuccin theme for fish shell.
-    ".config/fish/themes/Catppuccin-Frappe.theme".source = ./programs/fish/Catppuccin-Frappe.theme;
-
     # Configuration for gamemode, for running games with optimizations.
     ".config/gamemode.ini".source = ./programs/gamemode.ini;
 
     # Configuration for mako, a notification daemon.
     ".config/mako".source = ./programs/mako;
-
-    ## Kvantum's theme configuration.
-    ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
-      source = "${
-        pkgs.catppuccin-kvantum.override {
-          accent = "Lavender";
-          variant = "Frappe";
-        }
-      }/share/Kvantum/Catppuccin-Frappe-Lavender";
-    };
-
-    ".config/Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=Catppuccin-Frappe-Lavender
-    '';
-    ##
-
-    ## Themeing configuration for qt5 and qt6
-    ".config/qt5ct/colors".source = ./theming/qt5ct;
-
-    ".config/qt6ct/colors".source = ./theming/qt5ct; # We use the qt5ct because it's the SAME spec
     ##
 
     # Configure pipewire for microphone noise supression.
@@ -287,7 +265,8 @@
   # Configure QT
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
   # Configure XDG

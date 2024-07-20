@@ -16,6 +16,8 @@
     ./services/archi.nix
     ./services/caddy.nix
     ./services/jellyfin.nix
+    # Enable catppuccin theme everywhere
+    ./theming/catppuccin.nix
   ];
 
   # Enable experimental features
@@ -94,7 +96,7 @@
     fileSystems = [ "/" ];
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "wizdesk"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -238,8 +240,8 @@
   # Enable SDDM.
   services.displayManager.sddm = {
     enable = true;
+    package = pkgs.kdePackages.sddm;
     wayland.enable = true;
-    theme = "${import ./theming/sddm { inherit pkgs; }}";
   };
 
   # Enable Hyprland
