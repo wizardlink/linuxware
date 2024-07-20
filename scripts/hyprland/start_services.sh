@@ -55,3 +55,8 @@ kdeconnect-cli --refresh &
 #
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
+
+#
+# Start the blueman applet for managing bluetooth devices
+#
+blueman-applet &
