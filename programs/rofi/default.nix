@@ -22,5 +22,7 @@
       sidebar-mode = true;
       terminal = "alacritty";
     };
+
+    theme = ./catppuccin-frappe.rasi;
   };
 }
