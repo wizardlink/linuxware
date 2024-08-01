@@ -261,7 +261,7 @@
         # Passthrough binds
         bind = SHIFT CTRL, F12, pass, ^(com.obsproject.Studio)$
 
-        # Window rules
+        # Window rules for xwaylandvideobridge
         windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
         windowrulev2 = noanim,class:^(xwaylandvideobridge)$
         windowrulev2 = nofocus,class:^(xwaylandvideobridge)$

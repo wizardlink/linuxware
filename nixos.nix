@@ -2,8 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  hyprland,
+  ...
+}:
 
+let
+  hyprland-pkgs = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   ##
   ## NIXOS ##
@@ -38,6 +46,12 @@
   # Optimize storage
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
+
+  # Enable Hyprland's cachix
+  nix.settings.substituters = [ "https://hyprland.cachix.org" ];
+  nix.settings.trusted-public-keys = [
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -243,13 +257,14 @@
   };
 
   # Enable Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  };
 
   # Enable XDG Desktop Portals.
   xdg.portal = {
     enable = true;
-
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
 
     config = {
       common = {
@@ -268,6 +283,9 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    package = hyprland-pkgs.mesa.drivers;
+    package32 = hyprland-pkgs.pkgsi686Linux.mesa.drivers;
 
     extraPackages = with pkgs; [
       rocm-opencl-icd # OpenGL hwa
@@ -319,6 +337,7 @@
   # Enable Steam.
   programs.steam = {
     enable = true;
+
     remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     # ^ Enables so we can transfer games to other computers in the network.

@@ -13,6 +13,8 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs =
@@ -22,7 +24,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations."nixos" =
+      nixosConfigurations.wizdesk =
         let
           specialArgs = inputs;
           modules = [ ./nixos.nix ];
