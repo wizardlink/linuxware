@@ -3,7 +3,5 @@
     enable = true;
     openFirewall = true;
     user = "wizardlink";
-
-    cacheDir = "/mnt/media/jellyfin/cache";
   };
 }
