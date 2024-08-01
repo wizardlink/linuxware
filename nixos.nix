@@ -108,7 +108,7 @@ in
     fileSystems = [ "/" ];
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "wizdesk"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
