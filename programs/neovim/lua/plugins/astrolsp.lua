@@ -60,7 +60,7 @@ return {
       "svelte",
       "taplo",
       "volar",
-      "vtsls",
+      "tsserver",
       "yamlls",
     },
     -- customize language server configuration options passed to `lspconfig`
@@ -72,7 +72,7 @@ return {
           nixd = {
             options = {
               nixos = {
-                expr = '(builtins.getFlake ("git+file:///home/wizardlink/.system")).nixosConfigurations.nixos.options',
+                expr = '(builtins.getFlake ("git+file:///home/wizardlink/.system")).nixosConfigurations.wizdesk.options',
               },
               home_manager = {
                 expr =
@@ -80,6 +80,22 @@ return {
               },
             },
           },
+        },
+      },
+      tsserver = {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = {}, -- Means we need @vue/typescript-plugin in node_modules
+              languages = { "javascript", "typescript", "vue" },
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue",
         },
       },
     },

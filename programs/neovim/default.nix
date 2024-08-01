@@ -34,7 +34,7 @@
       nixfmt-rfc-style
 
       # TypeScript
-      (callPackage ../vtsls/package.nix { })
+      typescript-language-server
 
       # Rust
       rust-analyzer
@@ -42,7 +42,7 @@
       vscode-extensions.vadimcn.vscode-lldb.adapter
 
       # Vue
-      vscode-extensions.vue.volar
+      vue-language-server
 
       # Svelte
       nodePackages.svelte-language-server
