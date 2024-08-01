@@ -1,9 +1,12 @@
 { pkgs, lib, ... }:
 
-{
-  programs.emacs.enable = true;
+let
+  packagesNeeded = with pkgs; [
+    # CORE
+    git
+    emacs
+    ripgrep
 
-  home.packages = with pkgs; [
     # Optional for DOOM
     clang
     coreutils
@@ -16,37 +19,32 @@
         pt_BR
       ]
     )) # for flyspell
-    gnuplot # for plotting graphs
+    gnuplot_qt # for plotting graphs
     languagetool # for grammar
     ledger # for accounting and org-ledger
+    gzip # Otherwise random errors occur from the onChange script
   ];
+in
+{
+  home.packages = packagesNeeded;
 
   # Neatly place the configuration files for doom in their right place.
-  xdg.configFile."doom" =
-    let
-      # What DOOM needs to be able to install/sync.
-      packagesNeeded = with pkgs; [
-        git
-        emacs
-        ripgrep
-      ];
-    in
-    {
-      source = ./doom;
-      recursive = true;
+  xdg.configFile."doom" = {
+    source = ./doom;
+    recursive = true;
 
-      onChange = # sh
-        ''
-          # Need to set this so DOOM can find all binaries.
-          export PATH="${lib.strings.concatMapStrings (x: x + "/bin:") packagesNeeded}$PATH"
+    onChange = # sh
+      ''
+        # Need to set this so DOOM can find all binaries.
+        export PATH="${lib.strings.concatMapStrings (x: x + "/bin:") packagesNeeded}$PATH"
 
-          if [ ! -d "$HOME/.emacs.d" ]; then
-            git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
-            $HOME/.emacs.d/bin/doom install
-          else
-            # Needed to apply the configuration changes.
-            $HOME/.emacs.d/bin/doom sync
-          fi
-        '';
-    };
+        if [ ! -d "$HOME/.emacs.d" ]; then
+          git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+          $HOME/.emacs.d/bin/doom install
+        else
+          # Needed to apply the configuration changes.
+          $HOME/.emacs.d/bin/doom sync
+        fi
+      '';
+  };
 }
