@@ -73,10 +73,10 @@
     ## Tools
     # Utilities
     brightnessctl
-    discord
     fastfetch
     firefox
     pavucontrol
+    protonvpn-gui
     qbittorrent
     qdirstat
     speedcrunch
@@ -86,9 +86,15 @@
     zathura
 
     # Editing
-    krita
     libreoffice
+
+    # Creative work
+    blender
+    krita
+    lmms
+    orca-slicer
     shotcut
+    vcv-rack
 
     ## Entertainment
     jellyfin-media-player
