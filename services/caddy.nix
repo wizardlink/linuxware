@@ -2,6 +2,7 @@
 {
   services.caddy = {
     enable = true;
+    email = "contact@thewizard.link";
 
     virtualHosts."thewizard.link".extraConfig = ''
       redir https://github.com/wizardlink/
