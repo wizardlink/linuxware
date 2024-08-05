@@ -16,6 +16,10 @@
       }
     '';
 
+    virtualHosts."jellyseerr.thewizard.link".extraConfig = ''
+      reverse_proxy http://127.0.0.1:5055
+    '';
+
     virtualHosts."foundry.thewizard.link".extraConfig = ''
       reverse_proxy 127.0.0.1:30000 {
           flush_interval -1
