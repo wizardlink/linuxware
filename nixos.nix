@@ -375,6 +375,7 @@ in
     btrfs-progs
     duf
     lm_sensors
+    p7zip
     tree
     unrar
     unzip
