@@ -237,10 +237,11 @@ in
   };
 
   # Enable QMK support.
-  hardware.keyboard.qmk.enable = true;
+  # hardware.keyboard.qmk.enable = true;
+  # FIXME: Causing issues with xpadneo :(
 
-  # Enable the udev rules Steam recommends for controllers.
-  hardware.steam-hardware.enable = true;
+  # enable a better driver for wireless xbox controllers.
+  hardware.xpadneo.enable = true;
 
   # Enable fstrim for better ssd lifespan
   services.fstrim.enable = true;
@@ -259,6 +260,7 @@ in
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
+
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
@@ -429,7 +431,8 @@ in
   services.flatpak.enable = true;
 
   # Enables VIA
-  services.udev.packages = [ pkgs.via ];
+  # services.udev.packages = [ pkgs.via ];
+  # FIXME: Causing issues with xpadneo :(
 
   # Enable and configure PostgreSQL.
   services.postgresql = {
