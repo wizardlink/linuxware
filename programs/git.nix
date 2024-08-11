@@ -42,15 +42,6 @@
         ui = "auto";
       };
 
-      commit = {
-        # https://help.github.com/articles/signing-commits-using-gpg/
-        gpgsign = true;
-      };
-
-      tag = {
-        gpgsign = true;
-      };
-
       difftool = {
         prompt = true;
       };
@@ -73,11 +64,10 @@
         followTags = true;
       };
 
-      # user = {
-      #   name = "";
-      #   email = "";
-      #   signingkey = "";
-      # };
+      user = {
+        name = "codiecher";
+        email = "cocher525@gmail.com";
+      };
 
       pull = {
         ff = "only";
