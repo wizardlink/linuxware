@@ -86,6 +86,7 @@
     quickemu
     vesktop
     xwaylandvideobridge
+    yazi
     yt-dlp
     zerotierone
 
