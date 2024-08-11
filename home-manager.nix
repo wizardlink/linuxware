@@ -66,27 +66,43 @@
     # '')
 
     ## Tools
+
+    # GNOME Stuff
+    gnome-extension-manager
+    gnome.gnome-tweaks
+
     # Utilities
+    (pkgs.citrix_workspace_23_09_0.overrideAttrs (
+      final: old: { buildInputs = old.buildInputs ++ [ pkgs.webkitgtk ]; }
+    ))
+    geekbench
+    gparted
     fastfetch
     firefox
+    obs-cmd
+    losslesscut-bin
+    sunshine
     qbittorrent
+    quickemu
     vesktop
-    vlc
     xwaylandvideobridge
     yt-dlp
+    zerotierone
+
+    # Media Viewer
+    feh
+    mpv
 
     # Editing
     libreoffice
 
     ## Entertainment
     jellyfin-media-player
-    spotify
 
     # Gaming
     protontricks
     wineWowPackages.stagingFull
     winetricks
-    xonotic
 
     ## Libraries
     rnnoise-plugin

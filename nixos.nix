@@ -48,16 +48,16 @@
   ##
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Add AMD drivers.
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
-  # TODO: FIX IT BEING BEING OVERWRITTEN
-  boot.extraModulePackages = [
-    config.boot.kernelPackages.v4l2loopback
-    (pkgs.callPackage ./kernel/zenergy.nix { kernel = pkgs.linux_zen; })
+  boot.initrd.kernelModules = [
+    "amdgpu"
+    "kvm-intel"
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   # Bootloader.
   boot.loader = {
@@ -111,6 +111,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "gamemode"
     ];
 
     initialPassword = "yozawa";
@@ -184,24 +185,6 @@
   ## DESKTOP ##
   ##
 
-  # Use mutter with triple buffering.
-  nixpkgs.overlays = [
-    (final: prev: {
-      gnome = prev.gnome.overrideScope (
-        gnomeFinal: gnomePrev: {
-          mutter = gnomePrev.mutter.overrideAttrs (old: {
-            src = pkgs.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              owner = "vanvugt";
-              repo = "mutter";
-              rev = "triple-buffering-v4-46";
-              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-            };
-          });
-        }
-      );
-    })
-  ];
   nixpkgs.config.allowAliases = false;
 
   # Enable GNOME.
@@ -283,6 +266,9 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  #Enable Onedrive
+  services.onedrive.enable = true;
 
   # Enable fish system-wide to integrate with nixpkgs.
   programs.fish.enable = true;
