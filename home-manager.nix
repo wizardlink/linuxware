@@ -85,6 +85,7 @@
     qbittorrent
     quickemu
     vesktop
+    xournalpp
     xwaylandvideobridge
     yazi
     yt-dlp
