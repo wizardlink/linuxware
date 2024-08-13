@@ -42,4 +42,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  {
+    "ledger/vim-ledger",
+  },
 }
