@@ -82,6 +82,7 @@
 
       # Execute your favorite apps at launch
       exec-once = ~/.local/share/scripts/hyprland/start_services.sh
+      exec = ~/.local/share/scripts/hyprland/start_apps.sh
 
       # Set cursor size.
       env = HYPRCURSOR_SIZE, 36
