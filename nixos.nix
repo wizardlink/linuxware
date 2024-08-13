@@ -127,6 +127,7 @@ in
     allowedUDPPorts = [
       2626 # Dolphin emulator
       27015 # Source games
+      28910 # Heretic II
       6567 # Mindustry
       8211 # Palworld
     ];
@@ -374,6 +375,7 @@ in
     bat
     btrfs-progs
     duf
+    fuseiso
     lm_sensors
     p7zip
     tree
