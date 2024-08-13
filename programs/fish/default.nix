@@ -35,6 +35,7 @@
     shellAliases = {
       del = "trash_file";
       dev = "nix develop -c fish";
+      doom = "~/.emacs.d/bin/doom";
     };
 
     functions = {
