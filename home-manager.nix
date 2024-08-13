@@ -80,10 +80,13 @@
     qbittorrent
     qdirstat
     speedcrunch
-    vesktop
     vlc
     yt-dlp
     zathura
+
+    # Personal utilities
+    ledger
+    vesktop
 
     # Editing
     libreoffice
