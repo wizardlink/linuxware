@@ -82,6 +82,7 @@
     firefox
     obs-cmd
     losslesscut-bin
+    samba
     sunshine
     protonvpn-cli_2
     qbittorrent

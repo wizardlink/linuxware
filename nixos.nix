@@ -269,6 +269,10 @@
   #Enable Onedrive
   services.onedrive.enable = true;
 
+  # Allow spice usb
+  virtualisation.spiceUSBRedirection.enable = true;
+  services.spice-vdagentd.enable = true;
+
   # Enable fish system-wide to integrate with nixpkgs.
   programs.fish.enable = true;
 
