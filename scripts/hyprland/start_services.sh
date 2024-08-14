@@ -11,6 +11,16 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 /nix/store/$(ls -la /nix/store | rg '^d.*polkit-kde-agent.*\d$' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
 
 #
+# Start waybar.
+#
+waybar &
+
+#
+# Start xwaylandvideobridge
+#
+xwaylandvideobridge &
+
+#
 ## Start wallpaper daemon and set one.
 #
 OUTPUT_1="DP-2"
