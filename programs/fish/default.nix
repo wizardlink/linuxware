@@ -26,6 +26,11 @@
 
     shellAliases = {
       del = "trash_file";
+      add-alias = "nvim ~/.system/programs/fish/default.nix";
+      global = "nvim ~/.system/nixos.nix";
+      homeman = "nvim ~/.system/home-manager.nix";
+      winvm = "quickemu --vm ~/vmfuck/windows-10.conf --display spice";
+      upd = "nh os switch -u";
     };
 
     functions = {

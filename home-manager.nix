@@ -76,17 +76,17 @@
     (pkgs.citrix_workspace_23_09_0.overrideAttrs (
       final: old: { buildInputs = old.buildInputs ++ [ pkgs.webkitgtk ]; }
     ))
-    geekbench
-    gparted
     fastfetch
     firefox
-    obs-cmd
+    geekbench
+    gparted
     losslesscut-bin
-    samba
-    sunshine
+    menulibre
+    obs-cmd
     protonvpn-cli_2
     qbittorrent
     quickemu
+    sunshine
     vesktop
     xournalpp
     xwaylandvideobridge
@@ -119,6 +119,34 @@
         "NerdFontsSymbolsOnly"
       ];
     })
+
+    # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
+
+    (
+      let
+        base = appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSEnv (
+        base
+        // {
+          name = "fhs";
+          targetPkgs =
+            pkgs:
+            (
+              # pkgs.buildFHSUserEnv provides only a minimal FHS environment,
+              # lacking many basic packages needed by most software.
+              # Therefore, we need to add them manually.
+              #
+              # pkgs.appimageTools provides basic packages required by most software.
+              (base.targetPkgs pkgs) ++ (with pkgs; [ ])
+            );
+          profile = "export FHS=1";
+          runScript = "bash";
+          extraOutputsToInstall = [ "dev" ];
+        }
+      )
+    )
+
   ];
 
   #
@@ -205,4 +233,5 @@
     "x-scheme-handler/https" = "firefox";
     "x-scheme-handler/unknown" = "firefox";
   };
+
 }
