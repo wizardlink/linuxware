@@ -255,7 +255,8 @@ in
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "${import ./theming/sddm { inherit pkgs; }}";
+    theme = "catppuccin-frappe";
+    package = pkgs.kdePackages.sddm;
   };
 
   # Enable Hyprland
@@ -396,6 +397,15 @@ in
     wl-clipboard
     xclip
     zoxide
+    (catppuccin-sddm.override # So SDDM finds the theme files.
+      {
+        flavor = "frappe";
+        font = "FantasqueSansM Nerd Font";
+        fontSize = "12";
+        background = "${./theming/sddm/Background.jpg}";
+        loginBackground = true;
+      }
+    )
 
     # Networking
     gping
