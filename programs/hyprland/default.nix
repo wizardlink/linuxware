@@ -1,68 +1,133 @@
 {
+  xdg.configFile."hypr/frappe.conf".source = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/catppuccin/hyprland/main/themes/frappe.conf";
+    sha256 = "1clw669i1n3dhawdw4clmjv75fy3smycb5iqk3sanzpr3y0i4vwx";
+  };
+
+  # Enable hypridle and hyprlock
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
+        lock_cmd = "hyprlock";
+      };
+
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 480;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    extraConfig = # hyprlang
+      ''
+        source = $HOME/.config/hypr/frappe.conf
+
+        $accent = $mauve
+        $accentAlpha = $mauveAlpha
+        $font = JetBrainsMono Nerd Font
+
+        # GENERAL
+        general {
+          disable_loading_bar = true
+          hide_cursor = true
+        }
+
+        # BACKGROUND
+        background {
+          monitor =
+          path = $HOME/internal/personal/wallpapers/wallhaven-2em8y6.jpg
+          blur_passes = 0
+          color = $base
+        }
+
+        # LAYOUT
+        label {
+          monitor =
+          text = Layout: $LAYOUT
+          color = $text
+          font_size = 25
+          font_family = $font
+          position = 30, -30
+          halign = left
+          valign = top
+        }
+
+        # TIME
+        label {
+          monitor =
+          text = $TIME
+          color = $text
+          font_size = 90
+          font_family = $font
+          position = -30, 0
+          halign = right
+          valign = top
+        }
+
+        # DATE
+        label {
+          monitor =
+          text = cmd[update:43200000] date +"%A, %d %B %Y"
+          color = $text
+          font_size = 25
+          font_family = $font
+          position = -30, -150
+          halign = right
+          valign = top
+        }
+
+        # USER AVATAR
+        image {
+          monitor =
+          path = $HOME/.face
+          size = 100
+          border_color = $accent
+          position = 0, 75
+          halign = center
+          valign = center
+        }
+
+        # INPUT FIELD
+        input-field {
+          monitor =
+          size = 300, 60
+          outline_thickness = 4
+          dots_size = 0.2
+          dots_spacing = 0.2
+          dots_center = true
+          outer_color = $accent
+          inner_color = $surface0
+          font_color = $text
+          fade_on_empty = false
+          placeholder_text = <span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>
+          hide_input = false
+          check_color = $accent
+          fail_color = $red
+          fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i>
+          capslock_color = $yellow
+          position = 0, -47
+          halign = center
+          valign = center
+        }
+      '';
+  };
+
+  # Configure hyprland - we enable it in NixOS.
   xdg.configFile."hypr/hyprland.conf".text = # hyprlang
     ''
-      # Catppuccin Macchiato - https://github.com/catppuccin/hyprland
-      $rosewaterAlpha = rgb(f4dbd6)
-      $flamingoAlpha  = rgb(f0c6c6)
-      $pinkAlpha      = rgb(f5bde6)
-      $mauveAlpha     = rgb(c6a0f6)
-      $redAlpha       = rgb(ed8796)
-      $maroonAlpha    = rgb(ee99a0)
-      $peachAlpha     = rgb(f5a97f)
-      $yellowAlpha    = rgb(eed49f)
-      $greenAlpha     = rgb(a6da95)
-      $tealAlpha      = rgb(8bd5ca)
-      $skyAlpha       = rgb(91d7e3)
-      $sapphireAlpha  = rgb(7dc4e4)
-      $blueAlpha      = rgb(8aadf4)
-      $lavenderAlpha  = rgb(b7bdf8)
-
-      $textAlpha      = rgb(cad3f5)
-      $subtext1Alpha  = rgb(b8c0e0)
-      $subtext0Alpha  = rgb(a5adcb)
-
-      $overlay2Alpha  = rgb(939ab7)
-      $overlay1Alpha  = rgb(8087a2)
-      $overlay0Alpha  = rgb(6e738d)
-
-      $surface2Alpha  = rgb(5b6078)
-      $surface1Alpha  = rgb(494d64)
-      $surface0Alpha  = rgb(363a4f)
-
-      $baseAlpha      = rgb(24273a)
-      $mantleAlpha    = rgb(1e2030)
-      $crustAlpha     = rgb(181926)
-
-      $rosewater = 0xfff5e0dc
-      $flamingo  = 0xfff2cdcd
-      $pink      = 0xfff5c2e7
-      $mauve     = 0xffcba6f7
-      $red       = 0xfff38ba8
-      $maroon    = 0xffeba0ac
-      $peach     = 0xfffab387
-      $yellow    = 0xfff9e2af
-      $green     = 0xffa6e3a1
-      $teal      = 0xff94e2d5
-      $sky       = 0xff89dceb
-      $sapphire  = 0xff74c7ec
-      $blue      = 0xff89b4fa
-      $lavender  = 0xffb4befe
-
-      $text      = 0xffcdd6f4
-      $subtext1  = 0xffbac2de
-      $subtext0  = 0xffa6adc8
-
-      $overlay2  = 0xff9399b2
-      $overlay1  = 0xff7f849c
-      $overlay0  = 0xff6c7086
-
-      $surface2  = 0xff585b70
-      $surface1  = 0xff45475a
-      $surface0  = 0xff313244
-
-      $base      = 0xff1e1e2e
-      $mantle    = 0xff181825
-      $crust     = 0xff11111b
+      source = $HOME/.config/hypr/frappe.conf
 
       #
       # Please note not all available settings / options are set here.
@@ -272,5 +337,15 @@
       windowrule = noborder, ^(steam_app_2726450)$
       windowrule = pin, ^(steam_app_2726450)$
       windowrule = opacity 0.9, ^(steam_app_2726450)$
+
+      # Rules for Awakened PoE
+      windowrulev2 = tag +poe, class:^(steam_app_238960)$
+      windowrulev2 = allowsinput, tag:poe
+
+      windowrulev2 = tag +apt, class:^(awakened-poe-trade)$
+      windowrulev2 = float, tag:apt
+      windowrulev2 = noblur, tag:apt
+      windowrulev2 = noborder, tag:apt
+      windowrulev2 = noshadow, tag:apt
     '';
 }
