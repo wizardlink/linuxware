@@ -164,7 +164,6 @@
   ##
   ## HARDWARE ##
   ##
-
   # Enable Bluetooth
   hardware.bluetooth = {
     enable = true;
@@ -339,4 +338,13 @@
     pkgs.via
     gnome.gnome-settings-daemon
   ];
+
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      libpinyin
+      anthy
+    ];
+  };
+
 }

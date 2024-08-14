@@ -70,6 +70,7 @@
     # GNOME Stuff
     gnome-extension-manager
     gnome.gnome-tweaks
+    gnome.gnome-screenshot
 
     # Utilities
     (pkgs.citrix_workspace_23_09_0.overrideAttrs (
@@ -82,6 +83,7 @@
     obs-cmd
     losslesscut-bin
     sunshine
+    protonvpn-cli_2
     qbittorrent
     quickemu
     vesktop
