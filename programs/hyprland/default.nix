@@ -145,8 +145,11 @@
       # Inject home-manager session variables
       exec-once = /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
 
-      # Execute your favorite apps at launch
+      # Start the core services of my desktop
       exec-once = ~/.local/share/scripts/hyprland/start_services.sh
+
+      # Open the apps I always use
+      exec-once = ~/.local/share/scripts/hyprland/start_apps.sh
 
       # Set cursor size.
       env = HYPRCURSOR_SIZE, 36
@@ -157,10 +160,10 @@
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
-        kb_layout = us,br,jp
-        kb_variant = ,,kana86
+        kb_layout =
+        kb_variant =
         kb_model =
-        kb_options = grp:alts_toggle
+        kb_options =
         kb_rules =
 
         follow_mouse = 1
@@ -347,5 +350,8 @@
       windowrulev2 = noblur, tag:apt
       windowrulev2 = noborder, tag:apt
       windowrulev2 = noshadow, tag:apt
+
+      # Rules for anki
+      windowrulev2 = float, class:^(anki)$
     '';
 }

@@ -17,7 +17,6 @@
           "cpu"
           "temperature"
           "battery"
-          "hyprland/language"
           "tray"
         ];
 
@@ -124,14 +123,6 @@
             ""
             ""
           ];
-          tooltip = false;
-        };
-
-        "hyprland/language" = {
-          format = "  {}";
-          format-en = "EN/US";
-          format-pt-br = "PT/BR";
-          #"on-click" = "hyprctl switchxkblayout www.hfd.cn-monsgeek-keyboard-1 next";
           tooltip = false;
         };
 

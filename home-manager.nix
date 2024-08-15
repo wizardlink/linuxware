@@ -46,6 +46,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
+
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
   };
@@ -85,6 +86,7 @@
     zathura
 
     # Personal utilities
+    anki
     ledger
     vesktop
 
@@ -109,6 +111,7 @@
 
     # Games
     mindustry-wayland
+    prismlauncher
     shattered-pixel-dungeon
     xonotic
 
@@ -301,6 +304,7 @@
 
   # Configure XDG
   xdg.mimeApps.defaultApplications = {
+    "inode/directory" = [ "thunar.desktop" ];
     "text/html" = [ "firefox.desktop" ];
     "video/mp4" = [ "vlc.desktop" ];
     "video/x-matroska" = [ "vlc.desktop" ];

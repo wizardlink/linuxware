@@ -57,6 +57,11 @@ wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
 #
+# Start Fcitx5
+#
+fcitx5 &
+
+#
 # Start the blueman applet for managing bluetooth devices
 #
 blueman-applet &

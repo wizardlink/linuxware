@@ -151,6 +151,12 @@ in
   # Define system-wide variables.
   environment.variables = { };
 
+  # Define variables that will be initialized in PAM.
+  environment.sessionVariables = {
+    # Set env for Fcitx5
+    QMODIFIERS = "@im=fcitx5";
+  };
+
   # Set fish as the default shell for all users.
   users.defaultUserShell = pkgs.fish;
 
@@ -303,6 +309,22 @@ in
   programs.xfconf.enable = true; # For configuring
   services.gvfs.enable = true; # For mounting drives, trash, etc.
   services.tumbler.enable = true; # Thumbnail support
+
+  # Enable the Fcitx5 IME
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+        fcitx5-catppuccin
+      ];
+
+      waylandFrontend = true;
+    };
+  };
 
   ##
   ## SOUND #
