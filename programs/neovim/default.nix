@@ -16,13 +16,6 @@
       clang-tools
       gcc # Needed for treesitter
 
-      # HTML/CSS
-      emmet-ls
-      vscode-langservers-extracted
-
-      # JSON
-      nodePackages_latest.vscode-json-languageserver-bin
-
       # LUA
       lua-language-server
       stylua
@@ -33,22 +26,8 @@
       prettierd
 
       # Nix
-      nil
+      nixd
       nixfmt-rfc-style
-
-      # TypeScript
-      (callPackage ../vtsls/package.nix { })
-
-      # Rust
-      rust-analyzer
-      taplo
-      vscode-extensions.vadimcn.vscode-lldb.adapter
-
-      # Vue
-      vscode-extensions.vue.volar
-
-      # Svelte
-      nodePackages.svelte-language-server
 
       # YAML
       yaml-language-server

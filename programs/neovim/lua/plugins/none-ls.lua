@@ -13,7 +13,6 @@ return {
     config.sources = {
       -- Set a formatter
       null_ls.builtins.formatting.nixfmt,
-      null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.stylua,
     }
     return config -- return final config table

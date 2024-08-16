@@ -16,6 +16,7 @@ return {
   },
 
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
+  { import = "astrocommunity.editing-support.zen-mode-nvim" },
 
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.flit-nvim" },
@@ -25,15 +26,9 @@ return {
 
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.godot" },
-  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.nix" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.yaml" },
 }

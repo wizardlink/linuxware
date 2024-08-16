@@ -34,6 +34,7 @@ return {
     end,
   },
   {
+    -- Adds highlighting and lsp features for embedded code in documents.
     "jmbuhr/otter.nvim",
     dependencies = {
       "hrsh7th/nvim-cmp",

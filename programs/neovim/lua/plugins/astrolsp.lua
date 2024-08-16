@@ -22,14 +22,8 @@ return {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
-          "javascript",
-          "jsx",
           "lua",
           "nix",
-          "rust",
-          "tsx",
-          "typescript",
-          "svelte",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -46,27 +40,31 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
       "clangd",
       "cmake",
-      "cssls",
-      "eslint",
-      "html",
-      "jsonls",
       "lua_ls",
       "marksman",
-      "nil_ls",
-      "rust_analyzer",
-      "svelte",
-      "taplo",
-      "volar",
-      "vtsls",
+      "nixd",
       "yamlls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      nixd = {
+        settings = {
+          nixd = {
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake ("git+file:///home/yozawa/.system")).nixosConfigurations.nixos.options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake ("git+file:///home/yozawa/.system")).homeConfigurations.yozawa.options',
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
