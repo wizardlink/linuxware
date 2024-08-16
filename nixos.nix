@@ -138,7 +138,7 @@
       LC_ADDRESS = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "pt_BR.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
       LC_MONETARY = "en_AU.UTF-8";
       LC_NAME = "en_US.UTF-8";
       LC_NUMERIC = "en_AU.UTF-8";

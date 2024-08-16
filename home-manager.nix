@@ -108,6 +108,7 @@
     protontricks
     wineWowPackages.stagingFull
     winetricks
+    prismlauncher
 
     ## Libraries
     rnnoise-plugin
