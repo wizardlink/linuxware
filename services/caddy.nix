@@ -25,5 +25,10 @@
           flush_interval -1
         }
     '';
+
+    virtualHosts."files.thewizard.link".extraConfig = ''
+      root * /srv/files
+      file_server
+    '';
   };
 }
