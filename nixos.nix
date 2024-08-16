@@ -24,6 +24,7 @@ in
     ./services/archi.nix
     ./services/caddy.nix
     ./services/jellyfin.nix
+    ./services/minecraft
   ];
 
   # Enable experimental features
