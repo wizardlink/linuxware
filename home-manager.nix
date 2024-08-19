@@ -94,6 +94,9 @@
     yt-dlp
     zerotierone
 
+    # Engineering Stuff
+    kicad
+
     # Media Viewer
     feh
     mpv
@@ -109,6 +112,7 @@
     wineWowPackages.stagingFull
     winetricks
     prismlauncher
+    r2modman
 
     ## Libraries
     rnnoise-plugin
