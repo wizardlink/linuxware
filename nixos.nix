@@ -170,6 +170,7 @@ in
       "docker"
       "gamemode"
       "libvirtd"
+      "minecraft"
       "networkmanager"
       "openrazer"
       "postgresql"
