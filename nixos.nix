@@ -127,6 +127,7 @@ in
     ];
 
     allowedUDPPorts = [
+      24454 # Minecraft Simple Voice Chat
       2626 # Dolphin emulator
       27015 # Source games
       28910 # Heretic II
