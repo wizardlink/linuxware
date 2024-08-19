@@ -26,6 +26,11 @@
         }
     '';
 
+
+    virtualHosts."git.thewizard.link".extraConfig = ''
+      reverse_proxy 127.0.0.1:3788
+    '';
+
     virtualHosts."files.thewizard.link".extraConfig = ''
       root * /srv/files
       file_server
