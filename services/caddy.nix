@@ -26,6 +26,9 @@
         }
     '';
 
+    virtualHosts."map.thewizard.link".extraConfig = ''
+      reverse_proxy 192.168.0.100:8123
+    '';
 
     virtualHosts."git.thewizard.link".extraConfig = ''
       reverse_proxy 127.0.0.1:3788

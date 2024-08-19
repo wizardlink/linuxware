@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "http://files.thewizard.link/horror/pack.toml";
-    packHash = "sha256-Huqdl1nGMJC/hvkK8HKxOMHectFioY7zaNeT+D6Ur/8=";
+    url = "http://files.thewizard.link/minecraft/pack.toml";
+    packHash = "sha256-oBCLVNLaBwF7Nv1PMEzNmzSv6khcRIOLfOX9chZPI+Y=";
   };
 in
 {
@@ -19,19 +19,19 @@ in
     openFirewall = true;
 
     servers = {
-      horror = {
+      silly-pack = {
         enable = true;
-        package = pkgs.fabricServers.fabric-1_20_6;
+        package = pkgs.fabricServers.fabric-1_20_1.override { loaderVersion = "0.15.11"; };
         autoStart = true;
 
-        jvmOpts = "-Xms512M -Xmx8192M";
+        jvmOpts = "-Xms512M -Xmx10112M -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=4M -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:InitiatingHeapOccupancyPercent=10 -XX:G1MixedGCLiveThresholdPercent=50";
 
         serverProperties = {
           allow-flight = true;
           difficulty = "normal";
           enforce-secure-profile = true;
           level-name = "horror";
-          motd = "\\u00A70Are you a hero?\\u00A7r";
+          motd = "\\u00A70Ready to run?\\u00A7r";
           pvp = true;
           resource-pack = "https://cdn.modrinth.com/data/p1WH6sHr/versions/3lQn31SZ/From-The-Fog-1.20.5-1.20.6-v1.9.3-Data-Resource-Pack.zip";
           server-ip = "192.168.0.100";
