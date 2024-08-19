@@ -23,6 +23,7 @@ in
     # Include service configuration
     ./services/archi.nix
     ./services/caddy.nix
+    ./services/gitea.nix
     ./services/jellyfin.nix
     ./services/minecraft
   ];
