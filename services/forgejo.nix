@@ -6,9 +6,14 @@
 
     settings = {
       server = {
-        DISABLE_REGISTRATION = true;
         HTTP_PORT = 3788;
         ROOT_URL = "https://git.thewizard.link";
+      };
+
+      service = {
+        DISABLE_REGISTRATION = true;
+        ENABLE_REVERSE_PROXY_AUTHENTICATION = true;
+        ENABLE_REVERSE_PROXY_AUTHENTICATION_API = true;
       };
     };
   };
