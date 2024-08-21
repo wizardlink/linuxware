@@ -7,6 +7,7 @@
     settings = {
       server = {
         HTTP_PORT = 3788;
+        LANDING_PAGE = "explore";
         ROOT_URL = "https://git.thewizard.link";
       };
 
