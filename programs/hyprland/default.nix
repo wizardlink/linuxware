@@ -353,5 +353,9 @@
 
       # Rules for anki
       windowrulev2 = float, class:^(anki)$
+
+      windowrulev2 = tag +gw2, class:^(steam_app_1284210)$
+      windowrulev2 = noblur, tag:gw2
+      windowrulev2 = noborder, tag:gw2
     '';
 }
