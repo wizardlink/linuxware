@@ -2,7 +2,8 @@
   description = "NixOS System Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # FIXME: Use nixos-unstable when https://nixpk.gs/pr-tracker.html?pr=335559 lands
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     home-manager = {
       url = "github:nix-community/home-manager";
