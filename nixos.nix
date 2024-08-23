@@ -22,6 +22,7 @@ in
     ./hardware-configuration.nix
     # Include service configuration
     ./services/archi.nix
+    ./services/authentication.nix
     ./services/caddy.nix
     ./services/forgejo.nix
     ./services/jellyfin.nix
