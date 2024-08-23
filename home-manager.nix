@@ -127,6 +127,7 @@
     ## Desktop environment
     cliphist
     grim
+    libsForQt5.ark
     mako
     slurp
     swww
