@@ -131,6 +131,10 @@
     slurp
     swww
 
+    # Mail client
+    thunderbird
+    protonmail-bridge-gui
+
     ## Theming
     (nerdfonts.override {
       fonts = [
