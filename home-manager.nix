@@ -272,7 +272,9 @@
     };
   };
 
-  ## Theming
+  #
+  ## THEMING #
+  #
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeLavender;
     name = "catppuccin-frappe-lavender-cursors";
