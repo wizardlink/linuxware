@@ -128,7 +128,6 @@
     cliphist
     grim
     mako
-    polkit-kde-agent
     slurp
     swww
 
