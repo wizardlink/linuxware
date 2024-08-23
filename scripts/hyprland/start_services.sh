@@ -6,11 +6,6 @@
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
 #
-# Start authentication polkit.
-#
-/nix/store/$(ls -la /nix/store | rg '^d.*polkit-kde-agent.*\d$' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &
-
-#
 # Start waybar.
 #
 waybar &
@@ -65,3 +60,8 @@ fcitx5 &
 # Start the blueman applet for managing bluetooth devices
 #
 blueman-applet &
+
+#
+# Start the brige between Proton Mail and Thunderbird
+#
+protonmail-bridge-gui
