@@ -76,7 +76,15 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [ ];
+
+    enable = true;
+
+    allowedTCPPorts = [
+      47984
+      47989
+      47990
+      48010
+    ];
 
     allowedUDPPorts = [ ];
 
@@ -90,7 +98,12 @@
       {
         from = 1714;
         to = 1764;
-      } # KDEConnect
+      }
+      # KDEConnect
+      {
+        from = 47998;
+        to = 48000;
+      }
     ];
   };
   # Or disable the firewall altogether.
@@ -349,6 +362,21 @@
       libpinyin
       anthy
     ];
+  };
+
+  security.wrappers.sunshine = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+p";
+    source = "${pkgs.sunshine}/bin/sunshine";
+  };
+
+  services.avahi.publish.enable = true;
+  services.avahi.publish.userServices = true;
+
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [ "9e1948db633ca1da" ];
   };
 
 }
