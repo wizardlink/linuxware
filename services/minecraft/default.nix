@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://git.thewizard.link/wizardlink/silly-pack/raw/tag/1.0.7/pack.toml";
-    packHash = "sha256-BUGBlADOmtaWrUa7lm2pt27vA5UMW9CbHHWPJ9GfHg0=";
+    url = "https://git.thewizard.link/wizardlink/silly-pack/raw/tag/1.0.8/pack.toml";
+    packHash = "sha256-sCk9OO1q+/c1A6ns4zhvneulNtmEMr1yz4+Ku+A+mdk=";
   };
 in
 {
