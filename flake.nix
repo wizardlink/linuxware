@@ -15,7 +15,6 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
