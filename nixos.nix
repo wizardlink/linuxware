@@ -111,6 +111,9 @@ in
     fileSystems = [ "/" ];
   };
 
+  # Enables zram.
+  zramSwap.enable = true;
+
   networking.hostName = "wizdesk"; # Define your hostname.
 
   # Enable networking
