@@ -122,6 +122,7 @@
     xwaylandvideobridge
 
     ## Development
+    beekeeper-studio
     lazygit
 
     ## Desktop environment
