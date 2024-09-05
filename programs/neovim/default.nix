@@ -34,7 +34,7 @@
       nixfmt-rfc-style
 
       # TypeScript
-      typescript-language-server
+      (callPackage ../vtsls/package.nix { })
 
       # Rust
       rust-analyzer
