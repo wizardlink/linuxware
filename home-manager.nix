@@ -110,7 +110,6 @@
     winetricks
 
     # Games
-    mindustry-wayland
     prismlauncher
     shattered-pixel-dungeon
     xonotic
