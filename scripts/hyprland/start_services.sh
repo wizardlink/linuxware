@@ -19,10 +19,10 @@ xwaylandvideobridge &
 ## Start wallpaper daemon and set one.
 #
 OUTPUT_1="DP-2"
-IMAGE_1="/mnt/internal/personal/wallpapers/wallhaven-z8e3wo.png"
+IMAGE_1="/mnt/internal/personal/wallpapers/wallhaven-vqlvm8.jpg"
 
 OUTPUT_2="DP-3"
-IMAGE_2="/mnt/internal/personal/wallpapers/wallhaven-g7ze63.jpg"
+IMAGE_2="/mnt/internal/personal/wallpapers/wallhaven-2yl6px.jpg"
 
 function load_wallpapers() {
   swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .8 --transition-step 255 --transition-fps 60 -o $OUTPUT_1 $IMAGE_1;
