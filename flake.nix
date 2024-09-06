@@ -17,6 +17,8 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    myneovim.url = "git+https://git.thewizard.link/wizardlink/neovim";
   };
 
   outputs =

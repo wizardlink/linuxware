@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, myneovim, ... }:
 
 {
   #
@@ -13,12 +13,12 @@
     ./programs/git.nix
     ./programs/hyprland
     ./programs/mangohud.nix
-    ./programs/neovim
     ./programs/obs-studio.nix
     ./programs/rofi
     ./programs/spotify
     ./programs/tmux
     ./programs/waybar.nix
+    myneovim.homeManagerModules.default
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
