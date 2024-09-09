@@ -134,7 +134,6 @@
 
     # Mail client
     thunderbird
-    protonmail-bridge-gui
 
     ## Theming
     (nerdfonts.override {

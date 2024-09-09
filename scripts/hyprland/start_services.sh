@@ -60,8 +60,3 @@ fcitx5 &
 # Start the blueman applet for managing bluetooth devices
 #
 blueman-applet &
-
-#
-# Start the brige between Proton Mail and Thunderbird
-#
-protonmail-bridge-gui
