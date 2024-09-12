@@ -107,7 +107,7 @@
 
     # Gaming
     protontricks
-    wineWowPackages.stagingFull
+    wineWowPackages.unstableFull
     winetricks
 
     # Games
