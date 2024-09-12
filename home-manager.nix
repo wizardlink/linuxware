@@ -18,6 +18,7 @@
     ./programs/spotify
     ./programs/tmux
     ./programs/waybar.nix
+    ./services/openttd.nix
     myneovim.homeManagerModules.default
   ];
 
@@ -110,6 +111,7 @@
     winetricks
 
     # Games
+    openttd
     prismlauncher
     shattered-pixel-dungeon
     xonotic

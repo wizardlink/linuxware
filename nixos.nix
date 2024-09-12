@@ -127,6 +127,7 @@ in
       443 # SSL
       6567 # Mindustry
       80 # HTTP
+      3979 # OpenTTD
     ];
 
     allowedUDPPorts = [
@@ -135,6 +136,7 @@ in
       28910 # Heretic II
       6567 # Mindustry
       8211 # Palworld
+      3979 # OpenTTD
     ];
 
     allowedTCPPortRanges = [
