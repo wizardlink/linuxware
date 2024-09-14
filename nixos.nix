@@ -250,9 +250,10 @@ in
     users = [ "wizardlink" ];
   };
 
-  # Enable QMK support.
-  # hardware.keyboard.qmk.enable = true;
-  # FIXME: Causing issues with xpadneo :(
+  # Vial udev rule for Monsgeek M1
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0005", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
 
   # enable a better driver for wireless xbox controllers.
   hardware.xpadneo.enable = true;
@@ -459,7 +460,7 @@ in
     ## Hardware specific
     openrazer-daemon # Razor products back-end
     polychromatic # and it's front-end
-    via
+    vial
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -476,10 +477,6 @@ in
 
   # Enable flatpak
   services.flatpak.enable = true;
-
-  # Enables VIA
-  # services.udev.packages = [ pkgs.via ];
-  # FIXME: Causing issues with xpadneo :(
 
   # Enable and configure PostgreSQL.
   services.postgresql = {
