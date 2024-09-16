@@ -8,6 +8,7 @@
   # Import configurations for better modularity.
   imports = [
     ./programs/alacritty.nix
+    ./programs/direnv
     ./programs/emacs
     ./programs/fish
     ./programs/git.nix
