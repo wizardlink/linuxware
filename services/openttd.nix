@@ -14,10 +14,40 @@
     Unit.Description = "OpenTTD Tmux server";
 
     Service = {
-      ExecStart = "${pkgs.tmux}/bin/tmux new -s OpenTTD -d '${pkgs.openttd}/bin/openttd -D'";
+      ExecStart = "${pkgs.tmux}/bin/tmux new -s OpenTTD -d '${pkgs.openttd}/bin/openttd -g /home/wizardlink/.local/share/openttd/save/hyfy.sav -D'";
       ExecStop = "${pkgs.tmux}/bin/tmux kill-server";
       Restart = "on-failure";
       Type = "forking";
+    };
+  };
+
+  systemd.user.services.openttd-rcon = {
+    Install.WantedBy = [ "default.target" ];
+
+    Unit = {
+      Description = "OpenTTD RCON Password set";
+      After = [ "openttd.service" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.tmux}/bin/tmux send-keys -t OpenTTD 'rcon_pw aaaa' Enter";
+      Type = "oneshot";
+    };
+  };
+
+  systemd.user.services.openttd-save = {
+    Install.WantedBy = [ "default.target" ];
+
+    Unit = {
+      Description = "OpenTTD RCON Password set";
+      After = [ "openttd.service" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.tmux}/bin/tmux send-keys -t OpenTTD 'save hyfy' Enter";
+      Type = "simple";
+      Restart = "always";
+      RestartSec = "1800s";
     };
   };
 }
