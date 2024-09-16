@@ -231,21 +231,6 @@
         "type": "github"
       }
     },
-    "myneovim": {
-      "locked": {
-        "lastModified": 1726512068,
-        "narHash": "sha256-M9usJfu7CAZdnPPUOJ/OjbIznQ706LjnF1O/fTdZgsc=",
-        "ref": "refs/heads/main",
-        "rev": "4e9ec3b6fa70ab5d904aa294b61c1d808c70ce11",
-        "revCount": 32,
-        "type": "git",
-        "url": "https://git.thewizard.link/wizardlink/neovim"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.thewizard.link/wizardlink/neovim"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1725983898,
@@ -282,7 +267,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "myneovim": "myneovim",
         "nixpkgs": "nixpkgs_2",
         "spicetify-nix": "spicetify-nix"
       }

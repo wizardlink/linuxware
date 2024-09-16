@@ -1,0 +1,284 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+let
+  inherit (lib) types mkOption;
+  ollamaPackage =
+    if config.programs.neovim.ollama.type == "amd" then pkgs.ollama-rocm else pkgs.ollama-cuda;
+in
+{
+  options.programs.neovim = {
+    flake = {
+      hostname = mkOption {
+        default = "wizdesk";
+        description = "Your NixOS hostname, needed for nixd lsp.";
+        example = "nixos";
+        type = types.str;
+      };
+
+      location = mkOption {
+        default = "git+file:///home/wizardlink/.system";
+        description = "Path to your flake location, prepend 'file:///' to it and 'git+' before that if using git.";
+        example = "git+file:///home/wizardlink/.system";
+        type = types.str;
+      };
+    };
+
+    ollama.type = mkOption {
+      default = "amd";
+      description = "The type of ollama package to install, AMD GPU accelerated or NVIDIA GPU accelerated.";
+      example = "amd";
+      type = types.enum [
+        "amd"
+        "nvidia"
+      ];
+    };
+  };
+
+  config = {
+    programs.neovim = {
+      enable = true;
+      withNodeJs = true;
+      withPython3 = true;
+
+      extraLuaConfig = builtins.readFile ./init.lua;
+
+      extraPackages = with pkgs; [
+        # Needed by ollama.nvim
+        curl
+        ollamaPackage
+
+        # CMAKE
+        neocmakelsp
+
+        # C/C++
+        clang-tools
+        gcc # Needed for treesitter
+
+        # HTML/CSS/JSON
+        emmet-ls
+        vscode-langservers-extracted
+
+        # LUA
+        lua-language-server
+        stylua
+
+        # Markdown
+        markdownlint-cli
+        marksman
+        prettierd
+
+        # Nix
+        nixd
+        nixfmt-rfc-style
+
+        # TypeScript
+        typescript-language-server
+
+        # Rust
+        rust-analyzer
+        taplo
+        vscode-extensions.vadimcn.vscode-lldb.adapter
+
+        # Vue
+        vue-language-server
+
+        # Svelte
+        nodePackages.svelte-language-server
+
+        # YAML
+        yaml-language-server
+      ];
+    };
+
+    xdg.configFile."nvim/lua" = {
+      recursive = true;
+      source = ./lua;
+    };
+
+    xdg.configFile."nvim/lua/plugins/astrolsp.lua".text =
+      let
+        hostname = config.programs.neovim.flake.hostname;
+        location = config.programs.neovim.flake.location;
+      in
+      #lua
+      ''
+        -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
+        -- Configuration documentation can be found with `:h astrolsp`
+        -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
+        --       as this provides autocomplete and documentation while editing
+
+        ---@type LazySpec
+        return {
+          "AstroNvim/astrolsp",
+          ---@type AstroLSPOpts
+          opts = {
+            -- Configuration table of features provided by AstroLSP
+            features = {
+              autoformat = true,      -- enable or disable auto formatting on start
+              codelens = true,        -- enable/disable codelens refresh on start
+              inlay_hints = false,    -- enable/disable inlay hints on start
+              semantic_tokens = true, -- enable/disable semantic token highlighting
+            },
+            -- customize lsp formatting options
+            formatting = {
+              -- control auto formatting on save
+              format_on_save = {
+                enabled = true,     -- enable or disable format on save globally
+                allow_filetypes = { -- enable format on save for specified filetypes only
+                  -- "go",
+                  "c",
+                  "cpp",
+                  "h",
+                  "javascript",
+                  "jsx",
+                  "lua",
+                  "nix",
+                  "rust",
+                  "svelte",
+                  "tsx",
+                  "typescript",
+                },
+                ignore_filetypes = { -- disable format on save for specified filetypes
+                  -- "python",
+                },
+              },
+              disabled = { -- disable formatting capabilities for the listed language servers
+                -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
+                -- "lua_ls",
+              },
+              timeout_ms = 1000, -- default format timeout
+              -- filter = function(client) -- fully override the default formatting function
+              --   return true
+              -- end
+            },
+            -- enable servers that you already have installed without mason
+            servers = {
+              -- "pyright"
+              "clangd",
+              "cmake",
+              "cssls",
+              "eslint",
+              "html",
+              "jsonls",
+              "lua_ls",
+              "marksman",
+              "nixd",
+              "rust_analyzer",
+              "svelte",
+              "taplo",
+              "tsserver",
+              "volar",
+              "yamlls",
+            },
+            -- customize language server configuration options passed to `lspconfig`
+            ---@diagnostic disable: missing-fields
+            config = {
+              -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+              nixd = {
+                settings = {
+                  nixd = {
+                    options = {
+                      nixos = {
+                        expr = '(builtins.getFlake ("${location}")).nixosConfigurations.${hostname}.options',
+                      },
+                      home_manager = {
+                        expr =
+                        '(builtins.getFlake ("${location}")).homeConfigurations.${hostname}.options',
+                      },
+                    },
+                  },
+                },
+              },
+              tsserver = {
+                init_options = {
+                  plugins = {
+                    {
+                      name = "@vue/typescript-plugin",
+                      location = "${pkgs.vue-language-server}/bin/vue-language-server",
+                      languages = { "javascript", "typescript", "vue" },
+                    },
+                  },
+                },
+                filetypes = {
+                  "javascript",
+                  "typescript",
+                  "vue",
+                },
+              },
+            },
+            -- customize how language servers are attached
+            handlers = {
+              -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
+              -- function(server, opts) require("lspconfig")[server].setup(opts) end
+
+              -- the key is the server that is being setup with `lspconfig`
+              -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
+              -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+            },
+            -- Configure buffer local auto commands to add when attaching a language server
+            autocmds = {
+              -- first key is the `augroup` to add the auto commands to (:h augroup)
+              lsp_document_highlight = {
+                -- Optional condition to create/delete auto command group
+                -- can either be a string of a client capability or a function of `fun(client, bufnr): boolean`
+                -- condition will be resolved for each client on each execution and if it ever fails for all clients,
+                -- the auto commands will be deleted for that buffer
+                cond = "textDocument/documentHighlight",
+                -- cond = function(client, bufnr) return client.name == "lua_ls" end,
+                -- list of auto commands to set
+                {
+                  -- events to trigger
+                  event = { "CursorHold", "CursorHoldI" },
+                  -- the rest of the autocmd options (:h nvim_create_autocmd)
+                  desc = "Document Highlighting",
+                  callback = function()
+                    vim.lsp.buf.document_highlight()
+                  end,
+                },
+                {
+                  event = { "CursorMoved", "CursorMovedI", "BufLeave" },
+                  desc = "Document Highlighting Clear",
+                  callback = function()
+                    vim.lsp.buf.clear_references()
+                  end,
+                },
+              },
+            },
+            -- mappings to be set up on attaching of a language server
+            mappings = {
+              n = {
+                gl = {
+                  function()
+                    vim.diagnostic.open_float()
+                  end,
+                  desc = "Hover diagnostics",
+                },
+                -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
+                -- gD = {
+                --   function() vim.lsp.buf.declaration() end,
+                --   desc = "Declaration of current symbol",
+                --   cond = "textDocument/declaration",
+                -- },
+                -- ["<Leader>uY"] = {
+                --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+                --   desc = "Toggle LSP semantic highlight (buffer)",
+                --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
+                -- },
+              },
+            },
+            -- A custom `on_attach` function to be run after the default `on_attach` function
+            -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+            on_attach = function(client, bufnr)
+              -- this would disable semanticTokensProvider for all clients
+              -- client.server_capabilities.semanticTokensProvider = nil
+            end,
+          },
+        }
+      '';
+  };
+}

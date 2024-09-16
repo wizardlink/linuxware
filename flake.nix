@@ -15,8 +15,6 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
-    myneovim.url = "git+https://git.thewizard.link/wizardlink/neovim";
   };
 
   outputs =
@@ -26,20 +24,45 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.wizdesk =
-        let
-          specialArgs = inputs;
-          modules = [ ./nixos.nix ];
-        in
-        nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
+      nixosConfigurations = {
+        wizdesk =
+          let
+            specialArgs = inputs;
+            modules = [
+              ./modules/nixos
+              ./specific/wizdesk/nixos.nix
+            ];
+          in
+          nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
+
+        wizlap =
+          let
+            specialArgs = inputs;
+            modules = [
+              ./modules/nixos
+              ./specific/wizlap/nixos.nix
+            ];
+          in
+          nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
+      };
 
       homeConfigurations.wizardlink = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = inputs;
-        modules = [ ./home-manager.nix ];
+        modules = [ ./specific/home-manager.nix ];
       };
 
       formatter."${system}" = pkgs.nixfmt-rfc-style;
+
+      homeManagerModules = {
+        emacs = import ./modules/home-manager/programs/emacs;
+        hyprlandConfig = import ./modules/home-manager/programs/hyprland;
+        neovim = import ./modules/home-manager/programs/neovim;
+      };
+
+      nixosModules = {
+        default = import ./modules/nixos;
+      };
     };
 }
