@@ -71,16 +71,17 @@
     gnome-extension-manager
     gnome.gnome-tweaks
     gnome.gnome-screenshot
+    gnome.zenity
 
     # Utilities
     (pkgs.citrix_workspace_23_09_0.overrideAttrs (
       final: old: { buildInputs = old.buildInputs ++ [ pkgs.webkitgtk ]; }
     ))
+    appimage-run
     fastfetch
     firefox
     geekbench
     gparted
-    losslesscut-bin
     menulibre
     obs-cmd
     protonvpn-cli_2
@@ -113,6 +114,7 @@
     winetricks
     prismlauncher
     r2modman
+    lutris
 
     ## Libraries
     rnnoise-plugin
