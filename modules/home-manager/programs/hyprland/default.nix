@@ -255,18 +255,6 @@
         # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
         # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
-        # Bind workspaces to specific monitors
-        workspace = 1, monitor:DP-2
-        workspace = 2, monitor:DP-3
-        workspace = 3, monitor:DP-2
-        workspace = 4, monitor:DP-3
-        workspace = 5, monitor:DP-2
-        workspace = 6, monitor:DP-3
-        workspace = 7, monitor:DP-2
-        workspace = 8, monitor:DP-3
-        workspace = 9, monitor:DP-2
-        workspace = 0, monitor:DP-3
-
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
         $mainMod = SUPER
 

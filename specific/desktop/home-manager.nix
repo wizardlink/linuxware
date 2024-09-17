@@ -35,5 +35,17 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor = DP-3, 1920x1080@74.973, 2560x0, 1
       monitor = DP-2, 2560x1440@165.00301, 0x0, 1
+
+      # Bind workspaces to specific monitors
+      workspace = 1, monitor:DP-2
+      workspace = 2, monitor:DP-3
+      workspace = 3, monitor:DP-2
+      workspace = 4, monitor:DP-3
+      workspace = 5, monitor:DP-2
+      workspace = 6, monitor:DP-3
+      workspace = 7, monitor:DP-2
+      workspace = 8, monitor:DP-3
+      workspace = 9, monitor:DP-2
+      workspace = 0, monitor:DP-3
     '';
 }
