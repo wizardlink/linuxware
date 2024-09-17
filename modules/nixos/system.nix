@@ -27,9 +27,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable WOL on my ethernet interface.
-  networking.interfaces.enp5s0.wakeOnLan.enable = true;
-
   # Define variables that will be initialized in PAM.
   environment.sessionVariables = {
     # Set env for Fcitx5

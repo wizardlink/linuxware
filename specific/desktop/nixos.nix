@@ -131,4 +131,11 @@
       LC_TIME = "en_GB.UTF-8";
     };
   };
+
+  #
+  # NETWORK #
+  #
+
+  # Enable WOL on my ethernet interface.
+  networking.interfaces.enp5s0.wakeOnLan.enable = true;
 }
