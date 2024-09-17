@@ -29,8 +29,14 @@
           let
             specialArgs = inputs;
             modules = [
-              ./modules/nixos
-              ./specific/wizdesk/nixos.nix
+              ./specific/desktop/nixos.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.extraSpecialArgs = inputs;
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.wizardlink = import ./specific/desktop/home-manager.nix;
+              }
             ];
           in
           nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
@@ -39,18 +45,17 @@
           let
             specialArgs = inputs;
             modules = [
-              ./modules/nixos
-              ./specific/wizlap/nixos.nix
+              ./specific/laptop/nixos.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.extraSpecialArgs = inputs;
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.wizardlink = import ./specific/laptop/home-manager.nix;
+              }
             ];
           in
           nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
-      };
-
-      homeConfigurations.wizardlink = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        extraSpecialArgs = inputs;
-        modules = [ ./specific/home-manager.nix ];
       };
 
       formatter."${system}" = pkgs.nixfmt-rfc-style;

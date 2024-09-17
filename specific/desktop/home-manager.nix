@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   #
@@ -28,4 +28,12 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  # Add monitor configuration to hyprland
+  modules.hyprland.extraConfig = # hyprlang
+    ''
+      # See https://wiki.hyprland.org/Configuring/Monitors/
+      monitor = DP-3, 1920x1080@74.973, 2560x0, 1
+      monitor = DP-2, 2560x1440@165.00301, 0x0, 1
+    '';
 }
