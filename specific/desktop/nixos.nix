@@ -2,10 +2,15 @@
 
 {
   imports = [
+    ../../modules/nixos
     ./hardware-configuration.nix
     ./hardware.nix
     ./services.nix
   ];
+
+  #
+  # NIXOS #
+  #
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -14,6 +19,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05";
+
+  #
+  # SYSTEM #
+  #
 
   # Configure options for mounted volumes.
   fileSystems = {
