@@ -29,6 +29,35 @@
     EDITOR = "nvim";
   };
 
+  home.file = {
+    # Create wallpaper script to be read by the start_services.sh script.
+    ".local/share/scripts/wallpaper.sh" = {
+      executable = true;
+      text = # sh
+        ''
+          #
+          ## Start wallpaper daemon and set one.
+          #
+          OUTPUT_1="DP-2"
+          IMAGE_1="/mnt/internal/personal/wallpapers/wallhaven-vqlvm8.jpg"
+
+          OUTPUT_2="DP-3"
+          IMAGE_2="/mnt/internal/personal/wallpapers/wallhaven-2yl6px.jpg"
+
+          function load_wallpapers() {
+            swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .8 --transition-step 255 --transition-fps 60 -o $OUTPUT_1 $IMAGE_1;
+            swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .8 --transition-step 255 --transition-fps 60 -o $OUTPUT_2 $IMAGE_2
+          }
+
+          if ! swww query; then
+            swww-daemon &
+          fi
+
+          load_wallpapers &
+        '';
+    };
+  };
+
   # Add monitor configuration to hyprland
   modules.hyprland.extraConfig = # hyprlang
     ''
