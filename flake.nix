@@ -61,13 +61,21 @@
       formatter."${system}" = pkgs.nixfmt-rfc-style;
 
       homeManagerModules = {
-        emacs = import ./modules/home-manager/programs/emacs;
+        common = import ./modules/home-manager/common.nix;
+        default = import ./modules/home-manager;
+        emacsConfig = import ./modules/home-manager/programs/emacs;
         hyprlandConfig = import ./modules/home-manager/programs/hyprland;
         neovim = import ./modules/home-manager/programs/neovim;
+        theming = import ./modules/home-manager/theming.nix;
       };
 
       nixosModules = {
+        common = import ./modules/nixos/common.nix;
         default = import ./modules/nixos;
+        desktop = import ./modules/nixos/desktop.nix;
+        hardware = import ./modules/nixos/hardware.nix;
+        sound = import ./modules/nixos/sound.nix;
+        system = import ./modules/nixos/system.nix;
       };
     };
 }
