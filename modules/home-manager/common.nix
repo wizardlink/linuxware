@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 {
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
