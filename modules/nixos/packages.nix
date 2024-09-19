@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Enable GPG.
   programs.gnupg.agent = {
     enable = true;
