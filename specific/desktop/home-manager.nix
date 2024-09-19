@@ -8,7 +8,7 @@
   # Import configurations for better modularity.
   imports = [
     ../../modules/home-manager
-    ../../modules/home-manager/services.nix
+    ./services/openttd.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
