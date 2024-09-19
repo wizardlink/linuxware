@@ -50,7 +50,6 @@
     ## Tools
     # Utilities
     bat
-    btrfs-progs
     duf
     fuseiso
     lm_sensors
@@ -98,11 +97,5 @@
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-    pkgsi686Linux.gperftools # Needed for TF2 rn :(
-
-    ## Hardware specific
-    openrazer-daemon # Razor products back-end
-    polychromatic # and it's front-end
-    vial
   ];
 }

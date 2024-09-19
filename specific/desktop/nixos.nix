@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -138,4 +138,18 @@
 
   # Enable WOL on my ethernet interface.
   networking.interfaces.enp5s0.wakeOnLan.enable = true;
+
+  #
+  # PACKAGES #
+  #
+  environment.systemPackages = with pkgs; [
+    ## Tools
+    # Utilities
+    btrfs-progs
+
+    ## Hardware specific
+    openrazer-daemon # Razor products back-end
+    polychromatic # and it's front-end
+    vial
+  ];
 }
