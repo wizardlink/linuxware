@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   #
@@ -52,6 +52,20 @@
         '';
     };
   };
+
+  #
+  # PACKAGES #
+  #
+
+  home.packages = with pkgs; [
+    ## Tools
+    # Utilities
+    brightnessctl
+  ];
+
+  #
+  # MODULES #
+  #
 
   # Add monitor configuration to hyprland
   modules.hyprland.extraConfig = # hyprlang

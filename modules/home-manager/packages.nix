@@ -17,7 +17,6 @@
 
     ## Tools
     # Utilities
-    brightnessctl
     fastfetch
     firefox
     pavucontrol
