@@ -58,6 +58,27 @@
     };
   };
 
+  #
+  # PACKAGES #
+  #
+
+  programs.direnv = {
+    config = {
+      whitelist = {
+        prefix = [
+          "/mnt/internal/personal/projects"
+          "/mnt/internal/repos"
+          "/mnt/internal/shared/projects"
+          "/mnt/internal/shared/work"
+        ];
+      };
+    };
+  };
+
+  #
+  # MODULES #
+  #
+
   # Add monitor configuration to hyprland
   modules.hyprland.extraConfig = # hyprlang
     ''
