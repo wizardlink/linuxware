@@ -19,7 +19,7 @@ First you add this repository as a flake input:
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wizardlink-neovim.url = "git+https://git.thewizard.link/wizardlink/neovim";
+    wizardlink.url = "git+https://git.thewizard.link/wizardlink/linuxware";
   };
 
   outputs = { home-manager, ... }@inputs: {
@@ -34,11 +34,11 @@ First you add this repository as a flake input:
 Then in your [Home Manager] configuration you can just import it:
 
 ```nix
-{ wizardlink-neovim }:
+{ wizardlink }:
 
 {
   imports = [
-    wizardlink-neovim.homeManagerModules.default
+    wizardlink.homeManagerModules.neovim
   ];
 }
 ```
