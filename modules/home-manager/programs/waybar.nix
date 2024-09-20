@@ -69,18 +69,18 @@
 
         memory = {
           interval = 5;
-          format = " {percentage}%";
+          format = "   {percentage}%";
           states = {
             warning = 70;
             critical = 90;
           };
-          "tooltip-format" = "  {used:0.1f}G/{total:0.1f}G";
+          "tooltip-format" = "   {used:0.1f}G/{total:0.1f}G";
         };
 
         cpu = {
           interval = 5;
           tooltip = false;
-          format = " {usage}%";
+          format = "  {usage}%";
           format-alt = " {load}";
           states = {
             warning = 70;
