@@ -9,5 +9,6 @@
     ./services.nix
     ./sound.nix
     ./system.nix
+    ./theming.nix
   ];
 }

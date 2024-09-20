@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "FantasqueSansM Nerd Font";
+    font = "IBM Plex Sans";
 
     extraConfig = {
       disable-history = false;

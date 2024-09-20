@@ -9,7 +9,7 @@
     grey: #737994;
 
     width: 600;
-    font: "FantasqueSansM Nerd Font 14";
+    font: "IBM Plex Sans 14";
 }
 
 element-text, element-icon , mode-switcher {
@@ -87,7 +87,7 @@ button {
     padding: 10px;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5; 
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 

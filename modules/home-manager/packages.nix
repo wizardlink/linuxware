@@ -82,10 +82,11 @@
     ## Theming
     (nerdfonts.override {
       fonts = [
-        "FantasqueSansMono"
+        "IBMPlexMono"
         "NerdFontsSymbolsOnly"
       ];
     })
+    ibm-plex
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtwayland
     qt6Packages.qtstyleplugin-kvantum

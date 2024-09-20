@@ -16,11 +16,11 @@ in
 
       font = {
         normal = {
-          family = "FantasqueSansM Nerd Font";
+          family = "BlexMono Nerd Font";
           style = "Regular";
         };
 
-        size = 13;
+        size = 12;
       };
 
       window = {

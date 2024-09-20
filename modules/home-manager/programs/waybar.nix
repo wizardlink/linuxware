@@ -147,8 +147,8 @@
       * {
         all: unset;
         color: #c6d0f5;
-        font-family: "FantasqueSansM Nerd Font", 'Courier New', Courier, monospace;
-        font-size: 16px;
+        font-family: "IBM Plex Sans", 'Courier New', Courier, monospace;
+        font-size: 14px;
       }
 
       .modules-left,

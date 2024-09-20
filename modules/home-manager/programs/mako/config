@@ -4,7 +4,7 @@ border-color=#282a36
 border-radius=20
 border-size=2
 default-timeout=10000
-format=<span font="FantasqueSansMono NF weight=325 Italic" size="12288">%s</span>\n<span font="FantasqueSansMono NF weight=325" size="12288">%b</span>
+format=<span font="IBM Plex Serif weight=325 Italic" size="12288">%s</span>\n<span font="IBM Plex Serif weight=325" size="12288">%b</span>
 group-by=summary
 height=125
 icon-location=right
@@ -17,7 +17,7 @@ text-color=#44475a
 width=300
 
 [grouped]
-format=<span font="FantasqueSansMono NF weight=325 Italic" size="12288">%s</span>\n<span font="FantasqueSansMono NF weight=325" size="12288">%b</span>
+format=<span font="IBM Plex Serif weight=325 Italic" size="12288">%s</span>\n<span font="IBM Plex Serif weight=325" size="12288">%b</span>
 
 [mode=do-not-disturb]
 invisible=1

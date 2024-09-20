@@ -72,8 +72,8 @@
     (catppuccin-sddm.override # So SDDM finds the theme files.
       {
         flavor = "frappe";
-        font = "FantasqueSansM Nerd Font";
-        fontSize = "12";
+        font = "IBM Plex Sans";
+        fontSize = "11";
         background = "${./theming/sddm/Background.jpg}";
         loginBackground = true;
       }
