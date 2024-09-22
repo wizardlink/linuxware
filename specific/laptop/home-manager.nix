@@ -68,21 +68,30 @@
   #
 
   # Add monitor configuration to hyprland
-  modules.hyprland.extraConfig = # hyprlang
-    ''
-      # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor = eDP-1, 1920x1080@60.01, 0x0, 1
+  modules.hyprland = {
+    # Enable scripts
+    scripts = {
+      startup.enable = true;
+      screenshot.enable = true;
+    };
 
-      # Bind workspaces to specific monitors
-      workspace = 1, monitor:eDP-1
-      workspace = 2, monitor:eDP-1
-      workspace = 3, monitor:eDP-1
-      workspace = 4, monitor:eDP-1
-      workspace = 5, monitor:eDP-1
-      workspace = 6, monitor:eDP-1
-      workspace = 7, monitor:eDP-1
-      workspace = 8, monitor:eDP-1
-      workspace = 9, monitor:eDP-1
-      workspace = 0, monitor:eDP-1
-    '';
+    # Add monitor configuration to hyprland
+    extraConfig = # hyprlang
+      ''
+        # See https://wiki.hyprland.org/Configuring/Monitors/
+        monitor = eDP-1, 1920x1080@60.01, 0x0, 1
+
+        # Bind workspaces to specific monitors
+        workspace = 1, monitor:eDP-1
+        workspace = 2, monitor:eDP-1
+        workspace = 3, monitor:eDP-1
+        workspace = 4, monitor:eDP-1
+        workspace = 5, monitor:eDP-1
+        workspace = 6, monitor:eDP-1
+        workspace = 7, monitor:eDP-1
+        workspace = 8, monitor:eDP-1
+        workspace = 9, monitor:eDP-1
+        workspace = 0, monitor:eDP-1
+      '';
+  };
 }
