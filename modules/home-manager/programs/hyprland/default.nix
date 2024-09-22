@@ -1,15 +1,30 @@
-{ config, lib, ... }:
-
 {
-  options.modules.hyprland.extraConfig = lib.mkOption {
-    type = lib.types.str;
-    default = "";
-    example = # hyprlang
-      ''
-        monitor = DP-3, 1920x1080@74.973, 2560x0, 1
-        monitor = DP-2, 2560x1440@165.00301, 0x0, 1
-      '';
-    description = "Configuration to be appended to my own.";
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+let
+  cfg = config.modules.hyprland;
+in
+{
+  options.modules.hyprland = {
+    extraConfig = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      example = # hyprlang
+        ''
+          monitor = DP-3, 1920x1080@74.973, 2560x0, 1
+          monitor = DP-2, 2560x1440@165.00301, 0x0, 1
+        '';
+      description = "Configuration to be appended to my own.";
+    };
+
+    scripts = {
+      screenshot.enable = lib.mkEnableOption "screenshot";
+      startup.enable = lib.mkEnableOption "startup";
+    };
   };
 
   config = {
@@ -138,11 +153,23 @@
         '';
     };
 
+    # Set-up the scripts for services and apps.
+    home.packages = lib.mkIf cfg.scripts.startup.enable [
+      (import ./scripts/start_services.nix pkgs)
+      (import ./scripts/start_apps.nix pkgs)
+    ];
+
+    # Then add the hyprland screenshot scripts.
+    xdg.dataFile = lib.mkIf cfg.scripts.screenshot.enable {
+      "scripts/hyprland/screenshot.sh".source = ./scripts/screenshot.sh;
+      "scripts/hyprland/screenshot_area.sh".source = ./scripts/screenshot_area.sh;
+    };
+
     # Configure hyprland - we enable it in NixOS.
     xdg.configFile."hypr/hyprland.conf".text = # hyprlang
       ''
         source = $HOME/.config/hypr/frappe.conf
-        ${config.modules.hyprland.extraConfig}
+        ${cfg.extraConfig}
 
         #
         # Please note not all available settings / options are set here.
@@ -157,10 +184,10 @@
         exec-once = /etc/profiles/per-user/wizardlink/etc/profile.d/hm-session-vars.sh
 
         # Start the core services of my desktop
-        exec-once = ~/.local/share/scripts/hyprland/start_services.sh
+        exec-once = start_services
 
         # Open the apps I always use
-        exec-once = ~/.local/share/scripts/hyprland/start_apps.sh
+        exec-once = start_apps
 
         # Set cursor size.
         env = HYPRCURSOR_SIZE, 36
