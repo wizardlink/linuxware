@@ -3,6 +3,9 @@
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+  },
   opts = function(_, config)
     -- config variable is the default configuration table for the setup function call
     local null_ls = require("null-ls")
@@ -12,9 +15,11 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
       -- Set a formatter
+      require("none-ls.diagnostics.flake8"),
       null_ls.builtins.formatting.clang_format,
       null_ls.builtins.formatting.nixfmt,
       null_ls.builtins.formatting.prettier,
+      require("none-ls.formatting.ruff"),
       null_ls.builtins.formatting.stylua,
     }
     return config -- return final config table

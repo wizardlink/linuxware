@@ -76,6 +76,11 @@ in
         nixd
         nixfmt-rfc-style
 
+        # Python
+        basedpyright
+        python312Packages.flake8
+        ruff
+
         # TypeScript
         typescript-language-server
 
