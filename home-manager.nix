@@ -88,7 +88,9 @@
     qbittorrent
     quickemu
     sunshine
+    teams-for-linux
     vesktop
+    pavucontrol
     xournalpp
     xwaylandvideobridge
     yazi

@@ -342,6 +342,20 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  ## FONTS #
+
+  fonts = {
+    fonts = with pkgs; [
+      source-code-pro
+      source-han-mono
+      source-han-sans
+      source-han-serif
+      wqy_zenhei
+    ];
+
+    fontDir.enable = true;
+    fontconfig.enable = true;
+  };
 
   ##
   ## SERVICES #
