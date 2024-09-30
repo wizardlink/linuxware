@@ -59,6 +59,10 @@ in
         clang-tools
         gcc # Needed for treesitter
 
+        # C#
+        csharp-ls
+        csharpier
+
         # HTML/CSS/JSON
         emmet-ls
         vscode-langservers-extracted

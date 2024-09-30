@@ -59,6 +59,7 @@ in
         "basedpyright",
         "clangd",
         "cmake",
+        "csharp_ls",
         "cssls",
         "eslint",
         "html",
