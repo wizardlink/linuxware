@@ -59,10 +59,7 @@
 
     # Configure DXVK
     ".config/dxvk.conf".text = ''
-      dxgi.tearFree = True
-      dxvk.enableGraphicsPipelineLibrary = True
-
-      dxvk.enableAsync = True
+      dxvk.enableGraphicsPipelineLibrary = Auto
     '';
 
     # My utility scripts
