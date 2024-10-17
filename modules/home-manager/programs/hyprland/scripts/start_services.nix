@@ -56,4 +56,9 @@ pkgs.writeShellScriptBin "start_services" ''
   # Clipboard manager
   #
   ${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store &
+
+  #
+  # Service that syncs X11 and Wayland clipboards
+  #
+  clipboard-sync
 ''

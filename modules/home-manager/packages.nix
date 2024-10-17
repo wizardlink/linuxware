@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, clipboard-sync, ... }:
 
 {
   imports = [
@@ -69,6 +69,7 @@
     lazygit
 
     ## Desktop environment
+    clipboard-sync.packages.${pkgs.stdenv.hostPlatform.system}.default
     cliphist
     grim
     libsForQt5.ark
