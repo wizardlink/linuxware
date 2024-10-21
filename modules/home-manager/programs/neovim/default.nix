@@ -87,11 +87,12 @@ in
         # TypeScript/JavaScript
         deno
         typescript-language-server
+        vscode-js-debug
 
         # Rust
         rust-analyzer
         taplo
-        vscode-extensions.vadimcn.vscode-lldb.adapter
+        vscode-extensions.vadimcn.vscode-lldb
 
         # Vue
         vue-language-server
