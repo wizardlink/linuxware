@@ -113,5 +113,7 @@ in
       config = config;
       pkgs = pkgs;
     };
+
+    xdg.configFile."nvim/colors/catppuccin-frappe-base16.lua".source = ./colors/catppuccin-frappe-base16.lua;
   };
 }
