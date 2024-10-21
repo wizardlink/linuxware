@@ -74,7 +74,6 @@ in
         # Markdown
         markdownlint-cli
         marksman
-        prettierd
 
         # Nix
         nixd
@@ -85,7 +84,8 @@ in
         python312Packages.flake8
         ruff
 
-        # TypeScript
+        # TypeScript/JavaScript
+        deno
         typescript-language-server
 
         # Rust
