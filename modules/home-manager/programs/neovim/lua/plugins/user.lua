@@ -30,6 +30,8 @@ return {
   {
     "xiyaowong/transparent.nvim",
     opts = function(_, opts)
+      local transparent = require("transparent")
+
       opts.groups = {
         "Comment",
         "Conditional",
@@ -77,13 +79,7 @@ return {
         "LineNrAbove",
         "LineNrBelow",
         "LineNrBelow",
-        "NeoTreeFloatBoarder",
-        "NeoTreeMessage",
-        "NeoTreeNormal",
-        "NeoTreeTabSeparatorActive",
-        "NeoTreeTabSeparatorInactive",
-        "NeoTreeVertSplit",
-        "NeoTreeWinSeparator",
+        "NvimTreeWindowPicker",
         "TabLine",
         "TabLineFill",
         "VertSplit",
@@ -91,6 +87,9 @@ return {
         "WinBarNC",
         "WinSeparator",
       }
+
+      transparent.clear_prefix("BufferLine")
+      transparent.clear_prefix("NeoTree")
     end,
   },
 
