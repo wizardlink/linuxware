@@ -26,6 +26,7 @@ return {
     end,
   },
 
+  -- Add the catppuccin colorscheme
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -118,11 +119,6 @@ return {
         "CursorColumn",
         "CursorLineFold",
         "CursorLineSign",
-        "DiagnosticSignError",
-        "DiagnosticSignHint",
-        "DiagnosticSignInfo",
-        "DiagnosticSignOk",
-        "DiagnosticSignWarn",
         "FloatBorder",
         "FoldColumn",
         "Folded",
@@ -133,7 +129,6 @@ return {
         "LineNrAbove",
         "LineNrBelow",
         "LineNrBelow",
-        "NvimTreeWindowPicker",
         "TabLine",
         "TabLineFill",
         "VertSplit",
@@ -143,7 +138,9 @@ return {
       }
 
       transparent.clear_prefix("BufferLine")
+      transparent.clear_prefix("Diagnostic")
       transparent.clear_prefix("NeoTree")
+      transparent.clear_prefix("NvimTree")
     end,
   },
 
