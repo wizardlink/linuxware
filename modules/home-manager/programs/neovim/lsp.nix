@@ -61,6 +61,7 @@ in
         "cmake",
         "csharp_ls",
         "cssls",
+        "denols",
         "eslint",
         "html",
         "jsonls",
@@ -70,7 +71,7 @@ in
         "rust_analyzer",
         "svelte",
         "taplo",
-        "tsserver",
+        "ts_ls",
         "volar",
         "yamlls",
       },
@@ -93,7 +94,7 @@ in
             },
           },
         },
-        tsserver = {
+        ts_ls = {
           init_options = {
             plugins = {
               {
@@ -108,6 +109,7 @@ in
             "typescript",
             "vue",
           },
+          root_dir = require("lspconfig.util").root_pattern("package.json"),
         },
       },
       -- customize how language servers are attached
