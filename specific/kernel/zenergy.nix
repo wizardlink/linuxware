@@ -29,14 +29,10 @@ stdenv.mkDerivation {
 
   makeFlags = kernel.makeFlags ++ [ "KDIR=${kernelDirectory}" ];
 
-  makeTargets = [ "modules_install" ];
+  installTargets = [ "modules_install" ];
 
   preBuild = ''
     substituteInPlace Makefile --replace-fail "PWD modules_install" "PWD INSTALL_MOD_PATH=$out modules_install"
-  '';
-
-  installPhase = ''
-    make modules_install KDIR=${kernelDirectory}
   '';
 
   meta = with lib; {
