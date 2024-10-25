@@ -129,6 +129,19 @@ return {
         "LineNrAbove",
         "LineNrBelow",
         "LineNrBelow",
+        "NeoTreeFloatingBorder",
+        "NeoTreeMessage",
+        "NeoTreeNormal",
+        "NeoTreeTabSeparatorActive",
+        "NeoTreeTabSeparatorInactive",
+        "NeoTreeVertSplit",
+        "NeoTreeWinSeparator",
+        "NeoTreeNormalNC",
+        "NeoTreeTabActive",
+        "NeoTreeStatusLine",
+        "NeoTreeStatusLineNC",
+        "NeoTreeTabInactive",
+        "NormalFloat",
         "TabLine",
         "TabLineFill",
         "VertSplit",
@@ -139,7 +152,6 @@ return {
 
       transparent.clear_prefix("BufferLine")
       transparent.clear_prefix("Diagnostic")
-      transparent.clear_prefix("NeoTree")
       transparent.clear_prefix("NvimTree")
     end,
   },
