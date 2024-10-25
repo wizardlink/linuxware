@@ -20,18 +20,18 @@
     ".config/fish/themes/Catppuccin-Frappe.theme".source = ./theming/Catppuccin-Frappe.theme;
 
     ## Kvantum's theme configuration.
-    ".config/Kvantum/Catppuccin-Frappe-Lavender" = {
+    ".config/Kvantum/catppuccin-frappe-lavender" = {
       source = "${
         pkgs.catppuccin-kvantum.override {
-          accent = "Lavender";
-          variant = "Frappe";
+          accent = "lavender";
+          variant = "frappe";
         }
-      }/share/Kvantum/Catppuccin-Frappe-Lavender";
+      }/share/Kvantum/catppuccin-frappe-lavender";
     };
 
     ".config/Kvantum/kvantum.kvconfig".text = ''
       [General]
-      theme=Catppuccin-Frappe-Lavender
+      theme=catppuccin-frappe-lavender
     '';
     ##
 

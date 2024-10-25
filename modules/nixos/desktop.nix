@@ -51,8 +51,7 @@ in
     package32 = hyprland-pkgs.pkgsi686Linux.mesa.drivers;
 
     extraPackages = with pkgs; [
-      rocm-opencl-icd # OpenGL hwa
-      rocm-opencl-runtime
+      rocmPackages.clr.icd # OpenGL hwa
     ];
   };
 
