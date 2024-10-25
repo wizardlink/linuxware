@@ -1,4 +1,9 @@
-{ pkgs, hyprland, ... }:
+{
+  pkgs,
+  hyprland,
+  xdph,
+  ...
+}:
 
 let
   hyprland-pkgs = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -22,7 +27,7 @@ in
     enable = true;
 
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-wlr;
+    portalPackage = xdph.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
   # Enable XDG Desktop Portals.

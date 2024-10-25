@@ -20,6 +20,7 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    xdph.url = "git+https://github.com/hyprwm/xdg-desktop-portal-hyprland?submodules=1";
   };
 
   outputs =
