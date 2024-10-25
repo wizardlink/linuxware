@@ -46,7 +46,9 @@ return {
       -- Set a formatter
       require("none-ls.diagnostics.flake8"),
       require("none-ls.formatting.ruff"),
-      null_ls.builtins.formatting.clang_format,
+      null_ls.builtins.formatting.clang_format.with({
+        disabled_filetypes = { "cs" },
+      }),
       null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.nixfmt,
       null_ls.builtins.formatting.stylua,
