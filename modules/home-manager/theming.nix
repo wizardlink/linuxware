@@ -1,6 +1,20 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "IBMPlexMono"
+        "NerdFontsSymbolsOnly"
+      ];
+    })
+    ibm-plex
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qtwayland
+    qt6Packages.qtstyleplugin-kvantum
+    qt6Packages.qtwayland
+  ];
+
   home.file = {
     # Cattpuccin theme for fish shell.
     ".config/fish/themes/Catppuccin-Frappe.theme".source = ./theming/Catppuccin-Frappe.theme;

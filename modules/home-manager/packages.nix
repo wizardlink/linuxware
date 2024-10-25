@@ -80,19 +80,6 @@
     # Mail client
     thunderbird
 
-    ## Theming
-    (nerdfonts.override {
-      fonts = [
-        "IBMPlexMono"
-        "NerdFontsSymbolsOnly"
-      ];
-    })
-    ibm-plex
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qtwayland
-    qt6Packages.qtstyleplugin-kvantum
-    qt6Packages.qtwayland
-
     # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
     (
       let
