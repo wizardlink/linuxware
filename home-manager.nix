@@ -84,11 +84,13 @@
     gparted
     menulibre
     obs-cmd
+    obsidian
     protonvpn-cli_2
     qbittorrent
     quickemu
     sunshine
     teams-for-linux
+    tigervnc
     vesktop
     pavucontrol
     xournalpp
