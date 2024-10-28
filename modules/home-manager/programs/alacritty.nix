@@ -12,7 +12,7 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ "${catppuccin-theme}/catppuccin-frappe.toml" ];
+      general.import = [ "${catppuccin-theme}/catppuccin-frappe.toml" ];
 
       font = {
         normal = {
