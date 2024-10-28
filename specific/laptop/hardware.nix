@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ config, ... }:
 
 {
   # Enable Zenergy
+  boot.initrd.kernelModules = [
+    "zenergy"
+  ];
   boot.extraModulePackages = [
-    (pkgs.callPackage ../kernel/zenergy.nix { kernel = pkgs.linux_zen; })
+    config.boot.kernelPackages.zenergy
   ];
 
   # enable a better driver for wireless xbox controllers.

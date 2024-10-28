@@ -8,12 +8,10 @@
   boot.initrd.kernelModules = [
     "amdgpu"
     "v4l2loopback"
-    "zenergy"
   ];
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback
-    config.boot.kernelPackages.zenergy
   ];
 
   boot.extraModprobeConfig = ''

@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # Enable Zenergy
+  boot.initrd.kernelModules = [
+    "zenergy"
+  ];
   boot.extraModulePackages = [
-    (pkgs.callPackage ../kernel/zenergy.nix { kernel = pkgs.linux_zen; })
+    config.boot.kernelPackages.zenergy
   ];
 
   # Enable openrazer for managing Razer products' configuration
