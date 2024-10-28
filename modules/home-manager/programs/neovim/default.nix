@@ -58,6 +58,7 @@ in
         # C/C++
         clang-tools
         gcc # Needed for treesitter
+        vscode-extensions.ms-vscode.cpptools
 
         # C#
         csharp-ls
@@ -114,5 +115,7 @@ in
       config = config;
       pkgs = pkgs;
     };
+
+    xdg.configFile."nvim/lua/polish.lua".text = import ./polish.nix pkgs;
   };
 }

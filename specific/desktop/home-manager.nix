@@ -67,6 +67,7 @@
     config = {
       whitelist = {
         prefix = [
+          "/mnt/internal/hydractify/GitHub"
           "/mnt/internal/personal/projects"
           "/mnt/internal/repos"
           "/mnt/internal/shared/projects"

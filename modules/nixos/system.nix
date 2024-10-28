@@ -5,11 +5,20 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Add AMD drivers.
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [
+    "amdgpu"
+    "v4l2loopback"
+    "zenergy"
+  ];
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback
+    config.boot.kernelPackages.zenergy
   ];
+
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="Virtual camera" exclusive_caps=1
+  '';
 
   # Bootloader.
   boot.loader = {
@@ -46,6 +55,7 @@
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";
+      StreamLocalBindUnlink = "yes";
     };
   };
 }
