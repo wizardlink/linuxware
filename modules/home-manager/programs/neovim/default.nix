@@ -86,8 +86,8 @@ in
         ruff
 
         # TypeScript/JavaScript
+        (callPackage ../vtsls { })
         deno
-        typescript-language-server
         vscode-js-debug
 
         # Rust
