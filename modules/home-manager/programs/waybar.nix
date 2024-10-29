@@ -111,7 +111,7 @@
           };
 
           format-time = "{H}:{M:02}";
-          format = "{icon} {capacity}% ({time})";
+          format = "{icon}   {capacity}% ({time})";
           format-charging = " {capacity}% ({time})";
           format-charging-full = " {capacity}%";
           format-full = "{icon} {capacity}%";
