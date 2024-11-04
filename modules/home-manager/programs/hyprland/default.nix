@@ -190,8 +190,8 @@ in
         exec-once = start_apps
 
         # Set cursor size.
-        env = HYPRCURSOR_SIZE, 36
-        env = XCURSOR_SIZE, 36
+        exec-once = hyprctl setcursor 24
+        env = XCURSOR_SIZE, 24
 
         # Source a file (multi-file configs)
         # source = ~/.config/hypr/myColors.conf
