@@ -239,10 +239,12 @@ in
           #blur_passes = 1
           #blur_new_optimizations = on
 
-          drop_shadow = yes
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = $crust
+          shadow {
+            enabled = true
+            range = 4
+            render_power = 3
+            color = $crust
+          }
         }
 
         animations {
