@@ -72,6 +72,7 @@
     cliphist
     grim
     libsForQt5.ark
+    loupe
     mako
     slurp
     swww
