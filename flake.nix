@@ -19,8 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.44.1";
-    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
