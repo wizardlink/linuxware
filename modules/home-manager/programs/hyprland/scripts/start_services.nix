@@ -11,11 +11,6 @@ pkgs.writeShellScriptBin "start_services" ''
   #
   waybar &
 
-  #
-  # Start xwaylandvideobridge
-  #
-  xwaylandvideobridge &
-
 
   #
   # Start wallpaper daemon

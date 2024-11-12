@@ -62,7 +62,6 @@
     libsForQt5.kdegraphics-thumbnailers
     libsForQt5.kio-extras
     rnnoise-plugin
-    xwaylandvideobridge
 
     ## Development
     beekeeper-studio
