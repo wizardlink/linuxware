@@ -7,8 +7,8 @@
     settings = {
       # Limitations
       fps_limit = 165;
-      vsync = 1;
-      gl_vsync = 0;
+      #vsync = 1;     # Disables VSync
+      #gl_vsync = 0;  # - in OpenGL applications
 
       # GPU Statistics
       gpu_core_clock = true;
