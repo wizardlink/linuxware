@@ -15,6 +15,9 @@
   # And enable GNOME keyring for registering keys.
   services.gnome.gnome-keyring.enable = true;
 
+  # Enable flatpak to all users.
+  services.flatpak.enable = true;
+
   services.postgresql = {
     identMap = lib.mkIf config.services.postgresql.enable ''
       # MAP_NAME        SYSTEM_USER     DB_USER
