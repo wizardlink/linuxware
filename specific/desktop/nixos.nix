@@ -54,6 +54,7 @@
       6567 # Mindustry
       80 # HTTP
       3979 # OpenTTD
+      7777 # Terraria
     ];
 
     allowedUDPPorts = [
