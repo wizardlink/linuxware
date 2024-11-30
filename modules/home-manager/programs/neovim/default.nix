@@ -86,7 +86,7 @@ in
         ruff
 
         # TypeScript/JavaScript
-        (callPackage ../vtsls { })
+        vtsls
         deno
         vscode-js-debug
 
