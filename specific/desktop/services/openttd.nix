@@ -14,8 +14,8 @@
     Unit.Description = "OpenTTD Tmux server";
 
     Service = {
-      ExecStart = "${pkgs.tmux}/bin/tmux new -s OpenTTD -d '${pkgs.openttd}/bin/openttd -g /home/wizardlink/.local/share/openttd/save/hyfy.sav -D'";
-      ExecStop = "${pkgs.tmux}/bin/tmux kill-server";
+      ExecStart = "${pkgs.tmux}/bin/tmux -S /run/user/1000/tmux-1000/openttd new -s OpenTTD -d '${pkgs.openttd}/bin/openttd -g /home/wizardlink/.local/share/openttd/save/hyfy.sav -D'";
+      ExecStop = "${pkgs.tmux}/bin/tmux kill-session -t OpenTTD";
       Restart = "on-failure";
       Type = "forking";
     };
@@ -30,7 +30,7 @@
     };
 
     Service = {
-      ExecStart = "${pkgs.tmux}/bin/tmux send-keys -t OpenTTD 'rcon_pw aaaa' Enter";
+      ExecStart = "${pkgs.tmux}/bin/tmux -S /run/user/1000/tmux-1000/openttd send-keys -t OpenTTD 'rcon_pw aaaa' Enter";
       Type = "oneshot";
     };
   };
@@ -44,7 +44,7 @@
     };
 
     Service = {
-      ExecStart = "${pkgs.tmux}/bin/tmux send-keys -t OpenTTD 'save hyfy' Enter";
+      ExecStart = "${pkgs.tmux}/bin/tmux -S /run/user/1000/tmux-1000/openttd send-keys -t OpenTTD 'save hyfy' Enter";
       Type = "simple";
       Restart = "always";
       RestartSec = "1800s";
