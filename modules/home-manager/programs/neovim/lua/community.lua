@@ -26,7 +26,7 @@ return {
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.yaml" },
 }

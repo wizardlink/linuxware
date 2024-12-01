@@ -62,6 +62,7 @@ in
         "cmake",
         "csharp_ls",
         "cssls",
+        "denols",
         "eslint",
         "html",
         "jsonls",
@@ -71,8 +72,8 @@ in
         "rust_analyzer",
         "svelte",
         "taplo",
-        "vtsls",
         "volar",
+        "vtsls",
         "yamlls",
       },
       -- customize language server configuration options passed to `lspconfig`
