@@ -62,7 +62,6 @@ in
         "cmake",
         "csharp_ls",
         "cssls",
-        "denols",
         "eslint",
         "html",
         "jsonls",
