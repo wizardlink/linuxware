@@ -58,6 +58,16 @@
   # PACKAGES #
   #
 
+  programs.direnv = {
+    config = {
+      whitelist = {
+        prefix = [
+          "/home/wizardlink/Documents/projects"
+        ];
+      };
+    };
+  };
+
   home.packages = with pkgs; [
     ## Tools
     # Utilities
