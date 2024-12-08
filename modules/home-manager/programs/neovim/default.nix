@@ -52,6 +52,9 @@ in
         curl
         ollamaPackage
 
+        # Needed by LuaSnip
+        luajitPackages.jsregexp
+
         # CMAKE
         neocmakelsp
 
