@@ -30,11 +30,19 @@ pkgs:
     },
   }
 
+  -- @type DapAdapter
   dap.adapters.cppdbg = {
     id = "cppdbg",
     type = "executable",
     command =
     "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
+  }
+
+  -- @type DapAdapter
+  dap.adapters.coreclr = {
+    type = "executable",
+    command = "${pkgs.netcoredbg}/bin/netcoredbg",
+    args = {"--interpreter=vscode"}
   }
 
   -- @type DapConfiguration
@@ -51,6 +59,7 @@ pkgs:
     },
   }
 
+  -- @type DapConfiguration
   dap.configurations.cpp = {
     {
       name = "Launch file",
@@ -77,4 +86,16 @@ pkgs:
   }
 
   dap.configurations.c = dap.configurations.cpp
+
+  -- @type DapConfiguration
+  dap.configurations.cs = {
+    {
+      type = "coreclr",
+      name = "launch - netcoredbg",
+      request = "launch",
+      program = function()
+          return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+      end,
+    },
+  }
 ''

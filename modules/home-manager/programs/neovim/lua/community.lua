@@ -18,6 +18,7 @@ return {
 
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.cs" },
   { import = "astrocommunity.pack.godot" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
