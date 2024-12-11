@@ -2,13 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "IBMPlexMono"
-        "NerdFontsSymbolsOnly"
-      ];
-    })
     ibm-plex
+    nerd-fonts.blex-mono
+    nerd-fonts.symbols-only
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtwayland
     qt6Packages.qtstyleplugin-kvantum
