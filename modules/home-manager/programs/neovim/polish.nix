@@ -41,7 +41,7 @@ pkgs:
   -- @type DapAdapter
   dap.adapters.coreclr = {
     type = "executable",
-    command = "${pkgs.netcoredbg}/bin/netcoredbg",
+    command = "netcoredbg",
     args = {"--interpreter=vscode"}
   }
 

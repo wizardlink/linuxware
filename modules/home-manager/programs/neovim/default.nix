@@ -66,6 +66,7 @@ in
         # C#
         csharp-ls
         csharpier
+        netcoredbg
 
         # HTML/CSS/JSON
         emmet-ls
