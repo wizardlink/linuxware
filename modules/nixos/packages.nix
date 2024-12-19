@@ -94,7 +94,10 @@
     nmap
 
     # Processes
-    btop
+    (btop.override {
+      # AMD GPU support
+      rocmSupport = true;
+    })
     killall
 
     # Filter
