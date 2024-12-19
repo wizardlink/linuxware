@@ -65,6 +65,7 @@
 
     ## Development
     beekeeper-studio
+    hoppscotch
     lazygit
 
     ## Desktop environment
