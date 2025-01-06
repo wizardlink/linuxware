@@ -20,6 +20,8 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    hydractify-bot.url = "github:hydractify/hydractify-bot";
   };
 
   outputs =
