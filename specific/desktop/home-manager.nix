@@ -87,7 +87,7 @@
       let
         base = appimageTools.defaultFhsEnvArgs;
       in
-      buildFHSUserEnv (
+      buildFHSEnv (
         base
         // {
           name = "fhs";

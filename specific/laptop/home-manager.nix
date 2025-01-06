@@ -78,7 +78,7 @@
       let
         base = appimageTools.defaultFhsEnvArgs;
       in
-      buildFHSUserEnv (
+      buildFHSEnv (
         base
         // {
           name = "fhs";
@@ -91,11 +91,8 @@
               #
               # pkgs.appimageTools provides basic packages required by most software.
               (base.targetPkgs pkgs)
-              ++ (
-                with pkgs;
-                [
-                ]
-              )
+              ++ (with pkgs; [
+              ])
             );
           profile = "export FHS=1";
           runScript = "bash";
