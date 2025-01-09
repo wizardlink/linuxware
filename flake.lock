@@ -134,11 +134,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736206444,
-        "narHash": "sha256-9Tm9jkEMajoaZ9B7KR2aZFVdRbp3uI3H1GH8b3uv/kg=",
+        "lastModified": 1736252359,
+        "narHash": "sha256-zbYyO3Litc2PBqcgJGaRyp6nJpy/Zx3f3ucJC312rRE=",
         "owner": "hydractify",
         "repo": "hydractify-bot",
-        "rev": "4d011ea7e90565d651a8c35b7a6348bc8493e711",
+        "rev": "b8b2de9252fdbdea688f85d621b0782a6936efe6",
         "type": "github"
       },
       "original": {
