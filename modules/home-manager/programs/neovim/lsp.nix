@@ -113,6 +113,17 @@ in
             },
           },
         },
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
+                extraArgs = { "--profile", "rust-analyzer" },
+              },
+              check = { command = "check", extraArgs = {} },
+            },
+          }
+        }
       },
       -- customize how language servers are attached
       handlers = {
