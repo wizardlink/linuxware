@@ -9,11 +9,11 @@
     ./git.nix
     ./hyprland
     ./mangohud.nix
+    ./neovim
     ./obs-studio.nix
     ./rofi
     ./spotify
     ./tmux
     ./waybar.nix
-    ./neovim
   ];
 }
