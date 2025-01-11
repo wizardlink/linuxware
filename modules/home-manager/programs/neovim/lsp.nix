@@ -31,6 +31,7 @@ in
             -- "go",
             "c",
             "cpp",
+            "cs",
             "h",
             "javascript",
             "jsx",
