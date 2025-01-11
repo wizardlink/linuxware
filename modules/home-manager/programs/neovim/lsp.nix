@@ -84,6 +84,9 @@ in
         nixd = {
           settings = {
             nixd = {
+              nixpkgs = {
+                expr = 'import (builtins.getFlake (${location})).inputs.nixpkgs { }',
+              },
               options = {
                 nixos = {
                   expr = '(builtins.getFlake ("${location}")).nixosConfigurations.${hostname}.options',
