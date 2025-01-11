@@ -96,6 +96,7 @@ in
 
         # Rust
         rust-analyzer
+        cargo # Needed by blink-cmp
         taplo
         vscode-extensions.vadimcn.vscode-lldb
 
