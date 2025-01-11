@@ -40,7 +40,7 @@
     blender
     krita
     lmms
-    orca-slicer
+    #orca-slicer # FIXME: Broken right now, gotta wait for PR 369729
     shotcut
     vcv-rack
 
