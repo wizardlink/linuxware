@@ -93,7 +93,7 @@ in
                 },
                 home_manager = {
                   expr =
-                    '(builtins.getFlake ("${location}")).homeConfigurations.${hostname}.options',
+                    '(builtins.getFlake ("${location}")).nixosConfigurations.${hostname}.options.home-manager.users.type.getSubOptions []',
                 },
               },
             },
