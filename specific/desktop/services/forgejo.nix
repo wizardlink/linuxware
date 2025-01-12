@@ -20,8 +20,6 @@
 
       service = {
         DISABLE_REGISTRATION = true;
-        ENABLE_REVERSE_PROXY_AUTHENTICATION = true;
-        ENABLE_REVERSE_PROXY_AUTHENTICATION_API = true;
       };
     };
   };
