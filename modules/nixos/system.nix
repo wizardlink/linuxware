@@ -34,12 +34,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Define variables that will be initialized in PAM.
-  environment.sessionVariables = {
-    # Set env for Fcitx5
-    QMODIFIERS = "@im=fcitx5";
-  };
-
   # Set fish as the default shell for all users.
   users.defaultUserShell = pkgs.fish;
 
