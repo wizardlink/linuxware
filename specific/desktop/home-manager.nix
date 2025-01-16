@@ -42,10 +42,10 @@
           ## Start wallpaper daemon and set one.
           #
           OUTPUT_1="DP-2"
-          IMAGE_1="/mnt/internal/personal/wallpapers/wallhaven-vqlvm8.jpg"
+          IMAGE_1="/mnt/internal/personal/wallpapers/edited/1440-bicycle.jpg"
 
           OUTPUT_2="DP-3"
-          IMAGE_2="/mnt/internal/personal/wallpapers/wallhaven-2yl6px.jpg"
+          IMAGE_2="/mnt/internal/personal/wallpapers/edited/1080-bycicle.jpg"
 
           function load_wallpapers() {
             swww img -t any --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .8 --transition-step 255 --transition-fps 60 -o $OUTPUT_1 $IMAGE_1;
