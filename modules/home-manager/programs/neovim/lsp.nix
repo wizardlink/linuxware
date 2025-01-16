@@ -1,7 +1,7 @@
 { config, pkgs }:
 let
-  hostname = config.programs.neovim.flake.hostname;
-  location = config.programs.neovim.flake.location;
+  hostname = config.programs.neovim.nixd.hostname;
+  location = config.programs.neovim.nixd.location;
 in
 #lua
 ''

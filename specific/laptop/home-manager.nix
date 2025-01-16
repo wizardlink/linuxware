@@ -106,6 +106,9 @@
   # MODULES #
   #
 
+  # Set the hostname for nixd in neovim
+  programs.neovim.nixd.hostname = "wizlap";
+
   # Add monitor configuration to hyprland
   modules.hyprland = {
     # Enable scripts

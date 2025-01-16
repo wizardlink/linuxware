@@ -12,7 +12,7 @@ let
 in
 {
   options.programs.neovim = {
-    flake = {
+    nixd = {
       hostname = mkOption {
         default = "wizdesk";
         description = "Your NixOS hostname, needed for nixd lsp.";
