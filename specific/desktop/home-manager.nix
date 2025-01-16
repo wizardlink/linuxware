@@ -117,6 +117,10 @@
   # MODULES #
   #
 
+  programs.neovim = {
+    enable = true;
+  };
+
   modules.hyprland = {
     # Enable scripts
     scripts = {

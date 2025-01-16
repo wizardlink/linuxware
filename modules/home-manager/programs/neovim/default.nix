@@ -8,7 +8,12 @@
 let
   inherit (lib) types mkOption;
   ollamaPackage =
-    if config.programs.neovim.ollama.type == "amd" then pkgs.ollama-rocm else pkgs.ollama-cuda;
+    if config.programs.neovim.ollama.type == "amd" then
+      pkgs.ollama-rocm
+    else if config.programs.neovim.ollama.type == "nvidia" then
+      pkgs.ollama-cuda
+    else
+      pkgs.ollama;
 in
 {
   options.programs.neovim = {
@@ -41,7 +46,6 @@ in
 
   config = {
     programs.neovim = {
-      enable = true;
       withNodeJs = true;
       withPython3 = true;
 
