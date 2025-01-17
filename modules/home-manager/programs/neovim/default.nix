@@ -130,11 +130,20 @@ in
       source = ./lua;
     };
 
-    xdg.configFile."nvim/lua/plugins/astrolsp.lua".text = import ./lsp.nix {
-      config = config;
-      pkgs = pkgs;
-    };
+    xdg.configFile."nvim/lua/plugins/astrolsp.lua".source = pkgs.runCommand "astrolsp.lua" { } ''
+      cp ${./lsp.lua} $out
 
-    xdg.configFile."nvim/lua/polish.lua".text = import ./polish.nix pkgs;
+      substituteInPlace $out \
+        --replace-fail "{hostname}" "${config.programs.neovim.nixd.hostname}" \
+        --replace-fail "{location}" "${config.programs.neovim.nixd.location}" \
+        --replace-fail "{pkgs.vue-language-server}" "${pkgs.vue-language-server}"
+    '';
+
+    xdg.configFile."nvim/lua/polish.lua".source = pkgs.runCommand "polish.lua" { } ''
+      cp ${./polish.lua} $out
+
+      substituteInPlace $out \
+        --replace-fail "{pkgs.vscode-extensions.ms-vscode.cpptools}" "${pkgs.vscode-extensions.ms-vscode.cpptools}" \
+    '';
   };
 }
