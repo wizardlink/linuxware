@@ -119,6 +119,9 @@
 
   programs.neovim = {
     enable = true;
+
+    # Enable ollama support
+    ollama.enable = true;
   };
 
   modules.hyprland = {
