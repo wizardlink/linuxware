@@ -6,14 +6,21 @@
 }:
 
 let
-  inherit (lib) types mkOption;
-  ollamaPackage =
+  inherit (lib)
+    types
+    mkOption
+    mkIf
+    mkEnableOption
+    ;
+
+  ollamaPackage = mkIf config.programs.neovim.ollama.enable (
     if config.programs.neovim.ollama.type == "amd" then
       pkgs.ollama-rocm
     else if config.programs.neovim.ollama.type == "nvidia" then
       pkgs.ollama-cuda
     else
-      pkgs.ollama;
+      pkgs.ollama
+  );
 in
 {
   options.programs.neovim = {
@@ -33,14 +40,17 @@ in
       };
     };
 
-    ollama.type = mkOption {
-      default = "amd";
-      description = "The type of ollama package to install, AMD GPU accelerated or NVIDIA GPU accelerated.";
-      example = "amd";
-      type = types.enum [
-        "amd"
-        "nvidia"
-      ];
+    ollama = {
+      enable = mkEnableOption "enable";
+      type = mkOption {
+        default = "amd";
+        description = "The type of ollama package to install, AMD GPU accelerated or NVIDIA GPU accelerated.";
+        example = "amd";
+        type = types.enum [
+          "amd"
+          "nvidia"
+        ];
+      };
     };
   };
 
