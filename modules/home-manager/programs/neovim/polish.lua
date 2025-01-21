@@ -31,7 +31,8 @@ dap.adapters.codelldb = {
 dap.adapters.cppdbg = {
   id = "cppdbg",
   type = "executable",
-  command = "{pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
+  command =
+  "{pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
 }
 
 -- @type DapAdapter
@@ -39,6 +40,13 @@ dap.adapters.coreclr = {
   type = "executable",
   command = "netcoredbg",
   args = { "--interpreter=vscode" },
+}
+
+-- @type DapAdapter
+dap.adapters.godot = {
+  type = "server",
+  host = "127.0.0.1",
+  port = 6006,
 }
 
 -- @type DapConfiguration
@@ -92,5 +100,16 @@ dap.configurations.cs = {
     program = function()
       return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
     end,
+  },
+}
+
+-- @type DapConfiguration
+dap.configurations.gdscript = {
+  {
+    name = "Launch scene",
+    type = "godot",
+    request = "launch",
+    project = "${workspaceFolder}",
+    scene = "current",
   },
 }
