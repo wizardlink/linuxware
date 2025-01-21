@@ -65,6 +65,7 @@
 
     ## Development
     beekeeper-studio
+    godot_4
     hoppscotch
     lazygit
 
