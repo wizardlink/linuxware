@@ -115,6 +115,7 @@ in
         vscode-extensions.vadimcn.vscode-lldb
 
         # Vue
+        prettierd
         vue-language-server
 
         # Svelte
