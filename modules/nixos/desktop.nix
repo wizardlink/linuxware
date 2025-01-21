@@ -80,6 +80,10 @@ in
         fcitx5-catppuccin
       ];
 
+      quickPhrase = {
+        proud = "<(￣︶￣)>";
+      };
+
       waylandFrontend = true;
     };
   };
