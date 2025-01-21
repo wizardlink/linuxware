@@ -25,8 +25,7 @@ in
 
       window = {
         decorations = "None";
-        opacity = 0.88;
-        blur = true;
+        opacity = 0.8;
 
         padding = {
           x = 18;
