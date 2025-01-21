@@ -26,10 +26,6 @@
         }
     '';
 
-    virtualHosts."map.thewizard.link".extraConfig = ''
-      reverse_proxy 192.168.0.100:8123
-    '';
-
     virtualHosts."git.thewizard.link".extraConfig = ''
       reverse_proxy 127.0.0.1:3788
     '';
@@ -37,6 +33,14 @@
     virtualHosts."files.thewizard.link".extraConfig = ''
       root * /srv/files
       file_server
+    '';
+
+    virtualHosts."torrent.thewizard.link".extraConfig = ''
+      reverse_proxy 127.0.0.1:8144
+    '';
+
+    virtualHosts."shoko.thewizard.link".extraConfig = ''
+      reverse_proxy 127.0.0.1:8111
     '';
   };
 }
