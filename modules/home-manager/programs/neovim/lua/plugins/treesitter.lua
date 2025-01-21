@@ -36,6 +36,7 @@ return {
       "json",
       "jsonc",
       "nix",
+      "vhs",
       "yaml",
       -- Misc
       "cuda",
