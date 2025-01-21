@@ -385,6 +385,11 @@ in
         windowrulev2 = tag +gw2, class:^(steam_app_1284210)$
         windowrulev2 = noblur, tag:gw2
         windowrulev2 = noborder, tag:gw2
+
+        # Rules for godot
+        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Create New Node$
+        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Open a File$
+        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Project Settings
       '';
   };
 }
