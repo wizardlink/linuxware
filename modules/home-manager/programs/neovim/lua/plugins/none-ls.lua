@@ -42,7 +42,7 @@ return {
     -- Check supported formatters and linters
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = {
+    config.sources = require("astrocore").list_insert_unique(config.sources, {
       -- Set a formatter
       require("none-ls.diagnostics.flake8"),
       require("none-ls.formatting.ruff"),
@@ -54,7 +54,11 @@ return {
       null_ls.builtins.formatting.stylua,
       --deno_fmt,
       null_ls.builtins.formatting.prettierd,
-    }
+
+      null_ls.builtins.code_actions.statix,
+
+      null_ls.builtins.diagnostics.deadnix,
+    })
     return config -- return final config table
   end,
 }

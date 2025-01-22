@@ -95,8 +95,10 @@ in
         marksman
 
         # Nix
+        deadnix
         nixd
         nixfmt-rfc-style
+        statix
 
         # Python
         basedpyright
