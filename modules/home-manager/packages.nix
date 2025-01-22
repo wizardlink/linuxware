@@ -37,6 +37,7 @@
     libreoffice
 
     # Creative work
+    aseprite
     blender
     krita
     lmms
@@ -49,6 +50,8 @@
     jellyfin-media-player
 
     # Gaming
+    gamescope
+    heroic
     protontricks
     wineWowPackages.unstableFull
     winetricks
