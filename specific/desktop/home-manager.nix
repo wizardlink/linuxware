@@ -80,7 +80,11 @@
   };
 
   home.packages = with pkgs; [
+    # Games
     pcsx2
+
+    # Creative work
+    easyeffects
 
     # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
     (
