@@ -387,9 +387,9 @@ in
         windowrulev2 = noborder, tag:gw2
 
         # Rules for godot
-        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Create New Node$
-        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Open a File$
-        windowrulev2 = size 50%, 50%, class:^(Godot)$, title:^Project Settings
+        windowrulev2 = tag +godot, class:^(Godot)$, title:^(.+)$
+        windowrulev2 = center, tag:godot
+        windowrulev2 = size 50% 50%, tag:godot
       '';
   };
 }
