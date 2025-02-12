@@ -49,6 +49,7 @@ in
         type = types.enum [
           "amd"
           "nvidia"
+          "cpu"
         ];
       };
     };
