@@ -15,6 +15,42 @@ vim.filetype.add({
   },
 })
 
+--- Define PackageOutput
+--- @enum PackageOutput
+local PACKAGEOUTPUT = {
+  out = 0,
+  lib = 1,
+}
+
+--- Get the store path of a package
+--- @param packagename NixSearchExceptions | string
+--- @param packageoutput PackageOutput?
+--- @return string | nil
+vim.fn.getnixpath = function(packagename, packageoutput)
+  ---@enum (key) NixSearchExceptions
+  local exceptions = {
+    rzls = "callPackage ~/.system/modules/home-manager/programs/rzls { }",
+  }
+
+  return vim.split(
+    vim.api.nvim_cmd(
+      vim.api.nvim_parse_cmd(
+        string.format(
+          "silent !nix eval --raw --expr 'with import <nixpkgs> { }; (%s).%s' --impure",
+          exceptions[packagename] or packagename,
+          (packageoutput == PACKAGEOUTPUT.out or packageoutput == nil) and "outPath"
+          or string.format("lib.getLib %s", packagename)
+        ),
+        {}
+      ),
+      {
+        output = true,
+      }
+    ),
+    "\n"
+  )[3]
+end
+
 local dap = require("dap")
 
 -- @type DapAdapter
