@@ -3,7 +3,7 @@
 -- fit in the normal config locations above can go here
 
 -- Set up custom filetypes
-vim.filetype.add({
+vim.filetype.add {
   extension = {
     foo = "fooscript",
   },
@@ -13,7 +13,7 @@ vim.filetype.add({
   pattern = {
     ["~/%.config/foo/.*"] = "fooscript",
   },
-})
+}
 
 --- Define PackageOutput
 --- @enum PackageOutput
@@ -28,9 +28,7 @@ local PACKAGEOUTPUT = {
 --- @return string | nil
 vim.fn.getnixpath = function(packagename, packageoutput)
   ---@enum (key) NixSearchExceptions
-  local exceptions = {
-    rzls = "callPackage ~/.system/modules/home-manager/programs/rzls { }",
-  }
+  local exceptions = {}
 
   return vim.split(
     vim.api.nvim_cmd(
@@ -83,7 +81,7 @@ vim.api.nvim_create_user_command("RunCmdOnMark", function(opts)
   vim.fn.runcmdonmark((opts.args == "v:false" or opts.args == "false") and false or true)
 end, { range = true, nargs = "?" })
 
-local dap = require("dap")
+local dap = require "dap"
 
 -- @type DapAdapter
 dap.adapters.codelldb = {
