@@ -104,7 +104,7 @@ dap.adapters.cppdbg = {
 }
 
 -- @type DapAdapter
-dap.adapters.coreclr = {
+dap.adapters.netcoredbg = {
   type = "executable",
   command = "netcoredbg",
   args = { "--interpreter=vscode" },
@@ -162,12 +162,22 @@ dap.configurations.c = dap.configurations.cpp
 -- @type DapConfiguration
 dap.configurations.cs = {
   {
-    type = "coreclr",
-    name = "launch - netcoredbg",
+    type = "netcoredbg",
+    name = "Launch DLL",
     request = "launch",
     program = function()
       return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
     end,
+  },
+  {
+    type = "netcoredbg",
+    name = "Attach to debugger",
+    request = "attach",
+    program = function()
+      return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+    end,
+    pid = "${command:pickProcess}",
+    cwd = "${workspaceFolder}",
   },
 }
 
