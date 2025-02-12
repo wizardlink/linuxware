@@ -78,7 +78,9 @@ in
         vscode-extensions.ms-vscode.cpptools
 
         # C#
-        csharp-ls
+        #csharp-ls Testing roslyn.nvim
+        roslyn-ls
+        rzls
         csharpier
         netcoredbg
 

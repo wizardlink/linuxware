@@ -18,9 +18,11 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.mini-surround" },
 
+  { import = "astrocommunity.test.neotest" },
+
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.cs" },
+  -- { import = "astrocommunity.pack.cs" }, Trying out roslyn.nvim
   { import = "astrocommunity.pack.godot" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },

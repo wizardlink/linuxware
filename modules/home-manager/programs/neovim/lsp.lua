@@ -55,7 +55,7 @@ return {
       "basedpyright",
       "clangd",
       "cmake",
-      "csharp_ls",
+      --"csharp_ls", Testing roslyn.nvim
       "cssls",
       "denols",
       "eslint",
