@@ -10,16 +10,16 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true,      -- enable or disable auto formatting on start
-      codelens = true,        -- enable/disable codelens refresh on start
-      inlay_hints = false,    -- enable/disable inlay hints on start
+      autoformat = true,   -- enable or disable auto formatting on start
+      codelens = true,     -- enable/disable codelens refresh on start
+      inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true,     -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
           "c",
@@ -76,6 +76,7 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      ---@type lspconfig.Config
       nixd = {
         settings = {
           nixd = {
@@ -94,6 +95,7 @@ return {
           },
         },
       },
+      ---@type lspconfig.Config
       vtsls = {
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         settings = {
@@ -112,6 +114,7 @@ return {
           },
         },
       },
+      ---@type lspconfig.Config
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
@@ -122,6 +125,10 @@ return {
             check = { command = "check", extraArgs = {} },
           },
         },
+      },
+      ---@type lspconfig.Config
+      omnisharp = {
+        cmd = { "OmniSharp" },
       },
     },
     -- customize how language servers are attached

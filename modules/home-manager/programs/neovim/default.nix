@@ -69,12 +69,14 @@ in
         # Needed by LuaSnip
         luajitPackages.jsregexp
 
+        # Treesitter
+        gcc # For compiling languages
+
         # CMAKE
         neocmakelsp
 
         # C/C++
         clang-tools
-        gcc # Needed for treesitter
         vscode-extensions.ms-vscode.cpptools
 
         # C#

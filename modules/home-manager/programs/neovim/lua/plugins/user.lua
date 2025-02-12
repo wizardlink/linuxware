@@ -85,7 +85,7 @@ return {
   {
     "xiyaowong/transparent.nvim",
     opts = function(_, opts)
-      local transparent = require("transparent")
+      local transparent = require "transparent"
 
       opts.groups = {
         "Comment",
@@ -150,9 +150,9 @@ return {
         "WinSeparator",
       }
 
-      transparent.clear_prefix("BufferLine")
-      transparent.clear_prefix("Diagnostic")
-      transparent.clear_prefix("NvimTree")
+      transparent.clear_prefix "BufferLine"
+      transparent.clear_prefix "Diagnostic"
+      transparent.clear_prefix "NvimTree"
     end,
   },
 
@@ -160,10 +160,9 @@ return {
   {
     "jmbuhr/otter.nvim",
     dependencies = {
-      "hrsh7th/nvim-cmp",
-      "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
+    opts = {},
   },
 
   -- Adds highlighting and custom commands for ledger files
