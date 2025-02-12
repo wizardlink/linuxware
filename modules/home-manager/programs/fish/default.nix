@@ -30,12 +30,21 @@
 
     shellAbbrs = {
       z = "zoxide";
+      pkg_expr = {
+        position = "anywhere";
+        expansion = "--expr 'with import <nixpkgs> { % }; '";
+      };
+      impure_cmd = {
+        position = "command";
+        expansion = "NIXPKGS_ALLOW_UNFREE=1 nix % --impure";
+      };
     };
 
     shellAliases = {
       del = "trash_file";
       dev = "nix develop -c fish";
       doom = "~/.config/emacs/bin/doom";
+      repl = "NIXPKGS_ALLOW_UNFREE=1 nix repl --impure --extra-experimental-features 'flakes' nixpkgs.legacyPackages.x86_64-linux";
     };
 
     functions = {
