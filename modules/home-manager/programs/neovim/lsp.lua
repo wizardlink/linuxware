@@ -127,8 +127,8 @@ return {
         },
       },
       ---@type lspconfig.Config
-      omnisharp = {
-        cmd = { "OmniSharp" },
+      html = {
+        filetypes = { "html", "templ", "razor" },
       },
     },
     -- customize how language servers are attached

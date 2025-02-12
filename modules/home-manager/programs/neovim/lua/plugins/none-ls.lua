@@ -8,8 +8,8 @@ return {
   },
   opts = function(_, config)
     -- config variable is the default configuration table for the setup function call
-    local null_ls = require("null-ls")
-    local helpers = require("null-ls.helpers")
+    local null_ls = require "null-ls"
+    local helpers = require "null-ls.helpers"
 
     -- local deno_fmt = helpers.make_builtin({
     --   name = "deno_fmt",
@@ -44,16 +44,18 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = require("astrocore").list_insert_unique(config.sources, {
       -- Set a formatter
-      require("none-ls.diagnostics.flake8"),
-      require("none-ls.formatting.ruff"),
-      null_ls.builtins.formatting.clang_format.with({
+      require "none-ls.diagnostics.flake8",
+      require "none-ls.formatting.ruff",
+      null_ls.builtins.formatting.clang_format.with {
         disabled_filetypes = { "cs" },
-      }),
+      },
       null_ls.builtins.formatting.csharpier,
       null_ls.builtins.formatting.nixfmt,
       null_ls.builtins.formatting.stylua,
       --deno_fmt,
-      null_ls.builtins.formatting.prettierd,
+      null_ls.builtins.formatting.prettierd.with {
+        extra_filetypes = { "razor" },
+      },
 
       null_ls.builtins.code_actions.statix,
 
