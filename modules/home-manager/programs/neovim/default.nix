@@ -119,7 +119,7 @@ in
         rust-analyzer
         cargo # Needed by blink-cmp
         taplo
-        vscode-extensions.vadimcn.vscode-lldb
+        #vscode-extensions.vadimcn.vscode-lldb # FIXME: Broken until MR 380775 hits nixpkgs-untable
 
         # Vue
         prettierd

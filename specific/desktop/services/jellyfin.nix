@@ -27,5 +27,10 @@
   services.jellyseerr = {
     enable = true;
     openFirewall = true;
+    package = pkgs.jellyseerr.overrideAttrs (
+      _final: _prev: {
+        dontCheckForBrokenSymlinks = true;
+      }
+    );
   };
 }
