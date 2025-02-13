@@ -143,6 +143,11 @@ in
       source = ./queries;
     };
 
+    xdg.configFile."nvim/ftplugin" = {
+      recursive = true;
+      source = ./ftplugin;
+    };
+
     xdg.configFile."nvim/lua/plugins/astrolsp.lua".source = pkgs.runCommand "astrolsp.lua" { } ''
       cp ${./lsp.lua} $out
 
