@@ -40,7 +40,7 @@ vim.fn.getnixpath = function(packagename, packageoutput)
           or string.format("lib.getLib %s", packagename)
         ),
         {}
-      ),
+      ) --[[@as vim.api.keyset.cmd]],
       {
         output = true,
       }
