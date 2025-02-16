@@ -3,7 +3,6 @@ return {
   {
     "seblyng/roslyn.nvim",
     ft = { "cs", "razor" },
-    commit = "490fd2d0f76249032ef6ce503e43ccdaeed9616e",
     lazy = true,
     dependencies = {
       {
@@ -23,6 +22,7 @@ return {
       opts = {
         exe = "Microsoft.CodeAnalysis.LanguageServer",
         args = {
+          "--stdio",
           "--logLevel=Information",
           "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
           "--razorSourceGenerator=" .. rzlspath .. "/lib/rzls/Microsoft.CodeAnalysis.Razor.Compiler.dll",
