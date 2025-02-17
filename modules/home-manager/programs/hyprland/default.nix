@@ -233,11 +233,13 @@ in
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
           rounding = 8
-          # FIXME: Check these deprecations.
-          #blur = yes
-          #blur_size = 3
-          #blur_passes = 1
-          #blur_new_optimizations = on
+
+          blur {
+            enabled = true
+            size = 8
+            passes = 1
+            new_optimizations = true
+          }
 
           shadow {
             enabled = true
