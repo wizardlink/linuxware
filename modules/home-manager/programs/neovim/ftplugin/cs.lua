@@ -83,6 +83,10 @@ end
 
 ---@return thread
 function M:choose_dll()
+  self.projects = self.find_projects()
+
+  local dap = require "dap"
+
   return coroutine.create(function(search_coroutine)
     vim.ui.select(
       self.projects,
@@ -96,9 +100,13 @@ function M:choose_dll()
       },
       ---@param item CSFTPlugin.Project
       function(item)
-        self:run "build"
+        local path = item and item.dll_path or dap.ABORT
 
-        coroutine.resume(search_coroutine, item and item.dll_path or require("dap").ABORT)
+        if path ~= dap.ABORT then
+          self:run "build"
+        end
+
+        coroutine.resume(search_coroutine, path)
       end
     )
   end)
@@ -112,10 +120,20 @@ function M:start()
     return
   end
 
-  self.projects = self.find_projects()
+  vim.fn.setenv("DOTNET_ENVIRONMENT", "Development")
+
+  local debugger_path = vim.fn.getnixpath "netcoredbg" .. "/bin/netcoredbg"
 
   local dap = require "dap"
 
+  ---@type dap.ExecutableAdapter
+  dap.adapters.netcoredbg = {
+    type = "executable",
+    command = debugger_path,
+    args = { "--interpreter=vscode" },
+  }
+
+  ---@type dap.Configuration[]
   dap.configurations.cs = {
     {
       type = "netcoredbg",
@@ -126,8 +144,6 @@ function M:start()
       end,
     },
   }
-
-  vim.notify_once("Loaded projects for nvim-dap", vim.log.levels.INFO)
 
   vim.g.loaded_csftplugin = true
 end

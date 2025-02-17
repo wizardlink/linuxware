@@ -83,7 +83,7 @@ end, { range = true, nargs = "?" })
 
 local dap = require "dap"
 
--- @type DapAdapter
+---@type dap.Adapter
 dap.adapters.codelldb = {
   port = "${port}",
   type = "server",
@@ -93,7 +93,7 @@ dap.adapters.codelldb = {
   },
 }
 
--- @type DapAdapter
+---@type dap.Adapter
 dap.adapters.cppdbg = {
   id = "cppdbg",
   type = "executable",
@@ -101,21 +101,14 @@ dap.adapters.cppdbg = {
   "{pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
 }
 
--- @type DapAdapter
-dap.adapters.netcoredbg = {
-  type = "executable",
-  command = "netcoredbg",
-  args = { "--interpreter=vscode" },
-}
-
--- @type DapAdapter
+---@type dap.Adapter
 dap.adapters.godot = {
   type = "server",
   host = "127.0.0.1",
   port = 6006,
 }
 
--- @type DapConfiguration
+---@type dap.Configuration[]
 dap.configurations.rust = {
   {
     name = "Launch file",
@@ -129,7 +122,7 @@ dap.configurations.rust = {
   },
 }
 
--- @type DapConfiguration
+---@type dap.Configuration[]
 dap.configurations.cpp = {
   {
     name = "Launch file",
@@ -157,29 +150,7 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 
--- @type DapConfiguration
-dap.configurations.cs = {
-  {
-    type = "netcoredbg",
-    name = "Launch DLL",
-    request = "launch",
-    program = function()
-      return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
-    end,
-  },
-  {
-    type = "netcoredbg",
-    name = "Attach to debugger",
-    request = "attach",
-    program = function()
-      return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
-    end,
-    pid = "${command:pickProcess}",
-    cwd = "${workspaceFolder}",
-  },
-}
-
--- @type DapConfiguration
+---@type dap.Configuration[]
 dap.configurations.gdscript = {
   {
     name = "Launch scene",
