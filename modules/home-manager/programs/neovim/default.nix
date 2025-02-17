@@ -153,15 +153,7 @@ in
 
       substituteInPlace $out \
         --replace-fail "{hostname}" "${config.programs.neovim.nixd.hostname}" \
-        --replace-fail "{location}" "${config.programs.neovim.nixd.location}" \
-        --replace-fail "{pkgs.vue-language-server}" "${pkgs.vue-language-server}"
-    '';
-
-    xdg.configFile."nvim/lua/polish.lua".source = pkgs.runCommand "polish.lua" { } ''
-      cp ${./polish.lua} $out
-
-      substituteInPlace $out \
-        --replace-fail "{pkgs.vscode-extensions.ms-vscode.cpptools}" "${pkgs.vscode-extensions.ms-vscode.cpptools}" \
+        --replace-fail "{location}" "${config.programs.neovim.nixd.location}"
     '';
   };
 }

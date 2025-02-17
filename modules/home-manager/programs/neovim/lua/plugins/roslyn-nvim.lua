@@ -7,12 +7,10 @@ return {
     dependencies = {
       {
         "tris203/rzls.nvim",
-        config = function()
-          ---@diagnostic disable-next-line: missing-fields
-          require("rzls").setup {
-            path = vim.fn.getnixpath "rzls" .. "/bin/rzls",
-          }
-        end,
+        opts = {
+          capabilities = vim.lsp.protocol.make_client_capabilities(),
+          path = vim.fn.getnixpath "rzls" .. "/bin/rzls",
+        },
       },
     },
     opts = function(_, opts)

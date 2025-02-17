@@ -104,7 +104,8 @@ return {
               globalPlugins = {
                 {
                   name = "@vue/typescript-plugin",
-                  location = "{pkgs.vue-language-server}/lib/node_modules/@vue/language-server",
+                  location = vim.fn.getnixpath "vue-language-server"
+                      .. "/lib/node_modules/@vue/language-server",
                   languages = { "vue" },
                   configNamespace = "typescript",
                   enableForWorkspaceTypeScriptVersions = true,
