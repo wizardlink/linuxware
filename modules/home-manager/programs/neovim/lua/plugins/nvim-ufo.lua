@@ -9,7 +9,7 @@ return {
       }
 
       local function handleFallbackException(bufnr, err, providerName)
-        if type(err) == "string" and err:match("UfoFallbackException") then
+        if type(err) == "string" and err:match "UfoFallbackException" then
           return require("ufo").getFolds(bufnr, providerName)
         else
           return require("promise").reject(err)
