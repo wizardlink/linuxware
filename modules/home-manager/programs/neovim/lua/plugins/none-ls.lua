@@ -53,9 +53,7 @@ return {
       null_ls.builtins.formatting.nixfmt,
       null_ls.builtins.formatting.stylua,
       --deno_fmt,
-      null_ls.builtins.formatting.prettierd.with {
-        extra_filetypes = { "razor" },
-      },
+      null_ls.builtins.formatting.prettierd,
 
       null_ls.builtins.code_actions.statix,
 
