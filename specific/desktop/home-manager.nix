@@ -126,7 +126,6 @@
 
     # Enable ollama support
     ollama.enable = true;
-    ollama.type = "cpu";
   };
 
   modules.hyprland = {
