@@ -122,7 +122,7 @@ function M:start()
 
   vim.fn.setenv("DOTNET_ENVIRONMENT", "Development")
 
-  local debugger_path = vim.fn.getnixpath "netcoredbg" .. "/bin/netcoredbg"
+  local debugger_path = vim.fn.get_nix_store "netcoredbg" .. "/bin/netcoredbg"
 
   local dap = require "dap"
 

@@ -7,14 +7,18 @@ return {
     dependencies = {
       {
         "tris203/rzls.nvim",
-        opts = {
-          capabilities = vim.lsp.protocol.make_client_capabilities(),
-          path = vim.fn.getnixpath "rzls" .. "/bin/rzls",
-        },
+        opts = function(_, opts)
+          opts = {
+            capabilities = vim.lsp.protocol.make_client_capabilities(),
+            path = vim.fn.get_nix_store "rzls" .. "/bin/rzls",
+          }
+
+          return opts
+        end,
       },
     },
     opts = function(_, opts)
-      local rzlspath = vim.fn.getnixpath "rzls"
+      local rzlspath = vim.fn.get_nix_store "rzls"
       require("roslyn.config").get()
 
       opts = {

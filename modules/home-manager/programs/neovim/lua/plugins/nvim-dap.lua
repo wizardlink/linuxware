@@ -32,7 +32,7 @@ return {
     dap.adapters.cppdbg = {
       id = "cppdbg",
       type = "executable",
-      command = vim.fn.getnixpath "vscode-extensions.ms-vscode.cpptools"
+      command = vim.fn.get_nix_store "vscode-extensions.ms-vscode.cpptools"
           .. "/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
     }
 
