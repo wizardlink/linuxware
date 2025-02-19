@@ -37,7 +37,7 @@
     libreoffice
 
     # Creative work
-    # aseprite FIXME: Broken currently
+    aseprite
     blender
     krita
     lmms
