@@ -86,10 +86,6 @@
       init = {
         defaultBranch = "main";
       };
-
-      credential = {
-        helper = "/usr/libexec/git-core/git-credential-libsecret";
-      };
     };
   };
 }
