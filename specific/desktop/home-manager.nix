@@ -71,6 +71,7 @@
         prefix = [
           "/mnt/internal/hydractify/GitHub"
           "/mnt/internal/personal/projects"
+          "/mnt/internal/personal/study"
           "/mnt/internal/repos"
           "/mnt/internal/shared/projects"
           "/mnt/internal/shared/work"
