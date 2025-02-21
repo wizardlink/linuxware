@@ -19,6 +19,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05";
 
+  nix.settings.substituters = [ "http://192.168.0.100:7373" ];
+  nix.settings.trusted-public-keys = [
+    "wizdesk-1:2UvctPjiMwMs7r2r7VPvoPmh4OcUjY3JmaRDJnOTZY8="
+  ];
+
   #
   # SYSTEM #
   #
