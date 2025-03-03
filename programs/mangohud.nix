@@ -49,7 +49,7 @@
 
       # IO Statistics
       io_read = true;
-      io_stats = true;
+      #      io_stats = true;
       io_write = true;
 
       # RAM Statistics

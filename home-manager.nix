@@ -69,32 +69,37 @@
 
     # GNOME Stuff
     gnome-extension-manager
-    gnome.gnome-tweaks
-    gnome.gnome-screenshot
-    gnome.zenity
+    gnome-tweaks
+    gnome-screenshot
+    zenity
 
     # Utilities
-    (pkgs.citrix_workspace_23_09_0.overrideAttrs (
-      final: old: { buildInputs = old.buildInputs ++ [ pkgs.webkitgtk ]; }
-    ))
+    # (pkgs.citrix_workspace_23_09_0.overrideAttrs (
+    #  final: old: { buildInputs = old.buildInputs ++ [ pkgs.webkitgtk ]; }
+    # ))
     appimage-run
+    busybox
     fastfetch
     firefox
     geekbench
     gparted
+    keepass
     menulibre
     obs-cmd
     obsidian
     protonvpn-cli_2
+    python3
+    pipx
     qbittorrent
     quickemu
     sunshine
+    tauon
     teams-for-linux
     tigervnc
+    vulkan-tools
     vesktop
     pavucontrol
     xournalpp
-    xwaylandvideobridge
     yazi
     yt-dlp
     zerotierone
@@ -103,6 +108,7 @@
     kicad
 
     # Media Viewer
+    ffmpeg
     feh
     mpv
 

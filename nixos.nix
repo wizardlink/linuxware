@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   ##
@@ -199,6 +204,7 @@
 
   nixpkgs.config.allowAliases = false;
 
+  nixpkgs.config.permittedInsecurePackages = [ "qbittorrent-4.6.4" ];
   # Enable GNOME.
   services.xserver = {
     enable = true;
@@ -228,11 +234,18 @@
 
   # Enable OpenGL.
   hardware.opengl = {
-    driSupport = true;
+    #  driSupport = true;
     driSupport32Bit = true;
 
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
+
+  # Automount
+
+  #fileSystems."/run/media/yozawa" = {
+  #  device = "/dev/disk/by-uuid/55BC3509-C81F-4986-BA58-59F450E22867";
+  #  fsType = "ntfs";
+  #};
 
   ##
   ## INPUT ##
@@ -251,20 +264,20 @@
   ##
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = false;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   audio.enable = true;
 
-    alsa.enable = true;
-    alsa.support32Bit = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
 
-    pulse.enable = true;
+  #   pulse.enable = true;
 
-    #jack.enable = true;
-  };
+  #   #jack.enable = true;
+  # };
 
   ##
   ## PACKAGES ##
@@ -281,7 +294,7 @@
 
   #Enable Onedrive
   services.onedrive.enable = true;
-
+  systemd.user.services."onedrive@".serviceConfig.RestartSec = lib.mkForce 3600;
   # Allow spice usb
   virtualisation.spiceUSBRedirection.enable = true;
   services.spice-vdagentd.enable = true;
@@ -293,7 +306,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-
+    gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
 
@@ -345,12 +358,15 @@
   ## FONTS #
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       source-code-pro
       source-han-mono
       source-han-sans
       source-han-serif
       wqy_zenhei
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
     ];
 
     fontDir.enable = true;
@@ -367,7 +383,7 @@
   # Adds specific udev rules.
   services.udev.packages = with pkgs; [
     pkgs.via
-    gnome.gnome-settings-daemon
+    gnome-settings-daemon
   ];
 
   i18n.inputMethod = {
