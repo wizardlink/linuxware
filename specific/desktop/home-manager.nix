@@ -11,6 +11,7 @@
     ./services/openttd.nix
     ./services/terraria.nix
     ./services/hydractify-bot.nix
+    ./services/gakuen-cosplay-api.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

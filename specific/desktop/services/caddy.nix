@@ -42,5 +42,16 @@
     virtualHosts."shoko.thewizard.link".extraConfig = ''
       reverse_proxy 127.0.0.1:8111
     '';
+
+    virtualHosts."api.cosplay.thewizard.link".extraConfig = ''
+      reverse_proxy 127.0.0.1:3000
+    '';
+
+    virtualHosts."cosplay.thewizard.link".extraConfig = ''
+      root * /srv/cosplay
+      encode
+      try_files {path} /index.html
+      file_server
+    '';
   };
 }

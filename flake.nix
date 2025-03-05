@@ -22,6 +22,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     hydractify-bot.url = "github:hydractify/hydractify-bot";
+
+    gakuen-cosplay.url = "git+file:///mnt/internal/shared/work/gakuen/projects/cosplayer_submission";
   };
 
   outputs =
