@@ -8,7 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,13 +41,13 @@
           let
             specialArgs = inputs;
             modules = [
-              ./specific/desktop/nixos.nix
+              ./hosts/wizdesk/nixos.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager.extraSpecialArgs = inputs;
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.wizardlink = import ./specific/desktop/home-manager.nix;
+                home-manager.users.wizardlink = import ./hosts/wizdesk/home-manager.nix;
               }
             ];
           in
@@ -58,13 +57,13 @@
           let
             specialArgs = inputs;
             modules = [
-              ./specific/laptop/nixos.nix
+              ./hosts/wizlap/nixos.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager.extraSpecialArgs = inputs;
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.wizardlink = import ./specific/laptop/home-manager.nix;
+                home-manager.users.wizardlink = import ./hosts/wizlap/home-manager.nix;
               }
             ];
           in
@@ -73,10 +72,25 @@
 
       formatter."${system}" = pkgs.nixfmt-rfc-style;
 
+      packages."${system}" = {
+        wb32dfu-udev-rules = pkgs.callPackage ./packages/wb32dfu-udev-rules { };
+        zenergy = pkgs.callPackage ./packages/zenergy.nix { };
+      };
+
+      nixosModules = {
+        hyprland = import ./modules/hyprland/nixos.nix;
+      };
+
       homeManagerModules = {
-        emacsConfig = import ./modules/home-manager/programs/emacs;
-        hyprlandConfig = import ./modules/home-manager/programs/hyprland;
-        neovim = import ./modules/home-manager/programs/neovim;
+        emacs = import ./modules/emacs;
+        hyprland = import ./modules/hyprland/home-manager.nix;
+        neovim = import ./modules/neovim;
+      };
+
+      templates.default = {
+        path = ./modules/template;
+        description = "A NixOS & Home-Manager template to get started with the https://github.com/wizardlink/linuxware
+        configuration.";
       };
     };
 }

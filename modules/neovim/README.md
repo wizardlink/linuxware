@@ -1,0 +1,43 @@
+This module generates dotfiles for [neovim].
+
+The module extends `programs.neovim`.
+
+## Module options
+
+### programs.neovim.nixd.hostname
+
+By default [nixd] is enabled, you **need** to pass the current machine's
+hostname that is used to generate your system.
+
+### programs.neovim.nixd.location
+
+The location of your system's flake, [nixd] will execute an expression defined in the LSP's configuration that reads
+the flake's contents to evaluate [NixOS] and [Home Manager] options.
+
+### programs.neovim.ollama.enable
+
+Whether to add an [ollama] package to be used with [ollama.nvim](https://github.com/nomnivore/ollama.nvim).
+
+### programs.neovim.ollama.type
+
+The type of [ollama] package to be added, valid options are: `amd`, `nvidia` or `cpu`.
+
+## My neovim failed because of package X not existing
+
+My configuration is based off of `nixos-unstable` so sometimes your package may not exist or have a different name, I
+apologise for that but I don't plan on maintaining backwards compatibility. :(
+
+## How it looks
+
+Here's some screenshots of how it currently looks like:
+
+![image](/assets/screenshots/neovim-dashboard.png)
+![image](/assets/screenshots/neovim-nix.png)
+![image](/assets/screenshots/neovim-rust.png)
+
+The theme I'm using is [catppuccin](https://github.com/catppuccin) in case you're curious.
+
+[neovim]: https://neovim.io/
+[Home Manager]: https://github.com/nix-community/home-manager
+[nixd]: https://github.com/nix-community/nixd/
+[ollama]: https://ollama.com/
