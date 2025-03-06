@@ -1,4 +1,4 @@
-{ ... }:
+{ nixpkgs, ... }:
 
 {
   # Enable experimental features
@@ -28,6 +28,11 @@
   nix.settings.trusted-public-keys = [
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   ];
+
+  # Pin the nix registry
+  nix.registry = {
+    nixpkgs.flake = nixpkgs;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
