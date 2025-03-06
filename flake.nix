@@ -74,7 +74,6 @@
 
       packages."${system}" = {
         wb32dfu-udev-rules = pkgs.callPackage ./packages/wb32dfu-udev-rules { };
-        zenergy = pkgs.callPackage ./packages/zenergy.nix { };
       };
 
       nixosModules = {
