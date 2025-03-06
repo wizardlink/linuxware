@@ -39,5 +39,6 @@ The theme I'm using is [catppuccin](https://github.com/catppuccin) in case you'r
 
 [neovim]: https://neovim.io/
 [Home Manager]: https://github.com/nix-community/home-manager
+[nixos]: https://nixos.org
 [nixd]: https://github.com/nix-community/nixd/
 [ollama]: https://ollama.com/

@@ -8,7 +8,7 @@ version of [nixpkgs].
 
 This package installs the udev rules necessary to allow flashing QMK/Vial onto keyboards that use WB32-DFU bootloaders.
 
-It is also meant to be used in tandem with [NixOS] using the
+It is meant to be used in tandem with [NixOS] using the
 [`services.udev.packages`](https://search.nixos.org/options?query=services.udev.packages) configuration.
 
 

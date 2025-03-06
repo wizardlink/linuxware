@@ -36,6 +36,10 @@ In this directory you will find the configuration for [NixOS] and [Home Manager]
 
 #### Screenshots
 
+Alacritty & Fish:
+
+![image](/assets/screenshots/alacritty-and-fish.png)
+
 Waybar:
 
 ![image](/assets/screenshots/waybar.png)
