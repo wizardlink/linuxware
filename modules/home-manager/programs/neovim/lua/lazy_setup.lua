@@ -28,4 +28,11 @@ require("lazy").setup({
       },
     },
   },
+  dev = {
+    path = "/mnt/internal/repos",
+    patterns = {
+      "nvim-ufo",
+      "nix-store.nvim",
+    },
+  },
 } --[[@as LazyConfig]])
