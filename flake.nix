@@ -88,8 +88,9 @@
 
       templates.default = {
         path = ./modules/template;
-        description = "A NixOS & Home-Manager template to get started with the https://github.com/wizardlink/linuxware
-        configuration.";
+        description = ''
+          A NixOS & Home-Manager template to get started with the https://github.com/wizardlink/linuxware configuration.
+        '';
       };
     };
 }
