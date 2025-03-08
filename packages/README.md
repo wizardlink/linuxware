@@ -18,6 +18,14 @@ This package installs the udev rules necessary to allow flashing QMK/Vial onto k
 It is meant to be used in tandem with [NixOS] using the
 [`services.udev.packages`](https://search.nixos.org/options?query=services.udev.packages) configuration.
 
+## [miraclecast](https://github.com/albfan/miraclecast/)
+
+This is a suite of programs that allows you to connect external monitors through Wi-Fi, though unfortunately some of the
+programs have no documentation and some an unhelpful help command too.
+
+Currently the **package is available in [nixpkgs]** __however it currently fails to compile__, so you have to rely on my
+configuration of this package or wait for [nixpkgs#387762](https://github.com/NixOS/nixpkgs/pull/387762) to be merged.
+
 
 <!-- REFERENCES -->
 [nixpkgs]: https://github.com/NixOS/nixpkgs/
