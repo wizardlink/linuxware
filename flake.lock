@@ -75,11 +75,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1741220025,
-        "narHash": "sha256-Eib4BQfSCQ0XSB0OJ+IahFIf5WN3VyJ2Zx0AAvID5z8=",
+        "lastModified": 1742011683,
+        "narHash": "sha256-iB6P5qZBkTiIv1jw9xpxeQjIuce6f9bqP1G0bCULQCc=",
         "ref": "refs/heads/main",
-        "rev": "c5fcfedf91b8a34014132902fc76eac6674ed49a",
-        "revCount": 15,
+        "rev": "978700d10e09aac45145ab640e4b887713f1c68d",
+        "revCount": 19,
         "type": "git",
         "url": "file:///mnt/internal/shared/work/gakuen/projects/cosplayer_submission"
       },
@@ -430,9 +430,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-zON2GNBkzsIyALlOCFiEBcIjI4w38GYOb+P+R4S8Jsw=",
-        "path": "/nix/store/s1fbk6a410xn8vcaj54iqv22agyn0ria-source",
+        "lastModified": 1741010256,
+        "narHash": "sha256-WZNlK/KX7Sni0RyqLSqLPbK8k08Kq7H7RijPJbq9KHM=",
+        "path": "/nix/store/jk6xpbfh10gz6q5cqw8b2f7xk0pl7hkv-source",
+        "rev": "ba487dbc9d04e0634c64e3b1f0d25839a0a68246",
         "type": "path"
       },
       "original": {

@@ -10,7 +10,7 @@
       ExecStart = "${gakuen-cosplay.packages.${pkgs.system}.backend}/bin/cosplayer_submission";
       Restart = "on-failure";
       Type = "simple";
-      WorkingDirectory = "/mnt/internal/shared/work/gakuen/projects/cosplayer_submission/packages/backend";
+      WorkingDirectory = "/srv/gakuen_api";
     };
   };
 }
