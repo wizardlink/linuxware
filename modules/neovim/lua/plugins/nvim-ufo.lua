@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "kevinhwang91/nvim-ufo",
+  "wizardlink/nvim-ufo",
   opts = {
     provider_selector = function(_, filetype, _)
       ---@type table<string, UfoProviderEnum | UfoProviderEnum[]>
