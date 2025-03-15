@@ -56,6 +56,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # And the service that enables IPP Everywhere
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    nssmdns6 = true;
+    openFirewall = true;
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
