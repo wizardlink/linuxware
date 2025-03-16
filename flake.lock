@@ -75,11 +75,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1742011683,
-        "narHash": "sha256-iB6P5qZBkTiIv1jw9xpxeQjIuce6f9bqP1G0bCULQCc=",
+        "lastModified": 1742093995,
+        "narHash": "sha256-9xjCwI87xXYO7FG+Jc9abERmZ3RyECDx8caBIOK/PTw=",
         "ref": "refs/heads/main",
-        "rev": "978700d10e09aac45145ab640e4b887713f1c68d",
-        "revCount": 19,
+        "rev": "6ad26e18a52e0141824014936a5574dfd91ff6f4",
+        "revCount": 32,
         "type": "git",
         "url": "file:///mnt/internal/shared/work/gakuen/projects/cosplayer_submission"
       },
