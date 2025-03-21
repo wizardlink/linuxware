@@ -88,10 +88,7 @@
     # Personal utilities
     anki
     ledger
-    (vesktop.override {
-      # FIXME: Need to pin until https://github.com/NixOS/nixpkgs/issues/380429 gets resolved.
-      electron = electron_33;
-    })
+    vesktop
 
     # Editing
     libreoffice
