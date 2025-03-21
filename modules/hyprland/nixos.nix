@@ -20,7 +20,7 @@ in
 
   # Overwrite the Mesa packages with Hyprland's for consitency
   hardware.graphics = {
-    package = hyprland-pkgs.mesa.drivers;
-    package32 = hyprland-pkgs.pkgsi686Linux.mesa.drivers;
+    package = hyprland-pkgs.mesa;
+    package32 = hyprland-pkgs.pkgsi686Linux.mesa;
   };
 }
