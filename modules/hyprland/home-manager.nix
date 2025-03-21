@@ -303,7 +303,7 @@ in
         # Example windowrule v1
         # windowrule = float, ^(kitty)$
         # Example windowrule v2
-        # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+        # windowrule = float,class:^(kitty)$,title:^(kitty)$
         # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -381,37 +381,38 @@ in
         bind = SHIFT CTRL, F12, pass, ^(com.obsproject.Studio)$
 
         # Window rules for xwaylandvideobridge
-        windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-        windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-        windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
-        windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
+        windowrule = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
+        windowrule = noanim,class:^(xwaylandvideobridge)$
+        windowrule = nofocus,class:^(xwaylandvideobridge)$
+        windowrule = noinitialfocus,class:^(xwaylandvideobridge)$
 
         # Rules for windowkill
-        windowrule = noborder, ^(steam_app_2726450)$
-        windowrule = pin, ^(steam_app_2726450)$
-        windowrule = opacity 0.9, ^(steam_app_2726450)$
+        windowrule = tag +windowkill, class:^(steam_app_2726450)$
+        windowrule = noborder, tag:windowkill
+        windowrule = pin, tag:windowkill
+        windowrule = opacity 0.9, tag:windowkill
 
         # Rules for Awakened PoE
-        windowrulev2 = tag +poe, class:^(steam_app_238960)$
-        windowrulev2 = allowsinput, tag:poe
+        windowrule = tag +poe, class:^(steam_app_238960)$
+        windowrule = allowsinput, tag:poe
 
-        windowrulev2 = tag +apt, class:^(awakened-poe-trade)$
-        windowrulev2 = float, tag:apt
-        windowrulev2 = noblur, tag:apt
-        windowrulev2 = noborder, tag:apt
-        windowrulev2 = noshadow, tag:apt
+        windowrule = tag +apt, class:^(awakened-poe-trade)$
+        windowrule = float, tag:apt
+        windowrule = noblur, tag:apt
+        windowrule = noborder, tag:apt
+        windowrule = noshadow, tag:apt
 
         # Rules for anki
-        windowrulev2 = float, class:^(anki)$
+        windowrule = float, class:^(anki)$
 
-        windowrulev2 = tag +gw2, class:^(steam_app_1284210)$
-        windowrulev2 = noblur, tag:gw2
-        windowrulev2 = noborder, tag:gw2
+        windowrule = tag +gw2, class:^(steam_app_1284210)$
+        windowrule = noblur, tag:gw2
+        windowrule = noborder, tag:gw2
 
         # Rules for godot
-        windowrulev2 = tag +godot, class:^(Godot)$, title:^(.+)$
-        windowrulev2 = center, tag:godot
-        windowrulev2 = size 50% 50%, tag:godot
+        windowrule = tag +godot, class:^(Godot)$, title:^(.+)$
+        windowrule = center, tag:godot
+        windowrule = size 50% 50%, tag:godot
       '';
   };
 }
