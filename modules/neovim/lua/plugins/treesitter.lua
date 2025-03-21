@@ -29,7 +29,6 @@ return {
       "objc",
       "proto",
       "python",
-      "razor",
       "svelte",
       "tsx",
       "typescript",
