@@ -42,5 +42,9 @@
     virtualHosts."shoko.thewizard.link".extraConfig = ''
       reverse_proxy 127.0.0.1:8111
     '';
+
+    virtualHosts."nixbin.thewizard.link".extraConfig = ''
+      reverse_proxy 127.0.0.1:7373
+    '';
   };
 }
