@@ -16,6 +16,7 @@
     gamescope
     heroic
     protontricks
+    r2modman
     wineWowPackages.unstableFull
     winetricks
 
