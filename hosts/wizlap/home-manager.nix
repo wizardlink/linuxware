@@ -59,6 +59,8 @@
   programs.direnv = {
     config = {
       whitelist = {
+        exact = [ "/home/wizardlink/.system" ];
+
         prefix = [
           "/home/wizardlink/Documents/projects"
         ];

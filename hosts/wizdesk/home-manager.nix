@@ -64,6 +64,8 @@
   programs.direnv = {
     config = {
       whitelist = {
+        exact = [ "/home/wizardlink/.system" ];
+
         prefix = [
           "/mnt/internal/hydractify/GitHub"
           "/mnt/internal/personal/projects"
