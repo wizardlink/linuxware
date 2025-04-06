@@ -4,4 +4,4 @@
 # but there might be useful ones in the future.
 # https://docs.mesa3d.org/envvars.html
 
-mangohud gamemoderun "$@"
+obs-gamecapture mangohud gamemoderun "$@"
