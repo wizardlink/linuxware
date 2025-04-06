@@ -176,7 +176,6 @@ in
     # Set-up the scripts for services and apps.
     home.packages = lib.mkIf cfg.scripts.startup.enable [
       (import ./scripts/start_services.nix pkgs)
-      (import ./scripts/start_apps.nix pkgs)
     ];
 
     # Then add the hyprland screenshot scripts.
@@ -205,9 +204,6 @@ in
 
         # Start the core services of my desktop
         exec-once = start_services
-
-        # Open the apps I always use
-        exec-once = start_apps
 
         # Set cursor size.
         exec-once = hyprctl setcursor 24
