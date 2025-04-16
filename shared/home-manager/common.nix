@@ -1,4 +1,9 @@
-{ pkgs, clipboard-sync, ... }:
+{
+  self,
+  pkgs,
+  clipboard-sync,
+  ...
+}:
 
 {
   # Let Home Manager install and manage itself.
@@ -97,7 +102,7 @@
     aseprite
     blender
     krita
-    lmms
+    self.packages.${system}.lmms
     orca-slicer
     shotcut
     vcv-rack

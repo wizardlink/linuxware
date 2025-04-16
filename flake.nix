@@ -73,6 +73,7 @@
       formatter."${system}" = pkgs.nixfmt-rfc-style;
 
       packages."${system}" = {
+        lmms = pkgs.callPackage ./packages/lmms/package.nix { };
         miraclecast = pkgs.callPackage ./packages/miraclecast.nix { };
         wb32dfu-udev-rules = pkgs.callPackage ./packages/wb32dfu-udev-rules { };
       };

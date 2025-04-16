@@ -26,7 +26,20 @@ programs have no documentation and some an unhelpful help command too.
 Currently the **package is available in [nixpkgs]** __however it currently fails to compile__, so you have to rely on my
 configuration of this package or wait for [nixpkgs#387762](https://github.com/NixOS/nixpkgs/pull/387762) to be merged.
 
+## [lmms]
+
+This is a free and open source DAW that is cross platform to Linux, Mac and Windows.
+
+I maintain here a package since the [PR hasn't been merged](https://github.com/NixOS/nixpkgs/pull/377643) with a newer
+version. It has not been updated for 5y, and unfortuantely, there hasn't been any releases of [lmms] since then, so an
+unstable version was due to happen in [nixpkgs].
+
+The version in [nixpkgs] also doesn't comes with [wine](https://www.winehq.org/) packaged alongside it, limiting your
+options for instrument plugins drastically.
+
 
 <!-- REFERENCES -->
 [nixpkgs]: https://github.com/NixOS/nixpkgs/
 [nixos]: https://nixos.org
+[lmms]: https://lmms.io/
+

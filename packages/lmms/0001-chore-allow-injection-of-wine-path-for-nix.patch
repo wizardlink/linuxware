@@ -1,0 +1,39 @@
+From 55c86d9ba9275a58299b31a6a5eb382a20662a44 Mon Sep 17 00:00:00 2001
+From: "Alexandre Cavalheiro S. Tiago da Silva" <contact@thewizard.link>
+Date: Wed, 16 Apr 2025 13:36:00 -0300
+Subject: [PATCH] chore: allow injection of wine path for nix
+
+Signed-off-by: Alexandre Cavalheiro S. Tiago da Silva <contact@thewizard.link>
+---
+ cmake/modules/FindWine.cmake | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/cmake/modules/FindWine.cmake b/cmake/modules/FindWine.cmake
+index ea8d90cd2..6b87c61ae 100644
+--- a/cmake/modules/FindWine.cmake
++++ b/cmake/modules/FindWine.cmake
+@@ -13,6 +13,13 @@
+ #  WINE_64_FLAGS - 64-bit linker flags
+ #
+ 
++set(WINE_INCLUDE_DIR @WINE_LOCATION@/include)
++set(WINE_BUILD @WINE_LOCATION@/bin/winebuild)
++set(WINE_CXX @WINE_LOCATION@/bin/wineg++)
++set(WINE_GCC @WINE_LOCATION@/bin/winegcc)
++set(WINE_32_LIBRARY_DIRS @WINE_LOCATION@/lib/wine/i386-unix)
++set(WINE_64_LIBRARY_DIRS @WINE_LOCATION@/lib/wine/x86_64-windows)
++
+ MACRO(_findwine_find_flags output expression result)
+ 	STRING(REPLACE " " ";" WINEBUILD_FLAGS "${output}")
+ 	FOREACH(FLAG ${WINEBUILD_FLAGS})
+@@ -32,6 +39,7 @@ ENDMACRO()
+ 
+ # Prefer newest wine first
+ list(APPEND WINE_LOCATIONS
++	@WINE_LOCATION@
+ 	/opt/wine-staging
+ 	/opt/wine-devel
+ 	/opt/wine-stable
+-- 
+2.48.1
+
