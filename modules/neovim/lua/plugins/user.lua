@@ -22,9 +22,9 @@ return {
             "⠀⠀⠀⠀⠀⠀⠀⠙⠂⠀⠙⢀⣀⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠁⠀⣻⣿⣿⣿⣿⣿⣿⠏⠀⠘⠃⠀⠀⠀⠀⠀⠀⠀",
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡈⠻⠿⣿⣿⣿⡿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠻⢿⣿⣿⣿⠿⠛⢁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⠛⣶⣦⣤⣤⣤⡤⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢤⣤⣤⣤⣶⣾⠛⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-          }, "\n")
-        }
-      }
+          }, "\n"),
+        },
+      },
     },
   },
 
@@ -38,7 +38,9 @@ return {
       integrations = {
         aerial = true,
         alpha = true,
-        cmp = true,
+        blink_cmp = true,
+        cmp = false,
+        colorful_winsep = { enabled = true, color = "lavender" },
         dap = true,
         dap_ui = true,
         gitsigns = true,
@@ -48,16 +50,15 @@ return {
         mason = true,
         native_lsp = { enabled = true },
         neotree = true,
-        notify = true,
         semantic_tokens = true,
+        snacks = { enabled = true, indent_scope_color = "lavender" },
         symbols_outline = true,
-        telescope = true,
+        telescope = { enabled = false },
         treesitter = true,
         ts_rainbow = false,
         ufo = true,
         which_key = true,
         window_picker = true,
-        colorful_winsep = { enabled = true, color = "lavender" },
       },
     },
     specs = {
@@ -167,47 +168,8 @@ return {
     opts = {},
   },
 
-  -- Adds highlighting and custom commands for ledger files
-  {
-    "ledger/vim-ledger",
-  },
-
   -- Better UI hooks
   {
     "stevearc/dressing.nvim",
-  },
-
-  -- Add Ollama support in-editor
-  {
-    "nomnivore/ollama.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-
-    -- All the user commands added by the plugin
-    cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
-
-    keys = {
-      -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
-      {
-        "<leader>oo",
-        ":<c-u>lua require('ollama').prompt()<cr>",
-        desc = "ollama prompt",
-        mode = { "n", "v" },
-      },
-
-      -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
-      {
-        "<leader>oG",
-        ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
-        desc = "ollama Generate Code",
-        mode = { "n", "v" },
-      },
-    },
-
-    ---@type Ollama.Config
-    opts = {
-      -- your configuration overrides
-    },
   },
 }
