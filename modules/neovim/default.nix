@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  blink-cmp,
   ...
 }:
 
@@ -163,5 +164,10 @@ in
         --replace-fail "{hostname}" "${config.programs.neovim.nixd.hostname}" \
         --replace-fail "{location}" "${config.programs.neovim.nixd.location}"
     '';
+
+    xdg.dataFile."nvim/lazy/blink.cmp/target/release/libblink_cmp_fuzzy.so" = {
+      recursive = true;
+      source = "${blink-cmp.packages.${pkgs.system}.blink-fuzzy-lib}/lib/libblink_cmp_fuzzy.so";
+    };
   };
 }

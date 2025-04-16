@@ -21,6 +21,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     hydractify-bot.url = "github:hydractify/hydractify-bot";
+
+    blink-cmp.url = "github:Saghen/blink.cmp";
   };
 
   outputs =
