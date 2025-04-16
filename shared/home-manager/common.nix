@@ -117,6 +117,7 @@
     rnnoise-plugin
 
     ## Development
+    dbeaver-bin
     godot_4
     hoppscotch
     lazygit
