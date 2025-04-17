@@ -1,14 +1,24 @@
 ---@class CSFTPlugin.Project
 ---@field dll_path string
 ---@field name string
+---@field project_path string
 ---@field target_framework string
+
+---@class CSFTPlugin.LaunchOptions: dap.Configuration
+---@field cwd string
+---@field program (fun(): thread)?
 
 ---@class CSFTPlugin
 ---@field dotnet_cmd string?
----@field projects CSFTPlugin.Project[]
+---@field launch_options CSFTPlugin.LaunchOptions?
 local M = {
   dotnet_cmd = vim.fn.exepath "dotnet",
-  projects = {},
+  launch_options = {
+    cwd = "${env:CSPROJ_LOCATION}",
+    name = "Launch project DLL",
+    request = "launch",
+    type = "netcoredbg",
+  },
 }
 
 ---@param command string The shell command to execute
@@ -39,6 +49,7 @@ end
 
 ---@return CSFTPlugin.Project[]
 function M.find_projects()
+  ---@type CSFTPlugin.Project[]
   local projects = {}
 
   local csproj_extension = ".csproj"
@@ -54,8 +65,9 @@ function M.find_projects()
     local target_framework = M.cmd("rg -e 'TargetFramework>(.*)<' -r '$1' -o " .. file_path)[1]
 
     projects[#projects + 1] = {
-      dll_path = project_location .. "bin/Debug/" .. target_framework .. "/" .. project_name .. ".dll",
+      dll_path = "bin/Debug/" .. target_framework .. "/" .. project_name .. ".dll",
       name = project_name,
+      project_path = vim.fn.simplify(vim.fn.getcwd() .. "/" .. project_location),
       target_framework = target_framework,
     }
   end
@@ -106,6 +118,8 @@ function M:choose_dll()
           self:run "build"
         end
 
+        vim.fn.setenv("CSPROJ_LOCATION", item.project_path)
+
         coroutine.resume(search_coroutine, path)
       end
     )
@@ -133,17 +147,12 @@ function M:start()
     args = { "--interpreter=vscode" },
   }
 
+  self.launch_options.program = function()
+    return self:choose_dll()
+  end
+
   ---@type dap.Configuration[]
-  dap.configurations.cs = {
-    {
-      type = "netcoredbg",
-      name = "Launch project DLL",
-      request = "launch",
-      program = function()
-        return self:choose_dll()
-      end,
-    },
-  }
+  dap.configurations.cs = { self.launch_options }
 
   vim.g.loaded_csftplugin = true
 end
