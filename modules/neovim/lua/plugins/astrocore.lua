@@ -17,7 +17,6 @@ return {
       highlighturl = true,                           -- highlight URLs at start
       notifications = true,                          -- enable notifications at start
       signature_help = true,                         -- enable automatically showing signature help
-      inlay_hints = true,                            -- enable inlay hints globally
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
