@@ -15,6 +15,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.mini-surround" },
 
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.recipes.diagnostic-virtual-lines-current-line" },
 
   { import = "astrocommunity.test.neotest" },
