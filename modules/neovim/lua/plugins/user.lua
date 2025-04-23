@@ -132,6 +132,7 @@ return {
         "LineNrAbove",
         "LineNrBelow",
         "LineNrBelow",
+        "LspInlayHint",
         "NeoTreeFloatingBorder",
         "NeoTreeMessage",
         "NeoTreeNormal",
