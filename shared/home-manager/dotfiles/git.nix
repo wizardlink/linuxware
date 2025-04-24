@@ -4,6 +4,7 @@
   # Enable GIT.
   programs.git = {
     enable = true;
+    lfs.enable = true;
 
     aliases = {
       # List aliases
