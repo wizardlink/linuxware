@@ -90,35 +90,13 @@ return {
     opts = function(_, opts)
       local transparent = require "transparent"
 
-      opts.groups = {
-        "Comment",
-        "Conditional",
-        "Constant",
-        "CursorLine",
-        "CursorLineNr",
-        "EndOfBuffer",
-        "Function",
-        "Identifier",
-        "LineNr",
-        "NonText",
-        "Normal",
-        "NormalNC",
-        "Operator",
-        "PreProc",
-        "Repeat",
-        "SignColumn",
-        "Special",
-        "Statement",
-        -- "StatusLine",
-        -- "StatusLineNC",
-        "String",
-        "Structure",
-        "Todo",
-        "Type",
-        "Underlined",
+      opts.exclude_groups = {
+        "StatusLine",
+        "StatusLineNC",
       }
 
       opts.extra_groups = {
+        "BlinkCmpSignatureHelpActiveParameter",
         "CursorColumn",
         "CursorLineFold",
         "CursorLineSign",
