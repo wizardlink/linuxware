@@ -5,7 +5,7 @@
 ---@field target_framework string
 
 ---@class CSFTPlugin.LaunchOptions: dap.Configuration
----@field cwd string
+---@field cwd string?
 ---@field program (fun(): thread)?
 
 ---@class CSFTPlugin
@@ -14,7 +14,6 @@
 local M = {
   dotnet_cmd = vim.fn.exepath "dotnet",
   launch_options = {
-    cwd = "${env:CSPROJ_LOCATION}",
     name = "Launch project DLL",
     request = "launch",
     type = "netcoredbg",
@@ -60,14 +59,14 @@ function M.find_projects()
     local sub_start, sub_end = string.find(file_path, "%w+%" .. csproj_extension)
 
     local project_name = string.sub(file_path, sub_start or 1, sub_end - #csproj_extension)
-    local project_location = string.sub(file_path, 1, sub_start - 1)
+    local project_path = vim.fn.simplify(vim.fn.getcwd() .. "/" .. string.sub(file_path, 1, sub_start - 1))
 
     local target_framework = M.cmd("rg -e 'TargetFramework>(.*)<' -r '$1' -o " .. file_path)[1]
 
     projects[#projects + 1] = {
-      dll_path = "bin/Debug/" .. target_framework .. "/" .. project_name .. ".dll",
+      dll_path = project_path .. "bin/Debug/" .. target_framework .. "/" .. project_name .. ".dll",
       name = project_name,
-      project_path = vim.fn.simplify(vim.fn.getcwd() .. "/" .. project_location),
+      project_path = project_path,
       target_framework = target_framework,
     }
   end
@@ -116,9 +115,8 @@ function M:choose_dll()
 
         if path ~= dap.ABORT then
           self:run "build"
+          self.launch_options.cwd = item.project_path
         end
-
-        vim.fn.setenv("CSPROJ_LOCATION", item.project_path)
 
         coroutine.resume(search_coroutine, path)
       end
