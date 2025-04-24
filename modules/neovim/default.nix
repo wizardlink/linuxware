@@ -45,7 +45,7 @@ in
       enable = mkEnableOption "enable";
       type = mkOption {
         default = "amd";
-        description = "The type of ollama package to install, AMD GPU accelerated or NVIDIA GPU accelerated.";
+        description = "The type of ollama package to install, accelerated by an AMD GPU, NVIDIA GPU or CPU.";
         example = "amd";
         type = types.enum [
           "amd"
