@@ -4,15 +4,13 @@ The module extends `programs.neovim`.
 
 ## Module options
 
-### programs.neovim.nixd.hostname
-
-By default [nixd] is enabled, you **need** to pass the current machine's
-hostname that is used to generate your system.
-
-### programs.neovim.nixd.location
+### programs.neovim.flakePath
 
 The location of your system's flake, [nixd] will execute an expression defined in the LSP's configuration that reads
 the flake's contents to evaluate [NixOS] and [Home Manager] options.
+
+This setting is optional since other programs might force you to set the `FLAKE` environment variable; if this is not
+set by the time you open [neovim] it will spout an error, impeding critical plugins from starting.
 
 ### programs.neovim.ollama.enable
 

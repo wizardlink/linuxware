@@ -85,14 +85,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.neovim = {
-    # Enable Neovim, pre-configured by `linuxware`.
-    enable = true;
-
-    # Configure nixd
-    nixd = {
-      hostname = "your-hostname-here";
-      location = "your-flake-location-here";
-    };
-  };
+  # Enable Neovim, pre-configured by `linuxware`.
+  programs.neovim.enable = true;
 }

@@ -9,6 +9,9 @@ return {
   ---@param opts AstroLSPOpts
   ---@return AstroLSPOpts
   opts = function(_, opts)
+    local system_flake_path = vim.fn.getenv "FLAKE" or error "FLAKE environment variable must be set."
+    local hostname = vim.fn.hostname()
+
     ---@type AstroLSPOpts
     local lsp_options = {
       -- Configuration table of features provided by AstroLSP
@@ -84,15 +87,23 @@ return {
           settings = {
             nixd = {
               nixpkgs = {
-                expr = "import (builtins.getFlake ({location})).inputs.nixpkgs { }",
+                expr = "import (builtins.getFlake (" .. system_flake_path .. ")).inputs.nixpkgs { }",
               },
               options = {
                 nixos = {
-                  expr = '(builtins.getFlake ("{location}")).nixosConfigurations.{hostname}.options',
+                  expr = "(builtins.getFlake ("
+                      .. system_flake_path
+                      .. ")).nixosConfigurations."
+                      .. hostname
+                      .. ".options",
                 },
                 home_manager = {
-                  expr =
-                  '(builtins.getFlake ("{location}")).nixosConfigurations.{hostname}.options.home-manager.users.type.getSubOptions []',
+                  expr = "(builtins.getFlake ("
+                      .. system_flake_path
+                      .. ")).nixosConfigurations."
+                      .. hostname
+                      .. ".options"
+                      .. ".home-manager.users.type.getSubOptions []",
                 },
               },
             },

@@ -25,20 +25,11 @@ let
 in
 {
   options.programs.neovim = {
-    nixd = {
-      hostname = mkOption {
-        default = "wizdesk";
-        description = "Your NixOS hostname, needed for nixd lsp.";
-        example = "nixos";
-        type = types.str;
-      };
-
-      location = mkOption {
-        default = "git+file:///home/wizardlink/.system";
-        description = "Path to your flake location, prepend 'file:///' to it and 'git+' before that if using git.";
-        example = "git+file:///home/wizardlink/.system";
-        type = types.str;
-      };
+    flakePath = mkOption {
+      default = null;
+      description = "The path to your flake, this will be the value of the `FLAKE` environment variable.";
+      example = "~/.config/nix";
+      type = types.nullOr types.str;
     };
 
     ollama = {
@@ -57,10 +48,14 @@ in
   };
 
   config = {
-    home.sessionVariables = {
-      EDITOR = "nvim";
-      MANPAGER = "nvim +Man!";
-    };
+    home.sessionVariables =
+      {
+        EDITOR = "nvim";
+        MANPAGER = "nvim +Man!";
+      }
+      // lib.optionalAttrs (config.programs.neovim.flakePath != null) {
+        FLAKE = config.programs.neovim.flakePath;
+      };
 
     programs.neovim = {
       withNodeJs = true;
@@ -156,14 +151,6 @@ in
       recursive = true;
       source = ./ftplugin;
     };
-
-    xdg.configFile."nvim/lua/plugins/astrolsp.lua".source = pkgs.runCommand "astrolsp.lua" { } ''
-      cp ${./lsp.lua} $out
-
-      substituteInPlace $out \
-        --replace-fail "{hostname}" "${config.programs.neovim.nixd.hostname}" \
-        --replace-fail "{location}" "${config.programs.neovim.nixd.location}"
-    '';
 
     xdg.dataFile."nvim/lazy/blink.cmp/target/release/libblink_cmp_fuzzy.so" = {
       recursive = true;

@@ -112,9 +112,6 @@
 
     # Enable ollama support
     ollama.enable = true;
-
-    # Set the hostname for nixd in neovim
-    nixd.hostname = "wizlap";
   };
 
   # Add monitor configuration to hyprland
