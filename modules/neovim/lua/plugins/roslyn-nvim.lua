@@ -7,9 +7,15 @@ return {
     dependencies = {
       {
         "tris203/rzls.nvim",
+        ---@return rzls.Config
         opts = function(_, opts)
+          local has_astrolsp, astrolsp = pcall(require, "astrolsp")
+          local has_blink, blink = pcall(require, "blink-cmp")
+
           opts = {
-            capabilities = vim.lsp.protocol.make_client_capabilities(),
+            capabilities = has_blink and blink.get_lsp_capabilities({}, true)
+                or vim.lsp.protocol.make_client_capabilities(),
+            on_attach = has_astrolsp and astrolsp.on_attach or nil,
             path = vim.fn.get_nix_store "rzls" .. "/bin/rzls",
           }
 
@@ -18,24 +24,25 @@ return {
       },
     },
     opts = function(_, opts)
+      local has_astrolsp, astrolsp = pcall(require, "astrolsp")
       local rzlspath = vim.fn.get_nix_store "rzls"
-      require("roslyn.config").get()
 
       opts = {
-        exe = "Microsoft.CodeAnalysis.LanguageServer",
-        args = {
-          "--stdio",
-          "--logLevel=Information",
-          "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-          "--razorSourceGenerator=" .. rzlspath .. "/lib/rzls/Microsoft.CodeAnalysis.Razor.Compiler.dll",
-          "--razorDesignTimePath="
-          .. rzlspath
-          .. "/lib/rzls/Targets/Microsoft.NET.Sdk.Razor.DesignTime.targets",
-        },
         ---@type vim.lsp.ClientConfig
         ---@diagnostic disable-next-line: missing-fields
         config = {
+          cmd = {
+            "Microsoft.CodeAnalysis.LanguageServer",
+            "--stdio",
+            "--logLevel=Information",
+            "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+            "--razorSourceGenerator=" .. rzlspath .. "/lib/rzls/Microsoft.CodeAnalysis.Razor.Compiler.dll",
+            "--razorDesignTimePath="
+            .. rzlspath
+            .. "/lib/rzls/Targets/Microsoft.NET.Sdk.Razor.DesignTime.targets",
+          },
           handlers = require "rzls.roslyn_handlers",
+          on_attach = has_astrolsp and astrolsp.on_attach or nil,
           settings = {
             ["csharp|inlay_hints"] = {
               csharp_enable_inlay_hints_for_implicit_object_creation = true,
