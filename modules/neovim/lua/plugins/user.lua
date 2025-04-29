@@ -145,7 +145,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-    opts = {},
+    event = "VeryLazy",
   },
 
   -- Better UI hooks
