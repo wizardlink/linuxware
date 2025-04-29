@@ -68,6 +68,7 @@
     ## Tools
 
     # GNOME Stuff
+    gdm-settings
     gnome-extension-manager
     gnome-tweaks
     gnome-screenshot
@@ -79,6 +80,7 @@
     # ))
     appimage-run
     busybox
+    darktable
     fastfetch
     firefox
     geekbench
@@ -87,7 +89,7 @@
     menulibre
     obs-cmd
     obsidian
-    protonvpn-cli_2
+    protonvpn-gui
     python3
     pipx
     qbittorrent
@@ -114,6 +116,7 @@
 
     # Editing
     libreoffice
+    losslesscut-bin
 
     ## Entertainment
     jellyfin-media-player
@@ -237,6 +240,36 @@
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "candy-icons";
+      package = pkgs.candy-icons;
+    };
+
+    theme = {
+      name = "Marble-yellow-dark";
+      package = pkgs.marble-shell-theme;
+    };
+
+    cursorTheme = {
+      name = "Qogir-ubuntu-dark";
+      package = pkgs.qogir-icon-theme;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1;
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1;
+      '';
+    };
+  };
+
+  # }
   #
   ## MISC #
   #

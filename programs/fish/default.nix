@@ -31,6 +31,7 @@
       homeman = "nvim ~/.system/home-manager.nix";
       winvm = "quickemu --vm ~/vmfuck/windows-10.conf --display spice";
       upd = "nh os switch -u";
+      touhou6 = "LANG=ja_JP.UTF-8 wine 'OneDrive/Touhou Series/Touhou 6 - The Embodiment of Scarlet Devil/th06.exe'";
     };
 
     functions = {

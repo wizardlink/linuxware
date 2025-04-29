@@ -89,6 +89,7 @@
       47989
       47990
       48010
+      25565
     ];
 
     allowedUDPPorts = [ ];
@@ -233,9 +234,9 @@
   ];
 
   # Enable OpenGL.
-  hardware.opengl = {
+  hardware.graphics = {
     #  driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
 
     extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
@@ -294,7 +295,7 @@
 
   #Enable Onedrive
   services.onedrive.enable = true;
-  systemd.user.services."onedrive@".serviceConfig.RestartSec = lib.mkForce 3600;
+  # systemd.user.services."onedrive@".serviceConfig.RestartSec = lib.mkForce 3600;
   # Allow spice usb
   virtualisation.spiceUSBRedirection.enable = true;
   services.spice-vdagentd.enable = true;
@@ -387,7 +388,8 @@
   ];
 
   i18n.inputMethod = {
-    enabled = "ibus";
+    enable = true;
+    type = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
       libpinyin
       anthy
