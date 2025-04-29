@@ -147,9 +147,4 @@ return {
     },
     event = "VeryLazy",
   },
-
-  -- Better UI hooks
-  {
-    "stevearc/dressing.nvim",
-  },
 }
