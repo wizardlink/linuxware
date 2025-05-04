@@ -17,7 +17,7 @@
     heroic
     protontricks
     r2modman
-    wineWowPackages.unstableFull
+    wineWowPackages.stableFull
     winetricks
 
     # Games
