@@ -9,7 +9,7 @@ return {
   ---@param opts AstroLSPOpts
   ---@return AstroLSPOpts
   opts = function(_, opts)
-    local system_flake_path = vim.fn.getenv "FLAKE" or error "FLAKE environment variable must be set."
+    local system_flake_path = os.getenv "FLAKE" or os.getenv "NH_FLAKE" or error "FLAKE environment variable must be set."
     local hostname = vim.fn.hostname()
 
     ---@type AstroLSPOpts
