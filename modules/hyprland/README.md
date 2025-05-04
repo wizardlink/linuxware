@@ -1,6 +1,6 @@
 The [NixOS] module installs [Hyprland] onto the system.
 
-Whilst the [Home Manager] module generates the dotfiles for [Hyprland] and optionally [hyprlock] and [hypridle].
+Whilst the [Home Manager] module generates the dotfiles for [Hyprland] and optionally [hypridle].
 
 It can be configured through `modules.hyprland`.
 
@@ -17,15 +17,6 @@ There are no monitors configured by default, so you should use this option to do
 
 Whether to configure and enable the [hypridle] package. Be mindful that it may not auto-start, I have yet to find why but
 even though it configures to start after `graphical-session.target`, that isn't reached in Hyprland sometimes.
-
-### hyprlock.enable
-
-Whether to configure and enable the [hyprlock] package, by itself it does nothing but when [hypridle] is also enabled it
-will automatically call [hyprlock] after a 120 second timeout.
-
-### hyprlock.background
-
-A path to an image that will be used as background when [hyprlock] is invoked.
 
 ### scripts.screenshot.enable
 
@@ -54,7 +45,6 @@ services. If this module ever gets actually used by someone, then I'll refine it
 
 <!-- REFERENCES -->
 [hyprland]: https://hyprland.org/
-[hyprlock]: https://github.com/hyprwm/hyprlock
 [hypridle]: https://github.com/hyprwm/hypridle
 [home manager]: https://github.com/nix-community/home-manager
 [nixos]: https://nixos.org

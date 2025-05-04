@@ -23,16 +23,6 @@ in
 
     hypridle.enable = lib.mkEnableOption "hypridle";
 
-    hyprlock = {
-      enable = lib.mkEnableOption "hyprlock";
-      background = lib.mkOption {
-        type = lib.types.path;
-        default = "";
-        example = "~/wallpapers/abc.png";
-        description = "The image to be used as background for hyprlock.";
-      };
-    };
-
     scripts = {
       screenshot.enable = lib.mkEnableOption "screenshot";
       startup.enable = lib.mkEnableOption "startup";
@@ -50,127 +40,23 @@ in
       sha256 = "1clw669i1n3dhawdw4clmjv75fy3smycb5iqk3sanzpr3y0i4vwx";
     };
 
-    # Enable hypridle and hyprlock
+    # Enable hypridle
     services.hypridle = lib.mkIf cfg.hypridle.enable {
       enable = true;
       settings = {
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
         };
 
-        listener =
-          [
-            {
-              timeout = 180;
-              on-timeout = "hyprctl dispatch dpms off";
-              on-resume = "hyprctl dispatch dpms on";
-            }
-          ]
-          ++ lib.optionals cfg.hyprlock.enable [
-            {
-              timeout = 120;
-              on-timeout = "hyprlock";
-            }
-          ];
+        listener = [
+          {
+            timeout = 180;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
       };
-    };
-
-    programs.hyprlock = lib.mkIf cfg.hyprlock.enable {
-      enable = true;
-      extraConfig = # hyprlang
-        ''
-          source = $HOME/.config/hypr/frappe.conf
-
-          $accent = $mauve
-          $accentAlpha = $mauveAlpha
-          $font = JetBrainsMono Nerd Font
-
-          # GENERAL
-          general {
-            disable_loading_bar = true
-            hide_cursor = true
-          }
-
-          # BACKGROUND
-          background {
-            monitor =
-            path = ${cfg.hyprlock.background}
-            blur_passes = 0
-            color = $base
-          }
-
-          # LAYOUT
-          label {
-            monitor =
-            text = Layout: $LAYOUT
-            color = $text
-            font_size = 25
-            font_family = $font
-            position = 30, -30
-            halign = left
-            valign = top
-          }
-
-          # TIME
-          label {
-            monitor =
-            text = $TIME
-            color = $text
-            font_size = 90
-            font_family = $font
-            position = -30, 0
-            halign = right
-            valign = top
-          }
-
-          # DATE
-          label {
-            monitor =
-            text = cmd[update:43200000] date +"%A, %d %B %Y"
-            color = $text
-            font_size = 25
-            font_family = $font
-            position = -30, -150
-            halign = right
-            valign = top
-          }
-
-          # USER AVATAR
-          image {
-            monitor =
-            path = $HOME/.face
-            size = 100
-            border_color = $accent
-            position = 0, 75
-            halign = center
-            valign = center
-          }
-
-          # INPUT FIELD
-          input-field {
-            monitor =
-            size = 300, 60
-            outline_thickness = 4
-            dots_size = 0.2
-            dots_spacing = 0.2
-            dots_center = true
-            outer_color = $accent
-            inner_color = $surface0
-            font_color = $text
-            fade_on_empty = false
-            placeholder_text = <span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>
-            hide_input = false
-            check_color = $accent
-            fail_color = $red
-            fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i>
-            capslock_color = $yellow
-            position = 0, -47
-            halign = center
-            valign = center
-          }
-        '';
     };
 
     # Set-up the scripts for services and apps.

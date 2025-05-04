@@ -134,12 +134,8 @@
       screenshot.enable = true;
     };
 
-    # Enable hypridle and hyprlock
+    # Enable hypridle
     hypridle.enable = true;
-    hyprlock = {
-      enable = true;
-      background = "/mnt/internal/personal/wallpapers/wallhaven-2em8y6.jpg";
-    };
 
     # Add monitor configuration to hyprland
     extraConfig = # hyprlang
