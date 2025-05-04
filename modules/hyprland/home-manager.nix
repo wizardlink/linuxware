@@ -43,12 +43,8 @@ in
     # Enable hypridle
     services.hypridle = lib.mkIf cfg.hypridle.enable {
       enable = true;
-      settings = {
-        general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
-        };
 
+      settings = {
         listener = [
           {
             timeout = 180;
