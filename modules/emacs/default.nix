@@ -20,7 +20,6 @@
       ]
     )) # for flyspell
     gnuplot_qt # for plotting graphs
-    languagetool # for grammar
     ledger # for accounting and org-ledger
     gzip # Otherwise random errors occur from the onChange script
   ];

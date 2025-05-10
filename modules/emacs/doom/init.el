@@ -85,7 +85,7 @@
        (spell            ; tasing you for misspelling mispelling
          +aspell
          +flyspell)
-       grammar           ; tasing grammar mistake every you make
+       ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
