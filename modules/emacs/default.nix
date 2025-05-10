@@ -13,6 +13,7 @@
     fd
 
     pandoc # For org-pandoc
+    texliveFull # for latex conversions
     (aspellWithDicts (
       dicts: with dicts; [
         en

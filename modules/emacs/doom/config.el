@@ -101,3 +101,11 @@
 
 ;; Configure elfeed-org
 (setq rmh-elfeed-org-files '("/home/wizardlink/Documents/notes/elfeed.org"))
+
+;; Set CLI options for ox-pandoc when generating PDFs from LaTeX,
+;; ensuring that `latexmk` is used so we have proper citations.
+(use-package ox-pandoc
+  :init
+  (setq org-pandoc-options-for-latex-pdf '((pdf-engine . "latexmk")
+                                           (pdf-engine-opt . "-bibtex")
+                                           (biblatex . t))))
