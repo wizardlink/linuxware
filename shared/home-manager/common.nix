@@ -110,6 +110,7 @@
 
     ## Entertainment
     jellyfin-media-player
+    tidal-hifi
 
     ## Libraries
     libsForQt5.kdegraphics-thumbnailers
