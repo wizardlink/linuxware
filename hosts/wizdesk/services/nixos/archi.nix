@@ -8,13 +8,8 @@
       username = "master1891891";
 
       settings = {
-        CustomGamePlayedWhileFarming = "In the fields";
+        OnlineStatus = 0;
       };
-    };
-
-    bots.zak = {
-      enabled = true;
-      username = "matheuszak";
     };
   };
 }
