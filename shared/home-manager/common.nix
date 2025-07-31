@@ -103,7 +103,7 @@
     blender
     krita
     self.packages.${system}.lmms
-    orca-slicer
+    # orca-slicer # WARNING: Broken until they stop depending in libsoup - https://github.com/NixOS/nixpkgs/issues/360897
     shotcut
     vcv-rack
     vhs
