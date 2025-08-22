@@ -82,7 +82,7 @@
     fastfetch
     firefox
     pavucontrol
-    # protonvpn-gui # WARNING: Marked as broken https://github.com/NixOS/nixpkgs/commit/84faa614a5256a84e3dd4e445053ff76f4c0a5d4
+    protonvpn-gui # WARNING: Marked as broken https://github.com/NixOS/nixpkgs/commit/84faa614a5256a84e3dd4e445053ff76f4c0a5d4
     qbittorrent
     qdirstat
     speedcrunch
@@ -103,14 +103,13 @@
     blender
     krita
     self.packages.${system}.lmms
-    # orca-slicer # WARNING: Broken until they stop depending in libsoup - https://github.com/NixOS/nixpkgs/issues/360897
+    orca-slicer # WARNING: Broken until they stop depending in libsoup - https://github.com/NixOS/nixpkgs/issues/360897
     shotcut
     vcv-rack
     vhs
 
     ## Entertainment
     jellyfin-media-player
-    tidal-hifi
 
     ## Libraries
     libsForQt5.kdegraphics-thumbnailers
