@@ -126,6 +126,7 @@ return {
       transparent.clear_prefix "BufferLine"
       transparent.clear_prefix "Diagnostic"
       transparent.clear_prefix "NvimTree"
+      transparent.clear_prefix "SnacksPicker"
     end,
   },
 
