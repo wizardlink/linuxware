@@ -137,14 +137,6 @@
   # HARDWARE #
   #
 
-  # Enable Zenergy
-  boot.initrd.kernelModules = [
-    "zenergy"
-  ];
-  boot.extraModulePackages = [
-    config.boot.kernelPackages.zenergy
-  ];
-
   # Enable openrazer for managing Razer products' configuration
   hardware.openrazer = {
     enable = true;
