@@ -92,15 +92,16 @@
     wl-clipboard
     xclip
     zoxide
-    (catppuccin-sddm.override # So SDDM finds the theme files.
-      {
-        flavor = "frappe";
-        font = "IBM Plex Sans";
-        fontSize = "11";
-        background = "${../../assets/sddm/Background.jpg}";
-        loginBackground = true;
-      }
-    )
+    # FIXME: Waiting on https://github.com/NixOS/nixpkgs/pull/441255 to hit unstable
+    # (catppuccin-sddm.override # So SDDM finds the theme files.
+    #   {
+    #     flavor = "frappe";
+    #     font = "IBM Plex Sans";
+    #     fontSize = "11";
+    #     background = "${../../assets/sddm/Background.jpg}";
+    #     loginBackground = true;
+    #   }
+    # )
 
     ## Libraries
     libsForQt5.qt5.qtgraphicaleffects

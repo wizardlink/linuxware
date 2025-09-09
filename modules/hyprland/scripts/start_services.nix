@@ -25,7 +25,7 @@ pkgs.writeShellScriptBin "start_services" ''
   #
   # Start polkit agent
   #
-  ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &
+  ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
 
   #
   # Start kwallet service

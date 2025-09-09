@@ -103,17 +103,17 @@
     blender
     krita
     self.packages.${system}.lmms
-    orca-slicer # WARNING: Broken until they stop depending in libsoup - https://github.com/NixOS/nixpkgs/issues/360897
+    orca-slicer
     shotcut
     vcv-rack
     vhs
 
     ## Entertainment
-    jellyfin-media-player
+    #jellyfin-media-player # FIXME: Unsafe dependency: https://github.com/NixOS/nixpkgs/issues/437865
 
     ## Libraries
-    libsForQt5.kdegraphics-thumbnailers
-    libsForQt5.kio-extras
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.kio-extras
     rnnoise-plugin
 
     ## Development
@@ -126,7 +126,7 @@
     clipboard-sync.packages.${pkgs.stdenv.hostPlatform.system}.default
     cliphist
     grim
-    libsForQt5.ark
+    kdePackages.ark
     loupe
     mako
     slurp
