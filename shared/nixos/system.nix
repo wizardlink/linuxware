@@ -6,13 +6,12 @@
 
   boot.initrd.kernelModules = [
     "v4l2loopback"
-    # "zenergy" FIXME: Broken in Linux 6.16 since June - https://github.com/BoukeHaarsma23/zenergy/issues/15
+    "zenergy"
   ];
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback
-    # config.boot.kernelPackages.zenergy # Allows fetching power draw information on AMD CPUs
-    # FIXME: Look at the FIXME before this.
+    config.boot.kernelPackages.zenergy # Allows fetching power draw information on AMD CPUs
   ];
 
   # Configure v4l2loopback

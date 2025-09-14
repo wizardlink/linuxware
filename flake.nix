@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.50.1";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     hydractify-bot.url = "github:hydractify/hydractify-bot";
 
