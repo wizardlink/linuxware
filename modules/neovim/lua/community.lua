@@ -23,11 +23,13 @@ return {
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
   -- { import = "astrocommunity.pack.cs" }, Trying out roslyn.nvim
+  { import = "astrocommunity.pack.eslint" },
   { import = "astrocommunity.pack.godot" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
