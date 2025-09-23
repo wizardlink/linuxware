@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ self, pkgs, ... }:
 
 {
 
@@ -17,6 +17,7 @@
     heroic
     protontricks
     r2modman
+    self.packages.${system}.deadlock-api-ingest
     wineWowPackages.stableFull
     winetricks
 
