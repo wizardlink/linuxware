@@ -102,7 +102,7 @@
     aseprite
     blender
     krita
-    self.packages.${system}.lmms
+    # self.packages.${system}.lmms # FIXME: Broken for now, gotta update the package
     orca-slicer
     shotcut
     vcv-rack

@@ -111,7 +111,7 @@
     enable = true;
 
     # Enable ollama support
-    ollama.enable = true;
+    ollama.enable = false; # TODO: Re-enable when one of its dependencies gets fixed
   };
 
   # Add monitor configuration to hyprland

@@ -97,8 +97,8 @@
         flavor = "frappe";
         font = "IBM Plex Sans";
         fontSize = "11";
-        # FIXME: Cannot set custom background anymore, tracking in https://github.com/NixOS/nixpkgs/issues/442758
-        # background = "${../../assets/sddm/Background.jpg}";
+        # FIXME: Background isn't applying but the configuration doesn't fails now
+        background = "${../../assets/sddm/Background.jpg}";
         loginBackground = true;
       }
     )
