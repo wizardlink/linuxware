@@ -70,9 +70,9 @@
 
     fcitx5 = {
       addons = with pkgs; [
-        fcitx5-mozc
+        catppuccin-fcitx5
         fcitx5-gtk
-        fcitx5-catppuccin
+        fcitx5-mozc
       ];
 
       quickPhrase = {
