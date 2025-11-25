@@ -6,27 +6,27 @@
     enable = true;
     lfs.enable = true;
 
-    aliases = {
-      # List aliases
-      aliases = "config --get-regexp alias";
+    settings = {
+      aliases = {
+        # List aliases
+        aliases = "config --get-regexp alias";
 
-      # List all the contributors with commit amount
-      contributors = "shortlog --summary --numbered";
+        # List all the contributors with commit amount
+        contributors = "shortlog --summary --numbered";
 
-      # Output verbose info about branches and tags
-      branches = "branch -avv";
+        # Output verbose info about branches and tags
+        branches = "branch -avv";
 
-      # List all tags
-      tags = "tag -l";
+        # List all tags
+        tags = "tag -l";
 
-      # Pretty logs
-      plog = "log --graph --decorate --all";
+        # Pretty logs
+        plog = "log --graph --decorate --all";
 
-      # Pretty grep
-      gcommit = "log --graph --decorate --grep";
-    };
+        # Pretty grep
+        gcommit = "log --graph --decorate --grep";
+      };
 
-    extraConfig = {
       core = {
         # Set the editor to be used by GIT
         editor = "nvim";

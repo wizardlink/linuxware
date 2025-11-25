@@ -258,38 +258,58 @@ in
         bind = SHIFT CTRL, F12, pass, class:^(com\.obsproject\.Studio)$
 
         # Window rules for xwaylandvideobridge
-        windowrule = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-        windowrule = noanim,class:^(xwaylandvideobridge)$
-        windowrule = nofocus,class:^(xwaylandvideobridge)$
-        windowrule = noinitialfocus,class:^(xwaylandvideobridge)$
+        windowrule {
+          name = xwaylandvideobridge
+          match:class = ^(xwaylandvideobridge)$
+
+          no_anim = true
+          no_focus = true
+          no_initial_focus = true
+          opacity = 0.0
+        }
 
         # Rules for windowkill
-        windowrule = tag +windowkill, class:^(steam_app_2726450)$
-        windowrule = noborder, tag:windowkill
-        windowrule = pin, tag:windowkill
-        windowrule = opacity 0.9, tag:windowkill
+        windowrule {
+          name = windowkill
+          match:class = ^(steam_app_2726450)$
+
+          border_size = 0
+          opacity = 0.9
+          pin = true
+        }
 
         # Rules for Awakened PoE
-        windowrule = tag +poe, class:^(steam_app_238960)$
-        windowrule = allowsinput, tag:poe
+        windowrule = match:class ^(steam_app_238960)$, allows_input true
+        windowrule {
+          name = awakened-poe-trade
+          match:class = ^(awakened-poe-trade)$
 
-        windowrule = tag +apt, class:^(awakened-poe-trade)$
-        windowrule = float, tag:apt
-        windowrule = noblur, tag:apt
-        windowrule = noborder, tag:apt
-        windowrule = noshadow, tag:apt
+          border_size = 0
+          float = true
+          no_blur = true
+          no_shadow = true
+        }
 
         # Rules for anki
-        windowrule = float, class:^(anki)$
+        windowrule = match:class ^(anki)$, float true
 
-        windowrule = tag +gw2, class:^(steam_app_1284210)$
-        windowrule = noblur, tag:gw2
-        windowrule = noborder, tag:gw2
+        # Rules for Guild Wars 2
+        windowrule {
+          name = gw2
+          match:class = ^(steam_app_1284210)$
+
+          border_size = 0
+          no_blur = true
+        }
 
         # Rules for godot
-        windowrule = tag +godot, class:^(Godot)$, title:^(.+)$
-        windowrule = center, tag:godot
-        windowrule = size 50% 50%, tag:godot
+        windowrule {
+          name = godot
+          match:class = ^(Godot)$
+
+          center = true
+          size = 50% 50%
+        }
       '';
   };
 }
