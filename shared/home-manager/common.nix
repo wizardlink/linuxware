@@ -61,6 +61,7 @@
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = [ "thunar.desktop" ];
     "text/html" = [ "firefox.desktop" ];
+    "text/plain" = [ "nvim.desktop" ];
     "video/mp4" = [ "vlc.desktop" ];
     "video/x-matroska" = [ "vlc.desktop" ];
     "x-scheme-handler/about" = [ "firefox.desktop" ];
