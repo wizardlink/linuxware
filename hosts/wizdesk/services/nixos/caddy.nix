@@ -53,5 +53,10 @@
       header X-Robots-Tag "none"
       reverse_proxy 127.0.0.1:7373
     '';
+
+    virtualHosts."map.thewizard.link".extraConfig = ''
+      header X-Robots-Tag "none"
+      reverse_proxy 127.0.0.1:8123
+    '';
   };
 }

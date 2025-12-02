@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     gamescope
     heroic
+    packwiz
     protontricks
     r2modman
     self.packages.${system}.deadlock-api-ingest
