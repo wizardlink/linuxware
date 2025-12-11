@@ -64,6 +64,7 @@
       6567 # Mindustry
       8211 # Palworld
       3979 # OpenTTD
+      24454 # Minecraft Simple Voice Chat
     ];
 
     allowedTCPPortRanges = [
