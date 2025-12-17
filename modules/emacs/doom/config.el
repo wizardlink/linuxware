@@ -87,6 +87,9 @@
 (setq org-roam-directory "~/Documents/zettelkasten")
 (map! (:leader :desc "Opens a daily note through the calendar" :n "nrdF" #'org-roam-dailies-find-date))
 
+(use-package! websocket
+  :after org-roam)
+
 (use-package! org-roam-ui
   :after org-roam
   :config
