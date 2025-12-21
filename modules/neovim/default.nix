@@ -48,14 +48,13 @@ in
   };
 
   config = {
-    home.sessionVariables =
-      {
-        EDITOR = "nvim";
-        MANPAGER = "nvim +Man!";
-      }
-      // lib.optionalAttrs (config.programs.neovim.flakePath != null) {
-        FLAKE = config.programs.neovim.flakePath;
-      };
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      MANPAGER = "nvim +Man!";
+    }
+    // lib.optionalAttrs (config.programs.neovim.flakePath != null) {
+      FLAKE = config.programs.neovim.flakePath;
+    };
 
     programs.neovim = {
       withNodeJs = true;
@@ -154,7 +153,9 @@ in
 
     xdg.dataFile."nvim/lazy/blink.cmp/target/release/libblink_cmp_fuzzy.so" = {
       recursive = true;
-      source = "${blink-cmp.packages.${pkgs.system}.blink-fuzzy-lib}/lib/libblink_cmp_fuzzy.so";
+      source = "${
+        blink-cmp.packages.${pkgs.stdenv.hostPlatform.system}.blink-fuzzy-lib
+      }/lib/libblink_cmp_fuzzy.so";
     };
   };
 }

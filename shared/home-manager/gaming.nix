@@ -26,7 +26,7 @@
     packwiz
     protontricks
     r2modman
-    self.packages.${system}.deadlock-api-ingest
+    self.packages.${pkgs.stdenv.hostPlatform.system}.deadlock-api-ingest
     wineWowPackages.stableFull
     winetricks
 

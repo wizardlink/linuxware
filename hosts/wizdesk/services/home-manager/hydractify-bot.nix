@@ -8,7 +8,7 @@
     Unit.After = "postgresql.service";
 
     Service = {
-      ExecStart = "${hydractify-bot.defaultPackage.${pkgs.system}}/bin/hydractify";
+      ExecStart = "${hydractify-bot.defaultPackage.${pkgs.stdenv.hostPlatform.system}}/bin/hydractify";
       Restart = "on-failure";
       Type = "simple";
       WorkingDirectory = "/mnt/internal/hydractify/GitHub/hydractify";
