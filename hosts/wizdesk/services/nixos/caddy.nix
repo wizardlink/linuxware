@@ -58,5 +58,11 @@
       header X-Robots-Tag "none"
       reverse_proxy 127.0.0.1:8123
     '';
+
+    virtualHosts."stella.thewizard.link".extraConfig = ''
+      root * /srv/stella
+      header X-Robots-Tag "none"
+      file_server
+    '';
   };
 }
