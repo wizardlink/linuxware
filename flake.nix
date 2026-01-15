@@ -23,8 +23,6 @@
     hydractify-bot.url = "github:hydractify/hydractify-bot";
 
     blink-cmp.url = "github:Saghen/blink.cmp";
-
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
