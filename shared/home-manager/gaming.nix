@@ -24,6 +24,7 @@
     gamescope
     heroic
     packwiz
+    parsec-bin
     protontricks
     r2modman
     self.packages.${pkgs.stdenv.hostPlatform.system}.deadlock-api-ingest
