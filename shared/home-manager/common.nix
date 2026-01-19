@@ -110,7 +110,7 @@
     vhs
 
     ## Entertainment
-    #jellyfin-media-player # FIXME: Unsafe dependency: https://github.com/NixOS/nixpkgs/issues/437865
+    jellyfin-media-player
 
     ## Libraries
     kdePackages.kdegraphics-thumbnailers

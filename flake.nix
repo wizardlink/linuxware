@@ -70,7 +70,7 @@
           nixpkgs.lib.nixosSystem { inherit system specialArgs modules; };
       };
 
-      formatter."${system}" = pkgs.nixfmt-rfc-style;
+      formatter."${system}" = pkgs.nixfmt;
 
       packages."${system}" = {
         deadlock-api-ingest = pkgs.callPackage ./packages/deadlock-api-ingest.nix { };

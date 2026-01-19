@@ -51,7 +51,7 @@
   # Enable Thunar and it's dependencies
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [ thunar-archive-plugin ];
+    plugins = with pkgs; [ thunar-archive-plugin ];
   };
   programs.xfconf.enable = true; # For configuring
   services.gvfs.enable = true; # For mounting drives, trash, etc.
