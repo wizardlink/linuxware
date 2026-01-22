@@ -9,16 +9,16 @@
 
 rustPlatform.buildRustPackage {
   pname = "deadlock-api-ingest";
-  version = "0-unstable-2025-10-05";
+  version = "0-unstable-2025-11-13";
 
   src = fetchFromGitHub {
     owner = "deadlock-api";
     repo = "deadlock-api-ingest";
-    rev = "2338773e4578017bafa0b15c5dd23883f9d74b19";
-    hash = "sha256-skiRDJzCcVHDyZK+KvO8Kl/Pu8/E9ySixi1wd6UWuTg=";
+    rev = "f068f6d08b38310ad74a560a997763c04cd5c049";
+    hash = "sha256-rbzdIsqf92o7p5QDdYI4TpAKyq52YQfSxjhcZ7YmtKA=";
   };
 
-  cargoHash = "sha256-KEFr/2hIef2hzj20NHoMSnUil+loiG5KkZ3uALS6bvA=";
+  cargoHash = "sha256-Xir+/TNQ9C9QZFZWbEBZlndyPoPvW55cXaS3oQYe9sk=";
 
   nativeBuildInputs = [
     pkg-config
