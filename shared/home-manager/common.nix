@@ -80,6 +80,7 @@
 
     ## Tools
     # Utilities
+    cameractrls-gtk4
     fastfetch
     firefox
     pavucontrol
