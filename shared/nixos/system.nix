@@ -2,9 +2,10 @@
 
 {
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.kernelModules = [
+  boot.kernelModules = [
+    "ntsync"
     "v4l2loopback"
     "zenergy"
   ];
