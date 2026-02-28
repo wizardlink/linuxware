@@ -93,7 +93,7 @@
     zathura
 
     # Personal utilities
-    anki
+    # anki # FIXME: Broken
     ledger
     vesktop
 

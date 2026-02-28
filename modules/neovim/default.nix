@@ -60,7 +60,7 @@ in
       withNodeJs = true;
       withPython3 = true;
 
-      extraLuaConfig = builtins.readFile ./init.lua;
+      initLua = builtins.readFile ./init.lua;
 
       extraPackages =
         with pkgs;

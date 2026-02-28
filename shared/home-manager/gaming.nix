@@ -28,7 +28,7 @@
     protontricks
     r2modman
     self.packages.${pkgs.stdenv.hostPlatform.system}.deadlock-api-ingest
-    wineWowPackages.stableFull
+    wineWow64Packages.stableFull
     winetricks
 
     # Games

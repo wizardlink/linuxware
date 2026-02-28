@@ -7,6 +7,15 @@
     "flakes"
   ];
 
+  nixpkgs.overlays = [
+    # HACK: lager needs updating https://github.com/NixOS/nixpkgs/issues/493431
+    (final: prev: {
+      lager = prev.lager.override {
+        boost = final.boost188;
+      };
+    })
+  ];
+
   # Optimize storage
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
