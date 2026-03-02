@@ -7,18 +7,18 @@
   openssl,
 }:
 
-rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage rec {
   pname = "deadlock-api-ingest";
-  version = "0-unstable-2026-02-10";
+  version = "v0.2.6";
 
   src = fetchFromGitHub {
     owner = "deadlock-api";
     repo = "deadlock-api-ingest";
-    rev = "537a64c507c7588dd254484125d20b09077fd27b";
-    hash = "sha256-RKJmggIyGs9WiI9MUhGf91KGUmYim6T3m34vR450V2Y=";
+    rev = version;
+    hash = "sha256-w21stADZ0uLhYwx6lCqYH6eG9wEgMs3YUamUgB+SC1Q=";
   };
 
-  cargoHash = "sha256-YiJjehMQmwWKInHmeomj7fw7s2av8HlFDqhE/zUahoo=";
+  cargoHash = "sha256-6R8wf7GQo7+D5Ez4xsXeBu4P3R9jm1nYKMIX2aD8jEc=";
 
   nativeBuildInputs = [
     pkg-config
