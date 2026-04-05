@@ -11,7 +11,7 @@ return {
 
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
 
-  { import = "astrocommunity.motion.flit-nvim" },
+  { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.mini-surround" },
 
