@@ -40,10 +40,6 @@ Alacritty & Fish:
 
 ![image](/assets/screenshots/alacritty-and-fish.png)
 
-Waybar:
-
-![image](/assets/screenshots/waybar.png)
-
 Rofi:
 
 ![image](/assets/screenshots/rofi.png)

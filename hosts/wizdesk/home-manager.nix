@@ -135,7 +135,7 @@
     };
 
     # Enable hypridle
-    hypridle.enable = true;
+    hypridle.enable = false;
 
     # Add monitor configuration to hyprland
     extraConfig = # hyprlang

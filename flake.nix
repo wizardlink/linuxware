@@ -23,6 +23,11 @@
     hydractify-bot.url = "github:hydractify/hydractify-bot";
 
     blink-cmp.url = "github:Saghen/blink.cmp";
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

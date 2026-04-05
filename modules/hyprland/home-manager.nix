@@ -70,6 +70,7 @@ in
     xdg.configFile."hypr/hyprland.conf".text = # hyprlang
       ''
         source = $HOME/.config/hypr/frappe.conf
+        source = $HOME/.config/hypr/caelestia.conf
         ${cfg.extraConfig}
 
         #
@@ -188,19 +189,17 @@ in
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod CTRL, F, fullscreenstate, -1 2
-        bind = $mainMod CTRL, L, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
         bind = $mainMod CTRL, P, exec, ~/.local/share/scripts/hyprland/screenshot_area.sh
         bind = $mainMod CTRL, V, pin
         bind = $mainMod SHIFT, F, fullscreen, 1
         bind = $mainMod SHIFT, P, exec, ~/.local/share/scripts/hyprland/screenshot.sh
         bind = $mainMod, C, killactive
-        bind = $mainMod, E, exec, thunar
+        bind = $mainMod, E, exec, uwsm app -- thunar
         bind = $mainMod, F, fullscreen
         bind = $mainMod, M, exit
         bind = $mainMod, O, togglesplit # dwindle
         bind = $mainMod, P, pseudo # dwindle
-        bind = $mainMod, Q, exec, alacritty
-        bind = $mainMod, R, exec, rofi -show drun
+        bind = $mainMod, Q, exec, uwsm app -- alacritty
         bind = $mainMod, V, togglefloating
 
         # Move focus with mainMod + arrow keys
@@ -310,6 +309,57 @@ in
           center = true
           size = 50% 50%
         }
+      '';
+
+    xdg.configFile."hypr/caelestia.conf".text = # hyprlang
+      ''
+        exec = hyprctl dispatch submap global
+        submap = global
+
+        # ## Shell keybinds
+        # Launcher
+        bindi = Super, Super_L, global, caelestia:launcher
+        bindin = Super, catchall, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:272, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:273, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:274, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:275, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:276, global, caelestia:launcherInterrupt
+        bindin = Super, mouse:277, global, caelestia:launcherInterrupt
+        bindin = Super, mouse_up, global, caelestia:launcherInterrupt
+        bindin = Super, mouse_down, global, caelestia:launcherInterrupt
+
+        # Kill/restart
+        bindr = Ctrl+Super+Shift, R, exec, qs -c caelestia kill
+        bindr = Ctrl+Super+Alt, R, exec, qs -c caelestia kill; sleep .1; caelestia shell -d
+
+        # Utilities
+        bindl = , Print, exec, uwsm app -- caelestia screenshot  # Full screen capture > clipboard
+        bind = Super+Shift, S, global, caelestia:screenshotFreeze  # Capture region (freeze)
+        bind = Super+Shift+Alt, S, global, caelestia:screenshot  # Capture region
+        bind = Super+Alt, R, exec, uwsm app -- caelestia record -s  # Record screen with sound
+        bind = Ctrl+Alt, R, exec, uwsm app -- caelestia record  # Record screen
+        bind = Super+Shift+Alt, R, exec, uwsm app -- caelestia record -r  # Record region
+        bind = Super+Shift, C, exec, uwsm app -- hyprpicker -a  # Colour picker
+
+        # Volume
+        bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        bindl = Super+Shift, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        bindle = , XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $volumeStep%+
+        bindle = , XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ $volumeStep%-
+
+        # Sleep
+        bind = Super+Shift, L, exec, systemctl suspend-then-hibernate
+
+        # Clipboard and emoji picker
+        bind = Super+Ctrl, L, exec, pkill fuzzel || caelestia clipboard
+        bind = Super+Ctrl+Shift, L, exec, pkill fuzzel || caelestia clipboard -d
+        bind = Super, Period, exec, pkill fuzzel || caelestia emoji -p
+        bindl = Ctrl+Shift+Alt, V, exec, sleep 0.5s && ydotool type -d 1 "$(cliphist list | head -1 | cliphist decode)"  # Alternate paste
+
+        # Testing
+        bindl = Super+Alt, f12, exec, notify-send -u low -i dialog-information-symbolic 'Test notification' "Here's a really long message to test truncation and wrapping\nYou can middle click or flick this notification to dismiss it!" -a 'Shell' -A "Test1=I got it!" -A "Test2=Another action"
       '';
   };
 }

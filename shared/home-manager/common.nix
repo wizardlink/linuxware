@@ -16,9 +16,6 @@
       recursive = true;
     };
 
-    # Configuration for mako, a notification daemon.
-    ".config/mako".source = ./dotfiles/mako;
-
     # Configure pipewire for microphone noise supression.
     ".config/pipewire/pipewire.conf.d/99-input-denoising.conf".text = ''
       context.modules = [
@@ -130,7 +127,6 @@
     grim
     kdePackages.ark
     loupe
-    mako
     slurp
     swww
 

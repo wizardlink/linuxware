@@ -27,10 +27,6 @@
 
 ![image](./screenshots/rofi.png)
 
-### Waybar
-
-![image](./screenshots/waybar.png)
-
 ### Emacs
 
 ![image](./screenshots/doomemacs.png)

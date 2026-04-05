@@ -4,56 +4,46 @@ pkgs.writeShellScriptBin "start_services" ''
   #
   # Make sure xdg-desktop-portal-hyprland has access to what it needs
   #
-  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+  dbus-update-activation-environment --systemd --all &
 
   #
-  # Start waybar.
+  # Start Caelestia (quickshell)
   #
-  waybar &
-
-
-  #
-  # Start wallpaper daemon
-  #
-  ~/.local/share/scripts/wallpaper.sh &
-
-  #
-  # Start notification daemon.
-  #
-  mako &
+  uwsm app -- caelestia resizer -d &
+  uwsm app -- caelestia shell -d &
 
   #
   # Start polkit agent
   #
-  ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
+  uwsm app -- ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
 
   #
   # Start kwallet service
   #
-  kwalletd6 &
+  uwsm app -- kwalletd6 &
 
   #
   # Start kdeconnect daemon
   #
-  kdeconnectd &
+  uwsm app -- kdeconnectd &
 
   #
   # Start Fcitx5
   #
-  fcitx5 &
+  uwsm app -- fcitx5 &
 
   #
   # Start the blueman applet for managing bluetooth devices
   #
-  blueman-applet &
+  uwsm app -- blueman-applet &
 
   #
   # Clipboard manager
   #
-  ${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store &
+  uwsm app -- ${pkgs.wl-clipboard}/bin/wl-paste --watch cliphist store &
 
   #
   # Service that syncs X11 and Wayland clipboards
   #
-  clipboard-sync
+  uwsm app -- clipboard-sync
 ''
