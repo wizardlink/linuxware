@@ -81,7 +81,7 @@
     fastfetch
     firefox
     pavucontrol
-    protonvpn-gui # WARNING: Marked as broken https://github.com/NixOS/nixpkgs/commit/84faa614a5256a84e3dd4e445053ff76f4c0a5d4
+    proton-vpn
     qbittorrent
     qdirstat
     speedcrunch
@@ -128,7 +128,6 @@
     kdePackages.ark
     loupe
     slurp
-    swww
 
     # Mail client
     thunderbird

@@ -197,7 +197,7 @@ in
         bind = $mainMod, E, exec, uwsm app -- thunar
         bind = $mainMod, F, fullscreen
         bind = $mainMod, M, exit
-        bind = $mainMod, O, togglesplit # dwindle
+        bind = $mainMod, O, layoutmsg, togglesplit # dwindle
         bind = $mainMod, P, pseudo # dwindle
         bind = $mainMod, Q, exec, uwsm app -- alacritty
         bind = $mainMod, V, togglefloating
