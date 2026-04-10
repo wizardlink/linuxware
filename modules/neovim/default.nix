@@ -123,9 +123,6 @@ in
           prettierd
           vue-language-server
 
-          # Svelte
-          nodePackages.svelte-language-server
-
           # YAML
           yaml-language-server
         ]

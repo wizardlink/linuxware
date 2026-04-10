@@ -25,7 +25,6 @@ return {
     --     "markdown",
     --     "sass",
     --     "scss",
-    --     "svelte",
     --     "typescript",
     --     "vue",
     --     "yaml",
