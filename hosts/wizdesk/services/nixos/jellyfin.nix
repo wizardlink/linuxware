@@ -24,10 +24,10 @@
     };
   };
 
-  services.jellyseerr = {
+  services.seerr = {
     enable = true;
     openFirewall = true;
-    package = pkgs.jellyseerr.overrideAttrs (
+    package = pkgs.seerr.overrideAttrs (
       _final: _prev: {
         dontCheckForBrokenSymlinks = true;
       }

@@ -15,43 +15,6 @@
       source = ./scripts;
       recursive = true;
     };
-
-    # Configure pipewire for microphone noise supression.
-    ".config/pipewire/pipewire.conf.d/99-input-denoising.conf".text = ''
-      context.modules = [
-        { name = libpipewire-module-filter-chain
-          args = {
-            node.description =  "Noise Canceling source"
-            media.name =  "Noise Canceling source"
-            filter.graph = {
-              nodes = [
-                {
-                  type = ladspa
-                  name = rnnoise
-                  plugin = ${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so
-                  label = noise_suppressor_mono
-                  control = {
-                    "VAD Threshold (%)" = 60.0
-                    "VAD Grace Period (ms)" = 175
-                    "Retroactive VAD Grace (ms)" = 50
-                  }
-                }
-              ]
-            }
-            capture.props = {
-              node.name =  "capture.rnnoise_source"
-              node.passive = true
-              audio.rate = 48000
-            }
-            playback.props = {
-              node.name =  "rnnoise_source"
-              media.class = Audio/Source
-              audio.rate = 48000
-            }
-          }
-        }
-      ]
-    '';
   };
 
   # Configure XDG
@@ -98,17 +61,16 @@
     libreoffice
 
     # Creative work
-    aseprite
-    blender
-    krita
+    # aseprite
+    # blender
+    #krita
     # self.packages.${system}.lmms # FIXME: Broken for now, gotta update the package
     orca-slicer
     shotcut
-    vcv-rack
-    vhs
+    # vcv-rack
 
     ## Entertainment
-    jellyfin-media-player
+    jellyfin-desktop
 
     ## Libraries
     kdePackages.kdegraphics-thumbnailers
@@ -116,9 +78,9 @@
     rnnoise-plugin
 
     ## Development
-    dbeaver-bin
-    godot_4
-    hoppscotch
+    # dbeaver-bin
+    # godot_4
+    # hoppscotch
     lazygit
 
     ## Desktop environment

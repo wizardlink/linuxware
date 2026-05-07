@@ -7,12 +7,6 @@ pkgs.writeShellScriptBin "start_services" ''
   dbus-update-activation-environment --systemd --all &
 
   #
-  # Start Caelestia (quickshell)
-  #
-  uwsm app -- caelestia resizer -d &
-  uwsm app -- caelestia shell -d &
-
-  #
   # Start polkit agent
   #
   uwsm app -- ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &

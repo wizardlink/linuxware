@@ -165,7 +165,7 @@ in
 
         dwindle {
           # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-          pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+          # pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
           preserve_split = yes # you probably want this
         }
 
