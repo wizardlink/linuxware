@@ -30,6 +30,11 @@
       # "Open" notification on clicking.
       notifs.actionOnClick = true;
 
+      utilities.toasts = {
+        kbLayoutChanged = false;
+        nowPlaying = true;
+      };
+
       services = {
         useFahrenheit = false;
         useFahrenheitPerformance = false;
