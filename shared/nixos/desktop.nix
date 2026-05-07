@@ -40,11 +40,30 @@
   };
 
   # Set the default fonts for the system.
-  fonts.fontconfig = {
-    defaultFonts = {
-      serif = [ "IBM Plex Serif" ];
-      sansSerif = [ "IBM Plex Sans" ];
-      monospace = [ "IBM Plex Mono" ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      ibm-plex
+      nerd-fonts.blex-mono
+      nerd-fonts.symbols-only
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+    ];
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [
+          "IBM Plex Serif"
+          "Noto Serif"
+        ];
+        sansSerif = [
+          "IBM Plex Sans"
+          "Noto Sans"
+        ];
+        monospace = [ "IBM Plex Mono" ];
+      };
     };
   };
 
