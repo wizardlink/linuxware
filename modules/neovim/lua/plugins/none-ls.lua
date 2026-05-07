@@ -2,62 +2,33 @@
 
 ---@type LazySpec
 return {
-  "nvimtools/none-ls.nvim",
-  dependencies = {
-    "nvimtools/none-ls-extras.nvim",
-  },
-  opts = function(_, config)
-    -- config variable is the default configuration table for the setup function call
-    local null_ls = require "null-ls"
-    local helpers = require "null-ls.helpers"
+	"nvimtools/none-ls.nvim",
+	opts = function(_, opts)
+		-- opts variable is the default configuration table for the setup function call
+		local null_ls = require "null-ls"
 
-    -- local deno_fmt = helpers.make_builtin({
-    --   name = "deno_fmt",
-    --   filetypes = {
-    --     "angular",
-    --     "astro",
-    --     "css",
-    --     "html",
-    --     "javascript",
-    --     "json",
-    --     "jsonc",
-    --     "less",
-    --     "markdown",
-    --     "sass",
-    --     "scss",
-    --     "typescript",
-    --     "vue",
-    --     "yaml",
-    --   },
-    --   method = { null_ls.methods.FORMATTING },
-    --   generator_opts = {
-    --     command = "deno",
-    --     args = { "fmt", "--unstable-component", "-" },
-    --     to_stdin = true,
-    --   },
-    --   factory = helpers.formatter_factory,
-    -- })
+		-- Check supported formatters and linters
+		-- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+		-- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 
-    -- Check supported formatters and linters
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    config.sources = require("astrocore").list_insert_unique(config.sources, {
-      -- Set a formatter
-      require "none-ls.diagnostics.flake8",
-      require "none-ls.formatting.ruff",
-      null_ls.builtins.formatting.clang_format.with {
-        disabled_filetypes = { "cs" },
-      },
-      null_ls.builtins.formatting.csharpier,
-      null_ls.builtins.formatting.nixfmt,
-      null_ls.builtins.formatting.stylua,
-      --deno_fmt,
-      null_ls.builtins.formatting.prettierd,
+		-- Only insert new sources, do not replace the existing ones
+		-- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
+		opts.sources = require("astrocore").list_insert_unique(opts.sources, {
+			-- Set a formatter
+			-- require "none-ls.diagnostics.flake8",
+			-- require "none-ls.formatting.ruff",
+			null_ls.builtins.formatting.clang_format.with {
+				disabled_filetypes = { "cs" },
+			},
+			null_ls.builtins.formatting.csharpier,
+			null_ls.builtins.formatting.nixfmt,
+			null_ls.builtins.formatting.stylua,
+			--deno_fmt,
+			null_ls.builtins.formatting.prettierd,
 
-      null_ls.builtins.code_actions.statix,
+			null_ls.builtins.code_actions.statix,
 
-      null_ls.builtins.diagnostics.deadnix,
-    })
-    return config -- return final config table
-  end,
+			null_ls.builtins.diagnostics.deadnix,
+		})
+	end,
 }

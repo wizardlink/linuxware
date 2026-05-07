@@ -4,35 +4,35 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.colorscheme.catppuccin" },
+	"AstroNvim/astrocommunity",
+	{ import = "astrocommunity.colorscheme.catppuccin" },
 
-  { import = "astrocommunity.media.vim-wakatime" },
+	--{ import = "astrocommunity.media.vim-wakatime" },
 
-  { import = "astrocommunity.editing-support.todo-comments-nvim" },
+	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
 
-  { import = "astrocommunity.motion.leap-nvim" },
-  { import = "astrocommunity.motion.mini-ai" },
-  { import = "astrocommunity.motion.mini-surround" },
+	{ import = "astrocommunity.motion.leap-nvim" },
+	{ import = "astrocommunity.motion.mini-ai" },
+	{ import = "astrocommunity.motion.mini-surround" },
 
-  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
-  { import = "astrocommunity.recipes.diagnostic-virtual-lines-current-line" },
+	{ import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
+	{ import = "astrocommunity.recipes.diagnostic-virtual-lines-current-line" },
 
-  { import = "astrocommunity.test.neotest" },
+	{ import = "astrocommunity.test.neotest" },
 
-  { import = "astrocommunity.pack.cmake" },
-  { import = "astrocommunity.pack.cpp" },
-  -- { import = "astrocommunity.pack.cs" }, Trying out roslyn.nvim
-  { import = "astrocommunity.pack.eslint" },
-  { import = "astrocommunity.pack.godot" },
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.prettier" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.typescript-all-in-one" },
-  { import = "astrocommunity.pack.vue" },
-  { import = "astrocommunity.pack.yaml" },
+	{ import = "astrocommunity.pack.cmake" },
+	{ import = "astrocommunity.pack.cpp" },
+	-- { import = "astrocommunity.pack.cs" }, Trying out roslyn.nvim
+	{ import = "astrocommunity.pack.eslint" },
+	--{ import = "astrocommunity.pack.godot" },
+	{ import = "astrocommunity.pack.html-css" },
+	{ import = "astrocommunity.pack.json" },
+	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.pack.markdown" },
+	{ import = "astrocommunity.pack.prettier" },
+	{ import = "astrocommunity.pack.rust" },
+	{ import = "astrocommunity.pack.toml" },
+	{ import = "astrocommunity.pack.typescript-all-in-one" },
+	{ import = "astrocommunity.pack.vue" },
+	{ import = "astrocommunity.pack.yaml" },
 }

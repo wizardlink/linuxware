@@ -59,6 +59,7 @@ in
     programs.neovim = {
       withNodeJs = true;
       withPython3 = true;
+      withRuby = false;
 
       initLua = builtins.readFile ./init.lua;
 
@@ -148,11 +149,11 @@ in
       source = ./ftplugin;
     };
 
-    xdg.dataFile."nvim/lazy/blink.cmp/target/release/libblink_cmp_fuzzy.so" = {
-      recursive = true;
-      source = "${
-        blink-cmp.packages.${pkgs.stdenv.hostPlatform.system}.blink-fuzzy-lib
-      }/lib/libblink_cmp_fuzzy.so";
-    };
+    # xdg.dataFile."nvim/lazy/blink.cmp/target/release/libblink_cmp_fuzzy.so" = {
+    #   recursive = true;
+    #   source = "${
+    #     blink-cmp.packages.${pkgs.stdenv.hostPlatform.system}.blink-fuzzy-lib
+    #   }/lib/libblink_cmp_fuzzy.so";
+    # };
   };
 }
