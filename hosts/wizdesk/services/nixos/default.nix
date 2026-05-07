@@ -8,5 +8,6 @@
     ./jellyfin.nix
     ./nix-serve.nix
     ./postgresql.nix
+    ./sunshine.nix
   ];
 }

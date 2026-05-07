@@ -51,6 +51,7 @@
     fuseiso
     lm_sensors
     p7zip
+    pulseaudio # for pactl being in $PATH
     tree
     unrar
     unzip
