@@ -1,0 +1,24 @@
+#!/nix/store/i27rhb3nr65rkrwz36bchkwmav6ggsmn-bash-5.3p9/bin/bash
+set -euo pipefail
+
+echo 'fetching dependencies for' ryubing-1.3.287 >&2
+
+# this needs to be before TMPDIR is changed, so the output isn't deleted
+# if it uses mktemp
+defaultDepsFile=./deps.json
+depsFile=$(realpath "${1:-$defaultDepsFile}")
+
+export TMPDIR
+TMPDIR=$(mktemp -d -t fetch-deps-ryubing-1.3.287.XXXXXX)
+trap 'chmod -R +w "$TMPDIR" && rm -fr "$TMPDIR"' EXIT
+
+export NUGET_HTTP_CACHE_PATH=${NUGET_HTTP_CACHE_PATH-~/.local/share/NuGet/v3-cache}
+
+HOME=$TMPDIR/home
+mkdir "$HOME"
+
+cd "$TMPDIR"
+
+NIX_BUILD_SHELL=/nix/store/i27rhb3nr65rkrwz36bchkwmav6ggsmn-bash-5.3p9/bin/bash /nix/store/rffyhx6b5fxa80vh88jxbc56hyb02cax-nix-2.34.6/bin/nix-shell \
+  --pure --keep NUGET_HTTP_CACHE_PATH --run 'source '/nix/store/51wzv0rhpscm3gxfq5hym7fxc5cpdk1f-fetch-deps.sh' '"${depsFile@Q}" "/nix/store/21rj50a6p3q6p4yc04lcnnr5sdfjy9v4-ryubing-1.3.287.drv"
+

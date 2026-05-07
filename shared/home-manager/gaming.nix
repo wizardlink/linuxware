@@ -36,5 +36,6 @@
     prismlauncher
     shattered-pixel-dungeon
     xonotic
+    self.packages.${pkgs.stdenv.hostPlatform.system}.ryubinx
   ];
 }
