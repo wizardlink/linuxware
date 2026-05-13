@@ -25,10 +25,11 @@
     heroic
     packwiz
     parsec-bin
+    protonplus
     protontricks
     r2modman
     self.packages.${pkgs.stdenv.hostPlatform.system}.deadlock-api-ingest
-    wineWow64Packages.stableFull
+    wineWow64Packages.stagingFull
     winetricks
 
     # Games
