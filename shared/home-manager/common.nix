@@ -63,7 +63,7 @@
     # Creative work
     # aseprite
     # blender
-    #krita
+    krita
     # self.packages.${system}.lmms # FIXME: Broken for now, gotta update the package
     orca-slicer
     shotcut
