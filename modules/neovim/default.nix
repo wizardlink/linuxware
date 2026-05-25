@@ -71,6 +71,7 @@ in
 
           # Treesitter
           gcc # For compiling languages
+          tree-sitter
 
           # CMAKE
           neocmakelsp
