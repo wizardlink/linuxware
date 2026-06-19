@@ -63,7 +63,7 @@
     # Creative work
     # aseprite
     # blender
-    krita
+    # krita FIXME: I think I give up. Lager building just fucks my PC up somehow.
     # self.packages.${system}.lmms # FIXME: Broken for now, gotta update the package
     orca-slicer
     shotcut

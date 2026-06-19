@@ -48,7 +48,7 @@
     # Utilities
     bat
     duf
-    fuseiso
+    # fuseiso # Removed due to being unmainted and depending on fuse2
     lm_sensors
     p7zip
     pulseaudio # for pactl being in $PATH
