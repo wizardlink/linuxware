@@ -15,7 +15,7 @@
     settings = {
       general = {
         apps = {
-          terminal = [ "alacritty" ];
+          terminal = [ "ghostty +new-window" ];
         };
         idle = {
           lockBeforeSleep = false;
