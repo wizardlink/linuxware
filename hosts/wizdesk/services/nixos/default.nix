@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./3proxy.nix
     ./archi.nix
     ./caddy.nix
     ./forgejo.nix
