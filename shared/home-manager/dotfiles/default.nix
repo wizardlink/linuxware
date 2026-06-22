@@ -9,7 +9,6 @@
     ./mangohud.nix
     ./obs-studio.nix
     ./quickshell.nix
-    ./rofi
     ./spotify
     ./tmux
   ];
