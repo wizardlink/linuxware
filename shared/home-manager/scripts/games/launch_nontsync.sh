@@ -4,5 +4,6 @@
 # it brings up problems.
 
 export ENABLE_LAYER_MESA_ANTI_LAG=1
+export MANGOHUD=1
 
-obs-gamecapture mangohud gamemoderun "$@"
+obs-gamecapture gamemoderun "$@"

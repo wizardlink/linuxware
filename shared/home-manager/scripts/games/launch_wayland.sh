@@ -7,5 +7,6 @@ export ENABLE_LAYER_MESA_ANTI_LAG=1
 export PROTON_ENABLE_WAYLAND=1
 export PROTON_USE_NTSYNC=1
 export WAYLANDDRV_PRIMARY_MONITOR=DP-2
+export MANGOHUD=1
 
-obs-gamecapture mangohud gamemoderun "$@"
+obs-gamecapture gamemoderun "$@"
