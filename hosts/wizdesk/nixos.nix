@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -51,20 +51,15 @@
   networking.firewall = {
     allowedTCPPorts = [
       443 # SSL
-      6567 # Mindustry
       80 # HTTP
       3979 # OpenTTD
-      7777 # Terraria
     ];
 
     allowedUDPPorts = [
       2626 # Dolphin emulator
       27015 # Source games
       28910 # Heretic II
-      6567 # Mindustry
-      8211 # Palworld
       3979 # OpenTTD
-      24454 # Minecraft Simple Voice Chat
     ];
 
     allowedTCPPortRanges = [
