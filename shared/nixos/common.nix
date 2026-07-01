@@ -19,6 +19,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # HACK: Overlays insecure, pinned versions of pnpm to just the major version.
+  nixpkgs.overlays = [
+    (final: _prev: {
+      pnpm_10_29_2 = final.pnpm_10;
+      pnpm_10_34_0 = final.pnpm_10;
+    })
+  ];
+
   # Enable nh, a bundle of CLI utilities for NixOS
   programs.nh = {
     enable = true;

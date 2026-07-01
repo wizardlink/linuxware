@@ -123,7 +123,7 @@ in
 
           # Vue
           prettierd
-          vue-language-server
+          # vue-language-server FIXME: Broken when overriding to pnpm_10 (pnpm_10_34 has a CVE)
 
           # YAML
           yaml-language-server
