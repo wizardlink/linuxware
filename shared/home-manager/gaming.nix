@@ -24,7 +24,6 @@
     gamescope
     heroic
     packwiz
-    parsec-bin
     protonplus
     protontricks
     r2modman
@@ -35,8 +34,7 @@
     # Games
     openttd
     prismlauncher
-    shattered-pixel-dungeon
     xonotic
-    self.packages.${pkgs.stdenv.hostPlatform.system}.ryubinx
+    #self.packages.${pkgs.stdenv.hostPlatform.system}.ryubinx
   ];
 }
