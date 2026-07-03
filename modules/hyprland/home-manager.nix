@@ -13,10 +13,14 @@ in
     extraConfig = lib.mkOption {
       type = lib.types.str;
       default = "";
-      example = # hyprlang
+      example = # lua
         ''
-          monitor = DP-3, 1920x1080@74.973, 2560x0, 1
-          monitor = DP-2, 2560x1440@165.00301, 0x0, 1
+          hl.monitor {
+          	output = "DP-2",
+          	mode = "2560x1440@165.00301",
+          	position = "auto",
+          	scale = "auto",
+          }
         '';
       description = "Configuration to be appended to my own.";
     };
@@ -66,5 +70,7 @@ in
       source = ./config;
       recursive = true;
     };
+
+    xdg.configFile."hypr/extra.lua".text = config.modules.hyprland.extraConfig;
   };
 }

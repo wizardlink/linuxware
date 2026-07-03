@@ -138,23 +138,29 @@
     hypridle.enable = false;
 
     # Add monitor configuration to hyprland
-    extraConfig = # hyprlang
+    extraConfig = # lua
       ''
-        # See https://wiki.hyprland.org/Configuring/Monitors/
-        monitor = DP-3, 1920x1080@74.973, 2560x0, 1
-        monitor = DP-2, 2560x1440@165.00301, 0x0, 1
+        hl.monitor {
+        	output = "DP-2",
+        	mode = "2560x1440@165.00301",
+        	position = "auto",
+        	scale = "auto",
+        }
 
-        # Bind workspaces to specific monitors
-        workspace = 1, monitor:DP-2
-        workspace = 2, monitor:DP-3
-        workspace = 3, monitor:DP-2
-        workspace = 4, monitor:DP-3
-        workspace = 5, monitor:DP-2
-        workspace = 6, monitor:DP-3
-        workspace = 7, monitor:DP-2
-        workspace = 8, monitor:DP-3
-        workspace = 9, monitor:DP-2
-        workspace = 0, monitor:DP-3
+        hl.monitor {
+        	output = "DP-3",
+        	mode = "1920x1080@74.973",
+        	position = "auto",
+        	scale = "auto",
+        }
+
+        hl.config {
+        	input = {
+        		tablet = {
+        			output = "DP-2",
+        		},
+        	},
+        }
       '';
   };
 }

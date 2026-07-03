@@ -14,8 +14,8 @@
 -----------------
 
 require "keybinds"
-require "monitors"
 require "rules"
+require "extra"
 local theme = require "theme"
 
 -------------------
