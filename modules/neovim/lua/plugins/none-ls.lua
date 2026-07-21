@@ -15,16 +15,14 @@ return {
 		-- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
 		opts.sources = require("astrocore").list_insert_unique(opts.sources, {
 			-- Set a formatter
-			-- require "none-ls.diagnostics.flake8",
-			-- require "none-ls.formatting.ruff",
 			null_ls.builtins.formatting.clang_format.with {
 				disabled_filetypes = { "cs" },
 			},
+			null_ls.builtins.formatting.black,
 			null_ls.builtins.formatting.csharpier,
 			null_ls.builtins.formatting.nixfmt,
-			null_ls.builtins.formatting.stylua,
-			--deno_fmt,
 			null_ls.builtins.formatting.prettierd,
+			null_ls.builtins.formatting.stylua,
 
 			null_ls.builtins.code_actions.statix,
 

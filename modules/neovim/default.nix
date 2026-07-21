@@ -107,8 +107,7 @@ in
 
           # Python
           basedpyright
-          python312Packages.flake8
-          ruff
+          black
 
           # TypeScript/JavaScript
           vtsls
