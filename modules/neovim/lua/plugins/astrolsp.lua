@@ -110,26 +110,6 @@ return {
 					},
 				},
 				---@type lspconfig.Config
-				vtsls = {
-					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-					settings = {
-						vtsls = {
-							tsserver = {
-								globalPlugins = {
-									{
-										name = "@vue/typescript-plugin",
-										location = vim.fn.get_nix_store "vue-language-server"
-											.. "/lib/node_modules/@vue/language-server",
-										languages = { "vue" },
-										configNamespace = "typescript",
-										enableForWorkspaceTypeScriptVersions = true,
-									},
-								},
-							},
-						},
-					},
-				},
-				---@type lspconfig.Config
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {
