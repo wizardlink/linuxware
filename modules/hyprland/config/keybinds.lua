@@ -117,8 +117,7 @@ hl.bind(mainMod .. " + SHIFT + P", exec "~/.local/share/scripts/hyprland/screens
 hl.bind(mainMod .. " + CTRL + P", exec "~/.local/share/scripts/hyprland/screenshot_area.sh")
 
 -- Caelestia
-hl.bind(mainMod .. " + SUPER_L", exec "caelestia shell drawers toggle launcher", { ignore_mods = true, release = true })
-hl.bind(mainMod .. " + SUPER_L", exec "caelestia shell drawers toggle launcher", { ignore_mods = true, release = true })
+hl.bind(mainMod .. " + SUPER_L", hl.dsp.global "caelestia:launcher", { ignore_mods = true, release = true })
 
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd "pkill fuzzel || caelestia clipboard")
 hl.bind(mainMod .. " + CTRL + SHIFT + L", hl.dsp.exec_cmd "pkill fuzzel || caelestia clipboard -d")
