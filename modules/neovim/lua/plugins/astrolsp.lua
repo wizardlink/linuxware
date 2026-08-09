@@ -87,18 +87,20 @@ return {
 					settings = {
 						nixd = {
 							nixpkgs = {
-								expr = "import (builtins.getFlake (" .. system_flake_path .. ")).inputs.nixpkgs { }",
+								expr = "import (builtins.getFlake (builtins.toString "
+									.. system_flake_path
+									.. ")).inputs.nixpkgs { }",
 							},
 							options = {
 								nixos = {
-									expr = "(builtins.getFlake ("
+									expr = "(builtins.getFlake (builtins.toString "
 										.. system_flake_path
 										.. ")).nixosConfigurations."
 										.. hostname
 										.. ".options",
 								},
 								home_manager = {
-									expr = "(builtins.getFlake ("
+									expr = "(builtins.getFlake (builtins.toString "
 										.. system_flake_path
 										.. ")).nixosConfigurations."
 										.. hostname
