@@ -41,30 +41,21 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     package = pkgs.catppuccin-cursors.frappeLavender;
     name = "catppuccin-frappe-lavender-cursors";
 
     size = 24;
 
-    gtk.enable = true;
-    x11.enable = true;
+    #gtk.enable = true;
+    hyprcursor.enable = true;
+    #x11.enable = true;
   };
 
   # Configure GTK.
   gtk = {
     enable = true;
-
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-
-    gtk4 = {
-      theme = null;
-
-      extraConfig = {
-        gtk-application-prefer-dark-theme = true;
-      };
-    };
+    colorScheme = "dark";
 
     iconTheme = {
       name = "Papirus-Dark";
