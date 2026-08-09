@@ -5,6 +5,7 @@
     ./3proxy.nix
     ./archi.nix
     ./caddy.nix
+    ./earlyoom.nix
     ./forgejo.nix
     ./jellyfin.nix
     ./nix-serve.nix
