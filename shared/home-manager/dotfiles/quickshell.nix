@@ -17,14 +17,23 @@
         apps = {
           terminal = [ "ghostty +new-window" ];
         };
-        idle = {
-          lockBeforeSleep = false;
-          timeouts = [ ];
-        };
-      };
 
-      bar.status = {
-        showBattery = false;
+        idle = {
+          timeouts = [
+            {
+              timeout = 180;
+              idleAction = "lock";
+              inhibitWhenAudio = false;
+              inhibitWhenCharging = false;
+              respectInhibitors = true;
+            }
+            {
+              timeout = 300;
+              idleAction = "dpms off";
+              returnAction = "dpms on";
+            }
+          ];
+        };
       };
 
       # "Open" notification on clicking.
@@ -32,7 +41,6 @@
 
       utilities.toasts = {
         kbLayoutChanged = false;
-        nowPlaying = true;
       };
 
       services = {

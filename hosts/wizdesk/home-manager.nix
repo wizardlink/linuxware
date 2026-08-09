@@ -163,4 +163,24 @@
         }
       '';
   };
+
+  # Disable battery from the bar, considering this is a desktop.
+  programs.caelestia = {
+    settings = {
+      bar.statusIcons = [
+        {
+          id = "lockStatus";
+          enabled = true;
+        }
+        {
+          id = "network";
+          enabled = true;
+        }
+        {
+          id = "bluetooth";
+          enabled = true;
+        }
+      ];
+    };
+  };
 }
