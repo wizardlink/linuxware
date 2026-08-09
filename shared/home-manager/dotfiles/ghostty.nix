@@ -19,6 +19,10 @@
 
       # Do not show the popup with the new size of a window
       resize-overlay = "never";
+
+      # Never quit ghostty for fast window opening
+      # TODO: Check memory usage
+      quit-after-last-window-closed = false;
     };
   };
 }
