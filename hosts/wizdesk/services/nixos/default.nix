@@ -11,6 +11,7 @@
     ./nix-serve.nix
     ./pi-hole.nix
     ./postgresql.nix
+    ./scx.nix
     ./sunshine.nix
     ./unbound.nix
   ];
