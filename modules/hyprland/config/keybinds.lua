@@ -109,7 +109,7 @@ local function exec(command)
 	return hl.dsp.exec_cmd("uwsm app -- " .. command)
 end
 
-hl.bind(mainMod .. " + Q", exec(PROGRAMS.terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(PROGRAMS.terminal))
 hl.bind(mainMod .. " + E", exec(PROGRAMS.file_manager))
 
 -- Screenshot
@@ -117,7 +117,7 @@ hl.bind(mainMod .. " + SHIFT + P", exec "~/.local/share/scripts/hyprland/screens
 hl.bind(mainMod .. " + CTRL + P", exec "~/.local/share/scripts/hyprland/screenshot_area.sh")
 
 -- Caelestia
-hl.bind(mainMod .. " + SUPER_L", hl.dsp.global "caelestia:launcher", { ignore_mods = true, release = true })
+hl.bind(mainMod .. " + SPACE", hl.dsp.global "caelestia:launcher", { release = true })
 
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd "pkill fuzzel || caelestia clipboard")
 hl.bind(mainMod .. " + CTRL + SHIFT + L", hl.dsp.exec_cmd "pkill fuzzel || caelestia clipboard -d")
