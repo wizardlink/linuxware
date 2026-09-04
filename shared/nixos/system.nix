@@ -34,7 +34,10 @@
   zramSwap.enable = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [ pkgs.networkmanager-openvpn ];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
