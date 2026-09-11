@@ -13,19 +13,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Configure XDG
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "thunar.desktop" ];
-    "text/html" = [ "firefox.desktop" ];
-    "text/plain" = [ "nvim.desktop" ];
-    "video/mp4" = [ "vlc.desktop" ];
-    "video/x-matroska" = [ "vlc.desktop" ];
-    "x-scheme-handler/about" = [ "firefox.desktop" ];
-    "x-scheme-handler/http" = [ "firefox.desktop" ];
-    "x-scheme-handler/https" = [ "firefox.desktop" ];
-    "x-scheme-handler/unknown" = [ "firefox.desktop" ];
-  };
-
   home.packages = with pkgs; [
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
