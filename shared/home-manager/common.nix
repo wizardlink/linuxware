@@ -26,6 +26,7 @@
     cameractrls-gtk4
     fastfetch
     firefox
+    librewolf
     pavucontrol
     proton-vpn
     qbittorrent
