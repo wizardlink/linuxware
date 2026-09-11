@@ -6,16 +6,12 @@
 }:
 
 {
+  imports = [
+    ./scripts
+  ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  home.file = {
-    # My utility scripts
-    ".local/share/scripts" = {
-      source = ./scripts;
-      recursive = true;
-    };
-  };
 
   # Configure XDG
   xdg.mimeApps.defaultApplications = {
